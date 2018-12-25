@@ -12,7 +12,7 @@ const elements = {
     
             <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=IBM+Plex+Mono|IBM+Plex+Sans|IBM+Plex+Serif"> 
     
-            <link rel="stylesheet" href="main.css">
+            <link rel="stylesheet" href="/resources/main.css">
             <link rel="stylesheet" href="prism-vs.css">
         `;
     },

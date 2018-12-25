@@ -7,8 +7,6 @@ const mkdirp = util.promisify(require('mkdirp'));
 
 const options = require('./cli');
 
-const refactoringSeries = require('./series/refactoring');
-
 async function emitPage(page) {
     const path = `${options.outputDirectory}/${page.url}.html`;
 
@@ -21,12 +19,30 @@ async function emitPage(page) {
     await fs.writeFile(path, page.content);
 };
 
+async function copyResource(resource) {
+    const path = `${options.outputDirectory}/${resource.destination}`;
+
+    const fragments = path.split('/');
+
+    fragments.pop();
+
+    await mkdirp(fragments.join('/'));
+
+    await fs.copyFile(resource.source, path);
+}
+
 (async function main() {
     await rimraf(options.outputDirectory);
 
     await fs.mkdir(options.outputDirectory);
 
-    const refactoring = refactoringSeries('series');
+    const resources = require('./resources')('resources');
+
+    for (const resource of resources.copy) {
+        await copyResource(resource);
+    }
+
+    const refactoring = require('./series/refactoring')('series');
 
     for (const page of refactoring.emit) {
         await emitPage(page);

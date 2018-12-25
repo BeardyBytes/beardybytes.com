@@ -1,0 +1,20 @@
+html {
+    font-size: 1.33rem;
+    line-height: 1.5;
+    background-color: #ffffff;
+    color: #0a0908;
+}
+
+body {
+    font-family: 'IBM Plex Sans', sans-serif;
+    margin: 0;
+}
+
+.post-content {
+    display: grid;
+    grid-template-columns: minmax(1rem, 1fr) minmax(0, 65ch) minmax(1rem, 1fr);
+}
+
+.post-content > * {
+    grid-column: 2;
+}

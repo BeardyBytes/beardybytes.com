@@ -12,7 +12,7 @@ const elements = {
     
             <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=IBM+Plex+Mono|IBM+Plex+Sans|IBM+Plex+Serif"> 
     
-            <link rel="stylesheet" href="/resources/main.css">
+            <link rel="stylesheet" href="/resources/css/main.css">
             <link rel="stylesheet" href="prism-vs.css">
         `;
     },
@@ -38,7 +38,7 @@ module.exports = function postLayout(post, series, configuration) {
         <body>
             <div class="site">
                 ${elements.header()}
-                <div class="content">
+                <div class="post-content">
                     <!-- Insert title and date -->
                     
                     ${post.content}

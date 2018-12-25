@@ -1,6 +1,6 @@
 const argv = require('yargs')
     .describe('outputDirectory', 'Path to the output directory which will contain the static site.')
-    .demandOption([ 'outputDirectory' ])
+    .default('outputDirectory', 'public')
     .help('h')
     .alias('h', 'help')
     .argv

@@ -4,7 +4,10 @@
   "description": "The Beardy Bytes site.",
   "main": "src/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "watch": "nodemon --watch src",
+    "build": "node src/index.js",
+    "serve": "http-server -c-1"
   },
   "repository": {
     "type": "git",
@@ -21,5 +24,9 @@
     "mkdirp": "^0.5.1",
     "rimraf": "^2.6.2",
     "yargs": "^12.0.5"
+  },
+  "devDependencies": {
+    "http-server": "^0.11.1",
+    "nodemon": "^1.18.9"
   }
 }

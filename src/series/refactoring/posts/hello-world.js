@@ -1,4 +1,5 @@
 const { html } = require('common-tags');
+const md = require('../../../common/cells/markdown');
 
 const post = {
     title: 'Hello, World!',
@@ -9,9 +10,12 @@ const post = {
     layout: 'post',
 
     content() {
-        return html`
-            <h1>Hello, World!</h1>
-        `;
+        const cells = [
+            md`# Hello, World!`,
+            md`A paragraph of **markdown**.`
+        ];
+
+        return cells.join('\n');
     }
 };
 

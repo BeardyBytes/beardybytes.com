@@ -15,5 +15,11 @@
   "bugs": {
     "url": "https://github.com/BeardyBytes/beardybytes.com/issues"
   },
-  "homepage": "https://github.com/BeardyBytes/beardybytes.com#readme"
+  "homepage": "https://github.com/BeardyBytes/beardybytes.com#readme",
+  "dependencies": {
+    "common-tags": "^1.8.0",
+    "mkdirp": "^0.5.1",
+    "rimraf": "^2.6.2",
+    "yargs": "^12.0.5"
+  }
 }

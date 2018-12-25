@@ -2,3 +2,6 @@
   base    = ""
   publish = "public"
   command = "npm run build"
+
+[build.environment]
+  NODE_VERSION = "v10.8.0"

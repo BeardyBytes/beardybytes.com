@@ -21,6 +21,7 @@
   "homepage": "https://github.com/BeardyBytes/beardybytes.com#readme",
   "dependencies": {
     "common-tags": "^1.8.0",
+    "diff2html": "^2.5.0",
     "mkdirp": "^0.5.1",
     "prismjs": "^1.15.0",
     "remarkable": "^1.7.1",

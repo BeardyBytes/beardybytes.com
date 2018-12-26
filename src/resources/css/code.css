@@ -2,7 +2,7 @@
  * Based on the VS theme by Andrew Lock (https://andrewlock.net)
  * Inspired by Visual Studio syntax coloring
  */
- pre[class*="language-"] {
+pre[class*="language-"] {
     padding: 0.777em 0.324em;
     
     margin: 0;
@@ -10,9 +10,20 @@
     border: 1px solid #dddddd;
  }
 
- pre[class*="language-"].line-numbers {
+pre[class*="language-"].line-numbers {
 	position: relative;
 	padding-left: 3.8em;
+}
+
+pre[class*="language-"].diff {
+    position: relative;
+    padding: 1.33em 0.324em 0.777em 7.6em;
+    z-index: 100;
+    border: none;
+}
+
+.diff-block {
+    border: 1px solid #dddddd;
 }
 
 .highlight-wrapper {
@@ -20,9 +31,15 @@
     position: relative;
 }
 
-pre[class*="language-"].line-numbers > code {
+pre[class*="language-"].line-numbers > code, pre[class*="language-"].diff > code {
 	position: relative;
 	white-space: inherit;
+}
+
+pre[class*="language-"].diff .header {
+    position: absolute;
+    top: -1.33em;
+    left: 0;
 }
 
 .line-numbers .line-numbers-rows {
@@ -42,7 +59,60 @@ pre[class*="language-"].line-numbers > code {
     left: -3.8em;
 }
 
-.line-numbers-rows > span {
+.diff .old-numbers-rows {
+	position: absolute;
+	pointer-events: none;
+	top: 0;
+	font-size: 100%;
+	
+	width: 3em; /* works for line-numbers below 1000 lines */
+    letter-spacing: -1px;
+	/*border-right: 1px solid #CCC;*/
+
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+    left: -7.6em;
+}
+
+.diff .new-numbers-rows {
+	position: absolute;
+	pointer-events: none;
+	top: 0;
+	font-size: 100%;
+	
+	width: 3em; /* works for line-numbers below 1000 lines */
+    letter-spacing: -1px;
+	/*border-right: 1px solid #CCC;*/
+
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+    left: -3.8em;
+}
+
+.diff .markers-rows {
+	position: absolute;
+	pointer-events: none;
+	top: 0;
+	font-size: 100%;
+	
+    letter-spacing: -1px;
+	/*border-right: 1px solid #CCC;*/
+
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+    left: -1em;
+}
+
+.line-numbers-rows > span,
+.old-numbers-rows > span,
+.new-numbers-rows > span,
+.markers-rows > span {
     pointer-events: none;
     display: block;
     color: #bcbcbc;
@@ -50,6 +120,37 @@ pre[class*="language-"].line-numbers > code {
     padding-right: 0.8em;
     text-align: right;
     font-weight: 300;
+}
+
+.diff-highlight-rows > span {
+    padding: 0;
+    height: 1.33em;
+    display: block;
+    width: 100%;
+}
+
+.diff-highlight-rows > span.ins {
+    background-color: rgba(0, 255, 0, 0.15);
+}
+
+.diff-highlight-rows > span.del {
+    background-color: rgba(255, 0, 0, 0.15);
+}
+
+.diff-highlight-wrapper {
+    position: relative;
+    overflow: auto;
+}
+
+.diff-highlight-rows {
+    font-size: 0.8rem;
+    line-height: 1.33em;
+    margin: 0;
+    padding-top: 1.33em;
+    top: 0;
+    z-index: 0;
+    width: 100%;
+    position: absolute;
 }
 
  code[class*="language-"],

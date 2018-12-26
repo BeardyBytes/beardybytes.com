@@ -4,8 +4,10 @@ const util = require('util');
 const rimraf = util.promisify(require('rimraf'));
 const mkdirp = util.promisify(require('mkdirp'));
 
+const trimPre = require('./common/post-process/trim-pre');
 
 const options = require('./cli');
+
 
 async function emitPage(page) {
     const path = `${options.outputDirectory}/${page.url}.html`;
@@ -16,7 +18,7 @@ async function emitPage(page) {
 
     await mkdirp(fragments.join('/'));
 
-    await fs.writeFile(path, page.content);
+    await fs.writeFile(path, trimPre(page.content));
 };
 
 async function copyResource(resource) {

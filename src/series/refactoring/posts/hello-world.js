@@ -1,5 +1,6 @@
 const { html } = require('common-tags');
 const md = require('../../../common/cells/markdown');
+const { codeBlockWithoutNumbering } = require('../../../common/cells/code');
 
 const post = {
     title: 'Hello, World!',
@@ -11,8 +12,17 @@ const post = {
 
     content() {
         const cells = [
-            md`# Hello, World!`,
-            md`A paragraph of **markdown**.`
+            md.cell`# Hello, World!`,
+            md.cell`A paragraph of **markdown**.`,
+            codeBlockWithoutNumbering.cell('c')`
+            #include <stdio.h>
+            ${md`Needed because of \`printf\`.`}
+            int main(int argc, char **argv) {
+                printf("Hello, World!");
+
+                return 0;
+            }
+            `
         ];
 
         return cells.join('\n');

@@ -1,5 +1,15 @@
 const css = [
-    'css/main.css'
+    'css/main.css',
+    'css/code.css'
+];
+
+const img = [
+    'img/eye-outline.svg',
+    'img/eye-off-outline.svg'
+];
+
+const script = [
+    'script/refactoring-posts.js'
 ];
 
 function toCopyable(baseUrl, entry) {
@@ -10,8 +20,12 @@ function toCopyable(baseUrl, entry) {
 };
 
 module.exports = function resources(baseUrl) {
+    const copyToBase = toCopyable.bind(null, baseUrl);
+
     return {
         emit: [],
-        copy: css.map(entry => toCopyable(baseUrl, entry))
+        copy: [css, img, script]
+            .reduce((acc, curr) => acc.concat(curr), [])
+            .map(copyToBase)
     };
 };

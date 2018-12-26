@@ -5,14 +5,18 @@ const remarkableOptions = {};
 
 const renderer = new Remarkable(remarkableOptions);
 
-module.exports = function md(fragments, ...interpolations) {
+const md = function md(fragments, ...interpolations) {
     const text = interpolations.reduce((acc, curr, index) => acc + curr + fragments[index + 1], fragments[0]);
 
-    const rendered = renderer.render(text);
+    return renderer.render(text);
+};
 
+md.cell = function mdCell(...args) {
     return html`
         <div class="cell md-cell">
-            ${rendered}
+            ${md(...args)}
         </div>
     `;
 };
+
+module.exports = md;

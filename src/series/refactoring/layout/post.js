@@ -13,7 +13,7 @@ const elements = {
             <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=IBM+Plex+Mono|IBM+Plex+Sans|IBM+Plex+Serif"> 
     
             <link rel="stylesheet" href="/resources/css/main.css">
-            <link rel="stylesheet" href="prism-vs.css">
+            <link rel="stylesheet" href="/resources/css/code.css">
         `;
     },
     header() {
@@ -49,7 +49,7 @@ module.exports = function postLayout(post, series, configuration) {
             </div>
 
             ${post.scripts}
-            ${configuration.scripts}
+            <script type="text/javascript" src="/resources/script/refactoring-posts.js"></script>
         </body>
 
         </html>

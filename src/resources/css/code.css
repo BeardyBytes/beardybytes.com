@@ -13,7 +13,6 @@
  pre[class*="language-"].line-numbers {
 	position: relative;
 	padding-left: 3.8em;
-	counter-reset: linenumber;
 }
 
 .highlight-wrapper {
@@ -46,11 +45,6 @@ pre[class*="language-"].line-numbers > code {
 .line-numbers-rows > span {
     pointer-events: none;
     display: block;
-    counter-increment: linenumber;
-}
-
-.line-numbers-rows > span:before {
-    content: counter(linenumber);
     color: #bcbcbc;
     display: block;
     padding-right: 0.8em;

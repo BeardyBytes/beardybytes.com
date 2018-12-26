@@ -18,3 +18,41 @@ body {
 .post-content > * {
     grid-column: 2;
 }
+
+.two-column-cell {
+    display: flex;
+}
+
+@media (max-width: 800px) {
+    .two-column-cell {
+        flex-direction: column;
+    }
+}
+
+@media (min-width: 801px) {    
+    .two-column-cell > .left {
+        flex-grow: 2;
+        flex-basis: 40%;
+        flex-shrink: 0;
+        padding-right: 0.5em;
+    }
+    
+    .two-column-cell > .right {
+        flex-grow: 3;
+        flex-basis: 60%;
+        flex-shrink: 0;
+        padding-left: 0.5em;
+    }
+
+    .two-column-cell.sticky > .right,
+    .two-column-cell.sticky > .left {
+        position: -webkit-sticky;
+        position: sticky;
+        top: 10px;
+        align-self: flex-start;
+    }
+}
+
+.right > pre {
+    max-width: 100%;
+}

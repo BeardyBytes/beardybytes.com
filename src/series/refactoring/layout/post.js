@@ -13,7 +13,10 @@ const elements = {
             <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=IBM+Plex+Mono|IBM+Plex+Sans|IBM+Plex+Serif"> 
     
             <link rel="stylesheet" href="/resources/css/main.css">
-            <link rel="stylesheet" href="/resources/css/code.css">
+            <link rel="stylesheet" href="/resources/css/code/code-comment.css">
+            <link rel="stylesheet" href="/resources/css/code/diff.css">
+            <link rel="stylesheet" href="/resources/css/code/line-numbers.css">
+            <link rel="stylesheet" href="/resources/css/code/prism.css">
         `;
     },
     header() {

@@ -1,0 +1,84 @@
+.diff-block {
+    border: 1px solid #dddddd;
+}
+
+.diff-highlight-wrapper {
+    position: relative;
+    overflow: auto;
+}
+
+pre[class*="language-"].diff {
+    position: relative;
+    padding-left: 7.6em;
+    z-index: 100;
+    border: none;
+}
+
+pre[class*="language-"].diff > code {
+	position: relative;
+	white-space: inherit;
+}
+
+
+.diff-highlight-rows {
+    font-size: 0.8rem;
+    padding-top: 0.777em;
+    top: 0;
+    z-index: 0;
+    width: 100%;
+    position: absolute;
+}
+
+.diff-highlight-rows > span {
+    height: 1.33em;
+    display: block;
+    width: 100%;
+}
+
+.diff-highlight-rows > span.ins {
+    background-color: rgba(0, 255, 0, 0.15);
+}
+
+.diff-highlight-rows > span.del {
+    background-color: rgba(255, 0, 0, 0.15);
+}
+
+.diff-highlight-rows > span.header {
+    background-color: rgba(0, 0, 0, 0.08);
+}
+
+.diff .old-numbers-rows,
+.diff .new-numbers-rows,
+.diff .markers-rows {
+	position: absolute;
+	pointer-events: none;
+	top: 0;
+	font-size: 100%;
+	width: 3em; /* works for line-numbers below 1000 lines */
+    letter-spacing: -1px;
+	user-select: none;
+}
+
+.diff .old-numbers-rows {
+    left: -7.6em;
+}
+
+.diff .new-numbers-rows {
+    left: -3.8em;
+}
+
+.diff .markers-rows {
+	width: auto;
+    left: -1em;
+}
+
+.old-numbers-rows > span,
+.new-numbers-rows > span,
+.markers-rows > span {
+    pointer-events: none;
+    display: block;
+    color: #b1b1b1;
+    padding-right: 0.8em;
+    text-align: right;
+    font-weight: 300;
+}

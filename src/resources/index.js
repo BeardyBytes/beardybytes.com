@@ -1,6 +1,10 @@
 const css = [
     'css/main.css',
-    'css/code.css'
+
+    'css/code/code-comment.css',
+    'css/code/diff.css',
+    'css/code/line-numbers.css',
+    'css/code/prism.css'
 ];
 
 const img = [

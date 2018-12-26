@@ -10,7 +10,7 @@ const codeFragmentToHtml = (language, codeFragment) => html`
 
 const createNumberedSpans = (from, count) => {
     const result = [];
-    for (let i = from; i < startIndex + count; ++i) {
+    for (let i = from; i < from + count; ++i) {
         result.push(`<span>${i}</span>`);
     }
     return result;

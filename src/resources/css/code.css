@@ -17,7 +17,7 @@ pre[class*="language-"].line-numbers {
 
 pre[class*="language-"].diff {
     position: relative;
-    padding: 1.33em 0.324em 0.777em 7.6em;
+    padding-left: 7.6em;
     z-index: 100;
     border: none;
 }
@@ -34,12 +34,6 @@ pre[class*="language-"].diff {
 pre[class*="language-"].line-numbers > code, pre[class*="language-"].diff > code {
 	position: relative;
 	white-space: inherit;
-}
-
-pre[class*="language-"].diff .header {
-    position: absolute;
-    top: -1.33em;
-    left: 0;
 }
 
 .line-numbers .line-numbers-rows {
@@ -137,6 +131,10 @@ pre[class*="language-"].diff .header {
     background-color: rgba(255, 0, 0, 0.15);
 }
 
+.diff-highlight-rows > span.header {
+    background-color: rgba(0, 0, 0, 0.08);
+}
+
 .diff-highlight-wrapper {
     position: relative;
     overflow: auto;
@@ -146,7 +144,7 @@ pre[class*="language-"].diff .header {
     font-size: 0.8rem;
     line-height: 1.33em;
     margin: 0;
-    padding-top: 1.33em;
+    padding-top: 0.777em;
     top: 0;
     z-index: 0;
     width: 100%;

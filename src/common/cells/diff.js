@@ -11,65 +11,55 @@ const normalizeWhitespace = (function loadNormalizer() {
 const loadLanguages = require('prismjs/components/');
 loadLanguages(['java', 'c', 'cpp']);
 
-function codeFragmentToNumberedHtml(language, codeFragment, start) {
-    const normalizedCode = normalizeWhitespace.normalize(codeFragment);
-    const codeHtml = Prism.highlight(normalizedCode, Prism.languages[language], language);
 
-    const match = normalizedCode.match(NEW_LINE_EXP);
-    const lineCount = match ? match.length + 1 : 1;
+function blocksToHtml(language, blocks) {
+    let lines = [];
 
-    const lineNumbers = [];
-    for (let i = start; i < start + lineCount; ++i) {
-        lineNumbers.push(`<span>${i}</span>`);
-    }
+    blocks.forEach(block => {
+        lines.push({ 
+            content: block.header,
+            type: 'd2h-header'
+        });
 
-    const content = html`
-        <pre class="line-numbers language-${language}"><code class="language-${language}">
-        ${codeHtml}<span class="line-numbers-rows">${lineNumbers.join('')}</span>
-        </code></pre>
-    `;
+        lines = lines.concat(block.lines);
+    });
 
-    return {
-        content,
-        end: start + lineCount
-    };
-};
+    const codeHtml = blocks.map(block => {
+        const text = block.lines.map(line => line.content.substr(1)).join('\n');
 
-function diffBlockToHtml(language, block) {
-    const text = block.lines.map(line => line.content.substr(1)).join('\n');
+        const normalizedCode = normalizeWhitespace.normalize(text);
+        const blockHtml = Prism.highlight(normalizedCode, Prism.languages[language], language);
 
-    
-
-    const normalizedCode = normalizeWhitespace.normalize(text);
-    const codeHtml = Prism.highlight(normalizedCode, Prism.languages[language], language);
+        return `${block.header}\n${blockHtml};`
+    }).join('\n');
 
     const markerMap = {
         'd2h-del': '-',
         'd2h-ins': '+',
-        'd2h-cntx': ' '
+        'd2h-cntx': ' ',
+        'd2h-header': ' ',
     };
 
     const highlightMap = {
         'd2h-del': 'del',
         'd2h-ins': 'ins',
+        'd2h-header': 'header',
         'd2h-cntx': ''
     };
 
-    console.log(block.header);
-
-    const oldNumbers = block.lines
+    const oldNumbers = lines
         .map(line => line.oldNumber)
-        .map(num => num === null ? ' ' : num)
+        .map(num => (num === null) || (num == undefined) ? ' ' : num)
         .map(num => `<span>${num}</span>`);
-    const newNumbers = block.lines
+    const newNumbers = lines
         .map(line => line.newNumber)
-        .map(num => num === null ? ' ' : num)
+        .map(num => (num === null) || (num == undefined) ? ' ' : num)
         .map(num => `<span>${num}</span>`);
-    const markers = block.lines
+    const markers = lines
         .map(line => line.type)
         .map(type => markerMap[type])
         .map(marker => `<span>${marker}</span>`);
-    const highlight = block.lines
+    const highlight = lines
         .map(line => line.type)
         .map(type => highlightMap[type])
         .map(highlight => `<span class="${highlight}"></span>`);
@@ -77,7 +67,7 @@ function diffBlockToHtml(language, block) {
     return html`
         <div class="diff-highlight-wrapper">
             <pre class="diff language-${language}"><code class="language-${language}">
-            ${codeHtml}<span class="old-numbers-rows">${oldNumbers.join('')}</span><span class="new-numbers-rows">${newNumbers.join('')}</span><span class="markers-rows">${markers.join('')}</span><span class="header">${block.header}</span>
+            ${codeHtml}<span class="old-numbers-rows">${oldNumbers.join('')}</span><span class="new-numbers-rows">${newNumbers.join('')}</span><span class="markers-rows">${markers.join('')}</span>
             </code></pre>
             <div class="diff-highlight-rows">
                 ${highlight.join('\n')}
@@ -97,7 +87,7 @@ const diffBlock = function diffBlock(language) {
             matching: 'lines'
         });
 
-        const blocks = diffJson[0].blocks.map(block => diffBlockToHtml(language, block)).join('\n');
+        const blocks = blocksToHtml(language, diffJson[0].blocks);
 
         return html`
             <div class="diff-block">

@@ -1,6 +1,7 @@
 const css = [
     'css/main.css',
-
+    'css/normalize.css',
+    
     'css/code/code-comment.css',
     'css/code/diff.css',
     'css/code/line-numbers.css',

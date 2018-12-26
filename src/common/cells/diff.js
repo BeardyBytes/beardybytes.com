@@ -65,10 +65,10 @@ function blocksToHtml(language, blocks) {
         .map(block => highlightBlock(language, block))
         .join('\n');
 
-    const oldNumbersRows = numberedSpans('oldNumber', entries).join('\n');
-    const newNumbersRows = numberedSpans('newNumber', entries).join('\n');
-    const markersRows = markEntries(entries).join('\n');
-    const highlightRows = highlightEntries(entries).join('\n'); 
+    const oldNumbersRows = numberedSpans('oldNumber', entries).join('');
+    const newNumbersRows = numberedSpans('newNumber', entries).join('');
+    const markersRows = markEntries(entries).join('');
+    const highlightRows = highlightEntries(entries).join(''); 
 
     return html`
         <div class="diff-highlight-wrapper">

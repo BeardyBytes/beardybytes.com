@@ -8,6 +8,14 @@
     border-right: 1px solid #dddddd;
 }
 
+.code-block-cell > .code-comment:first-child {
+    border-top: 1px solid #dddddd;   
+}
+
+.code-block-cell > .code-comment:last-child {
+    border-bottom: 1px solid #dddddd;   
+}
+
 .code-comment > .toggle {
     flex: 0 0 3.8em;
     display: flex;
@@ -22,6 +30,10 @@
 
 .code-comment > .description {
     flex: 1;
+}
+
+.code-comment > .description p:last-child {
+    margin-bottom: 0;
 }
 
 .code-comment.off > .description.on,

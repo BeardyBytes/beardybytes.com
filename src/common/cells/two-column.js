@@ -22,6 +22,7 @@ module.exports = {
                 <div class="right">
                     ${right}
                 </div>
+                <div class="clear"></div>
             </div>
         `;
     }

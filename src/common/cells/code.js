@@ -2,11 +2,17 @@ const { html } = require('common-tags');
 const { countLines, highlight } = require('../../common/code');
 const { tagConcat } = require('../../util/tag');
 
-const codeFragmentToHtml = (language, codeFragment) => html`
-    <pre class="language-${language}"><code class="language-${language}">
-    ${highlight(language, codeFragment)}
-    </code></pre>
-`;
+const codeFragmentToHtml = (language, codeFragment) => {
+    if (codeFragment.trim() == '') {
+        return '';
+    }
+
+    return html`
+        <pre class="language-${language}"><code class="language-${language}">
+        ${highlight(language, codeFragment)}
+        </code></pre>
+    `;
+}
 
 const createNumberedSpans = (from, count) => {
     const result = [];
@@ -17,6 +23,13 @@ const createNumberedSpans = (from, count) => {
 }
 
 function codeFragmentToNumberedHtml(language, codeFragment, startIndex) {
+    if (codeFragment.trim() == '') {
+        return {
+            content: '',
+            end: startIndex
+        };
+    }
+
     const highlightedCode = highlight(language, codeFragment);
     const lineCount = countLines(codeFragment);
 
@@ -44,7 +57,7 @@ const commentToHtml = comment => html`
             ${comment}
         </div>
         <div class="description off">
-            Toggle comment.
+            Click to toggle comment.
         </div>
     </div>
 `;

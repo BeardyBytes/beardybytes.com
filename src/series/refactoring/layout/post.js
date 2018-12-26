@@ -12,7 +12,9 @@ const elements = {
     
             <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=IBM+Plex+Mono|IBM+Plex+Sans|IBM+Plex+Serif"> 
     
+            <link rel="stylesheet" href="/resources/css/normalize.css">
             <link rel="stylesheet" href="/resources/css/main.css">
+
             <link rel="stylesheet" href="/resources/css/code/code-comment.css">
             <link rel="stylesheet" href="/resources/css/code/diff.css">
             <link rel="stylesheet" href="/resources/css/code/line-numbers.css">
@@ -29,6 +31,8 @@ const elements = {
     }
 };
 
+const POST_DATE_FORMAT = 'LLLL dd, y';
+
 module.exports = function postLayout(post, series, configuration) {
     return html`
         <!doctype html>
@@ -42,6 +46,11 @@ module.exports = function postLayout(post, series, configuration) {
             <div class="site">
                 ${elements.header()}
                 <div class="post-content">
+                    <div class="cell title-cell">
+                        <h1>${series.title}</h1>
+                        <h2>${post.title}</h2>
+                        <div class="post-date">Posted at ${post.publishedAt.toFormat(POST_DATE_FORMAT)}.</div>
+                    </div>
                     <!-- Insert title and date -->
                     
                     ${post.content}

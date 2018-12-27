@@ -55,19 +55,26 @@ p {
     position: absolute;
 }
 
+.section-header-cell > a,
+.subsection-header-cell > a,
+.subsubsection-header-cell > a {
+    color: inherit;
+    text-decoration: none;
+}
+
 .header-link img {
     width: 0.7em;
 }
 
-.section-header-cell > h3 {
+.section-header-cell h3 {
     margin: 0;
 }
 
-.subsection-header-cell > h4 {
+.subsection-header-cell h4 {
     margin: 0;
 }
 
-.subsubsection-header-cell > h5 {
+.subsubsection-header-cell h5 {
     margin: 0;
 }
 

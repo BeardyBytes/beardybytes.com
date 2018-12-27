@@ -6,7 +6,9 @@ function makeHeadingWithLink(title, clazz, header) {
 
     return html`
         <div class="cell ${clazz}" id="${identifier}">
-            <${header}>${title}</${header}>
+            <a href="#${identifier}">
+                <${header}>${title}</${header}>
+            </a>
             <div class="header-link">
                 <a href="#${identifier}">
                     <img src="/resources/img/link-2-outline.svg">

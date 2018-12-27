@@ -32,8 +32,15 @@ module.exports = function refactoringSeries(baseUrl) {
             return Object.assign({}, post, { previous, next });
         });
 
+    const siteLayout = require('./layout/site');
+
+    const sitePage = {
+        content: siteLayout(),
+        url: `${baseUrl}/${seriesData.urlTitle}/site`
+    };
+
     return {
-        emit: compileSeries(series),
+        emit: [...compileSeries(series), sitePage],
         copy: []
     };
 };

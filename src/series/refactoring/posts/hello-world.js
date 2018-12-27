@@ -34,21 +34,14 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus elementum lectu
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus elementum lectus orci, sed iaculis est pulvinar tempus. Suspendisse potenti. Praesent gravida iaculis eleifend. Cras faucibus nisi a nulla vulputate, eget iaculis est vulputate. In a justo sem. Vivamus tempor hendrerit ante sed dignissim. Integer vel faucibus orci. Pellentesque tempus justo ex. Donec eu nibh sed nibh vestibulum egestas quis nec elit. Cras aliquam erat id orci porttitor congue. 
 `,
     right: codeBlockWithoutNumbering('javascript')`
-// One of JavaScript's most powerful features is closures. If a function is
-// defined inside another function, the inner function has access to all the
-// outer function's variables, even after the outer function exits.
 function sayHelloInFiveSeconds(name){
     var prompt = "Hello, " + name + "!";
-    // Inner functions are put in the local scope by default, as if they were
-    // declared with \`var\`.
+
     function inner(){
         alert(prompt);
     }
+
     setTimeout(inner, 5000);
-    // setTimeout is asynchronous, so the sayHelloInFiveSeconds function will
-    // exit immediately, and setTimeout will call inner afterwards. However,
-    // because inner is "closed over" sayHelloInFiveSeconds, inner still has
-    // access to the \`prompt\` variable when it is finally called.
 }
 sayHelloInFiveSeconds(""); 
 `

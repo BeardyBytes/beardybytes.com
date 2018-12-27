@@ -20,7 +20,7 @@ p {
 
 .post-content {
     display: grid;
-    grid-template-columns: minmax(1rem, 1fr) minmax(0, 70ch) minmax(1rem, 1fr);
+    grid-template-columns: minmax(1.2rem, 1fr) minmax(0, 70ch) minmax(1.2rem, 1fr);
 }
 
 .post-content > * {
@@ -44,6 +44,19 @@ p {
 .subsection-header-cell,
 .subsubsection-header-cell {
     margin: 0.17em;
+    position: relative;
+}
+
+.section-header-cell > .header-link,
+.subsection-header-cell > .header-link,
+.subsubsection-header-cell > .header-link {
+    bottom: 0;
+    left: -0.9em;
+    position: absolute;
+}
+
+.header-link img {
+    width: 0.7em;
 }
 
 .section-header-cell > h3 {

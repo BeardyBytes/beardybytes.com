@@ -1,25 +1,37 @@
 const { html } = require('common-tags');
+const slug = require('slug');
+
+function makeHeadingWithLink(title, clazz, header) {
+    const identifier = slug(title);
+
+    return html`
+        <div class="cell ${clazz}" id="${identifier}">
+            <${header}>${title}</${header}>
+            <div class="header-link">
+                <a href="#${identifier}">
+                    <img src="/resources/img/link-2-outline.svg">
+                </a>
+            </div>
+        </div>
+    `;
+}
+
+function makeHeadingWithoutLink(title, clazz, header) {
+    return html`
+        <div class="cell ${clazz}">
+            <${header}>${title}</${header}>
+        </div>
+    `;
+}
 
 module.exports = {
     section: {
-        cell: fragments => html`
-            <div class="cell section-header-cell">
-                <h3>${fragments[0]}</h3>
-            </div>
-        `
+        cell: fragments => makeHeadingWithLink(fragments[0], 'section-header-cell', 'h3')
     },
     subsection: {
-        cell: fragments => html`
-            <div class="cell subsection-header-cell">
-                <h4>${fragments[0]}</h4>
-            </div>
-        `
+        cell: fragments => makeHeadingWithLink(fragments[0], 'subsection-header-cell', 'h4')
     },
     subsubsection: {
-        cell: fragments => html`
-            <div class="cell subsubsection-header-cell">
-                <h5>${fragments[0]}</h5>
-            </div>
-        `
+        cell: fragments => makeHeadingWithoutLink(fragments[0], 'subsubsection-header-cell', 'h5')
     }
 }

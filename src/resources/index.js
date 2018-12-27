@@ -10,7 +10,8 @@ const css = [
 
 const img = [
     'img/eye-outline.svg',
-    'img/eye-off-outline.svg'
+    'img/eye-off-outline.svg',
+    'img/link-2-outline.svg'
 ];
 
 const script = [

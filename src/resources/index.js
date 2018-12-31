@@ -27,7 +27,7 @@ const img = [
 
 const script = [
     'script/refactoring-posts.js',
-    'script/site.js'
+    'script/refactoring-site.js'
 ];
 
 function toCopyable(baseUrl, entry) {

@@ -10,7 +10,7 @@ const options = require('./cli');
 
 
 async function emitPage(page) {
-    const path = `${options.outputDirectory}/${page.url}.html`;
+    const path = `${options.outputDirectory}/${page.url}`;
 
     const fragments = path.split('/');
 

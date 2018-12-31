@@ -1,5 +1,7 @@
 const { html } = require('common-tags');
 
+const POST_DATE_FORMAT = 'LLLL dd, y';
+
 const elements = {
     head({ title }) {
         return html`
@@ -31,39 +33,46 @@ const elements = {
     }
 };
 
-const POST_DATE_FORMAT = 'LLLL dd, y';
+const entryToHtml = entry => html`
+    <!doctype html>
+    <html>
 
-module.exports = function postLayout(post, series, configuration) {
-    return html`
-        <!doctype html>
-        <html>
+    <head>
+        ${elements.head({ title: entry.content.title })}
+    </head>
 
-        <head>
-            ${elements.head({ title: post.title })}
-        </head>
-
-        <body>
-            <div class="site">
-                ${elements.header()}
-                <div class="post-content">
-                    <div class="cell title-cell">
-                        <h1>${series.title}</h1>
-                        <h2>${post.title}</h2>
-                        <div class="post-date">Posted at ${post.publishedAt.toFormat(POST_DATE_FORMAT)}.</div>
-                    </div>
-                    <!-- Insert title and date -->
-                    
-                    ${post.content}
-
-                    <!-- Insert previous and next -->
+    <body>
+        <div class="site">
+            ${elements.header()}
+            <div class="post-content">
+                <div class="cell title-cell">
+                    <h1>${entry.meta.series.title}</h1>
+                    <h2>${entry.content.title}</h2>
+                    <div class="post-date">Posted at ${entry.meta.publishedAt.toFormat(POST_DATE_FORMAT)}.</div>
                 </div>
-                ${elements.footer()}
+                <!-- Insert title and date -->
+                
+                ${entry.content.cells.join('\n')}
+
+                <!-- Insert previous and next -->
             </div>
+            ${elements.footer()}
+        </div>
 
-            ${post.scripts}
-            <script type="text/javascript" src="/resources/script/refactoring-posts.js"></script>
-        </body>
+        <script type="text/javascript" src="/resources/script/refactoring-posts.js"></script>
+    </body>
 
-        </html>
-    `;
+    </html>
+`;
+
+const process = entry => ({
+    emit: [{
+        url: `${entry.meta.url}.html`,
+        content: entryToHtml(entry)
+    }]
+});
+
+module.exports = {
+    name: 'post',
+    process
 };

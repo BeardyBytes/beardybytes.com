@@ -138,17 +138,18 @@ index c180659..6a07485 100644
 `
 ]
 
-const post = {
-    title: 'Hello, World!',
+const meta = {
+    order: 1,
+    layout: 'post',
     urlTitle: 'hello-world',
     publishedAt: DateTime.local(),
-    draft: false,
-    excerpt: 'A short description of the post',
-    layout: 'post',
-
-    content() {
-        return cells.join('\n');
-    }
+    draft: false
 };
 
-module.exports = post;
+const content = {
+    title: 'Hello, World!',
+    excerpt: 'A short description of the post',
+    cells
+};
+
+module.exports = () => ({ meta, content });

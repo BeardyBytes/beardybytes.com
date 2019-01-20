@@ -18,6 +18,9 @@ const content = html`
     <link rel="stylesheet" href="/resources/css/landing.css">
 </head>
 <body>
+    <div class="stripes top">
+    </div>
+    
     <h1>Hi!</h1>
 </bod>
 </html>

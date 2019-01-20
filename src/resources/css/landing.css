@@ -1,0 +1,11 @@
+html {
+    font-size: 1.33rem;
+    line-height: 1.5;
+    background-color: #ffffff;
+    color: #0a0908;
+}
+
+body {
+    font-family: 'IBM Plex Sans', sans-serif;
+    margin: 0;
+}

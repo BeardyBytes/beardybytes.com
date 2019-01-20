@@ -1,4 +1,6 @@
 const css = [
+    'css/landing.css',
+    
     'css/main.css',
     'css/normalize.css',
     

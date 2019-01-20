@@ -50,4 +50,10 @@ async function copyResource(resource) {
     for (const page of refactoring.emit) {
         await emitPage(page);
     }
+
+    const landing = require('./landing')('');
+
+    for (const page of landing.emit) {
+        await emitPage(page);
+    }
 })();

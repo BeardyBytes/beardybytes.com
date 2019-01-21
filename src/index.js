@@ -51,7 +51,7 @@ async function copyResource(resource) {
         await emitPage(page);
     }
 
-    const landing = require('./landing')('');
+    const landing = require('./landing')('landing');
 
     for (const page of landing.emit) {
         await emitPage(page);

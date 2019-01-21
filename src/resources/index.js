@@ -1,5 +1,5 @@
 const css = [
-    'css/landing.css',
+    'css/landing-iteration-1.css',
 
     'css/main.css',
     'css/normalize.css',

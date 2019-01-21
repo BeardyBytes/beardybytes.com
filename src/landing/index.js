@@ -1,39 +1,12 @@
-const { html } = require('common-tags');
-
-const content = html`
-<!doctype html>
-<html>
-
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
-
-    <title>Beardy Bytes</title>
-
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=IBM+Plex+Mono|IBM+Plex+Sans|IBM+Plex+Serif"> 
-
-    <link rel="stylesheet" href="/resources/css/normalize.css">
-    <link rel="stylesheet" href="/resources/css/landing.css">
-</head>
-<body>
-    <div class="stripes top">
-    </div>
-    
-    <h1>Hi!</h1>
-</bod>
-</html>
-`
-
-const url = 'index.html'
+const iteration1 = require('./iteration-1');
 
 module.exports = function landing(baseUrl) {
+    let emit = [];
+
+    emit = emit.concat(iteration1(baseUrl).emit);
+
     return {
-        emit: [{
-            content,
-            url: `${baseUrl}/${url}`
-        }],
+        emit,
         copy: []
     };
 };

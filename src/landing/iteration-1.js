@@ -24,16 +24,19 @@ const content = html`
         </div>
         <div class="flex-center">
             <div class="welcome-text">
-                <p>
-                Hi! I'm Attila Bagossy and I write code. This is just some sample text.
-                </p>
+                <div>
+                Hi! I'm Attila Bagossy
+                </div>
+                <div class="stuff-i-do">
+                and I write code.
+                </div>
             </div>
         </div>
         <nav class="flex-center">
             <div>
                 <span>About Me</span>
                 <span>Blog</span>
-                <span>Series</span>
+                <span>LinkedIn</span>
                 <span>GitHub</span>
             </div>
         </nav>

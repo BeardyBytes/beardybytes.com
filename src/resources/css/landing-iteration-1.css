@@ -6,7 +6,7 @@ html {
 }
 
 body {
-    font-family: 'IBM Plex Sans', sans-serif;
+    font-family: 'IBM Plex Serif', serif;
     width: 100%;
     margin: 0;
 }
@@ -29,14 +29,14 @@ body {
 
 .cover > nav {
     position: absolute;
-    bottom: 75px;
+    bottom: 100px;
 
     width: 100%;
     padding: 0.333em 0;
 }
 
 .cover > nav span {
-    font-size: 1.25em;
+    font-size: 1.33em;
     padding: 0 0.777em;
 }
 
@@ -52,11 +52,33 @@ body {
     position: absolute;
     bottom: 0;
     width: 100%;
-    height: 75px;
+    height: 100px;
 }
 
 .welcome-text {
-    font-size: 1.5em;
+    padding-top: 2.5em;
+    font-size: 2em;
+    width: 30%;
+}
+
+.welcome-text > div {
+    text-align: center;
+}
+
+.stuff-i-do {
+    animation-duration: 2s;
+    animation-name: fadeout;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+@keyframes fadeout {
+    0%, 75% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
 }
 
 .stripes {

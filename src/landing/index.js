@@ -12,9 +12,20 @@ const content = html`
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
+    <!--
+    TODO:
+        Ensure text remains visible during webfont load
+        https://developers.google.com/web/updates/2016/02/font-display
+    -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=IBM+Plex+Serif"> 
 
     <link rel="stylesheet" href="/resources/css/normalize.css">
+
+    <!--
+    TODO:
+        Inline minified critical parts.
+        https://developers.google.com/web/updates/2016/02/font-display
+    -->
     <link rel="stylesheet" href="/resources/css/landing.css">
 </head>
 <body>
@@ -22,6 +33,10 @@ const content = html`
         <div class="top-padding-block">
         </div>
         <div class="logo-block flex-center">
+            <!--
+            TODO:
+                Inline optimized SVG.
+            -->
             <img class="logo" src="/resources/img/beardy-bytes-logo.svg">
         </div>
         <div class="welcome-text-block flex-center">
@@ -29,6 +44,10 @@ const content = html`
                 <div>
                     Hi! I'm Attila Bagossy
                 </div>
+                <!--
+                TODO:
+                    Script to change text.
+                -->
                 <div class="stuff-i-do">
                     and I write code.
                 </div>

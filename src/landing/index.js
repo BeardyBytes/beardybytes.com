@@ -7,16 +7,21 @@ const content = html`
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-
-    <title>Beardy Bytes</title>
-
     <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Beardy Bytes - Attila Bagossy Software Engineer</title>
+    <!--
+    TODO:
+        Description from global context.
+    -->
+    <meta name="description" content"">
 
     <!--
     TODO:
-        Ensure text remains visible during webfont load
-        https://developers.google.com/web/updates/2016/02/font-display
+        Canonical link from global context.
     -->
+    <link rel="canonical" href="" />
+
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=IBM+Plex+Serif"> 
 
     <link rel="stylesheet" href="/resources/css/normalize.css">

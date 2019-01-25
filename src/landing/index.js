@@ -34,6 +34,8 @@ const content = html`
     <link rel="stylesheet" href="/resources/css/landing.css">
 </head>
 <body>
+    <div class="barber-bar stripes">
+    </div>
     <main>
         <div class="top-padding-block">
         </div>
@@ -67,10 +69,12 @@ const content = html`
                     <a href="#">GitHub</a>
                 </div>
             </nav>
-            <div class="bottom-decoration stripes">
-            </div>
         </div>
     </main>
+    <div class="barber-bar stripes">
+    </div>
+    <div class="clear">
+    </div>
 </body>
 </html>
 `

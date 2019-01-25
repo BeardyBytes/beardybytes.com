@@ -50,13 +50,13 @@ const content = html`
             <div class="welcome-text">
                 <h1>
                     Hi! I'm Attila Bagossy
-                </h1>
-                <!--
-                TODO:
-                    Script to change text.
-                -->
-                <h1 class="stuff-i-do">
-                    and I write code.
+                    <!--
+                    TODO:
+                        Script to change text.
+                    -->
+                    <span class="stuff-i-do">
+                        and I write code.
+                    </spany
                 </h1>
             </div>
         </div>

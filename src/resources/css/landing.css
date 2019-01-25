@@ -78,8 +78,10 @@ main {
 }
 
 .stuff-i-do {
-    animation-duration: 3s;
+    display: block;
+
     animation-name: fadeout;
+    animation-duration: 3s;
     animation-iteration-count: infinite;
     animation-direction: alternate;
 }

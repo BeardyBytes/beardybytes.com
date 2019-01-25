@@ -6,13 +6,13 @@ const mkdirp = util.promisify(require('mkdirp'));
 
 const trimPre = require('./common/post-process/trim-pre');
 
-const options = require('./cli');
+const config = require('./config');
 
 
 (async function main() {
-    await rimraf(options.outputDirectory);
+    await rimraf(config.outputDirectory);
 
-    await fs.mkdir(options.outputDirectory);
+    await fs.mkdir(config.outputDirectory);
 
     processModule('./resources', makeContextFrom({
         baseUrl: 'resources'
@@ -36,7 +36,7 @@ async function processModule(modulePath, context) {
 }
 
 async function emitResource(page) {
-    const path = `${options.outputDirectory}/${page.url}`;
+    const path = `${config.outputDirectory}/${page.url}`;
 
     const fragments = path.split('/');
 
@@ -49,7 +49,7 @@ async function emitResource(page) {
 };
 
 async function copyResource(resource) {
-    const path = `${options.outputDirectory}/${resource.destination}`;
+    const path = `${config.outputDirectory}/${resource.destination}`;
 
     const fragments = path.split('/');
 
@@ -61,5 +61,5 @@ async function copyResource(resource) {
 }
 
 function makeContextFrom(context) {
-    return Object.assign({}, context, options);
+    return Object.assign({}, context, config);
 }

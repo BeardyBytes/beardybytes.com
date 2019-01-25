@@ -29,7 +29,7 @@ const content = html`
     <link rel="stylesheet" href="/resources/css/landing.css">
 </head>
 <body>
-    <div class="cover">
+    <main>
         <div class="top-padding-block">
         </div>
         <div class="logo-block flex-center">
@@ -41,16 +41,16 @@ const content = html`
         </div>
         <div class="welcome-text-block flex-center">
             <div class="welcome-text">
-                <div>
+                <h1>
                     Hi! I'm Attila Bagossy
-                </div>
+                </h1>
                 <!--
                 TODO:
                     Script to change text.
                 -->
-                <div class="stuff-i-do">
+                <h1 class="stuff-i-do">
                     and I write code.
-                </div>
+                </h1>
             </div>
         </div>
         <div class="nav-block">
@@ -65,7 +65,7 @@ const content = html`
             <div class="bottom-decoration stripes">
             </div>
         </div>
-    </div>
+    </main>
 </body>
 </html>
 `

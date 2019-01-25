@@ -5,7 +5,7 @@ html {
 }
 
 body {
-    font-family: 'IBM Plex Serif', serif;
+    font-family: 'IBM Plex Serif', 'Times New Roman', Times, serif;
     width: 100%;
     margin: 0;
 }
@@ -29,7 +29,7 @@ body {
     );  
 }
 
-.cover {
+main {
     width: 100%;
     height: 100vh;
 }
@@ -58,12 +58,11 @@ body {
     align-items: center;
 }
 
-.welcome-text {
-    font-size: 2.5em;
-}
-
-.welcome-text > div {
+.welcome-text > h1 {
     text-align: center;
+    font-weight: 400;
+    font-size: 2.5em;
+    margin: 0;
 }
 
 .stuff-i-do {
@@ -113,7 +112,7 @@ nav a:hover {
 }
 
 @media (orientation: landscape) and (max-height: 500px) {
-    .welcome-text {
+    .welcome-text > h1 {
         font-size: 2em;
     }
 
@@ -132,7 +131,7 @@ nav a:hover {
         display: block;
     }
 
-    .welcome-text {
+    .welcome-text > h1 {
         font-size: 2em;
     }
 

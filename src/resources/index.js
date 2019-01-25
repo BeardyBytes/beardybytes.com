@@ -40,13 +40,11 @@ function toCopyable(baseUrl, entry) {
     };
 };
 
-module.exports = function resources({ baseUrl }) {
-    const copyToBase = toCopyable.bind(null, baseUrl);
+module.exports = function resources(context) {
+    const copyToBase = toCopyable.bind(null, context.baseUrl);
 
-    return {
-        emit: [],
-        copy: [css, img, script]
-            .reduce((acc, curr) => acc.concat(curr), [])
-            .map(copyToBase)
-    };
+    [css, img, script]
+        .reduce((acc, curr) => acc.concat(curr), [])
+        .map(copyToBase)
+        .forEach(copy => context.copy.push(copy));
 };

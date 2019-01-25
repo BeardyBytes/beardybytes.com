@@ -14,25 +14,27 @@ const config = require('./config');
 
     await fs.mkdir(config.outputDirectory);
 
-    processModule('./resources', makeContextFrom({
+    processModule('./resources', {
         baseUrl: 'resources'
-    }));
+    });
 
-    processModule('./series/refactoring', makeContextFrom({
+    processModule('./series/refactoring', {
         baseUrl: 'series'
-    }));
+    });
 
-    processModule('./landing', makeContextFrom({
+    processModule('./landing', {
         baseUrl: ''
-    }));
+    });
 })();
 
 
 async function processModule(modulePath, context) {
-    const results = require(modulePath)(context);
+    const moduleContext = makeModuleContext(context);
 
-    results.copy.forEach(async resource => await copyResource(resource));
-    results.emit.forEach(async resource => await emitResource(resource))
+    require(modulePath)(moduleContext);
+
+    moduleContext.copy.forEach(async resource => await copyResource(resource));
+    moduleContext.emit.forEach(async resource => await emitResource(resource))
 }
 
 async function emitResource(page) {
@@ -60,6 +62,6 @@ async function copyResource(resource) {
     await fs.copyFile(resource.source, path);
 }
 
-function makeContextFrom(context) {
-    return Object.assign({}, context, config);
+function makeModuleContext(context) {
+    return Object.assign({ emit: [], copy: [] }, context, config);
 }

@@ -27,8 +27,8 @@ function augmentWithPrevAndNext(entry, index, entries) {
     return Object.assign({}, entry, { meta });
 }
 
-module.exports = function refactoringSeries({ baseUrl }) {
-    const series = Object.assign({}, seriesData, { baseUrl: `${baseUrl}/${seriesData.urlTitle}` });
+module.exports = function refactoringSeries(context) {
+    const series = Object.assign({}, seriesData, { baseUrl: `${context.baseUrl}/${seriesData.urlTitle}` });
 
     return entries
         .map(entry => entry())
@@ -38,9 +38,8 @@ module.exports = function refactoringSeries({ baseUrl }) {
         .map(augmentWithPrevAndNext)
         .filter(entry => entry.meta.layout in layouts)
         .map(entry => layouts[entry.meta.layout].process(entry))
-        .reduce((acc, curr) => ({ 
-            emit: acc.emit.concat(curr.emit || []), 
-            copy: acc.copy.concat(curr.copy || []) }), 
-            { emit: [], copy: [] }
-        );
+        .forEach(({ emit, copy }) => {
+            context.emit.push(...(emit || []));
+            context.copy.push(...(copy || []));
+        })
 };

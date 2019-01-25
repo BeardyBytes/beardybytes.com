@@ -12,6 +12,8 @@ const config = require('./config');
 
 
 (async function main() {
+    printConfiguration();
+
     await rimraf(config.outputDirectory);
 
     await fs.mkdir(config.outputDirectory);
@@ -29,17 +31,30 @@ const config = require('./config');
     });
 })();
 
+function printConfiguration() {
+    console.log('>>> CONFIGURATION');
+    console.log(JSON.stringify(config, null, 2));
+    console.log('<<<');
+}
 
 async function processModule(modulePath, context) {
+    console.log(`Module: ${modulePath}`);
+
     const moduleContext = makeModuleContext(context);
 
     require(modulePath)(moduleContext);
+    
+    console.log(`Copy: ${moduleContext.copy.length}, Emit: ${moduleContext.emit.length}`);
 
     moduleContext.copy.forEach(async resource => await copyResource(resource));
-    moduleContext.emit.forEach(async resource => await emitResource(resource))
+    moduleContext.emit.forEach(async resource => await emitResource(resource));
+
+    console.log();
 }
 
 async function emitResource(page) {
+    console.log(`  Emit: ${page.url}`);
+
     const path = `${config.outputDirectory}/${page.url}`;
 
     const fragments = path.split('/');
@@ -52,6 +67,8 @@ async function emitResource(page) {
 };
 
 async function copyResource(resource) {
+    console.log(`  Copy: ${resource.source}\n     -> ${resource.destination}`);
+
     const path = `${config.outputDirectory}/${resource.destination}`;
 
     const fragments = path.split('/');

@@ -1,6 +1,5 @@
 const css = [
-    'css/landing-iteration-1.css',
-    'css/landing-iteration-2.css',
+    'css/landing.css',
 
     'css/main.css',
     'css/normalize.css',
@@ -26,7 +25,6 @@ const img = [
     'img/code-outline.svg',
     'img/home-outline.svg',
     'img/beardy-bytes-logo.svg',
-    'img/beardy-bytes-logo-2.png',
     'img/beardy-bytes-logo-no-text.svg',
 ];
 

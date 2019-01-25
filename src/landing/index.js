@@ -55,7 +55,7 @@ const content = html`
                         Script to change text.
                     -->
                     <span class="stuff-i-do">
-                        and I write code.
+                        and I develop software.
                     </spany
                 </h1>
             </div>
@@ -75,6 +75,47 @@ const content = html`
     </div>
     <div class="clear">
     </div>
+
+    <script>
+        (function landingIIFE() {
+            // The stuff can only be changed on every second animationiteration event, because the
+            // alternating direction triggers the event even when the text has faded in.
+            let canChangeStuff = true;
+
+            let currentStuffIndex = 0;
+
+            const stuffs = [
+                'and I develop software.',
+                'and I write code.',
+                'and I know JavaScript.',
+                'and I know Java.',
+            ];
+
+            window.onload = function onLoad() {
+                document.querySelector('.stuff-i-do').addEventListener('animationiteration', onAnimationIteration);
+            };
+
+            function onAnimationIteration(event) {
+                if (canChangeStuff) {
+                    event.target.textContent = randomStuff();
+                }
+
+                canChangeStuff = !canChangeStuff;
+            };
+
+            function randomStuff() {
+                // Avoid showing the same stuff twice consecutively.
+                let index;
+                do {
+                    index = Math.floor(Math.random() * stuffs.length);
+                } while (index == currentStuffIndex)
+
+                currentStuffIndex = index;
+
+                return stuffs[currentStuffIndex];
+            }
+        })();
+    </script>
 </body>
 </html>
 `

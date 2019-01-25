@@ -52,7 +52,7 @@ return `
 };
 
 const emitCode = function emitCode(code, context) {
-    const url = `${context.baseUrl}/stuffIDo.js`;
+    const url = `${context.javascriptPath}/landing.js`;
 
     context.emit.push({
         content: code,

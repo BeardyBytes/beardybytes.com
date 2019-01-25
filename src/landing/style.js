@@ -1,3 +1,4 @@
+const code = `
 html {
     line-height: 1.5;
     background-color: #ffffff;
@@ -56,11 +57,7 @@ main {
     height: 30%;
 }
 
-.logo {
-    height: 100%;
-}
-
-.logo > img {
+.logo-block > img, .logo-block > svg {
     height: 100%;
 }
 
@@ -175,4 +172,33 @@ nav a:hover {
         font-size: 1.777em;
     }
 }
+`;
 
+const inlineCode = function inlineCode(code) {
+return `
+    <style>
+    ${code}
+    </style>
+    `;
+};
+
+const emitCode = function emitCode(code, context) {
+    const url = `${context.cssPath}/landing.css`;
+
+    context.emit.push({
+        content: code,
+        url
+    })
+
+    return `
+        <link rel="stylesheet" ${url}">
+    `;
+};
+
+module.exports = function style(context, options = {}) {
+    const config = Object.assign({}, context, options);
+
+    const transformedCode = context.transform('css', { code });
+
+    return config.inlineCSS ? inlineCode(transformedCode, context) : emitCode(transformedCode, context);
+};

@@ -26,12 +26,7 @@ const content = context => html`
 
     <link rel="stylesheet" href="/resources/css/normalize.css">
 
-    <!--
-    TODO:
-        Inline minified critical parts.
-        https://developers.google.com/web/updates/2016/02/font-display
-    -->
-    <link rel="stylesheet" href="/resources/css/landing.css">
+    ${require('./style')(context, { inlineCSS: true })}
 </head>
 <body>
     <div class="barber-bar stripes">
@@ -40,11 +35,8 @@ const content = context => html`
         <div class="top-padding-block">
         </div>
         <div class="logo-block flex-center">
-            <!--
-            TODO:
-                Inline optimized SVG.
-            -->
-            <img class="logo" src="/resources/img/beardy-bytes-logo.svg">
+            <!--<img src="/resources/img/beardy-bytes-logo.svg">-->
+            ${require('../common/logo')(context, { variant: 'text', inlineSVG: true, optimizeSVG: true })}
         </div>
         <div class="welcome-text-block flex-center">
             <div class="welcome-text">
@@ -72,7 +64,7 @@ const content = context => html`
     <div class="clear">
     </div>
 
-    ${require('./stuff-i-do')(context, { inlineScript: true })}
+    ${require('./script')(context, { inlineScript: true })}
 </body>
 </html>
 `

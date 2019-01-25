@@ -1,6 +1,4 @@
 const css = [
-    'css/landing.css',
-
     'css/main.css',
     'css/normalize.css',
     
@@ -23,9 +21,7 @@ const img = [
     'img/arrow-ios-forward-outline.svg',
     'img/message-square-outline.svg',
     'img/code-outline.svg',
-    'img/home-outline.svg',
-    'img/beardy-bytes-logo.svg',
-    'img/beardy-bytes-logo-no-text.svg',
+    'img/home-outline.svg'
 ];
 
 const script = [

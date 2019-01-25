@@ -27,7 +27,7 @@ function augmentWithPrevAndNext(entry, index, entries) {
     return Object.assign({}, entry, { meta });
 }
 
-module.exports = function refactoringSeries(baseUrl) {
+module.exports = function refactoringSeries({ baseUrl }) {
     const series = Object.assign({}, seriesData, { baseUrl: `${baseUrl}/${seriesData.urlTitle}` });
 
     return entries

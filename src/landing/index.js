@@ -81,7 +81,7 @@ const content = html`
 
 const url = 'index.html'
 
-module.exports = function landing(baseUrl) {
+module.exports = function landing({ baseUrl }) {
     return {
         emit: [{
             content,

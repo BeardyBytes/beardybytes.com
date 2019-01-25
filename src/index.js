@@ -9,7 +9,33 @@ const trimPre = require('./common/post-process/trim-pre');
 const options = require('./cli');
 
 
-async function emitPage(page) {
+(async function main() {
+    await rimraf(options.outputDirectory);
+
+    await fs.mkdir(options.outputDirectory);
+
+    processModule('./resources', makeContextFrom({
+        baseUrl: 'resources'
+    }));
+
+    processModule('./series/refactoring', makeContextFrom({
+        baseUrl: 'series'
+    }));
+
+    processModule('./landing', makeContextFrom({
+        baseUrl: ''
+    }));
+})();
+
+
+async function processModule(modulePath, context) {
+    const results = require(modulePath)(context);
+
+    results.copy.forEach(async resource => await copyResource(resource));
+    results.emit.forEach(async resource => await emitResource(resource))
+}
+
+async function emitResource(page) {
     const path = `${options.outputDirectory}/${page.url}`;
 
     const fragments = path.split('/');
@@ -34,26 +60,6 @@ async function copyResource(resource) {
     await fs.copyFile(resource.source, path);
 }
 
-(async function main() {
-    await rimraf(options.outputDirectory);
-
-    await fs.mkdir(options.outputDirectory);
-
-    const resources = require('./resources')('resources');
-
-    for (const resource of resources.copy) {
-        await copyResource(resource);
-    }
-
-    const refactoring = require('./series/refactoring')('series');
-
-    for (const page of refactoring.emit) {
-        await emitPage(page);
-    }
-
-    const landing = require('./landing')('');
-
-    for (const page of landing.emit) {
-        await emitPage(page);
-    }
-})();
+function makeContextFrom(context) {
+    return Object.assign({}, context, options);
+}

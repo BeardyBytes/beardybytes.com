@@ -40,7 +40,7 @@ function toCopyable(baseUrl, entry) {
     };
 };
 
-module.exports = function resources(baseUrl) {
+module.exports = function resources({ baseUrl }) {
     const copyToBase = toCopyable.bind(null, baseUrl);
 
     return {

@@ -50,13 +50,9 @@ const content = context => html`
             <div class="welcome-text">
                 <h1>
                     Hi! I'm Attila Bagossy
-                    <!--
-                    TODO:
-                        Script to change text.
-                    -->
                     <span class="stuff-i-do">
                         and I develop software.
-                    </spany
+                    </span>
                 </h1>
             </div>
         </div>

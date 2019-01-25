@@ -19,5 +19,20 @@ module.exports = {
         doc: 'Minify CSS code.',
         format: Boolean,
         default: true
+    },
+    imagePath: {
+        doc: 'Path of output image files.',
+        format: String,
+        default: 'resources/img/'
+    },
+    javascriptPath: {
+        doc: 'Path of output JavaScript files.',
+        format: String,
+        default: 'resources/script/'
+    },
+    cssPath: {
+        doc: 'Path of output CSS files.',
+        format: String,
+        default: 'resources/css/'
     }
 };

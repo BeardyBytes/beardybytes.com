@@ -12,35 +12,39 @@ const content = html`
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=IBM+Plex+Mono|IBM+Plex+Sans|IBM+Plex+Serif"> 
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=IBM+Plex+Serif"> 
 
     <link rel="stylesheet" href="/resources/css/normalize.css">
     <link rel="stylesheet" href="/resources/css/landing-iteration-1.css">
 </head>
 <body>
     <div class="cover">
-        <div class="logo-wrapper flex-center">
+        <div class="top-padding-block">
+        </div>
+        <div class="logo-block flex-center">
             <img class="logo" src="/resources/img/beardy-bytes-logo.svg">
         </div>
-        <div class="flex-center">
+        <div class="welcome-text-block flex-center">
             <div class="welcome-text">
                 <div>
-                Hi! I'm Attila Bagossy
+                    Hi! I'm Attila Bagossy
                 </div>
                 <div class="stuff-i-do">
-                and I write code.
+                    and I write code.
                 </div>
             </div>
         </div>
-        <nav class="flex-center">
-            <div>
-                <span>About Me</span>
-                <span>Blog</span>
-                <span>LinkedIn</span>
-                <span>GitHub</span>
+        <div class="nav-block">
+            <nav class="flex-center">
+                <div>
+                    <a href="#">About Me</a>
+                    <a href="#">Blog</a>
+                    <a href="#">LinkedIn</a>
+                    <a href="#">GitHub</a>
+                </div>
+            </nav>
+            <div class="bottom-decoration stripes">
             </div>
-        </nav>
-        <div class="bottom-decoration stripes">
         </div>
     </div>
 </body>

@@ -1,5 +1,4 @@
 html {
-    font-size: 1.33rem;
     line-height: 1.5;
     background-color: #ffffff;
     color: #0a0908;
@@ -11,74 +10,9 @@ body {
     margin: 0;
 }
 
-.cover {
-    position: relative;
-    width: 100%;
-    height: 100vh;
-    background: #ffffff;
-}
-
-.cover > .logo-wrapper {
-    padding: 1em 0;
-}
-
 .flex-center {
     display: flex;
     justify-content: center;
-}
-
-.cover > nav {
-    position: absolute;
-    bottom: 100px;
-
-    width: 100%;
-    padding: 0.333em 0;
-}
-
-.cover > nav span {
-    font-size: 1.33em;
-    padding: 0 0.777em;
-}
-
-.cover .logo {
-    width: 15em;
-}
-
-.cover > nav span:hover {
-    color: #23407a;
-}
-
-.bottom-decoration {
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    height: 100px;
-}
-
-.welcome-text {
-    padding-top: 2.5em;
-    font-size: 2em;
-    width: 30%;
-}
-
-.welcome-text > div {
-    text-align: center;
-}
-
-.stuff-i-do {
-    animation-duration: 2s;
-    animation-name: fadeout;
-    animation-iteration-count: infinite;
-    animation-direction: alternate;
-}
-
-@keyframes fadeout {
-    0%, 75% {
-        opacity: 1;
-    }
-    100% {
-        opacity: 0;
-    }
 }
 
 .stripes {
@@ -94,3 +28,88 @@ body {
         white 90px
     );  
 }
+
+.cover {
+    width: 100%;
+    height: 100vh;
+}
+
+
+.top-padding-block {
+    height: 5%;
+}
+
+
+.logo-block {
+    height: 30%;
+}
+
+.logo {
+    height: 100%;
+}
+
+.logo > img {
+    height: 100%;
+}
+
+
+.welcome-text-block {
+    height: 45%;
+    align-items: center;
+}
+
+.welcome-text {
+    font-size: 2.5em;
+}
+
+.welcome-text > div {
+    text-align: center;
+}
+
+.stuff-i-do {
+    animation-duration: 3s;
+    animation-name: fadeout;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+@keyframes fadeout {
+    0%, 80% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+
+.nav-block {
+    height: 20%;
+    display: flex;
+    flex-direction: column;
+}
+
+nav {
+    display: flex;
+    width: 100%;
+    padding-bottom: 0.333em;
+
+    justify-content: center;
+}
+
+nav a {
+    color: #0a0908;
+    text-decoration: none;
+    font-size: 1.777em;
+    padding: 0 0.777em;
+}
+
+nav a:hover {
+    color: #23407a;
+}
+
+.bottom-decoration {
+    flex-grow: 1;
+    width: 100%;
+}
+

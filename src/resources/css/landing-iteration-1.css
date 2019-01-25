@@ -82,7 +82,6 @@ body {
     }
 }
 
-
 .nav-block {
     height: 20%;
     display: flex;
@@ -111,5 +110,50 @@ nav a:hover {
 .bottom-decoration {
     flex-grow: 1;
     width: 100%;
+}
+
+@media (orientation: landscape) and (max-height: 500px) {
+    .welcome-text {
+        font-size: 2em;
+    }
+
+    nav a {
+        font-size: 1.25em;
+    }
+}
+
+@media (orientation: portrait) and (max-width: 700px) {
+    .welcome-text-block {
+        height: 40%;
+    }
+
+    .nav-block {
+        height: 25%;
+        display: block;
+    }
+
+    .welcome-text {
+        font-size: 2em;
+    }
+
+    nav {
+        padding-bottom: 0;
+        height: 100%;
+    }
+
+    nav a {
+        font-size: 1.4em;
+    }
+
+    nav > div {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-evenly;
+    }
+
+    .bottom-decoration {
+        display: none;
+    }
 }
 

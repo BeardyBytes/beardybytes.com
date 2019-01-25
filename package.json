@@ -20,6 +20,7 @@
   },
   "homepage": "https://github.com/BeardyBytes/beardybytes.com#readme",
   "dependencies": {
+    "clean-css": "^4.2.1",
     "common-tags": "^1.8.0",
     "convict": "^4.4.1",
     "diff2html": "^2.5.0",

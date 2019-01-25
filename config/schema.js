@@ -14,5 +14,10 @@ module.exports = {
         doc: 'Minify JavaScript code.',
         format: Boolean,
         default: true
+    },
+    minifyCSS: {
+        doc: 'Minify CSS code.',
+        format: Boolean,
+        default: true
     }
 };

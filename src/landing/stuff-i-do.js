@@ -43,7 +43,7 @@ const code = `
 })();
 `
 
-const inlineCode = function inlineCode() {
+const inlineCode = function inlineCode(code) {
 return `
     <script>
     ${code}
@@ -51,7 +51,7 @@ return `
     `;
 };
 
-const emitCode = function emitCode(context) {
+const emitCode = function emitCode(code, context) {
     const url = `${context.baseUrl}/stuffIDo.js`;
 
     context.emit.push({
@@ -67,5 +67,7 @@ const emitCode = function emitCode(context) {
 module.exports = function stuffIDo(context, options = {}) {
     const config = Object.assign({}, context, options);
 
-    return config.inlineScript ? inlineCode(context) : emitCode(context);
+    const transformedCode = context.transform('javascript', { code });
+
+    return config.inlineScript ? inlineCode(transformedCode, context) : emitCode(transformedCode, context);
 };

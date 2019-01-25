@@ -72,7 +72,7 @@ const content = context => html`
     <div class="clear">
     </div>
 
-    ${require('./stuff-i-do')(context)}
+    ${require('./stuff-i-do')(context, { inlineScript: true })}
 </body>
 </html>
 `

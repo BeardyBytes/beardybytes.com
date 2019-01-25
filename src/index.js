@@ -6,6 +6,8 @@ const mkdirp = util.promisify(require('mkdirp'));
 
 const trimPre = require('./common/post-process/trim-pre');
 
+const transformers = require('./transformers');
+
 const config = require('./config');
 
 
@@ -63,5 +65,13 @@ async function copyResource(resource) {
 }
 
 function makeModuleContext(context) {
-    return Object.assign({ emit: [], copy: [] }, context, config);
+    const base = {
+        transform(type, options) {
+            return transformers[type](options);
+        },
+        emit: [],
+        copy: []
+    };
+
+    return Object.assign(base, context, config);
 }

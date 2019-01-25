@@ -49,7 +49,6 @@ async function emitResource(page) {
     await mkdirp(fragments.join('/'));
 
     await fs.writeFile(path, trimPre(page.content));
-    //await fs.writeFile(path, page.content);
 };
 
 async function copyResource(resource) {

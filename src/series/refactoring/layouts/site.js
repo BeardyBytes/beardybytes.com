@@ -126,8 +126,6 @@ const inlineFirstCommit = content => {
     const diffFirst = content.diffFirst ? `${toLineArray(content.diffFirst)}` : 'null';
     const diffPrevious = content.diffPrevious ? `${toLineArray(content.diffPrevious)}` : 'null';
 
-    console.log(content.code);
-
     return html`
 <script type="text/javascript">
 (function inlineFirstCommitIIFE() {

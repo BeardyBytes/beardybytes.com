@@ -74,8 +74,6 @@ const initFirstCommit = (function siteIIFE() {
             code: fromLineArray(commit.code)
         };
 
-        console.log(initializedCommit.code);
-
         const commits = Object.assign({ 1: initializedCommit }, Store.commits);
 
         Store = Object.assign({}, Store, { commits });

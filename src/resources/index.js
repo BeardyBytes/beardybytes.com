@@ -36,6 +36,13 @@ function toCopyable(baseUrl, entry) {
     };
 };
 
+function addRobotsTxt(context) {
+    context.copy.push({
+        source: `${__dirname}/misc/robots.txt`,
+        destination: 'robots.txt'
+    });
+};
+
 module.exports = function resources(context) {
     const copyToBase = toCopyable.bind(null, context.baseUrl);
 
@@ -43,4 +50,6 @@ module.exports = function resources(context) {
         .reduce((acc, curr) => acc.concat(curr), [])
         .map(copyToBase)
         .forEach(copy => context.copy.push(copy));
+
+    addRobotsTxt(context);  
 };

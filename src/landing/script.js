@@ -1,3 +1,5 @@
+const script = require('../common/script');
+
 const stuffs = [
     'and I develop software.',
     'and I write code.',
@@ -7,7 +9,7 @@ const stuffs = [
 
 const stuffsAsString = JSON.stringify(stuffs);
 
-const code = `
+const code =  () => `
 (function stuffIDoIIFE() {
     // The stuff can only be changed on every second animationiteration event, because the
     // alternating direction triggers the event even when the text has faded in.
@@ -43,31 +45,4 @@ const code = `
 })();
 `
 
-const inlineCode = function inlineCode(code) {
-return `
-    <script>
-    ${code}
-    </script>
-    `;
-};
-
-const emitCode = function emitCode(code, context) {
-    const url = `${context.javascriptPath}/landing.js`;
-
-    context.emit.push({
-        content: code,
-        url
-    })
-
-    return `
-        <script src="${url}"></script>
-    `;
-};
-
-module.exports = function stuffIDo(context, options = {}) {
-    const config = Object.assign({}, context, options);
-
-    const transformedCode = context.transform('javascript', { code });
-
-    return config.inlineScript ? inlineCode(transformedCode, context) : emitCode(transformedCode, context);
-};
+module.exports = script(code, 'landing.js');

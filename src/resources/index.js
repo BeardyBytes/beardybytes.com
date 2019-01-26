@@ -1,3 +1,5 @@
+const { readdirSync } = require('fs');
+
 const css = [
     'css/main.css',
     'css/normalize.css',
@@ -43,6 +45,18 @@ function addRobotsTxt(context) {
     });
 };
 
+function addFavicon(context) {
+    const baseDir = `${__dirname}/misc/favicon`;
+
+    readdirSync(baseDir)
+        .forEach(file => {
+            context.copy.push({
+                source: `${baseDir}/${file}`,
+                destination: file
+            })
+        });
+};
+
 module.exports = function resources(context) {
     const copyToBase = toCopyable.bind(null, context.baseUrl);
 
@@ -52,4 +66,6 @@ module.exports = function resources(context) {
         .forEach(copy => context.copy.push(copy));
 
     addRobotsTxt(context);  
+
+    addFavicon(context);
 };

@@ -1,3 +1,6 @@
 {
-
+    "minifyJavaScript": false,
+    "inlineJavaScript": false,
+    "minifyCSS": false,
+    "inlineCSS": false
 }

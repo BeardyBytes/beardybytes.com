@@ -13,12 +13,22 @@ module.exports = {
     minifyJavaScript: {
         doc: 'Minify JavaScript code.',
         format: Boolean,
-        default: true
+        default: false
+    },
+    inlineJavaScript: {
+        doc: 'Inline JavaScript code.',
+        format: Boolean,
+        default: false
     },
     minifyCSS: {
         doc: 'Minify CSS code.',
         format: Boolean,
-        default: true
+        default: false
+    },
+    inlineCSS: {
+        doc: 'Inline CSS code.',
+        format: Boolean,
+        default: false
     },
     imagePath: {
         doc: 'Path of output image files.',

@@ -22,8 +22,17 @@ const content = context => html`
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
     <link rel="manifest" href="/site.webmanifest">
     <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#23407a">
+    <meta name="apple-mobile-web-app-title" content="Beardy Bytes">
+    <meta name="application-name" content="Beardy Bytes">
     <meta name="msapplication-TileColor" content="#da532c">
     <meta name="theme-color" content="#ffffff">
+    
+    <meta property="og:image:height" content="1274">
+    <meta property="og:image:width" content="849">
+    <meta property="og:title" content="Beardy Bytes">
+    <meta property="og:description" content="The Open Graph Description">
+    <meta property="og:url" content="https://beardybytes.com">
+    <meta property="og:image" content="https://beardybytes.com/og-image.jpg">
 
     <!--
     TODO:

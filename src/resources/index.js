@@ -57,6 +57,13 @@ function addFavicon(context) {
         });
 };
 
+function addOpenGraphImage(context) {
+    context.copy.push({
+        source: `${__dirname}/misc/og-image.jpg`,
+        destination: 'og-image.jpg'
+    });
+};
+
 module.exports = function resources(context) {
     const copyToBase = toCopyable.bind(null, context.baseUrl);
 
@@ -68,4 +75,6 @@ module.exports = function resources(context) {
     addRobotsTxt(context);  
 
     addFavicon(context);
+
+    addOpenGraphImage(context);
 };

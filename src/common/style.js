@@ -2,14 +2,14 @@ const { mergedValue } = require('../util/merge');
 
 const inlineCode = function inlineCode(code) {
 return `
-    <script>
+    <style>
     ${code}
-    </script>
+    </style>
     `;
 };
 
 const emitCode = function emitCode(code, context) {
-    const url = `${context.javascriptPath}/${context.path}`;
+    const url = `${context.cssPath}/${context.path}`;
 
     context.emit.push({
         content: code,
@@ -17,21 +17,21 @@ const emitCode = function emitCode(code, context) {
     })
 
     return `
-        <script src="${url}"></script>
+        <link rel="stylesheet" src="${url}">
     `;
 };
 
-module.exports = function script(code, path) {
-    return function scriptEmitter(context, options = {}) {
+module.exports = function style(code, path) {
+    return function styleEmitter(context, options = {}) {
         const config = Object.assign({}, context, options);
-    
-        config.inline = mergedValue(['inline', 'inlineJavaScript'], options, context);
-        config.minify = mergedValue(['minify', 'minifyJavaScript'], options, context);
+
+        config.inline = mergedValue(['inline', 'inlineCSS'], options, context);
+        config.minify = mergedValue(['minify', 'minifyCSS'], options, context);
         config.code = code(config);
         config.path = path;
     
-        const transformedCode = context.transform('javascript', config);
+        const transformedCode = context.transform('css', config);
     
         return config.inline ? inlineCode(transformedCode, config) : emitCode(transformedCode, config);
     };
-}
+};

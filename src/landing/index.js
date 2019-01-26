@@ -44,7 +44,7 @@ const content = context => html`
 
     <link rel="stylesheet" href="/resources/css/normalize.css">
 
-    ${require('./style')(context, { inlineCSS: true })}
+    ${require('./style')(context, { inline: true })}
 </head>
 <body>
     <div class="barber-bar stripes">

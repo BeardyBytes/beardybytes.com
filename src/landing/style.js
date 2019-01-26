@@ -1,4 +1,6 @@
-const code = `
+const style = require('../common/style');
+
+const code = () => `
 html {
     line-height: 1.5;
     background-color: #ffffff;
@@ -174,31 +176,4 @@ nav a:hover {
 }
 `;
 
-const inlineCode = function inlineCode(code) {
-return `
-    <style>
-    ${code}
-    </style>
-    `;
-};
-
-const emitCode = function emitCode(code, context) {
-    const url = `${context.cssPath}/landing.css`;
-
-    context.emit.push({
-        content: code,
-        url
-    })
-
-    return `
-        <link rel="stylesheet" ${url}">
-    `;
-};
-
-module.exports = function style(context, options = {}) {
-    const config = Object.assign({}, context, options);
-
-    const transformedCode = context.transform('css', { code });
-
-    return config.inlineCSS ? inlineCode(transformedCode, context) : emitCode(transformedCode, context);
-};
+module.exports = style(code, 'landing.css');

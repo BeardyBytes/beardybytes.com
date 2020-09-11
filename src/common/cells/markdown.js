@@ -1,5 +1,5 @@
 const { html } = require('common-tags')
-const Remarkable = require('remarkable')
+const { Remarkable } = require('remarkable')
 
 const remarkableOptions = {}
 

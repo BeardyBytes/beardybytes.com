@@ -1,93 +1,92 @@
-const fs = require('fs').promises;
-const util = require('util');
+const fs = require('fs').promises
+const util = require('util')
 
-const rimraf = util.promisify(require('rimraf'));
-const mkdirp = util.promisify(require('mkdirp'));
+const rimraf = util.promisify(require('rimraf'))
+const mkdirp = util.promisify(require('mkdirp'))
 
-const trimPre = require('./common/post-process/trim-pre');
+const trimPre = require('./common/post-process/trim-pre')
 
-const transformers = require('./transformers');
+const transformers = require('./transformers')
 
-const config = require('./config');
+const config = require('./config')
 
+;(async function main() {
+  printConfiguration()
 
-(async function main() {
-    printConfiguration();
+  await rimraf(config.outputDirectory)
 
-    await rimraf(config.outputDirectory);
+  await fs.mkdir(config.outputDirectory)
 
-    await fs.mkdir(config.outputDirectory);
+  processModule('./resources', {
+    baseUrl: 'resources',
+  })
 
-    processModule('./resources', {
-        baseUrl: 'resources'
-    });
+  processModule('./series/refactoring', {
+    baseUrl: 'series',
+  })
 
-    processModule('./series/refactoring', {
-        baseUrl: 'series'
-    });
-
-    processModule('./landing', {
-        baseUrl: ''
-    });
-})();
+  processModule('./landing', {
+    baseUrl: '',
+  })
+})()
 
 function printConfiguration() {
-    console.log('>>> CONFIGURATION');
-    console.log(JSON.stringify(config, null, 2));
-    console.log('<<<');
+  console.log('>>> CONFIGURATION')
+  console.log(JSON.stringify(config, null, 2))
+  console.log('<<<')
 }
 
 async function processModule(modulePath, context) {
-    console.log(`Module: ${modulePath}`);
+  console.log(`Module: ${modulePath}`)
 
-    const moduleContext = makeModuleContext(context);
+  const moduleContext = makeModuleContext(context)
 
-    require(modulePath)(moduleContext);
-    
-    console.log(`Copy: ${moduleContext.copy.length}, Emit: ${moduleContext.emit.length}`);
+  require(modulePath)(moduleContext)
 
-    moduleContext.copy.forEach(async resource => await copyResource(resource));
-    moduleContext.emit.forEach(async resource => await emitResource(resource));
+  console.log(`Copy: ${moduleContext.copy.length}, Emit: ${moduleContext.emit.length}`)
 
-    console.log();
+  moduleContext.copy.forEach(async (resource) => await copyResource(resource))
+  moduleContext.emit.forEach(async (resource) => await emitResource(resource))
+
+  console.log()
 }
 
 async function emitResource(page) {
-    console.log(`  Emit: ${page.url}`);
+  console.log(`  Emit: ${page.url}`)
 
-    const path = `${config.outputDirectory}/${page.url}`;
+  const path = `${config.outputDirectory}/${page.url}`
 
-    const fragments = path.split('/');
+  const fragments = path.split('/')
 
-    fragments.pop();
+  fragments.pop()
 
-    await mkdirp(fragments.join('/'));
+  await mkdirp(fragments.join('/'))
 
-    await fs.writeFile(path, trimPre(page.content));
-};
+  await fs.writeFile(path, trimPre(page.content))
+}
 
 async function copyResource(resource) {
-    console.log(`  Copy: ${resource.source}\n     -> ${resource.destination}`);
+  console.log(`  Copy: ${resource.source}\n     -> ${resource.destination}`)
 
-    const path = `${config.outputDirectory}/${resource.destination}`;
+  const path = `${config.outputDirectory}/${resource.destination}`
 
-    const fragments = path.split('/');
+  const fragments = path.split('/')
 
-    fragments.pop();
+  fragments.pop()
 
-    await mkdirp(fragments.join('/'));
+  await mkdirp(fragments.join('/'))
 
-    await fs.copyFile(resource.source, path);
+  await fs.copyFile(resource.source, path)
 }
 
 function makeModuleContext(context) {
-    const base = {
-        transform(type, options) {
-            return transformers[type](options);
-        },
-        emit: [],
-        copy: []
-    };
+  const base = {
+    transform(type, options) {
+      return transformers[type](options)
+    },
+    emit: [],
+    copy: [],
+  }
 
-    return Object.assign(base, context, config);
+  return Object.assign(base, context, config)
 }

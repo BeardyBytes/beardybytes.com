@@ -1,8 +1,8 @@
-const { codeBlockWithNumbering, codeBlockWithoutNumbering } = require('../../common/cells/code');
-const diffBlock = require('../../common/cells/diff');
+const { codeBlockWithNumbering } = require('../../common/cells/code')
+const diffBlock = require('../../common/cells/diff')
 
 module.exports = function content() {
-    const code = codeBlockWithNumbering('cpp')`
+  const code = codeBlockWithNumbering('cpp')`
     //
     //  main.cpp
     //  hf-01-b-spline-prike
@@ -184,7 +184,7 @@ module.exports = function content() {
         return 0;
     }    
     `
-    const diff = diffBlock('cpp')`
+  const diff = diffBlock('cpp')`
 diff --git a/main.cpp b/main.cpp
 index c180659..6a07485 100644
 --- a/main.cpp
@@ -214,7 +214,8 @@ mat4 M = {
 {
     GLint i, s = sens * sens;
 `
-    return {
-        code, diff
-    };
-};
+  return {
+    code,
+    diff,
+  }
+}

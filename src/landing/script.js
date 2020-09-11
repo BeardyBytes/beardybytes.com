@@ -1,15 +1,10 @@
-const script = require('../common/script');
+const script = require('../common/script')
 
-const stuffs = [
-    'and I develop software.',
-    'and I write code.',
-    'and I know JavaScript.',
-    'and I know Java.'
-];
+const stuffs = ['and I develop software.', 'and I write code.', 'and I know JavaScript.', 'and I know Java.']
 
-const stuffsAsString = JSON.stringify(stuffs);
+const stuffsAsString = JSON.stringify(stuffs)
 
-const code =  () => `
+const code = () => `
 (function stuffIDoIIFE() {
     // The stuff can only be changed on every second animationiteration event, because the
     // alternating direction triggers the event even when the text has faded in.
@@ -45,4 +40,4 @@ const code =  () => `
 })();
 `
 
-module.exports = script(code, 'landing.js');
+module.exports = script(code, 'landing.js')

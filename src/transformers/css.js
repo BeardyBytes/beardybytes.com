@@ -1,9 +1,9 @@
-var CleanCSS = require('clean-css');
+var CleanCSS = require('clean-css')
 
 function transformer(options) {
-    return options.minify ? new CleanCSS().minify(options.code).styles : options.code;
-};
+  return options.minify ? new CleanCSS().minify(options.code).styles : options.code
+}
 
-transformer.type = 'css';
+transformer.type = 'css'
 
-module.exports = transformer;
+module.exports = transformer

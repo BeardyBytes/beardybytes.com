@@ -1,4 +1,4 @@
-const style = require('../common/style');
+const style = require('../common/style')
 
 const code = () => `
 html {
@@ -174,6 +174,6 @@ nav a:hover {
         font-size: 1.777em;
     }
 }
-`;
+`
 
-module.exports = style(code, 'landing.css');
+module.exports = style(code, 'landing.css')

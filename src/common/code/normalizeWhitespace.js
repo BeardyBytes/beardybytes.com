@@ -1,9 +1,9 @@
-const Prism = require('prismjs');
+const Prism = require('prismjs')
 
 const normalizeWhitespace = (function loadNormalizer() {
-    require('prismjs/plugins/normalize-whitespace/prism-normalize-whitespace');
+  require('prismjs/plugins/normalize-whitespace/prism-normalize-whitespace')
 
-    return Prism.plugins.NormalizeWhitespace;
-})();
+  return Prism.plugins.NormalizeWhitespace
+})()
 
-module.exports = code => normalizeWhitespace.normalize(code);
+module.exports = (code) => normalizeWhitespace.normalize(code)

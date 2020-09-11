@@ -1,4 +1,4 @@
 module.exports = {
-    countLines: require('./count-lines'),
-    highlight: require('./highlight')
-};
+  countLines: require('./count-lines'),
+  highlight: require('./highlight'),
+}

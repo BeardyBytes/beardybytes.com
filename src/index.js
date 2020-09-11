@@ -26,6 +26,10 @@ const config = require('./config')
     baseUrl: 'series',
   })
 
+  processModule('./university-of-debrecen/intro-to-compsci', {
+    baseUrl: 'university-of-debrecen/intro-to-compsci',
+  })
+
   processModule('./landing', {
     baseUrl: '',
   })

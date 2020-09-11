@@ -4,10 +4,16 @@
   "description": "The Beardy Bytes site.",
   "main": "src/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "watch": "nodemon --watch src",
     "build": "node src/index.js",
-    "serve": "http-server -c-1"
+    "lint": "eslint . --ext .js",
+    "lint:fix": "eslint . --ext .js --fix",
+    "serve": "http-server -c-1",
+    "watch": "nodemon --watch src"
+  },
+  "husky": {
+    "hooks": {
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
   },
   "repository": {
     "type": "git",
@@ -34,7 +40,15 @@
     "yargs": "16.0.3"
   },
   "devDependencies": {
+    "@commitlint/cli": "9.0.1",
+    "@commitlint/config-conventional": "9.0.1",
+    "eslint": "7.4.0",
+    "eslint-config-prettier": "6.11.0",
+    "eslint-plugin-node": "11.1.0",
+    "eslint-plugin-prettier": "3.1.4",
     "http-server": "0.12.3",
-    "nodemon": "2.0.4"
+    "husky": "4.2.5",
+    "nodemon": "2.0.4",
+    "prettier": "2.0.5"
   }
 }

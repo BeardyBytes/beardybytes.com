@@ -2,7 +2,7 @@ dependencies:
   clean-css: registry.npmjs.org/clean-css/4.2.3
   common-tags: registry.npmjs.org/common-tags/1.8.0
   convict: registry.npmjs.org/convict/6.0.0
-  diff2html: registry.npmjs.org/diff2html/3.1.13
+  diff2html: registry.npmjs.org/diff2html/2.5.0
   luxon: registry.npmjs.org/luxon/1.25.0
   mkdirp: registry.npmjs.org/mkdirp/1.0.4
   prismjs: registry.npmjs.org/prismjs/1.21.0
@@ -1167,31 +1167,31 @@ packages:
       registry: 'https://registry.npmjs.com/'
       tarball: 'https://registry.npmjs.org/delegate/-/delegate-3.2.0.tgz'
     version: 3.2.0
-  registry.npmjs.org/diff/4.0.2:
+  registry.npmjs.org/diff/3.5.0:
     dev: false
     engines:
       node: '>=0.3.1'
     name: diff
     resolution:
-      integrity: sha512-58lmxKSA4BNyLz+HHMUzlOEpg09FV+ev6ZMe3vJihgdxzgcwZ8VoEEPmALCZG9LmqfVoNMMKpttIYTVG6uDY7A==
+      integrity: sha512-A46qtFgd+g7pDZinpnwiRJtxbC1hpgf0uzP3iG89scHk0AUC7A1TGxf5OiiOUv/JMZR8GOt8hL900hV0bOy5xA==
       registry: 'https://registry.npmjs.com/'
-      tarball: 'https://registry.npmjs.org/diff/-/diff-4.0.2.tgz'
-    version: 4.0.2
-  registry.npmjs.org/diff2html/3.1.13:
+      tarball: 'https://registry.npmjs.org/diff/-/diff-3.5.0.tgz'
+    version: 3.5.0
+  registry.npmjs.org/diff2html/2.5.0:
     dependencies:
-      diff: registry.npmjs.org/diff/4.0.2
+      diff: registry.npmjs.org/diff/3.5.0
       hogan.js: registry.npmjs.org/hogan.js/3.0.2
+      lodash: registry.npmjs.org/lodash/4.17.20
+      whatwg-fetch: registry.npmjs.org/whatwg-fetch/3.4.1
     dev: false
     engines:
-      node: '>=10'
+      node: '>=4'
     name: diff2html
-    optionalDependencies:
-      highlight.js: registry.npmjs.org/highlight.js/10.1.2
     resolution:
-      integrity: sha512-Gs4NbtynANYqkPbbGqZN6zwWJq6JofAb5it76xnEUTpFjWJndaCCjFVUoD7yFjEPB36MtwTtT/ptWcKyD9Vw9g==
+      integrity: sha512-pnk3EpZyuQyUl7/45KrmZPYIQB/tL03xgijzzkxWqy/UAXyV5qjB+g7ce8mbdSs1G+lO4ykMgjy+7NVN4siS/A==
       registry: 'https://registry.npmjs.com/'
-      tarball: 'https://registry.npmjs.org/diff2html/-/diff2html-3.1.13.tgz'
-    version: 3.1.13
+      tarball: 'https://registry.npmjs.org/diff2html/-/diff2html-2.5.0.tgz'
+    version: 2.5.0
   registry.npmjs.org/doctrine/3.0.0:
     dependencies:
       esutils: registry.npmjs.org/esutils/2.0.3
@@ -1958,15 +1958,6 @@ packages:
       registry: 'https://registry.npmjs.com/'
       tarball: 'https://registry.npmjs.org/he/-/he-1.2.0.tgz'
     version: 1.2.0
-  registry.npmjs.org/highlight.js/10.1.2:
-    dev: false
-    name: highlight.js
-    optional: true
-    resolution:
-      integrity: sha512-Q39v/Mn5mfBlMff9r+zzA+gWxRsCRKwEMvYTiisLr/XUiFI/4puWt0Ojdko3R3JCNWGdOWaA5g/Yxqa23kC5AA==
-      registry: 'https://registry.npmjs.com/'
-      tarball: 'https://registry.npmjs.org/highlight.js/-/highlight.js-10.1.2.tgz'
-    version: 10.1.2
   registry.npmjs.org/hogan.js/3.0.2:
     dependencies:
       mkdirp: registry.npmjs.org/mkdirp/0.3.0
@@ -2560,7 +2551,6 @@ packages:
       tarball: 'https://registry.npmjs.org/lodash.templatesettings/-/lodash.templatesettings-4.2.0.tgz'
     version: 4.2.0
   registry.npmjs.org/lodash/4.17.20:
-    dev: true
     name: lodash
     resolution:
       integrity: sha512-PlhdFcillOINfeV7Ni6oF1TAEayyZBoZ8bcshTHqOYJYlrqzRK5hagpagky5o4HfCzzd1TRkXPMFq6cKk9rGmA==
@@ -4346,6 +4336,14 @@ packages:
       registry: 'https://registry.npmjs.com/'
       tarball: 'https://registry.npmjs.org/validate-npm-package-license/-/validate-npm-package-license-3.0.4.tgz'
     version: 3.0.4
+  registry.npmjs.org/whatwg-fetch/3.4.1:
+    dev: false
+    name: whatwg-fetch
+    resolution:
+      integrity: sha512-sofZVzE1wKwO+EYPbWfiwzaKovWiZXf4coEzjGP9b2GBVgQRLQUZ2QcuPpQExGDAW5GItpEm6Tl4OU5mywnAoQ==
+      registry: 'https://registry.npmjs.com/'
+      tarball: 'https://registry.npmjs.org/whatwg-fetch/-/whatwg-fetch-3.4.1.tgz'
+    version: 3.4.1
   registry.npmjs.org/which-pm-runs/1.0.0:
     dev: true
     name: which-pm-runs
@@ -4531,7 +4529,7 @@ specifiers:
   clean-css: 4.2.3
   common-tags: 1.8.0
   convict: 6.0.0
-  diff2html: 3.1.13
+  diff2html: 2.5.0
   eslint: 7.4.0
   eslint-config-prettier: 6.11.0
   eslint-plugin-node: 11.1.0

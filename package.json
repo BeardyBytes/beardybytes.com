@@ -23,18 +23,18 @@
     "clean-css": "4.2.3",
     "common-tags": "1.8.0",
     "convict": "6.0.0",
-    "diff2html": "2.12.2",
+    "diff2html": "3.1.13",
     "luxon": "1.25.0",
-    "mkdirp": "0.5.5",
+    "mkdirp": "1.0.4",
     "prismjs": "1.21.0",
-    "remarkable": "1.7.4",
-    "rimraf": "2.7.1",
-    "slug": "0.9.4",
+    "remarkable": "2.0.1",
+    "rimraf": "3.0.2",
+    "slug": "3.3.4",
     "uglify-es": "3.3.9",
     "yargs": "16.0.3"
   },
   "devDependencies": {
     "http-server": "0.12.3",
-    "nodemon": "1.19.4"
+    "nodemon": "2.0.4"
   }
 }

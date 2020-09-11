@@ -1,8 +1,9 @@
 const fs = require('fs').promises
 const util = require('util')
 
+const mkdirp = require('mkdirp')
+
 const rimraf = util.promisify(require('rimraf'))
-const mkdirp = util.promisify(require('mkdirp'))
 
 const trimPre = require('./common/post-process/trim-pre')
 

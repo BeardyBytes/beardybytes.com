@@ -1,0 +1,39 @@
+name: Build and Deploy
+
+on:
+    push:
+      branches: [ master ]
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout the Repository
+        uses: actions/checkout@v2
+        with:
+          persist-credentials: false
+
+      - name: Use Node.js
+        uses: actions/setup-node@v1
+        with:
+          node-version: 14
+
+      - name: Install pnpm
+        run: |
+          npm i pnpm -g
+
+      - name: Install Dependencies
+        run: |
+          pnpm install
+
+      - name: Lint
+        run: |
+          pnpm run lint
+
+      - name: Deploy to the public branch
+        uses: JamesIves/github-pages-deploy-action@3.5.9
+        with:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          BRANCH: public
+          FOLDER: public
+          CLEAN: true

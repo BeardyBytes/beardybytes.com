@@ -3,6 +3,17 @@ const { html } = require('common-tags')
 const POST_DATE_FORMAT = 'yyyy. LL. dd.'
 
 const elements = {
+  navigationInSeries(entry) {
+    return `
+    ${elements.previousInSeries(entry)}
+    <div class="cell series-cell">
+    Ez a bejegyzés <a href="index.html">${
+      entry.meta.series.title
+    }</a> sorozat része, mely az azonos nevű tárgyhoz kapcsolódó anyagokat tartalmaz.
+    </div>
+    ${elements.nextInSeries(entry)}
+    `
+  },
   previousInSeries(entry) {
     if (!entry.meta.previous) {
       return ''
@@ -111,15 +122,11 @@ const entryToHtml = (entry, context) => html`
           </div>
         </div>
         <div class="post-content">
-          ${elements.previousInSeries(entry)}
-          <div class="cell series-cell">
-          Ez a bejegyzés <a href="index.html">${
-            entry.meta.series.title
-          }</a> sorozat része, mely az azonos nevű tárgyhoz kapcsolódó anyagokat tartalmaz.
-          </div>
-          ${elements.nextInSeries(entry)}
+          ${elements.navigationInSeries(entry)}
 
           ${entry.content.cells.join('\n')}
+
+          ${elements.navigationInSeries(entry)}
         </div>
         ${elements.footer()}
       </div>

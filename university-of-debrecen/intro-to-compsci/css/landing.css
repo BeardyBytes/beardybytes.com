@@ -125,6 +125,10 @@ a.entry {
         font-size: 1.1rem;
     }
 
+    body {
+        background-size: 42%;
+    }
+
     .top-menu {
         height: 20vh;
     }

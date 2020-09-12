@@ -81,17 +81,12 @@ const entryToHtml = (entry, context) => html`
               <div>
                 <h2>${entry.meta.series.title}</h2>
                 <h1>${entry.content.title}</h1>
+                <div class="post-date">${entry.meta.publishedAt.toFormat(POST_DATE_FORMAT)}</div>
               </div>
             </div>
           </div>
         </div>
         <div class="post-content">
-        <!--<div class="cell title-cell">
-            <h1>${entry.meta.series.title}</h1>
-            <h2>${entry.content.title}</h2>
-            <div class="post-date">${entry.meta.publishedAt.toFormat(POST_DATE_FORMAT)}</div>
-          </div>-->
-
           <div class="cell series-cell">
           Ez a bejegyzés <a href="index.html">${
             entry.meta.series.title

@@ -34,6 +34,11 @@ module.exports = function refactoringSeries(context) {
     destination: `${context.baseUrl}/css/practice.css`,
   })
 
+  context.copy.push({
+    source: `${__dirname}/images/pattern.png`,
+    destination: `${context.baseUrl}/images/pattern.png`,
+  })
+
   entries
     .map((entry) => entry())
     .filter((entry) => !entry.meta.draft)

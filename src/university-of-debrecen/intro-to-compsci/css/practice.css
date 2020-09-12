@@ -18,6 +18,44 @@ p {
     margin-top: 0em;
 }
 
+.hero {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    height: 50vh;
+    background-image: url(../images/pattern.png);
+    background-size: 25%;
+    display: grid;
+    grid-template-columns: minmax(1.2rem, 1fr) minmax(0, 70ch) minmax(1.2rem, 1fr);
+    box-shadow: inset 0px -8px 15px 0px rgba(0,0,0,0.3);
+}
+
+.series-title {
+    grid-column: 2;
+    display: flex;
+    align-items: center;
+}
+
+.series-title > div {
+    padding: 1rem;
+    background-color: white;
+}
+
+.series-title h2 {
+    padding: 0rem;
+    margin: 0;
+    font-size: 1.4rem;
+    font-weight: bold;
+    font-variant: small-caps;
+    margin: 0;
+    max-width: 100%;
+}
+
+.series-title h1 {
+    padding: 0rem;
+    margin: 0;
+}
+
 .post-content {
     display: grid;
     grid-template-columns: minmax(1.2rem, 1fr) minmax(0, 70ch) minmax(1.2rem, 1fr);

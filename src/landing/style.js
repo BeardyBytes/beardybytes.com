@@ -22,8 +22,8 @@ body {
 .stripes {
     background: repeating-linear-gradient(
         -45deg,
-        #23407a 10px,
-        #23407a 30px,
+        #bacaeb 10px,
+        #bacaeb 30px,
         white 30px,
         white 50px,
         #ce0404 50px,

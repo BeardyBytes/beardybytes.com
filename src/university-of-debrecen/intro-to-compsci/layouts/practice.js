@@ -68,13 +68,20 @@ const entryToHtml = (entry, context) => html`
     <body>
       <div class="site">
         ${elements.header()}
+        <div class="hero">
+          <div class="series-title">
+            <div>
+              <h2>${entry.meta.series.title}</h1>
+              <h1>${entry.content.title}</h2>
+            </div>
+          </div>
+        </div>
         <div class="post-content">
-          <div class="cell title-cell">
-            <h1>${entry.meta.series.title}</h1>
+        <!--<div class="cell title-cell">
+            <h1>${entry.meta.series.title}</h1
             <h2>${entry.content.title}</h2>
             <div class="post-date">${entry.meta.publishedAt.toFormat(POST_DATE_FORMAT)}</div>
-          </div>
-          <!-- Insert title and date -->
+          </div>-->
 
           ${entry.content.cells.join('\n')}
 

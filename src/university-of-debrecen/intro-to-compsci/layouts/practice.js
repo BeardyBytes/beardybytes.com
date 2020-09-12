@@ -23,6 +23,8 @@ const elements = {
 
       <meta property="og:image:height" content="1274" />
       <meta property="og:image:width" content="849" />
+      <meta property="og:site_name" content="Beardy Bytes" />
+      <meta property="og:locale" content="hu_HU" />
       <meta property="og:title" content="${title}" />
       <meta property="og:description" content="${description}" />
       <meta property="og:url" content="${url}" />

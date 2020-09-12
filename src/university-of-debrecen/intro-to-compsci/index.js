@@ -40,7 +40,6 @@ module.exports = function refactoringSeries(context) {
   })
 
   entries
-    .map((entry) => entry())
     .filter((entry) => !entry.meta.draft)
     .map(augmentWithSeriesData.bind(null, series))
     .map(augmentWithUrl.bind(null, series))

@@ -38,4 +38,7 @@ const content = {
   cells,
 }
 
-module.exports = () => ({ meta, content })
+module.exports = {
+  meta,
+  content,
+}

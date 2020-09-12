@@ -22,16 +22,8 @@ const config = require('./config')
     baseUrl: 'resources',
   })
 
-  processModule('./series/refactoring', {
-    baseUrl: 'series',
-  })
-
   processModule('./university-of-debrecen/intro-to-compsci', {
     baseUrl: 'university-of-debrecen/intro-to-compsci',
-  })
-
-  processModule('./landing', {
-    baseUrl: '',
   })
 })()
 

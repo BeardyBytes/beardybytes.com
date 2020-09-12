@@ -8,7 +8,13 @@ Sok-sok munka árán végre elkészült a layout, ami majd a refaktorálással k
 `,
   section.cell`Szövegtörzs`,
   md.cell`
-**Markdown** segítségével formázott paragrafusok hatezerrel.
+**Markdown** segítségével formázott paragrafusok hatezerrel. $1 + 1$
+
+$$
+\\begin{aligned}
+ x = y
+\\end{aligned}
+$$
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus elementum lectus orci, sed iaculis est pulvinar tempus. Suspendisse potenti. Praesent gravida iaculis eleifend. 
 
@@ -22,12 +28,12 @@ const meta = {
   order: 1,
   layout: 'practice',
   urlTitle: 'hello-world',
-  publishedAt: DateTime.local(),
+  publishedAt: DateTime.local(2020, 9, 12, 18, 20),
   draft: false,
 }
 
 const content = {
-  title: 'Hello, World!',
+  title: '1. gyakorlat – Halmazok, nyelvek',
   excerpt: 'A short description of the post',
   cells,
 }

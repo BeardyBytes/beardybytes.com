@@ -1,6 +1,6 @@
 const { html } = require('common-tags')
 
-const POST_DATE_FORMAT = 'LLLL dd, y'
+const POST_DATE_FORMAT = 'yyyy. LL. dd.'
 
 const elements = {
   head({ title, description, url }) {
@@ -36,7 +36,7 @@ const elements = {
       />
 
       <link rel="stylesheet" href="/resources/css/normalize.css" />
-      <link rel="stylesheet" href="/resources/css/main.css" />
+      <link rel="stylesheet" href="css/practice.css" />
 
       <link
         rel="stylesheet"
@@ -72,7 +72,7 @@ const entryToHtml = (entry, context) => html`
           <div class="cell title-cell">
             <h1>${entry.meta.series.title}</h1>
             <h2>${entry.content.title}</h2>
-            <div class="post-date">Posted at ${entry.meta.publishedAt.toFormat(POST_DATE_FORMAT)}.</div>
+            <div class="post-date">${entry.meta.publishedAt.toFormat(POST_DATE_FORMAT)}</div>
           </div>
           <!-- Insert title and date -->
 

@@ -2,7 +2,7 @@ const entries = require('./entries')
 const layouts = require('./layouts')
 
 const seriesData = {
-  title: 'Refactoring Series',
+  title: 'Az informatika számítástudományi alapjai',
 }
 
 function augmentWithSeriesData(series, entry) {
@@ -28,6 +28,11 @@ function augmentWithPrevAndNext(entry, index, entries) {
 
 module.exports = function refactoringSeries(context) {
   const series = Object.assign({}, seriesData, { baseUrl: context.baseUrl })
+
+  context.copy.push({
+    source: `${__dirname}/css/practice.css`,
+    destination: `${context.baseUrl}/css/practice.css`,
+  })
 
   entries
     .map((entry) => entry())

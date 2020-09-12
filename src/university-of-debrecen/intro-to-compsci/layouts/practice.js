@@ -9,9 +9,9 @@ const elements = {
     }
 
     return `
-    <a href="${entry.meta.next.meta.urlTitle}.html" class="in-series-previous">
+    <a href="${entry.meta.previous.meta.urlTitle}.html" class="in-series-previous">
       <div class="note">Előző bejegyzés</div>
-      <div class="title">${entry.meta.next.content.title}</div>
+      <div class="title">${entry.meta.previous.content.title}</div>
     </a>
     `
   },

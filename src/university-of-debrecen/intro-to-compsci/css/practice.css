@@ -92,13 +92,14 @@ p {
 }
 
 .series-cell {
-    font-size: 0.75rem;
+    font-size: 0.85rem;
     font-style: italic;
 }
 
 .series-cell > a {
     text-decoration: none;
-    color: #23407a
+    font-weight: bolder;
+    color: #23407a;
 }
 
 .title-cell > h2 {

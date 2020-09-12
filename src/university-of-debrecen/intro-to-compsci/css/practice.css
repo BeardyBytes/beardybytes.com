@@ -22,37 +22,53 @@ p {
     width: 100%;
     margin: 0;
     padding: 0;
-    height: 50vh;
+    height: 60vh;
     background-image: url(../images/pattern.png);
     background-size: 25%;
     display: grid;
     grid-template-columns: minmax(1.2rem, 1fr) minmax(0, 70ch) minmax(1.2rem, 1fr);
-    box-shadow: inset 0px -8px 15px 0px rgba(0,0,0,0.3);
+    box-shadow: inset 0px -4px 10px 0px rgba(0,0,0,0.2);
 }
 
-.series-title {
+.hero-content {
     grid-column: 2;
+    height: 100%;
+}
+
+.logo-block {
+    height: 80%;
+}
+
+.logo-block > img, .logo-block > svg {
+    height: 100%;
+}
+
+.top-menu {
     display: flex;
+    height: 40%;
+    justify-content: center;
     align-items: center;
 }
 
-.series-title > div {
-    padding: 1rem;
-    background-color: white;
+.post-title {
+    height: 60%;
 }
 
-.series-title h2 {
-    padding: 0rem;
+.post-title > div {
+    padding-top: 2rem;
+}
+
+.post-title h2 {
+    padding: 0;
     margin: 0;
     font-size: 1.4rem;
     font-weight: bold;
     font-variant: small-caps;
-    margin: 0;
     max-width: 100%;
 }
 
-.series-title h1 {
-    padding: 0rem;
+.post-title h1 {
+    padding: 0;
     margin: 0;
 }
 
@@ -122,7 +138,7 @@ p {
     margin: 0;
 }
 
-@media (min-width: 801px) {
+@media (min-width: 601px) {
     .two-column-cell > .left {
         float: left;
         width: 37%;
@@ -145,7 +161,7 @@ p {
     }
 }
 
-@media (max-width: 800px) {
+@media (max-width: 600px) {
     .two-column-cell > .left,
     .two-column-cell > .right {
         width: 100%;
@@ -153,5 +169,35 @@ p {
     
     .two-column-cell > .clear {
         display: none;
+    }
+}
+
+@media (max-width: 600px) {
+    html {
+        font-size: 1.1rem;
+    }
+
+    .hero {
+        background-size: 50%;
+    }
+    
+    .top-menu {
+        height: 30%;
+    }
+    
+    .post-title {
+        height: 70%;
+    }
+    
+    .post-title > div {
+        padding-top: 2rem;
+    }
+    
+    .post-title h2 {
+        font-size: 1.25rem;
+    }
+    
+    .post-title h1 {
+        font-size: 1.75rem;
     }
 }

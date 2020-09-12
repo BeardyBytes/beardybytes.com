@@ -67,18 +67,25 @@ const entryToHtml = (entry, context) => html`
 
     <body>
       <div class="site">
-        ${elements.header()}
         <div class="hero">
-          <div class="series-title">
-            <div>
-              <h2>${entry.meta.series.title}</h1>
-              <h1>${entry.content.title}</h2>
+          <div class="hero-content">
+            <div class="top-menu">
+              <div class="logo-block">
+                ${require('../../../common/logo')(context, { variant: 'text', inlineSVG: true, optimizeSVG: true })}
+              </div>
+              </a>
+            </div>
+            <div class="post-title">
+              <div>
+                <h2>${entry.meta.series.title}</h2>
+                <h1>${entry.content.title}</h1>
+              </div>
             </div>
           </div>
         </div>
         <div class="post-content">
         <!--<div class="cell title-cell">
-            <h1>${entry.meta.series.title}</h1
+            <h1>${entry.meta.series.title}</h1>
             <h2>${entry.content.title}</h2>
             <div class="post-date">${entry.meta.publishedAt.toFormat(POST_DATE_FORMAT)}</div>
           </div>-->

@@ -87,8 +87,8 @@ Házi feladatként szerepelt továbbá a feladatsort záró két feladat, az 1.3
 const meta = {
   order: 1,
   layout: 'practice',
-  urlTitle: 'hello-world',
-  publishedAt: DateTime.local(2020, 9, 12, 18, 20),
+  urlTitle: '01-gyakorlat-halmazok-nyelvek',
+  publishedAt: DateTime.local(2020, 9, 13, 2, 20),
   draft: false,
 }
 

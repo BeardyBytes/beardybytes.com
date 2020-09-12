@@ -118,8 +118,8 @@ p {
 .series-cell {
     margin: 0;
     padding: 0.777em 0em;
-    padding-bottom: 2rem;
     font-size: 0.85rem;
+    grid-row: 1;
 }
 
 .series-cell > a {
@@ -212,6 +212,25 @@ p {
     .two-column-cell > .clear {
         display: none;
     }
+}
+
+@media (max-width: 600px) {
+  .in-series-previous, .in-series-next {
+    padding-left: 0;
+    grid-column: 2;
+  }
+
+  .in-series-previous {
+    grid-row: 2;
+  }
+
+  .in-series-next {
+    grid-row: 3;
+  }
+
+  div.in-series-previous, div.in-series-next {
+    padding: 0
+  }
 }
 
 @media (max-width: 600px) {

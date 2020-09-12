@@ -16,7 +16,7 @@ const elements = {
   },
   previousInSeries(entry) {
     if (!entry.meta.previous) {
-      return ''
+      return '<div class="in-series-previous"></div>'
     }
 
     return `
@@ -28,7 +28,7 @@ const elements = {
   },
   nextInSeries(entry) {
     if (!entry.meta.next) {
-      return ''
+      return '<div class="in-series-next"></div>'
     }
 
     return `

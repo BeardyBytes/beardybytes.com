@@ -3,6 +3,7 @@ dependencies:
   common-tags: registry.npmjs.org/common-tags/1.8.0
   convict: registry.npmjs.org/convict/6.0.0
   diff2html: registry.npmjs.org/diff2html/2.5.0
+  katex: registry.npmjs.org/katex/0.12.0
   luxon: registry.npmjs.org/luxon/1.25.0
   mkdirp: registry.npmjs.org/mkdirp/1.0.4
   prismjs: registry.npmjs.org/prismjs/1.21.0
@@ -856,6 +857,14 @@ packages:
       registry: 'https://registry.npmjs.com/'
       tarball: 'https://registry.npmjs.org/commander/-/commander-2.13.0.tgz'
     version: 2.13.0
+  registry.npmjs.org/commander/2.20.3:
+    dev: false
+    name: commander
+    resolution:
+      integrity: sha512-GpVkmM8vF2vQUkj2LvZmD35JxeJOLCwJ9cUkugyk2nuhbv3+mJvpLYYt+0+USMxE+oj+ey/lJEnhZw75x/OMcQ==
+      registry: 'https://registry.npmjs.com/'
+      tarball: 'https://registry.npmjs.org/commander/-/commander-2.20.3.tgz'
+    version: 2.20.3
   registry.npmjs.org/common-tags/1.8.0:
     dev: false
     engines:
@@ -2420,6 +2429,17 @@ packages:
       registry: 'https://registry.npmjs.com/'
       tarball: 'https://registry.npmjs.org/jsonparse/-/jsonparse-1.3.1.tgz'
     version: 1.3.1
+  registry.npmjs.org/katex/0.12.0:
+    dependencies:
+      commander: registry.npmjs.org/commander/2.20.3
+    dev: false
+    hasBin: true
+    name: katex
+    resolution:
+      integrity: sha512-y+8btoc/CK70XqcHqjxiGWBOeIL8upbS0peTPXTvgrh21n1RiWWcIpSWM+4uXq+IAgNh9YYQWdc7LVDPDAEEAg==
+      registry: 'https://registry.npmjs.com/'
+      tarball: 'https://registry.npmjs.org/katex/-/katex-0.12.0.tgz'
+    version: 0.12.0
   registry.npmjs.org/keyv/3.1.0:
     dependencies:
       json-buffer: registry.npmjs.org/json-buffer/3.0.0
@@ -4536,6 +4556,7 @@ specifiers:
   eslint-plugin-prettier: 3.1.4
   http-server: 0.12.3
   husky: 4.2.5
+  katex: 0.12.0
   luxon: 1.25.0
   mkdirp: 1.0.4
   nodemon: 2.0.4

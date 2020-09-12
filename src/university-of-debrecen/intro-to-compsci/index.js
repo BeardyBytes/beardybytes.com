@@ -29,15 +29,20 @@ function augmentWithPrevAndNext(entry, index, entries) {
 module.exports = function refactoringSeries(context) {
   const series = Object.assign({}, seriesData, { baseUrl: context.baseUrl })
 
-  context.copy.push({
-    source: `${__dirname}/css/practice.css`,
-    destination: `${context.baseUrl}/css/practice.css`,
-  })
-
-  context.copy.push({
-    source: `${__dirname}/images/pattern.webp`,
-    destination: `${context.baseUrl}/images/pattern.webp`,
-  })
+  ;[
+    {
+      source: `${__dirname}/css/practice.css`,
+      destination: `${context.baseUrl}/css/practice.css`,
+    },
+    {
+      source: `${__dirname}/images/pattern.webp`,
+      destination: `${context.baseUrl}/images/pattern.webp`,
+    },
+    {
+      source: `${__dirname}/files/01-halmazok-nyelvek-feladatsor.pdf`,
+      destination: `${context.baseUrl}/files/01-halmazok-nyelvek-feladatsor.pdf`,
+    },
+  ].forEach((o) => context.copy.push(o))
 
   entries
     .filter((entry) => !entry.meta.draft)

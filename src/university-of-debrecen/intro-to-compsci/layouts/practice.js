@@ -32,7 +32,7 @@ const elements = {
 
       <link
         rel="stylesheet"
-        href="https://fonts.googleapis.com/css?family=IBM+Plex+Mono|IBM+Plex+Sans|IBM+Plex+Serif"
+        href="https://fonts.googleapis.com/css?family=IBM+Plex+Mono|IBM+Plex+Sans|IBM+Plex+Serif&display=swap"
       />
 
       <link rel="stylesheet" href="/resources/css/normalize.css" />

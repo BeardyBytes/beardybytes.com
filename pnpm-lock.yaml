@@ -8,6 +8,7 @@ dependencies:
   mkdirp: registry.npmjs.org/mkdirp/1.0.4
   prismjs: registry.npmjs.org/prismjs/1.21.0
   remarkable: registry.npmjs.org/remarkable/2.0.1
+  remarkable-katex: registry.npmjs.org/remarkable-katex/1.1.6
   rimraf: registry.npmjs.org/rimraf/3.0.2
   slug: registry.npmjs.org/slug/3.3.4
   uglify-es: registry.npmjs.org/uglify-es/3.3.9
@@ -3541,6 +3542,14 @@ packages:
       registry: 'https://registry.npmjs.com/'
       tarball: 'https://registry.npmjs.org/registry-url/-/registry-url-5.1.0.tgz'
     version: 5.1.0
+  registry.npmjs.org/remarkable-katex/1.1.6:
+    dev: false
+    name: remarkable-katex
+    resolution:
+      integrity: sha512-7wIhgPK64gBQRp44sZI3arY5plo7zd8NJ50kVvHh7XsJlQ8RBdWDrvmqj21lNCd9Oi6hJZGmIunfLky5hFErHA==
+      registry: 'https://registry.npmjs.com/'
+      tarball: 'https://registry.npmjs.org/remarkable-katex/-/remarkable-katex-1.1.6.tgz'
+    version: 1.1.6
   registry.npmjs.org/remarkable/2.0.1:
     dependencies:
       argparse: registry.npmjs.org/argparse/1.0.10
@@ -4563,6 +4572,7 @@ specifiers:
   prettier: 2.0.5
   prismjs: 1.21.0
   remarkable: 2.0.1
+  remarkable-katex: 1.1.6
   rimraf: 3.0.2
   slug: 3.3.4
   uglify-es: 3.3.9

@@ -73,7 +73,6 @@ p {
 }
 
 .post-title .post-date {
-    /*font-family: 'IBM Plex Serif', serif;*/
     font-weight: bolder;
     font-size: 0.8rem;
 }
@@ -91,9 +90,36 @@ p {
     margin: 0.777em 0em;
 }
 
+.in-series-previous, .in-series-next {
+  padding: 0.777em 0em;
+  text-decoration: none;
+  color: black;
+}
+
+.in-series-previous {
+  grid-column: 1;
+  padding-left: 10%;
+}
+
+.in-series-next {
+  grid-column: 3;
+  padding-right: 10%;
+}
+
+.in-series-previous .note, .in-series-next .note {
+  font-variant: small-caps;
+  font-size: 0.75rem;
+}
+
+.in-series-previous .title, .in-series-next .title {
+  font-size: 0.85rem;
+}
+
 .series-cell {
+    margin: 0;
+    padding: 0.777em 0em;
+    padding-bottom: 2rem;
     font-size: 0.85rem;
-    font-style: italic;
 }
 
 .series-cell > a {

@@ -1,0 +1,139 @@
+html {
+    font-size: 1.33rem;
+    line-height: 1.5;
+    background-color: #ffffff;
+    color: #0a0908;
+    min-height: 100vh;
+}
+
+body {
+    font-family: 'IBM Plex Sans', sans-serif;
+    margin: 0;
+    min-height: 100vh;
+    background-image: url(../images/pattern.webp);
+    background-size: 25%;
+}
+
+.site {
+    height: 100%;
+    
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'IBM Plex Serif', serif;
+}
+
+p {
+    margin-top: 0em;
+}
+
+a {
+  text-decoration: none;
+  color: #2327aa;
+}
+
+.site {
+    height: 100%;
+    display: grid;
+    grid-template-columns: minmax(1.2rem, 1fr) minmax(0, 70ch) minmax(1.2rem, 1fr);
+    padding-bottom: 1rem;
+}
+
+.site > * {
+    grid-column: 2;
+}
+
+.logo-block {
+    height: 80%;
+}
+
+.logo-block > img, .logo-block > svg {
+    height: 100%;
+}
+
+.top-menu {
+    display: flex;
+    height: 24vh;
+    justify-content: center;
+    align-items: center;
+}
+
+.post-title {
+    height: 60%;
+}
+
+.post-title > div {
+    padding-top: 2rem;
+}
+
+.post-title h2 {
+    padding: 0;
+    margin: 0;
+    font-size: 1.2rem;
+    font-weight: bold;
+    font-variant: small-caps;
+    max-width: 100%;
+}
+
+.post-title h1 {
+    padding: 0;
+    margin: 0;
+    font-size: 1.4rem;
+}
+
+.post-title .post-date {
+    font-size: 0.8rem;
+}
+
+a.entry {
+    text-decoration: none;
+    color: black;
+}
+
+.entry {
+    background-color: white;
+    width: 100%;
+    box-shadow: 2px 2px 10px 0px rgba(0,0,0,0.3);
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 0.88rem;
+    margin-top: 1rem;
+}
+
+.entry-date {
+    white-space: nowrap;
+    padding-right: 0.88rem;
+}
+
+.entry-content {
+    padding-left: 0.88rem;
+    border-left: 1px solid #2327aa;
+}
+
+.entry-title {
+    font-variant: small-caps;
+    padding-bottom: 0.25rem;
+}
+
+.entry-excerpt {
+    font-size: 0.8rem;
+}
+
+@media (max-width: 600px) {
+    html {
+        font-size: 1.1rem;
+    }
+
+    .top-menu {
+        height: 20vh;
+    }
+    
+    .post-title > div {
+        padding-top: 1rem;
+    }
+
+    .entry {
+        width: 90%;
+    }
+}

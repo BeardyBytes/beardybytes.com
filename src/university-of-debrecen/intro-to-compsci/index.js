@@ -35,8 +35,8 @@ module.exports = function refactoringSeries(context) {
   })
 
   context.copy.push({
-    source: `${__dirname}/images/pattern.png`,
-    destination: `${context.baseUrl}/images/pattern.png`,
+    source: `${__dirname}/images/pattern.webp`,
+    destination: `${context.baseUrl}/images/pattern.webp`,
   })
 
   entries

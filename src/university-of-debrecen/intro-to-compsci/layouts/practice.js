@@ -92,6 +92,12 @@ const entryToHtml = (entry, context) => html`
             <div class="post-date">${entry.meta.publishedAt.toFormat(POST_DATE_FORMAT)}</div>
           </div>-->
 
+          <div class="cell series-cell">
+          Ez a bejegyzés <a href="index.html">${
+            entry.meta.series.title
+          }</a> sorozat része, mely az azonos nevű tárgyhoz kapcsolódó anyagokat tartalmaz.
+          </div>
+
           ${entry.content.cells.join('\n')}
 
           <!-- Insert previous and next -->

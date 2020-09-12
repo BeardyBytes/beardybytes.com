@@ -85,6 +85,15 @@ p {
     margin: 0.777em 0em;
 }
 
+.series-cell {
+    font-size: 0.75rem;
+    font-style: italic;
+}
+
+.series-cell > a {
+    text-decoration: none;
+    color: #23407a
+}
 
 .title-cell > h2 {
     margin-bottom: 0.2em;

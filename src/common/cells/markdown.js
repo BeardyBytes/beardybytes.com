@@ -1,9 +1,12 @@
 const { html } = require('common-tags')
 const { Remarkable } = require('remarkable')
+const remarkableKatexPlugin = require('remarkable-katex')
 
 const remarkableOptions = {}
 
 const renderer = new Remarkable(remarkableOptions)
+
+renderer.use(remarkableKatexPlugin)
 
 const md = function md(fragments, ...interpolations) {
   const text = interpolations.reduce((acc, curr, index) => acc + curr + fragments[index + 1], fragments[0])

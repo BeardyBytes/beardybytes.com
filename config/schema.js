@@ -45,4 +45,9 @@ module.exports = {
     format: String,
     default: 'resources/css/',
   },
+  siteBaseUrl: {
+    doc: 'The base URL of the site.',
+    format: String,
+    default: 'https://beardybytes.com'
+  }
 }

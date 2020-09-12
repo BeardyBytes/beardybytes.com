@@ -1,4 +1,5 @@
 const entries = require('./entries')
+const landing = require('./landing')
 const layouts = require('./layouts')
 
 const seriesData = {
@@ -35,6 +36,10 @@ module.exports = function refactoringSeries(context) {
       destination: `${context.baseUrl}/css/practice.css`,
     },
     {
+      source: `${__dirname}/css/landing.css`,
+      destination: `${context.baseUrl}/css/landing.css`,
+    },
+    {
       source: `${__dirname}/images/pattern.webp`,
       destination: `${context.baseUrl}/images/pattern.webp`,
     },
@@ -44,12 +49,18 @@ module.exports = function refactoringSeries(context) {
     },
   ].forEach((o) => context.copy.push(o))
 
-  entries
+  const actualEntries = entries
     .filter((entry) => !entry.meta.draft)
     .map(augmentWithSeriesData.bind(null, series))
     .map(augmentWithUrl.bind(null, series))
     .map(augmentWithPrevAndNext)
     .filter((entry) => entry.meta.layout in layouts)
+
+  const contextWithEntries = Object.assign({}, context, { entries: actualEntries })
+
+  context.emit.push(landing(contextWithEntries))
+
+  actualEntries
     .map((entry) => layouts[entry.meta.layout].process(entry, context))
     .forEach(({ emit, copy }) => {
       context.emit.push(...(emit || []))

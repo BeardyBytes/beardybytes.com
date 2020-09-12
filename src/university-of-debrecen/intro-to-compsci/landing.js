@@ -1,6 +1,9 @@
 const { html } = require('common-tags')
 
-const POST_DATE_FORMAT = 'yyyy. LL. dd.'
+const POST_DATE_FORMAT = 'LL. dd.'
+
+const TITLE = 'Az informatika számítástudományi alapjai'
+const DESCRIPTION = 'A DE Informatikai Karán Bagossy Attila által tartott gyakorlatok anyagai.'
 
 const elements = {
   navigationInSeries(entry) {
@@ -38,16 +41,16 @@ const elements = {
     </a>
     `
   },
-  head({ title, description, url }) {
+  head({ url }) {
     return html`
       <meta charset="utf-8" />
       <meta http-equiv="x-ua-compatible" content="ie=edge" />
 
-      <title>${title}</title>
+      <title>${TITLE}</title>
 
       <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-      <meta name="description" content="${description}" />
+      <meta name="description" content="${DESCRIPTION}" />
 
       <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
       <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
@@ -60,8 +63,8 @@ const elements = {
       <meta property="og:image:width" content="849" />
       <meta property="og:site_name" content="Beardy Bytes" />
       <meta property="og:locale" content="hu_HU" />
-      <meta property="og:title" content="${title}" />
-      <meta property="og:description" content="${description}" />
+      <meta property="og:title" content="${TITLE}" />
+      <meta property="og:description" content="${DESCRIPTION}" />
       <meta property="og:url" content="${url}" />
       <meta property="og:image" content="https://beardybytes.com/og-image.jpg" />
 
@@ -71,74 +74,59 @@ const elements = {
       />
 
       <link rel="stylesheet" href="/resources/css/normalize.css" />
-      <link rel="stylesheet" href="css/practice.css" />
-
-      <link
-        rel="stylesheet"
-        href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css"
-        integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X"
-        crossorigin="anonymous"
-      />
+      <link rel="stylesheet" href="css/landing.css" />
     `
-  },
-  header() {
-    return html` <div class="top-menu"></div> `
-  },
-  footer() {
-    return html``
   },
 }
 
-const entryToHtml = (entry, context) => html`
+function entryToItem(entry) {
+  return html`
+    <a href="${entry.meta.urlTitle}.html" class="entry">
+      <div class="entry-date">
+        ${entry.meta.publishedAt.toFormat(POST_DATE_FORMAT)}
+      </div>
+      <div class="entry-content">
+        <div class="entry-title">
+          ${entry.content.title}
+        </div>
+        <div class="entry-excerpt">
+          ${entry.content.excerpt}
+        </div>
+      </div>
+    </a>
+  `
+}
+
+const landingToHtml = (context) => html`
   <!DOCTYPE html>
   <html>
     <head>
       ${elements.head({
-        title: `${entry.meta.series.title} – ${entry.content.title}`,
-        description: entry.content.excerpt,
-        url: `${context.siteBaseUrl}/${entry.meta.url}.html`,
+        url: `${context.siteBaseUrl}/${context.baseUrl}/index.html`,
       })}
     </head>
 
     <body>
       <div class="site">
-        <div class="hero">
-          <div class="hero-content">
-            <div class="top-menu">
-              <div class="logo-block">
-                ${require('../../../common/logo')(context, { variant: 'text', inlineSVG: true, optimizeSVG: true })}
-              </div>
-            </div>
-            <div class="post-title">
-              <div>
-                <h2>${entry.meta.series.title}</h2>
-                <h1>${entry.content.title}</h1>
-                <div class="post-date">${entry.meta.publishedAt.toFormat(POST_DATE_FORMAT)}</div>
-              </div>
-            </div>
+        <div class="top-menu">
+          <div class="logo-block">
+            ${require('../../common/logo')(context, { variant: 'text', inlineSVG: true, optimizeSVG: true })}
           </div>
         </div>
-        <div class="post-content">
-          ${elements.navigationInSeries(entry)} ${entry.content.cells.join('\n')} ${elements.navigationInSeries(entry)}
+        <div class="post-title">
+          <div>
+            <h2>DE Informatikai Kar, 2020/2021/1</h2>
+            <h1>Az informatika számítástudományi alapjai</h1>
+            <div class="post-date">Szerda 8-10, 10-12</div>
+          </div>
         </div>
-        ${elements.footer()}
+        ${context.entries.map(entryToItem).join('\n')}
       </div>
-
-      <script type="text/javascript" src="/resources/script/refactoring-posts.js"></script>
     </body>
   </html>
 `
 
-const process = (entry, context) => ({
-  emit: [
-    {
-      url: `${entry.meta.url}.html`,
-      content: entryToHtml(entry, context),
-    },
-  ],
+module.exports = (context) => ({
+  url: `${context.baseUrl}/index.html`,
+  content: landingToHtml(context),
 })
-
-module.exports = {
-  name: 'practice',
-  process,
-}

@@ -12,7 +12,7 @@ const elements = {
 
       <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-      <meta name="description" content="${description}">
+      <meta name="description" content="${description}" />
 
       <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
       <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
@@ -51,10 +51,10 @@ const entryToHtml = (entry, context) => html`
   <!DOCTYPE html>
   <html>
     <head>
-      ${elements.head({ 
+      ${elements.head({
         title: `${entry.meta.series.title} – ${entry.content.title}`,
         description: entry.content.excerpt,
-        url: `${context.siteBaseUrl}/${entry.meta.url}.html`
+        url: `${context.siteBaseUrl}/${entry.meta.url}.html`,
       })}
     </head>
 

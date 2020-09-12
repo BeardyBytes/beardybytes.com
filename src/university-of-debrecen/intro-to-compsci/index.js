@@ -36,7 +36,7 @@ module.exports = function refactoringSeries(context) {
     .map(augmentWithUrl.bind(null, series))
     .map(augmentWithPrevAndNext)
     .filter((entry) => entry.meta.layout in layouts)
-    .map((entry) => layouts[entry.meta.layout].process(entry))
+    .map((entry) => layouts[entry.meta.layout].process(entry, context))
     .forEach(({ emit, copy }) => {
       context.emit.push(...(emit || []))
       context.copy.push(...(copy || []))

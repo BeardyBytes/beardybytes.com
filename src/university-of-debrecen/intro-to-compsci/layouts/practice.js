@@ -3,7 +3,7 @@ const { html } = require('common-tags')
 const POST_DATE_FORMAT = 'LLLL dd, y'
 
 const elements = {
-  head({ title }) {
+  head({ title, description, url }) {
     return html`
       <meta charset="utf-8" />
       <meta http-equiv="x-ua-compatible" content="ie=edge" />
@@ -11,6 +11,22 @@ const elements = {
       <title>${title}</title>
 
       <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+      <meta name="description" content="${description}">
+
+      <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+      <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+      <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+      <link rel="manifest" href="/site.webmanifest" />
+      <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#23407a" />
+      <meta name="theme-color" content="#ffffff" />
+
+      <meta property="og:image:height" content="1274" />
+      <meta property="og:image:width" content="849" />
+      <meta property="og:title" content="${title}" />
+      <meta property="og:description" content="${description}" />
+      <meta property="og:url" content="${url}" />
+      <meta property="og:image" content="https://beardybytes.com/og-image.jpg" />
 
       <link
         rel="stylesheet"
@@ -29,11 +45,15 @@ const elements = {
   },
 }
 
-const entryToHtml = (entry) => html`
+const entryToHtml = (entry, context) => html`
   <!DOCTYPE html>
   <html>
     <head>
-      ${elements.head({ title: entry.content.title })}
+      ${elements.head({ 
+        title: `${entry.meta.series.title} – ${entry.content.title}`,
+        description: entry.content.excerpt,
+        url: `${context.siteBaseUrl}/${entry.meta.url}.html`
+      })}
     </head>
 
     <body>
@@ -59,11 +79,11 @@ const entryToHtml = (entry) => html`
   </html>
 `
 
-const process = (entry) => ({
+const process = (entry, context) => ({
   emit: [
     {
       url: `${entry.meta.url}.html`,
-      content: entryToHtml(entry),
+      content: entryToHtml(entry, context),
     },
   ],
 })

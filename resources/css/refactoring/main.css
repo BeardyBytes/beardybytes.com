@@ -1,0 +1,275 @@
+html {
+    background-color: #ffffff;
+    color: #0a0908;
+}
+
+body {
+    font-family: 'IBM Plex Sans', sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'IBM Plex Serif', serif;
+}
+
+p {
+    margin-top: 0em;
+    font-size: 1.2rem;
+    line-height: 1.5;
+}
+
+.site {
+    width: 100vw;
+    height: 100vh;
+}
+
+.panel {
+    height: 100%;
+    float: left;
+}
+
+.menu-panel {
+    width: 3.5em;
+    background-color: #292A24;
+    display: flex;
+    flex-direction: column;
+    max-height: 100%;
+    overflow: hidden;
+    justify-content: space-between;
+}
+
+.menu-panel > .top-menu {
+    width: 100%;
+}
+
+.menu-panel > .bottom-menu {
+    width: 100%;
+}
+
+.content-panel {
+    width: calc(100% - 3.5em);
+}
+
+.side-panel {
+    background-color: white;
+    width: 30%;
+    border-right: 1px solid #dddddd;
+    overflow-y: auto;
+}
+
+.side-panel .page {
+    padding-left: 0;
+    padding-right: 0;
+    width: 100%;
+}
+
+.code-panel {
+    width: calc(70% - 1px);
+    max-width: calc(70% - 1px);
+    max-height: 100%;
+    overflow-y: auto;
+    overflow-x: auto;
+}
+
+.clear {
+    clear: both;
+}
+
+.clear-left {
+    clear: left;
+}
+
+.page {
+    width: 100%;
+}
+
+.page.active {
+    
+}
+
+.page.inactive {
+    display: none;
+}
+
+.home-page > .title {
+    padding: 0em 0.5em;
+}
+
+.home-page > .menu {
+    padding: 2em 0em;
+    width: 100%;
+}
+
+.home-page > .description {
+    padding: 0em 0.5em;
+}
+
+a.menu-entry {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+    height: 3em;
+    border-top: 1px solid #dddddd;
+    padding: 0em 0.5em;
+}
+
+a.menu-entry:last-child {
+    border-bottom: 1px solid #dddddd;
+}
+
+a.menu-entry > .menu-entry-element {
+    float: left;
+    height: 100%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+}
+
+a.menu-entry img {
+    width: 1.22em;
+}
+
+a.menu-entry > .menu-entry-text {
+    padding-left: 0.5em;
+    font-size: 1.15em;
+}
+
+a.menu-entry:hover {
+    background: #fafafa;
+}
+
+.top-menu-entry {
+    width: 100%;
+    margin: 1em 0;
+    padding: 0.5em 0;
+}
+
+.top-menu-entry.inactive > img {
+    filter: invert(75%);
+}
+
+.top-menu-entry.active {
+    background: #191A14;
+}
+
+.top-menu-entry:hover > img, .top-menu-entry.active > img {
+    filter: invert(100%);
+}
+
+.top-menu-entry > img {
+    width: 2em;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.commits {
+    padding: 2em 0em;
+}
+
+.commit {
+    border-top: 1px solid #dddddd;
+    min-height: 2em;
+    padding: 1em 0.5em 1em 1em;
+}
+
+.commit:hover, .commit.active {
+    background: #fafafa;
+    cursor: pointer;
+}
+
+.commit:last-child {
+    border-bottom: 1px solid #dddddd;
+}
+
+.commit-hash {
+    text-decoration: none;
+    color: #2B91AF;
+    font-family: 'IBM Plex Mono', monospace;
+    display: block;
+}
+
+.commit-message {
+    padding-top: 0.777em;
+    font-size: 1.1rem;
+    line-height: 1.5;
+}
+
+.bottom-menu-entry {
+    width: 100%;
+    margin: 0.5em 0;
+}
+
+.bottom-menu-entry > img {
+    filter: invert(75%);
+}
+
+.bottom-menu-entry:hover > img {
+    filter: invert(100%);
+}
+
+.bottom-menu-entry > img {
+    width: 2em;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.page-content-wrapper {
+    padding: 0em 0.5em;
+}
+
+.comments {
+    padding: 2em 0em;
+}
+
+.comments > .comment {
+    border-top: 1px solid #dddddd;
+    font-size: 1.2em;
+}
+
+.comment > * {
+    padding: 0.5em 0.5em;
+}
+
+.comments > .comment:last-child {
+    border-bottom: 1px solid #dddddd;
+}
+
+.comment-title > .counter {
+    color: #999999;
+    font-weight: 300;
+}
+
+.comment-title {
+    font-size: 1.1em;
+    padding-bottom: 0.3em;
+}
+
+.comment-title > .text {
+    padding-left: 0.2em;
+}
+
+.comment > .comment-head {
+    padding-bottom: 0.4em;
+}
+
+.comment-head {
+    background-color: #fafafa;
+    border-bottom: 1px solid #dddddd;
+}
+
+.line-location {
+    color: #2B91AF;
+    cursor: pointer;
+}
+
+.comment-body > *:last-child {
+    padding-bottom: 0;
+    margin-bottom: 0;
+}
+
+.comment-body {
+    padding-bottom: 0.777em;
+}

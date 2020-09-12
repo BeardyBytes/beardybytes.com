@@ -1,0 +1,44 @@
+.code-comment {
+    line-height: 1.33em;
+    font-size: 0.8rem;
+    padding: 0.5em 1.29em 0.5em 0.0em;
+    background-color: #fdfdfd;
+    display: flex;
+    border-left: 1px solid #dddddd;
+    border-right: 1px solid #dddddd;
+}
+
+.code-block-cell > .code-comment:first-child {
+    border-top: 1px solid #dddddd;   
+}
+
+.code-block-cell > .code-comment:last-child {
+    border-bottom: 1px solid #dddddd;   
+}
+
+.code-comment > .toggle {
+    flex: 0 0 3.8em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.code-comment > .toggle > img {
+    width: 1.22rem;
+}
+
+.code-comment > .description {
+    flex: 1;
+}
+
+.code-comment > .description p:last-child {
+    margin-bottom: 0;
+}
+
+.code-comment.off > .description.on,
+.code-comment.off > .toggle.on,
+.code-comment.on > .description.off,
+.code-comment.on > .toggle.off {
+    display: none
+}

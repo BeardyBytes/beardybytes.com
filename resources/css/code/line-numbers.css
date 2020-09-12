@@ -1,0 +1,29 @@
+pre[class*="language-"].line-numbers {
+    position: relative;
+    padding-left: 3.8em;
+}
+
+pre[class*="language-"].line-numbers > code {
+    position: relative;
+    white-space: inherit;
+}
+
+.line-numbers-rows {
+    position: absolute;
+    pointer-events: none;
+    top: 0;
+    font-size: 100%;
+    width: 3em; /* works for line-numbers below 1000 lines */
+    letter-spacing: -1px;
+    user-select: none;
+    left: -3.8em;
+}
+
+.line-numbers-rows > span {
+    pointer-events: none;
+    display: block;
+    color: #b1b1b1;
+    padding-right: 0.8em;
+    text-align: right;
+    font-weight: 300;
+}

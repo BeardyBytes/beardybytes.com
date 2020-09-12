@@ -60,6 +60,13 @@ function addOpenGraphImage(context) {
   })
 }
 
+function addCname(context) {
+  context.copy.push({
+    source: `${__dirname}/misc/CNAME`,
+    destination: 'CNAME',
+  })
+}
+
 module.exports = function resources(context) {
   const copyToBase = toCopyable.bind(null, context.baseUrl)
 
@@ -73,4 +80,6 @@ module.exports = function resources(context) {
   addFavicon(context)
 
   addOpenGraphImage(context)
+
+  addCname(context)
 }

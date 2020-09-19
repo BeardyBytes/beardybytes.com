@@ -1,4 +1,5 @@
 const { DateTime } = require('luxon')
+const kroki = require('../../../common/cells/kroki')
 const md = require('../../../common/cells/markdown')
 const { section, subsection } = require('../../../common/cells/heading')
 
@@ -12,14 +13,10 @@ A gyakorlathoz tartozó feladatsor elérhető a következő linken:
 `,
   section.cell`Halmazelmélet`,
   subsection.cell`1.7 feladat`,
-  md.cell`
-> a. $\\{\\, 2n, -(2n + 1) \\;|\\; n \\in \\mathbb{N} \\,\\}$ vagy $\\{\\, (-1)^{n} \\cdot n \\;|\\; n \\in \\mathbb{N} \\,\\}$
-  
-> b. $\\{\\, \\{\\,n\\,\\} \\;|\\; n \\in \\mathbb{N} \\,\\}$
-
-> c. $\\{\\, \\{\\,k \\;|\\; k \\leq n \\,\\} \\;|\\; n \\in \\mathbb{N} \\,\\}$
-
-> d. $\\{\\, \\{\\,k \\;|\\; k \\leq 2^{n} - 1 \\,\\} \\;|\\; n \\in \\mathbb{N} \\,\\}$
+  kroki.cell('graphviz', 'svg')`
+digraph G {
+    Hello->World
+}
 `,
   subsection.cell`1.8 feladat`,
   md.cell`

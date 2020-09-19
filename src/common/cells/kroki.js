@@ -10,7 +10,7 @@ const cellFactory = function cellFactory(type, format) {
     const diagramText = unquote(...args)
 
     return async () => {
-      const diagram = await axios.post(`https://kroki.io/${type}/${format}`, diagramText, {
+      const krokiResponse = await axios.post(`https://kroki.io/${type}/${format}`, diagramText, {
         headers: {
           'Content-Type': 'text/plain',
         },
@@ -18,7 +18,7 @@ const cellFactory = function cellFactory(type, format) {
 
       return html`
         <div class="cell md-cell">
-          ${diagram}
+          ${krokiResponse.data}
         </div>
       `
     }

@@ -1,4 +1,5 @@
 dependencies:
+  axios: registry.npmjs.org/axios/0.20.0
   clean-css: registry.npmjs.org/clean-css/4.2.3
   common-tags: registry.npmjs.org/common-tags/1.8.0
   convict: registry.npmjs.org/convict/6.0.0
@@ -536,6 +537,16 @@ packages:
       registry: 'https://registry.npmjs.com/'
       tarball: 'https://registry.npmjs.org/autolinker/-/autolinker-3.14.1.tgz'
     version: 3.14.1
+  registry.npmjs.org/axios/0.20.0:
+    dependencies:
+      follow-redirects: registry.npmjs.org/follow-redirects/1.13.0
+    dev: false
+    name: axios
+    resolution:
+      integrity: sha512-ANA4rr2BDcmmAQLOKft2fufrtuvlqR+cXNNinUmvfeSNCOF98PZL+7M/v1zIdGo7OLjEA9J2gXJL+j4zGsl0bA==
+      registry: 'https://registry.npmjs.com/'
+      tarball: 'https://registry.npmjs.org/axios/-/axios-0.20.0.tgz'
+    version: 0.20.0
   registry.npmjs.org/balanced-match/1.0.0:
     name: balanced-match
     resolution:
@@ -1694,7 +1705,6 @@ packages:
       tarball: 'https://registry.npmjs.org/flatted/-/flatted-2.0.2.tgz'
     version: 2.0.2
   registry.npmjs.org/follow-redirects/1.13.0:
-    dev: true
     engines:
       node: '>=4.0'
     name: follow-redirects
@@ -4555,6 +4565,7 @@ packages:
 specifiers:
   '@commitlint/cli': 9.0.1
   '@commitlint/config-conventional': 9.0.1
+  axios: 0.20.0
   clean-css: 4.2.3
   common-tags: 1.8.0
   convict: 6.0.0

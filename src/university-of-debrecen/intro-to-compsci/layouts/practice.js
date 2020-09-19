@@ -1,5 +1,7 @@
 const { html } = require('common-tags')
 
+const renderCells = require('../../../common/cells/render')
+
 const POST_DATE_FORMAT = 'yyyy. LL. dd.'
 
 const elements = {
@@ -89,7 +91,7 @@ const elements = {
   },
 }
 
-const entryToHtml = (entry, context) => html`
+const entryToHtml = async (entry, context) => html`
   <!DOCTYPE html>
   <html>
     <head>
@@ -119,7 +121,8 @@ const entryToHtml = (entry, context) => html`
           </div>
         </div>
         <div class="post-content">
-          ${elements.navigationInSeries(entry)} ${entry.content.cells.join('\n')} ${elements.navigationInSeries(entry)}
+          ${elements.navigationInSeries(entry)} ${await renderCells(entry.content.cells)}
+          ${elements.navigationInSeries(entry)}
         </div>
         ${elements.footer()}
       </div>
@@ -129,11 +132,11 @@ const entryToHtml = (entry, context) => html`
   </html>
 `
 
-const process = (entry, context) => ({
+const process = async (entry, context) => ({
   emit: [
     {
       url: `${entry.meta.url}.html`,
-      content: entryToHtml(entry, context),
+      content: await entryToHtml(entry, context),
     },
   ],
 })

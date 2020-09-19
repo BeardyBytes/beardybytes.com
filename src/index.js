@@ -38,7 +38,7 @@ async function processModule(modulePath, context) {
 
   const moduleContext = makeModuleContext(context)
 
-  require(modulePath)(moduleContext)
+  await require(modulePath)(moduleContext)
 
   console.log(`Copy: ${moduleContext.copy.length}, Emit: ${moduleContext.emit.length}`)
 

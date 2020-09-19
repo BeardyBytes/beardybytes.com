@@ -27,7 +27,7 @@ function augmentWithPrevAndNext(entry, index, entries) {
   return Object.assign({}, entry, { meta })
 }
 
-module.exports = function refactoringSeries(context) {
+module.exports = async function introToCompSciSeries(context) {
   const series = Object.assign({}, seriesData, { baseUrl: context.baseUrl })
 
   ;[
@@ -60,10 +60,10 @@ module.exports = function refactoringSeries(context) {
 
   context.emit.push(landing(contextWithEntries))
 
-  actualEntries
-    .map((entry) => layouts[entry.meta.layout].process(entry, context))
-    .forEach(({ emit, copy }) => {
-      context.emit.push(...(emit || []))
-      context.copy.push(...(copy || []))
-    })
+  for (const actualEntry of actualEntries) {
+    const { emit, copy } = await layouts[actualEntry.meta.layout].process(actualEntry, context)
+
+    context.emit.push(...(emit || []))
+    context.copy.push(...(copy || []))
+  }
 }

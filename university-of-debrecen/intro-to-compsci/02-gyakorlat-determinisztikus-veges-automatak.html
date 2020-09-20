@@ -8,7 +8,7 @@
     
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     
-    <meta name="description" content="Néhány, az ismétlést szolgáló halmazelméleti feladat, majd gyakorlás ábécékkel, nyelvekkel és nyelvműveletekkel." />
+    <meta name="description" content="Adott nyelvekhez készítettünk determinisztikus véges automatákat." />
     
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
@@ -22,7 +22,7 @@
     <meta property="og:site_name" content="Beardy Bytes" />
     <meta property="og:locale" content="hu_HU" />
     <meta property="og:title" content="Az informatika számítástudományi alapjai – 2. gyakorlat – Determinisztikus véges automaták" />
-    <meta property="og:description" content="Néhány, az ismétlést szolgáló halmazelméleti feladat, majd gyakorlás ábécékkel, nyelvekkel és nyelvműveletekkel." />
+    <meta property="og:description" content="Adott nyelvekhez készítettünk determinisztikus véges automatákat." />
     <meta property="og:url" content="https://beardybytes.com/university-of-debrecen/intro-to-compsci/02-gyakorlat-determinisztikus-veges-automatak.html" />
     <meta property="og:image" content="https://beardybytes.com/og-image.jpg" />
     
@@ -55,7 +55,7 @@
             <div>
               <h2>Az informatika számítástudományi alapjai</h2>
               <h1>2. gyakorlat – Determinisztikus véges automaták</h1>
-              <div class="post-date">2020. 09. 20.</div>
+              <div class="post-date">2020. 09. 21.</div>
             </div>
           </div>
         </div>
@@ -68,37 +68,111 @@
               <div class="title">1. gyakorlat – Halmazok, nyelvek</div>
             </a>
             
-            <div class="cell series-cell">
+            <div class="cell series-cell series-starting-cell">
             Ez a bejegyzés <a href="index.html">Az informatika számítástudományi alapjai</a> sorozat része, mely az azonos nevű tárgyhoz kapcsolódó anyagokat tartalmaz.
             </div>
             <div class="in-series-next"></div>
              <div class="cell md-cell">
-               <p>Az első gyakorlaton, a kötelező félév eleji bemutatkozást követően, rövid halmazelméleti ismétléssel kezdtünk, amit nyelvekkel és nyelvműveletekkel kapcsolatos gyakorlás követett. Ebben a bejegyzésben az órai feladatok megoldásai szerepelnek.</p>
+               <p>A gyakorlatot egy előző órai feladat pótlásával kezdtük (4.4), majd pedig determinisztikus véges automatákat rajzoltunk. Ebben a bejegyzésben az órai feladatok megoldásai szerepelnek.</p>
                <p>A gyakorlathoz tartozó feladatsor elérhető a következő linken:</p>
                <blockquote>
-               <p><a href="./files/01-halmazok-nyelvek-feladatsor.pdf">01-halmazok-nyelvek-feladatsor.pdf</a></p>
+               <p><a href="./files/02-determinisztikus-veges-automatak-feladatsor.pdf">02-determinisztikus-veges-automatak-feladatsor.pdf</a></p>
                </blockquote>
                
              </div>
-             <div class="cell section-header-cell" id="halmazelmelet">
-                 <a href="#halmazelmelet">
-                     <h3>Halmazelmélet</h3>
+             <div class="cell section-header-cell" id="nyelvek">
+                 <a href="#nyelvek">
+                     <h3>Nyelvek</h3>
                  </a>
                  <div class="header-link">
-                     <a href="#halmazelmelet">
+                     <a href="#nyelvek">
                          <img src="/resources/img/link-2-outline.svg">
                      </a>
                  </div>
              </div>
-             <div class="cell subsection-header-cell" id="17-feladat">
-                 <a href="#17-feladat">
-                     <h4>1.7 feladat</h4>
+             <div class="cell subsection-header-cell" id="44-feladat">
+                 <a href="#44-feladat">
+                     <h4>4.4 feladat</h4>
                  </a>
                  <div class="header-link">
-                     <a href="#17-feladat">
+                     <a href="#44-feladat">
                          <img src="/resources/img/link-2-outline.svg">
                      </a>
                  </div>
+             </div>
+             <div class="cell md-cell">
+               <p>Ez a feladat még nem automatákkal, hanem nyelvekkel kapcsolatos. Meg kell mondanunk, hogy egy adott egyenlőség igaz-e, ha pedig nem, akkor mutatnunk kell egy ellenpéldát.</p>
+               <blockquote>
+               <p>a. Nem teljesül. Ellenpélda: <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>L</mi><mn>1</mn></msub><mo>=</mo><mo stretchy="false">{</mo><mi>a</mi><mo stretchy="false">}</mo></mrow><annotation encoding="application/x-tex">L_{1} = \{a\}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal">L</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">1</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">{</span><span class="mord mathnormal">a</span><span class="mclose">}</span></span></span></span>, <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>L</mi><mn>2</mn></msub><mo>=</mo><mo stretchy="false">{</mo><mi>b</mi><mo stretchy="false">}</mo></mrow><annotation encoding="application/x-tex">L_{2} = \{b\}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal">L</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">2</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">{</span><span class="mord mathnormal">b</span><span class="mclose">}</span></span></span></span>.</p>
+               </blockquote>
+               <blockquote>
+               <p>b. Teljesül.</p>
+               </blockquote>
+               <blockquote>
+               <p>c. Teljesül.</p>
+               </blockquote>
+               <blockquote>
+               <p>d. Nem teljesül. Ellenpélda: <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>L</mi><mn>1</mn></msub><mo>=</mo><mo stretchy="false">{</mo><mi>a</mi><mo stretchy="false">}</mo></mrow><annotation encoding="application/x-tex">L_{1} = \{a\}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal">L</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">1</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">{</span><span class="mord mathnormal">a</span><span class="mclose">}</span></span></span></span>, <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>L</mi><mn>2</mn></msub><mo>=</mo><mo stretchy="false">{</mo><mi>a</mi><mi>a</mi><mo stretchy="false">}</mo></mrow><annotation encoding="application/x-tex">L_{2} = \{aa\}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal">L</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">2</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">{</span><span class="mord mathnormal">a</span><span class="mord mathnormal">a</span><span class="mclose">}</span></span></span></span>.</p>
+               </blockquote>
+               <blockquote>
+               <p>e. Nem teljesül. Ellenpélda: <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>L</mi><mn>1</mn></msub><mo>=</mo><mo stretchy="false">{</mo><mi>a</mi><mo stretchy="false">}</mo></mrow><annotation encoding="application/x-tex">L_{1} = \{a\}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal">L</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">1</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">{</span><span class="mord mathnormal">a</span><span class="mclose">}</span></span></span></span>, <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>L</mi><mn>2</mn></msub><mo>=</mo><mo stretchy="false">{</mo><mi>b</mi><mo stretchy="false">}</mo></mrow><annotation encoding="application/x-tex">L_{2} = \{b\}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal">L</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">2</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">{</span><span class="mord mathnormal">b</span><span class="mclose">}</span></span></span></span>.</p>
+               </blockquote>
+               <blockquote>
+               <p>f. Teljesül.</p>
+               </blockquote>
+               
+             </div>
+             <div class="cell section-header-cell" id="determinisztikus-veges-automatak">
+                 <a href="#determinisztikus-veges-automatak">
+                     <h3>Determinisztikus véges automaták</h3>
+                 </a>
+                 <div class="header-link">
+                     <a href="#determinisztikus-veges-automatak">
+                         <img src="/resources/img/link-2-outline.svg">
+                     </a>
+                 </div>
+             </div>
+             <div class="cell subsection-header-cell" id="22-feladat">
+                 <a href="#22-feladat">
+                     <h4>2.2 feladat</h4>
+                 </a>
+                 <div class="header-link">
+                     <a href="#22-feladat">
+                         <img src="/resources/img/link-2-outline.svg">
+                     </a>
+                 </div>
+             </div>
+             <div class="cell md-cell">
+               <p>Egy jó megközelítés, ha felíunk néhány szót, majd végigkövetjük az automata viselkedését ezekre a szavakra. Ezt követően, a szavak hasonlóságai vagy eltérései alapján már könnyebben megállapíthatjuk, hogy az automata &quot;mit is csinál&quot; pontosan.</p>
+               <blockquote>
+               <p>a. Azon szavakból álló nyelv, melyek tartalmazzák az <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>a</mi><mi>a</mi><mi>b</mi><mi>a</mi></mrow><annotation encoding="application/x-tex">aaba</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathnormal">a</span><span class="mord mathnormal">a</span><span class="mord mathnormal">b</span><span class="mord mathnormal">a</span></span></span></span> részszót.</p>
+               </blockquote>
+               <blockquote>
+               <p>b. Azon szavakból álló nyelv, melyek az <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>a</mi><mi>a</mi><mi>b</mi><mi>a</mi></mrow><annotation encoding="application/x-tex">aaba</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathnormal">a</span><span class="mord mathnormal">a</span><span class="mord mathnormal">b</span><span class="mord mathnormal">a</span></span></span></span> részszóra végződnek.</p>
+               </blockquote>
+               <blockquote>
+               <p>c. Azon szavakból álló nyelv, melyek az <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>a</mi><mi>a</mi><mi>b</mi><mi>a</mi></mrow><annotation encoding="application/x-tex">aaba</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathnormal">a</span><span class="mord mathnormal">a</span><span class="mord mathnormal">b</span><span class="mord mathnormal">a</span></span></span></span> részszóval kezdődnek.</p>
+               </blockquote>
+               <blockquote>
+               <p>d. Az üres szó (<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>λ</mi></mrow><annotation encoding="application/x-tex">\lambda</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathnormal">λ</span></span></span></span>), valamint azon szavak, melyek <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>a</mi></mrow><annotation encoding="application/x-tex">a</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathnormal">a</span></span></span></span>-val kezdődnek és <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>b</mi></mrow><annotation encoding="application/x-tex">b</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathnormal">b</span></span></span></span>-re végződnek.</p>
+               </blockquote>
+               <blockquote>
+               <p>e. Az üres szó (<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>λ</mi></mrow><annotation encoding="application/x-tex">\lambda</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathnormal">λ</span></span></span></span>), valamint azon szavak, melyek <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>a</mi><mi>b</mi></mrow><annotation encoding="application/x-tex">ab</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathnormal">a</span><span class="mord mathnormal">b</span></span></span></span> és <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>b</mi><mi>a</mi></mrow><annotation encoding="application/x-tex">ba</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathnormal">b</span><span class="mord mathnormal">a</span></span></span></span> blokkokból állnak. Azaz <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false">{</mo><mi>a</mi><mi>b</mi><mo separator="true">,</mo><mi>b</mi><mi>a</mi><msup><mo stretchy="false">}</mo><mo lspace="0em" rspace="0em">∗</mo></msup></mrow><annotation encoding="application/x-tex">\{ab, ba\}^{*}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">{</span><span class="mord mathnormal">a</span><span class="mord mathnormal">b</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathnormal">b</span><span class="mord mathnormal">a</span><span class="mclose"><span class="mclose">}</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.688696em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">∗</span></span></span></span></span></span></span></span></span></span></span></span>.</p>
+               </blockquote>
+               
+             </div>
+             <div class="cell subsection-header-cell" id="21-feladat">
+                 <a href="#21-feladat">
+                     <h4>2.1 feladat</h4>
+                 </a>
+                 <div class="header-link">
+                     <a href="#21-feladat">
+                         <img src="/resources/img/link-2-outline.svg">
+                     </a>
+                 </div>
+             </div>
+             <div class="cell subsubsection-header-cell">
+                 <h5>2.1 a.</h5>
              </div>
              <div class="cell md-cell">
                <?xml version="1.0" encoding="UTF-8" standalone="no"?>
@@ -106,184 +180,1840 @@
                 "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
                <!-- Generated by graphviz version 2.42.3 ()
                 -->
-               <!-- Title: G Pages: 1 -->
-               <svg width="74pt" height="116pt"
-                viewBox="0.00 0.00 74.29 116.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-               <g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 112)">
-               <title>G</title>
-               <polygon fill="white" stroke="transparent" points="-4,4 -4,-112 70.29,-112 70.29,4 -4,4"/>
-               <!-- Hello -->
+               <!-- Title: dfa_21a Pages: 1 -->
+               <svg width="337pt" height="88pt"
+                viewBox="0.00 0.00 336.89 88.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+               <g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 84)">
+               <title>dfa_21a</title>
+               <polygon fill="white" stroke="transparent" points="-4,4 -4,-84 332.89,-84 332.89,4 -4,4"/>
+               <!-- S -->
                <g id="node1" class="node">
-               <title>Hello</title>
-               <ellipse fill="none" stroke="black" cx="33.15" cy="-90" rx="30.59" ry="18"/>
-               <text text-anchor="middle" x="33.15" y="-86.3" font-family="Times,serif" font-size="14.00">Hello</text>
+               <title>S</title>
+               <ellipse fill="white" stroke="white" cx="1.8" cy="-23.5" rx="1.8" ry="1.8"/>
                </g>
-               <!-- World -->
-               <g id="node2" class="node">
-               <title>World</title>
-               <ellipse fill="none" stroke="black" cx="33.15" cy="-18" rx="33.29" ry="18"/>
-               <text text-anchor="middle" x="33.15" y="-14.3" font-family="Times,serif" font-size="14.00">World</text>
+               <!-- I -->
+               <g id="node3" class="node">
+               <title>I</title>
+               <ellipse fill="none" stroke="black" cx="58.6" cy="-23.5" rx="18" ry="18"/>
+               <text text-anchor="middle" x="58.6" y="-19.8" font-family="Times,serif" font-size="14.00">I</text>
                </g>
-               <!-- Hello&#45;&gt;World -->
+               <!-- S&#45;&gt;I -->
                <g id="edge1" class="edge">
-               <title>Hello&#45;&gt;World</title>
-               <path fill="none" stroke="black" d="M33.15,-71.7C33.15,-63.98 33.15,-54.71 33.15,-46.11"/>
-               <polygon fill="black" stroke="black" points="36.65,-46.1 33.15,-36.1 29.65,-46.1 36.65,-46.1"/>
+               <title>S&#45;&gt;I</title>
+               <path fill="none" stroke="black" d="M3.75,-23.5C7.11,-23.5 18.87,-23.5 30.55,-23.5"/>
+               <polygon fill="black" stroke="black" points="30.58,-27 40.58,-23.5 30.58,-20 30.58,-27"/>
+               </g>
+               <!-- III -->
+               <g id="node2" class="node">
+               <title>III</title>
+               <ellipse fill="none" stroke="black" cx="222.1" cy="-23.5" rx="19.5" ry="19.5"/>
+               <ellipse fill="none" stroke="black" cx="222.1" cy="-23.5" rx="23.5" ry="23.5"/>
+               <text text-anchor="middle" x="222.1" y="-19.8" font-family="Times,serif" font-size="14.00">III</text>
+               </g>
+               <!-- III&#45;&gt;III -->
+               <g id="edge7" class="edge">
+               <title>III&#45;&gt;III</title>
+               <path fill="none" stroke="black" d="M214.01,-45.7C213.13,-56 215.82,-65 222.1,-65 226.12,-65 228.67,-61.3 229.75,-55.94"/>
+               <polygon fill="black" stroke="black" points="233.26,-55.84 230.19,-45.7 226.26,-55.54 233.26,-55.84"/>
+               <text text-anchor="middle" x="222.1" y="-68.8" font-family="Times,serif" font-size="14.00">b</text>
+               </g>
+               <!-- IV -->
+               <g id="node5" class="node">
+               <title>IV</title>
+               <ellipse fill="none" stroke="black" cx="308.74" cy="-23.5" rx="20.3" ry="20.3"/>
+               <text text-anchor="middle" x="308.74" y="-19.8" font-family="Times,serif" font-size="14.00">IV</text>
+               </g>
+               <!-- III&#45;&gt;IV -->
+               <g id="edge6" class="edge">
+               <title>III&#45;&gt;IV</title>
+               <path fill="none" stroke="black" d="M245.78,-23.5C255.77,-23.5 267.64,-23.5 278.3,-23.5"/>
+               <polygon fill="black" stroke="black" points="278.44,-27 288.44,-23.5 278.44,-20 278.44,-27"/>
+               <text text-anchor="middle" x="267.1" y="-27.3" font-family="Times,serif" font-size="14.00">a</text>
+               </g>
+               <!-- I&#45;&gt;I -->
+               <g id="edge3" class="edge">
+               <title>I&#45;&gt;I</title>
+               <path fill="none" stroke="black" d="M52.22,-40.54C50.92,-50.36 53.05,-59.5 58.6,-59.5 62.07,-59.5 64.2,-55.93 65,-50.85"/>
+               <polygon fill="black" stroke="black" points="68.5,-50.53 64.98,-40.54 61.5,-50.54 68.5,-50.53"/>
+               <text text-anchor="middle" x="58.6" y="-63.3" font-family="Times,serif" font-size="14.00">b</text>
+               </g>
+               <!-- II -->
+               <g id="node4" class="node">
+               <title>II</title>
+               <ellipse fill="none" stroke="black" cx="137.6" cy="-23.5" rx="18" ry="18"/>
+               <text text-anchor="middle" x="137.6" y="-19.8" font-family="Times,serif" font-size="14.00">II</text>
+               </g>
+               <!-- I&#45;&gt;II -->
+               <g id="edge2" class="edge">
+               <title>I&#45;&gt;II</title>
+               <path fill="none" stroke="black" d="M76.69,-23.5C86.26,-23.5 98.42,-23.5 109.28,-23.5"/>
+               <polygon fill="black" stroke="black" points="109.56,-27 119.56,-23.5 109.56,-20 109.56,-27"/>
+               <text text-anchor="middle" x="98.1" y="-27.3" font-family="Times,serif" font-size="14.00">a</text>
+               </g>
+               <!-- II&#45;&gt;III -->
+               <g id="edge4" class="edge">
+               <title>II&#45;&gt;III</title>
+               <path fill="none" stroke="black" d="M155.69,-23.5C165.06,-23.5 177,-23.5 188.11,-23.5"/>
+               <polygon fill="black" stroke="black" points="188.39,-27 198.39,-23.5 188.39,-20 188.39,-27"/>
+               <text text-anchor="middle" x="177.1" y="-27.3" font-family="Times,serif" font-size="14.00">a</text>
+               </g>
+               <!-- II&#45;&gt;II -->
+               <g id="edge5" class="edge">
+               <title>II&#45;&gt;II</title>
+               <path fill="none" stroke="black" d="M130.87,-40.54C129.49,-50.36 131.74,-59.5 137.6,-59.5 141.26,-59.5 143.52,-55.93 144.35,-50.85"/>
+               <polygon fill="black" stroke="black" points="147.85,-50.53 144.33,-40.54 140.85,-50.54 147.85,-50.53"/>
+               <text text-anchor="middle" x="137.6" y="-63.3" font-family="Times,serif" font-size="14.00">b</text>
+               </g>
+               <!-- IV&#45;&gt;IV -->
+               <g id="edge8" class="edge">
+               <title>IV&#45;&gt;IV</title>
+               <path fill="none" stroke="black" d="M301.55,-42.34C300.33,-52.44 302.73,-61.65 308.74,-61.65 312.6,-61.65 314.97,-57.87 315.85,-52.5"/>
+               <polygon fill="black" stroke="black" points="319.35,-52.37 315.94,-42.34 312.35,-52.31 319.35,-52.37"/>
+               <text text-anchor="middle" x="308.74" y="-65.45" font-family="Times,serif" font-size="14.00">a, b</text>
                </g>
                </g>
                </svg>
                
              </div>
-             <div class="cell subsection-header-cell" id="18-feladat">
-                 <a href="#18-feladat">
-                     <h4>1.8 feladat</h4>
-                 </a>
-                 <div class="header-link">
-                     <a href="#18-feladat">
-                         <img src="/resources/img/link-2-outline.svg">
-                     </a>
-                 </div>
+             <div class="cell subsubsection-header-cell">
+                 <h5>2.1 b.</h5>
              </div>
              <div class="cell md-cell">
-               <p>A feladat megoldásához egy jó stratégia, ha először készítünk egy Venn-diagramot, mely három halmazt ábrázol (<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>A</mi><mo separator="true">,</mo><mi>B</mi><mo separator="true">,</mo><mi>C</mi></mrow><annotation encoding="application/x-tex">A, B, C</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8777699999999999em;vertical-align:-0.19444em;"></span><span class="mord mathnormal">A</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathnormal" style="margin-right:0.05017em;">B</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathnormal" style="margin-right:0.07153em;">C</span></span></span></span>). Ezt követően, az egyes részfeladatoknál csak besatírozzuk a diagram megfelelő részét, majd formalizáljuk a besatírozott területet előállító kifejezést.</p>
-               <blockquote>
-               <p>a. <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false">(</mo><mi>A</mi><mo>∪</mo><mi>B</mi><mo stretchy="false">)</mo><mo>∖</mo><mo stretchy="false">(</mo><mi>A</mi><mo>∩</mo><mi>B</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">(A \cup B) \setminus (A \cap B)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord mathnormal">A</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">∪</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.05017em;">B</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">∖</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord mathnormal">A</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">∩</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.05017em;">B</span><span class="mclose">)</span></span></span></span></p>
-               </blockquote>
-               <blockquote>
-               <p>b. <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false">(</mo><mi>A</mi><mo>∪</mo><mi>B</mi><mo>∪</mo><mi>C</mi><mo stretchy="false">)</mo><mo>∖</mo><mo stretchy="false">(</mo><mo stretchy="false">(</mo><mi>A</mi><mo>∩</mo><mi>B</mi><mo stretchy="false">)</mo><mo>∪</mo><mo stretchy="false">(</mo><mi>A</mi><mo>∩</mo><mi>C</mi><mo stretchy="false">)</mo><mo>∪</mo><mo stretchy="false">(</mo><mi>B</mi><mo>∩</mo><mi>C</mi><mo stretchy="false">)</mo><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">(A \cup B \cup C) \setminus ((A \cap B) \cup (A \cap C) \cup (B \cap C))</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord mathnormal">A</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">∪</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.05017em;">B</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">∪</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.07153em;">C</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">∖</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mopen">(</span><span class="mord mathnormal">A</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">∩</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.05017em;">B</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">∪</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord mathnormal">A</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">∩</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.07153em;">C</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">∪</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.05017em;">B</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">∩</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.07153em;">C</span><span class="mclose">)</span><span class="mclose">)</span></span></span></span></p>
-               </blockquote>
-               <blockquote>
-               <p>c. <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false">(</mo><mo stretchy="false">(</mo><mi>A</mi><mo>∩</mo><mi>B</mi><mo stretchy="false">)</mo><mo>∪</mo><mo stretchy="false">(</mo><mi>A</mi><mo>∩</mo><mi>C</mi><mo stretchy="false">)</mo><mo>∪</mo><mo stretchy="false">(</mo><mi>B</mi><mo>∩</mo><mi>C</mi><mo stretchy="false">)</mo><msup><mo stretchy="false">)</mo><mo mathvariant="normal" lspace="0em" rspace="0em">′</mo></msup></mrow><annotation encoding="application/x-tex">((A \cap B) \cup (A \cap C) \cup (B \cap C))^{\prime}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mopen">(</span><span class="mord mathnormal">A</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">∩</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.05017em;">B</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">∪</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord mathnormal">A</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">∩</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.07153em;">C</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">∪</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.05017em;">B</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">∩</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1.001892em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.07153em;">C</span><span class="mclose">)</span><span class="mclose"><span class="mclose">)</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.751892em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">′</span></span></span></span></span></span></span></span></span></span></span></span></p>
-               </blockquote>
-               <blockquote>
-               <p>d. <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false">(</mo><mi>A</mi><mo>∩</mo><mi>B</mi><mo stretchy="false">)</mo><mo>∪</mo><mo stretchy="false">(</mo><mi>A</mi><mo>∩</mo><mi>C</mi><mo stretchy="false">)</mo><mo>∪</mo><mo stretchy="false">(</mo><mi>B</mi><mo>∩</mo><mi>C</mi><mo stretchy="false">)</mo><mo>∪</mo><mo stretchy="false">(</mo><mi>A</mi><mo>∩</mo><mi>B</mi><mo>∩</mo><mi>C</mi><msup><mo stretchy="false">)</mo><mo mathvariant="normal" lspace="0em" rspace="0em">′</mo></msup></mrow><annotation encoding="application/x-tex">(A \cap B) \cup (A \cap C) \cup (B \cap C) \cup (A \cap B \cap C)^{\prime}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord mathnormal">A</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">∩</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.05017em;">B</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">∪</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord mathnormal">A</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">∩</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.07153em;">C</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">∪</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.05017em;">B</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">∩</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.07153em;">C</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">∪</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord mathnormal">A</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">∩</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.05017em;">B</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">∩</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1.001892em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.07153em;">C</span><span class="mclose"><span class="mclose">)</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.751892em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">′</span></span></span></span></span></span></span></span></span></span></span></span></p>
-               </blockquote>
+               <?xml version="1.0" encoding="UTF-8" standalone="no"?>
+               <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+                "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+               <!-- Generated by graphviz version 2.42.3 ()
+                -->
+               <!-- Title: dfa_21b Pages: 1 -->
+               <svg width="254pt" height="88pt"
+                viewBox="0.00 0.00 253.60 88.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+               <g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 84)">
+               <title>dfa_21b</title>
+               <polygon fill="white" stroke="transparent" points="-4,4 -4,-84 249.6,-84 249.6,4 -4,4"/>
+               <!-- S -->
+               <g id="node1" class="node">
+               <title>S</title>
+               <ellipse fill="white" stroke="white" cx="1.8" cy="-23.5" rx="1.8" ry="1.8"/>
+               </g>
+               <!-- I -->
+               <g id="node3" class="node">
+               <title>I</title>
+               <ellipse fill="none" stroke="black" cx="58.6" cy="-23.5" rx="18" ry="18"/>
+               <text text-anchor="middle" x="58.6" y="-19.8" font-family="Times,serif" font-size="14.00">I</text>
+               </g>
+               <!-- S&#45;&gt;I -->
+               <g id="edge1" class="edge">
+               <title>S&#45;&gt;I</title>
+               <path fill="none" stroke="black" d="M3.75,-23.5C7.11,-23.5 18.87,-23.5 30.55,-23.5"/>
+               <polygon fill="black" stroke="black" points="30.58,-27 40.58,-23.5 30.58,-20 30.58,-27"/>
+               </g>
+               <!-- III -->
+               <g id="node2" class="node">
+               <title>III</title>
+               <ellipse fill="none" stroke="black" cx="222.1" cy="-23.5" rx="19.5" ry="19.5"/>
+               <ellipse fill="none" stroke="black" cx="222.1" cy="-23.5" rx="23.5" ry="23.5"/>
+               <text text-anchor="middle" x="222.1" y="-19.8" font-family="Times,serif" font-size="14.00">III</text>
+               </g>
+               <!-- III&#45;&gt;III -->
+               <g id="edge6" class="edge">
+               <title>III&#45;&gt;III</title>
+               <path fill="none" stroke="black" d="M214.01,-45.7C213.13,-56 215.82,-65 222.1,-65 226.12,-65 228.67,-61.3 229.75,-55.94"/>
+               <polygon fill="black" stroke="black" points="233.26,-55.84 230.19,-45.7 226.26,-55.54 233.26,-55.84"/>
+               <text text-anchor="middle" x="222.1" y="-68.8" font-family="Times,serif" font-size="14.00">a, b</text>
+               </g>
+               <!-- I&#45;&gt;I -->
+               <g id="edge3" class="edge">
+               <title>I&#45;&gt;I</title>
+               <path fill="none" stroke="black" d="M52.22,-40.54C50.92,-50.36 53.05,-59.5 58.6,-59.5 62.07,-59.5 64.2,-55.93 65,-50.85"/>
+               <polygon fill="black" stroke="black" points="68.5,-50.53 64.98,-40.54 61.5,-50.54 68.5,-50.53"/>
+               <text text-anchor="middle" x="58.6" y="-63.3" font-family="Times,serif" font-size="14.00">b</text>
+               </g>
+               <!-- II -->
+               <g id="node4" class="node">
+               <title>II</title>
+               <ellipse fill="none" stroke="black" cx="137.6" cy="-23.5" rx="18" ry="18"/>
+               <text text-anchor="middle" x="137.6" y="-19.8" font-family="Times,serif" font-size="14.00">II</text>
+               </g>
+               <!-- I&#45;&gt;II -->
+               <g id="edge2" class="edge">
+               <title>I&#45;&gt;II</title>
+               <path fill="none" stroke="black" d="M76.69,-23.5C86.26,-23.5 98.42,-23.5 109.28,-23.5"/>
+               <polygon fill="black" stroke="black" points="109.56,-27 119.56,-23.5 109.56,-20 109.56,-27"/>
+               <text text-anchor="middle" x="98.1" y="-27.3" font-family="Times,serif" font-size="14.00">a</text>
+               </g>
+               <!-- II&#45;&gt;III -->
+               <g id="edge4" class="edge">
+               <title>II&#45;&gt;III</title>
+               <path fill="none" stroke="black" d="M155.69,-23.5C165.06,-23.5 177,-23.5 188.11,-23.5"/>
+               <polygon fill="black" stroke="black" points="188.39,-27 198.39,-23.5 188.39,-20 188.39,-27"/>
+               <text text-anchor="middle" x="177.1" y="-27.3" font-family="Times,serif" font-size="14.00">a</text>
+               </g>
+               <!-- II&#45;&gt;II -->
+               <g id="edge5" class="edge">
+               <title>II&#45;&gt;II</title>
+               <path fill="none" stroke="black" d="M130.87,-40.54C129.49,-50.36 131.74,-59.5 137.6,-59.5 141.26,-59.5 143.52,-55.93 144.35,-50.85"/>
+               <polygon fill="black" stroke="black" points="147.85,-50.53 144.33,-40.54 140.85,-50.54 147.85,-50.53"/>
+               <text text-anchor="middle" x="137.6" y="-63.3" font-family="Times,serif" font-size="14.00">b</text>
+               </g>
+               </g>
+               </svg>
                
              </div>
-             <div class="cell subsection-header-cell" id="112-feladat">
-                 <a href="#112-feladat">
-                     <h4>1.12 feladat</h4>
-                 </a>
-                 <div class="header-link">
-                     <a href="#112-feladat">
-                         <img src="/resources/img/link-2-outline.svg">
-                     </a>
-                 </div>
+             <div class="cell subsubsection-header-cell">
+                 <h5>2.1 c.</h5>
              </div>
              <div class="cell md-cell">
-               <p>Egyszerűen számoljuk meg a legkülső halmazban szereplő vesszők számát, majd adjunk hozzá egyet. A helyes megoldás ezután: <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>4</mn></mrow><annotation encoding="application/x-tex">4</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">4</span></span></span></span>.</p>
+               <?xml version="1.0" encoding="UTF-8" standalone="no"?>
+               <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+                "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+               <!-- Generated by graphviz version 2.42.3 ()
+                -->
+               <!-- Title: dfa_21c Pages: 1 -->
+               <svg width="262pt" height="124pt"
+                viewBox="0.00 0.00 261.60 124.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+               <g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 120)">
+               <title>dfa_21c</title>
+               <polygon fill="white" stroke="transparent" points="-4,4 -4,-120 257.6,-120 257.6,4 -4,4"/>
+               <!-- S -->
+               <g id="node1" class="node">
+               <title>S</title>
+               <ellipse fill="white" stroke="white" cx="1.8" cy="-22" rx="1.8" ry="1.8"/>
+               </g>
+               <!-- I -->
+               <g id="node2" class="node">
+               <title>I</title>
+               <ellipse fill="none" stroke="black" cx="62.6" cy="-22" rx="18" ry="18"/>
+               <ellipse fill="none" stroke="black" cx="62.6" cy="-22" rx="22" ry="22"/>
+               <text text-anchor="middle" x="62.6" y="-18.3" font-family="Times,serif" font-size="14.00">I</text>
+               </g>
+               <!-- S&#45;&gt;I -->
+               <g id="edge1" class="edge">
+               <title>S&#45;&gt;I</title>
+               <path fill="none" stroke="black" d="M3.82,-22C7.19,-22 18.44,-22 30.12,-22"/>
+               <polygon fill="black" stroke="black" points="30.31,-25.5 40.31,-22 30.31,-18.5 30.31,-25.5"/>
+               </g>
+               <!-- I&#45;&gt;I -->
+               <g id="edge3" class="edge">
+               <title>I&#45;&gt;I</title>
+               <path fill="none" stroke="black" d="M55.28,-42.99C54.38,-53.09 56.82,-62 62.6,-62 66.3,-62 68.64,-58.34 69.6,-53.06"/>
+               <polygon fill="black" stroke="black" points="73.1,-53.1 69.92,-42.99 66.1,-52.87 73.1,-53.1"/>
+               <text text-anchor="middle" x="62.6" y="-65.8" font-family="Times,serif" font-size="14.00">b</text>
+               </g>
+               <!-- II -->
+               <g id="node3" class="node">
+               <title>II</title>
+               <ellipse fill="none" stroke="black" cx="149.6" cy="-61" rx="18" ry="18"/>
+               <ellipse fill="none" stroke="black" cx="149.6" cy="-61" rx="22" ry="22"/>
+               <text text-anchor="middle" x="149.6" y="-57.3" font-family="Times,serif" font-size="14.00">II</text>
+               </g>
+               <!-- I&#45;&gt;II -->
+               <g id="edge2" class="edge">
+               <title>I&#45;&gt;II</title>
+               <path fill="none" stroke="black" d="M82.89,-30.85C93.86,-35.89 107.82,-42.29 120.05,-47.9"/>
+               <polygon fill="black" stroke="black" points="118.84,-51.2 129.39,-52.19 121.76,-44.83 118.84,-51.2"/>
+               <text text-anchor="middle" x="106.1" y="-45.8" font-family="Times,serif" font-size="14.00">a</text>
+               </g>
+               <!-- II&#45;&gt;II -->
+               <g id="edge5" class="edge">
+               <title>II&#45;&gt;II</title>
+               <path fill="none" stroke="black" d="M141.92,-81.99C140.97,-92.09 143.53,-101 149.6,-101 153.49,-101 155.94,-97.34 156.95,-92.06"/>
+               <polygon fill="black" stroke="black" points="160.45,-92.1 157.28,-81.99 153.45,-91.87 160.45,-92.1"/>
+               <text text-anchor="middle" x="149.6" y="-104.8" font-family="Times,serif" font-size="14.00">a</text>
+               </g>
+               <!-- III -->
+               <g id="node4" class="node">
+               <title>III</title>
+               <ellipse fill="none" stroke="black" cx="234.1" cy="-39" rx="19.5" ry="19.5"/>
+               <text text-anchor="middle" x="234.1" y="-35.3" font-family="Times,serif" font-size="14.00">III</text>
+               </g>
+               <!-- II&#45;&gt;III -->
+               <g id="edge4" class="edge">
+               <title>II&#45;&gt;III</title>
+               <path fill="none" stroke="black" d="M171.92,-59.49C179.78,-58.6 188.69,-57.2 196.6,-55 200.04,-54.04 203.57,-52.82 207.02,-51.48"/>
+               <polygon fill="black" stroke="black" points="208.54,-54.64 216.38,-47.52 205.81,-48.2 208.54,-54.64"/>
+               <text text-anchor="middle" x="193.1" y="-59.8" font-family="Times,serif" font-size="14.00">b</text>
+               </g>
+               <!-- III&#45;&gt;I -->
+               <g id="edge7" class="edge">
+               <title>III&#45;&gt;I</title>
+               <path fill="none" stroke="black" d="M216.37,-30.51C204.28,-24.87 187.37,-17.97 171.6,-15 145.89,-10.16 116.21,-12.66 94.47,-15.94"/>
+               <polygon fill="black" stroke="black" points="93.79,-12.5 84.49,-17.58 94.93,-19.41 93.79,-12.5"/>
+               <text text-anchor="middle" x="149.6" y="-18.8" font-family="Times,serif" font-size="14.00">b</text>
+               </g>
+               <!-- III&#45;&gt;II -->
+               <g id="edge6" class="edge">
+               <title>III&#45;&gt;II</title>
+               <path fill="none" stroke="black" d="M215.02,-34.96C207.08,-33.89 197.74,-33.62 189.6,-36 184.83,-37.4 180.1,-39.57 175.66,-42.07"/>
+               <polygon fill="black" stroke="black" points="173.62,-39.22 167.03,-47.51 177.36,-45.14 173.62,-39.22"/>
+               <text text-anchor="middle" x="193.1" y="-39.8" font-family="Times,serif" font-size="14.00">a</text>
+               </g>
+               </g>
+               </svg>
                
              </div>
-             <div class="cell section-header-cell" id="nyelvek-nyelvmuveletek">
-                 <a href="#nyelvek-nyelvmuveletek">
-                     <h3>Nyelvek, nyelvműveletek</h3>
-                 </a>
-                 <div class="header-link">
-                     <a href="#nyelvek-nyelvmuveletek">
-                         <img src="/resources/img/link-2-outline.svg">
-                     </a>
-                 </div>
-             </div>
-             <div class="cell subsection-header-cell" id="43-feladat">
-                 <a href="#43-feladat">
-                     <h4>4.3 feladat</h4>
-                 </a>
-                 <div class="header-link">
-                     <a href="#43-feladat">
-                         <img src="/resources/img/link-2-outline.svg">
-                     </a>
-                 </div>
+             <div class="cell subsubsection-header-cell">
+                 <h5>2.1 e.</h5>
              </div>
              <div class="cell md-cell">
-               <p>A megoldás során csupán behelyettesítjük <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>V</mi></mrow><annotation encoding="application/x-tex">V</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.22222em;">V</span></span></span></span> és <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>W</mi></mrow><annotation encoding="application/x-tex">W</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">W</span></span></span></span> helyére a megfelelő, általuk jelölt nyelveket, majd elvégezzük a kijelölt műveleteket.</p>
-               <blockquote>
-               <p>a. <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false">{</mo><mn>0</mn><mo separator="true">,</mo><mn>1</mn><msup><mo stretchy="false">}</mo><mo lspace="0em" rspace="0em">∗</mo></msup></mrow><annotation encoding="application/x-tex">\{0, 1 \}^{*}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">{</span><span class="mord">0</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord">1</span><span class="mclose"><span class="mclose">}</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.688696em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">∗</span></span></span></span></span></span></span></span></span></span></span></span></p>
-               </blockquote>
-               <blockquote>
-               <p>b. <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false">{</mo><mn>01</mn><msup><mo stretchy="false">}</mo><mo lspace="0em" rspace="0em">∗</mo></msup></mrow><annotation encoding="application/x-tex">\{ 01 \}^{*}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">{</span><span class="mord">0</span><span class="mord">1</span><span class="mclose"><span class="mclose">}</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.688696em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">∗</span></span></span></span></span></span></span></span></span></span></span></span></p>
-               </blockquote>
-               <blockquote>
-               <p>c. <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false">{</mo><mn>0</mn><msup><mo stretchy="false">}</mo><mo lspace="0em" rspace="0em">∗</mo></msup><mo stretchy="false">{</mo><mn>1</mn><msup><mo stretchy="false">}</mo><mo lspace="0em" rspace="0em">∗</mo></msup></mrow><annotation encoding="application/x-tex">\{ 0 \}^{*}\{ 1 \}^{*}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">{</span><span class="mord">0</span><span class="mclose"><span class="mclose">}</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.688696em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">∗</span></span></span></span></span></span></span></span></span><span class="mopen">{</span><span class="mord">1</span><span class="mclose"><span class="mclose">}</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.688696em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">∗</span></span></span></span></span></span></span></span></span></span></span></span></p>
-               </blockquote>
-               <blockquote>
-               <p>d. <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false">{</mo><mn>0</mn><mo separator="true">,</mo><mn>1</mn><msup><mo stretchy="false">}</mo><mo lspace="0em" rspace="0em">∗</mo></msup><mo stretchy="false">{</mo><mn>01</mn><mo stretchy="false">}</mo></mrow><annotation encoding="application/x-tex">\{ 0, 1 \}^{*}\{ 01 \}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">{</span><span class="mord">0</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord">1</span><span class="mclose"><span class="mclose">}</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.688696em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">∗</span></span></span></span></span></span></span></span></span><span class="mopen">{</span><span class="mord">0</span><span class="mord">1</span><span class="mclose">}</span></span></span></span></p>
-               </blockquote>
+               <?xml version="1.0" encoding="UTF-8" standalone="no"?>
+               <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+                "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+               <!-- Generated by graphviz version 2.42.3 ()
+                -->
+               <!-- Title: dfa_21e Pages: 1 -->
+               <svg width="262pt" height="85pt"
+                viewBox="0.00 0.00 261.60 85.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+               <g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 81)">
+               <title>dfa_21e</title>
+               <polygon fill="white" stroke="transparent" points="-4,4 -4,-81 257.6,-81 257.6,4 -4,4"/>
+               <!-- S -->
+               <g id="node1" class="node">
+               <title>S</title>
+               <ellipse fill="white" stroke="white" cx="1.8" cy="-22" rx="1.8" ry="1.8"/>
+               </g>
+               <!-- I -->
+               <g id="node2" class="node">
+               <title>I</title>
+               <ellipse fill="none" stroke="black" cx="62.6" cy="-22" rx="18" ry="18"/>
+               <ellipse fill="none" stroke="black" cx="62.6" cy="-22" rx="22" ry="22"/>
+               <text text-anchor="middle" x="62.6" y="-18.3" font-family="Times,serif" font-size="14.00">I</text>
+               </g>
+               <!-- S&#45;&gt;I -->
+               <g id="edge1" class="edge">
+               <title>S&#45;&gt;I</title>
+               <path fill="none" stroke="black" d="M3.82,-22C7.19,-22 18.44,-22 30.12,-22"/>
+               <polygon fill="black" stroke="black" points="30.31,-25.5 40.31,-22 30.31,-18.5 30.31,-25.5"/>
+               </g>
+               <!-- I&#45;&gt;I -->
+               <g id="edge3" class="edge">
+               <title>I&#45;&gt;I</title>
+               <path fill="none" stroke="black" d="M55.28,-42.99C54.38,-53.09 56.82,-62 62.6,-62 66.3,-62 68.64,-58.34 69.6,-53.06"/>
+               <polygon fill="black" stroke="black" points="73.1,-53.1 69.92,-42.99 66.1,-52.87 73.1,-53.1"/>
+               <text text-anchor="middle" x="62.6" y="-65.8" font-family="Times,serif" font-size="14.00">b</text>
+               </g>
+               <!-- II -->
+               <g id="node3" class="node">
+               <title>II</title>
+               <ellipse fill="none" stroke="black" cx="149.6" cy="-22" rx="18" ry="18"/>
+               <ellipse fill="none" stroke="black" cx="149.6" cy="-22" rx="22" ry="22"/>
+               <text text-anchor="middle" x="149.6" y="-18.3" font-family="Times,serif" font-size="14.00">II</text>
+               </g>
+               <!-- I&#45;&gt;II -->
+               <g id="edge2" class="edge">
+               <title>I&#45;&gt;II</title>
+               <path fill="none" stroke="black" d="M84.61,-22C94.52,-22 106.55,-22 117.49,-22"/>
+               <polygon fill="black" stroke="black" points="117.54,-25.5 127.54,-22 117.54,-18.5 117.54,-25.5"/>
+               <text text-anchor="middle" x="106.1" y="-25.8" font-family="Times,serif" font-size="14.00">a</text>
+               </g>
+               <!-- II&#45;&gt;I -->
+               <g id="edge5" class="edge">
+               <title>II&#45;&gt;I</title>
+               <path fill="none" stroke="black" d="M130.2,-10.92C123.89,-7.7 116.65,-4.62 109.6,-3 103.08,-1.5 96.3,-2.64 90,-4.97"/>
+               <polygon fill="black" stroke="black" points="88.18,-1.96 80.63,-9.39 91.17,-8.29 88.18,-1.96"/>
+               <text text-anchor="middle" x="106.1" y="-6.8" font-family="Times,serif" font-size="14.00">b</text>
+               </g>
+               <!-- III -->
+               <g id="node4" class="node">
+               <title>III</title>
+               <ellipse fill="none" stroke="black" cx="234.1" cy="-22" rx="19.5" ry="19.5"/>
+               <text text-anchor="middle" x="234.1" y="-18.3" font-family="Times,serif" font-size="14.00">III</text>
+               </g>
+               <!-- II&#45;&gt;III -->
+               <g id="edge4" class="edge">
+               <title>II&#45;&gt;III</title>
+               <path fill="none" stroke="black" d="M171.85,-22C181.73,-22 193.63,-22 204.31,-22"/>
+               <polygon fill="black" stroke="black" points="204.45,-25.5 214.45,-22 204.45,-18.5 204.45,-25.5"/>
+               <text text-anchor="middle" x="193.1" y="-25.8" font-family="Times,serif" font-size="14.00">a</text>
+               </g>
+               <!-- III&#45;&gt;III -->
+               <g id="edge6" class="edge">
+               <title>III&#45;&gt;III</title>
+               <path fill="none" stroke="black" d="M226.91,-40.52C225.69,-50.45 228.08,-59.5 234.1,-59.5 237.86,-59.5 240.2,-55.96 241.14,-50.89"/>
+               <polygon fill="black" stroke="black" points="244.64,-50.57 241.29,-40.52 237.64,-50.47 244.64,-50.57"/>
+               <text text-anchor="middle" x="234.1" y="-63.3" font-family="Times,serif" font-size="14.00">a, b</text>
+               </g>
+               </g>
+               </svg>
                
              </div>
-             <div class="cell subsection-header-cell" id="mondjunk-olyan-szavakat-feladat">
-                 <a href="#mondjunk-olyan-szavakat-feladat">
-                     <h4>Mondjunk olyan szavakat... feladat</h4>
-                 </a>
-                 <div class="header-link">
-                     <a href="#mondjunk-olyan-szavakat-feladat">
-                         <img src="/resources/img/link-2-outline.svg">
-                     </a>
-                 </div>
+             <div class="cell subsubsection-header-cell">
+                 <h5>2.1 f.</h5>
              </div>
              <div class="cell md-cell">
-               <p>Először keressünk egy olyan szót, mely része a megfelelő nyelvnek, majd konkatenációval bővítsük ezt a szót úgy, hogy elrontsuk, azaz már ne legyen része a megfelelő nyelvnek.</p>
-               <blockquote>
-               <p>a. <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>b</mi><mi>a</mi><mi>b</mi><mi>a</mi><mi>b</mi></mrow><annotation encoding="application/x-tex">babab</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathnormal">b</span><span class="mord mathnormal">a</span><span class="mord mathnormal">b</span><span class="mord mathnormal">a</span><span class="mord mathnormal">b</span></span></span></span></p>
-               </blockquote>
-               <blockquote>
-               <p>b. <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>a</mi><mi>b</mi><mi>a</mi><mi>b</mi></mrow><annotation encoding="application/x-tex">abab</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathnormal">a</span><span class="mord mathnormal">b</span><span class="mord mathnormal">a</span><span class="mord mathnormal">b</span></span></span></span></p>
-               </blockquote>
-               <blockquote>
-               <p>c. <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>a</mi><mi>b</mi><mi>a</mi><mi>b</mi><mi>a</mi></mrow><annotation encoding="application/x-tex">ababa</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathnormal">a</span><span class="mord mathnormal">b</span><span class="mord mathnormal">a</span><span class="mord mathnormal">b</span><span class="mord mathnormal">a</span></span></span></span></p>
-               </blockquote>
-               <blockquote>
-               <p>d. <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>b</mi><mi>a</mi><mi>b</mi><mi>b</mi><mi>a</mi></mrow><annotation encoding="application/x-tex">babba</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathnormal">b</span><span class="mord mathnormal">a</span><span class="mord mathnormal">b</span><span class="mord mathnormal">b</span><span class="mord mathnormal">a</span></span></span></span></p>
-               </blockquote>
+               <?xml version="1.0" encoding="UTF-8" standalone="no"?>
+               <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+                "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+               <!-- Generated by graphviz version 2.42.3 ()
+                -->
+               <!-- Title: dfa_21f Pages: 1 -->
+               <svg width="172pt" height="85pt"
+                viewBox="0.00 0.00 171.60 85.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+               <g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 81)">
+               <title>dfa_21f</title>
+               <polygon fill="white" stroke="transparent" points="-4,4 -4,-81 167.6,-81 167.6,4 -4,4"/>
+               <!-- S -->
+               <g id="node1" class="node">
+               <title>S</title>
+               <ellipse fill="white" stroke="white" cx="1.8" cy="-22" rx="1.8" ry="1.8"/>
+               </g>
+               <!-- I -->
+               <g id="node2" class="node">
+               <title>I</title>
+               <ellipse fill="none" stroke="black" cx="62.6" cy="-22" rx="18" ry="18"/>
+               <ellipse fill="none" stroke="black" cx="62.6" cy="-22" rx="22" ry="22"/>
+               <text text-anchor="middle" x="62.6" y="-18.3" font-family="Times,serif" font-size="14.00">I</text>
+               </g>
+               <!-- S&#45;&gt;I -->
+               <g id="edge1" class="edge">
+               <title>S&#45;&gt;I</title>
+               <path fill="none" stroke="black" d="M3.82,-22C7.19,-22 18.44,-22 30.12,-22"/>
+               <polygon fill="black" stroke="black" points="30.31,-25.5 40.31,-22 30.31,-18.5 30.31,-25.5"/>
+               </g>
+               <!-- I&#45;&gt;I -->
+               <g id="edge3" class="edge">
+               <title>I&#45;&gt;I</title>
+               <path fill="none" stroke="black" d="M55.28,-42.99C54.38,-53.09 56.82,-62 62.6,-62 66.3,-62 68.64,-58.34 69.6,-53.06"/>
+               <polygon fill="black" stroke="black" points="73.1,-53.1 69.92,-42.99 66.1,-52.87 73.1,-53.1"/>
+               <text text-anchor="middle" x="62.6" y="-65.8" font-family="Times,serif" font-size="14.00">b</text>
+               </g>
+               <!-- II -->
+               <g id="node3" class="node">
+               <title>II</title>
+               <ellipse fill="none" stroke="black" cx="145.6" cy="-22" rx="18" ry="18"/>
+               <text text-anchor="middle" x="145.6" y="-18.3" font-family="Times,serif" font-size="14.00">II</text>
+               </g>
+               <!-- I&#45;&gt;II -->
+               <g id="edge2" class="edge">
+               <title>I&#45;&gt;II</title>
+               <path fill="none" stroke="black" d="M84.88,-22C94.87,-22 106.88,-22 117.5,-22"/>
+               <polygon fill="black" stroke="black" points="117.54,-25.5 127.54,-22 117.54,-18.5 117.54,-25.5"/>
+               <text text-anchor="middle" x="106.1" y="-25.8" font-family="Times,serif" font-size="14.00">a</text>
+               </g>
+               <!-- II&#45;&gt;I -->
+               <g id="edge4" class="edge">
+               <title>II&#45;&gt;I</title>
+               <path fill="none" stroke="black" d="M130.29,-12.13C124.2,-8.51 116.84,-4.84 109.6,-3 103.11,-1.35 96.34,-2.44 90.05,-4.76"/>
+               <polygon fill="black" stroke="black" points="88.21,-1.76 80.67,-9.2 91.21,-8.08 88.21,-1.76"/>
+               <text text-anchor="middle" x="106.1" y="-6.8" font-family="Times,serif" font-size="14.00">a</text>
+               </g>
+               <!-- II&#45;&gt;II -->
+               <g id="edge5" class="edge">
+               <title>II&#45;&gt;II</title>
+               <path fill="none" stroke="black" d="M138.87,-39.04C137.49,-48.86 139.74,-58 145.6,-58 149.26,-58 151.52,-54.43 152.35,-49.35"/>
+               <polygon fill="black" stroke="black" points="155.85,-49.03 152.33,-39.04 148.85,-49.04 155.85,-49.03"/>
+               <text text-anchor="middle" x="145.6" y="-61.8" font-family="Times,serif" font-size="14.00">b</text>
+               </g>
+               </g>
+               </svg>
                
              </div>
-             <div class="cell subsection-header-cell" id="48-feladat">
-                 <a href="#48-feladat">
-                     <h4>4.8 feladat</h4>
-                 </a>
-                 <div class="header-link">
-                     <a href="#48-feladat">
-                         <img src="/resources/img/link-2-outline.svg">
-                     </a>
-                 </div>
+             <div class="cell subsubsection-header-cell">
+                 <h5>2.1 g.</h5>
              </div>
              <div class="cell md-cell">
-               <p>Vegyük először a véges esetet. Tudjuk, hogy az üres szót önmagával konkatenálva az üres szót kapjuk vissza, azaz <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>λ</mi><mo>⋅</mo><mi>λ</mi><mo>=</mo><mi>λ</mi></mrow><annotation encoding="application/x-tex">\lambda \cdot \lambda = \lambda</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathnormal">λ</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">⋅</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathnormal">λ</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathnormal">λ</span></span></span></span>. Ismerve <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>L</mi><mo lspace="0em" rspace="0em">∗</mo></msup></mrow><annotation encoding="application/x-tex">L^{*}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.688696em;vertical-align:0em;"></span><span class="mord"><span class="mord mathnormal">L</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.688696em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">∗</span></span></span></span></span></span></span></span></span></span></span></span> és <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>L</mi><mo lspace="0em" rspace="0em">+</mo></msup></mrow><annotation encoding="application/x-tex">L^{+}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.771331em;vertical-align:0em;"></span><span class="mord"><span class="mord mathnormal">L</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.771331em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">+</span></span></span></span></span></span></span></span></span></span></span></span> definícióját, ezt a tulajdonságot kihasználva ezek a nyelvek végesek lesznek, ha <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>L</mi><mo>=</mo><mo stretchy="false">{</mo><mi>λ</mi><mo stretchy="false">}</mo></mrow><annotation encoding="application/x-tex">L=\{\lambda\}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal">L</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">{</span><span class="mord mathnormal">λ</span><span class="mclose">}</span></span></span></span>.</p>
-               <p>Tekintsük most az üres esetet. Definíció szerint az <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>L</mi><mo lspace="0em" rspace="0em">∗</mo></msup></mrow><annotation encoding="application/x-tex">L^{*}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.688696em;vertical-align:0em;"></span><span class="mord"><span class="mord mathnormal">L</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.688696em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">∗</span></span></span></span></span></span></span></span></span></span></span></span> nyelv előállítása mindig tartalmazza az <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>L</mi><mn>0</mn></msup></mrow><annotation encoding="application/x-tex">L^{0}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8141079999999999em;vertical-align:0em;"></span><span class="mord"><span class="mord mathnormal">L</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">0</span></span></span></span></span></span></span></span></span></span></span></span> nyelvet, mely bármely <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>L</mi></mrow><annotation encoding="application/x-tex">L</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal">L</span></span></span></span> nyelv esetén <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>L</mi><mn>0</mn></msup><mo>=</mo><mo stretchy="false">{</mo><mi>λ</mi><mo stretchy="false">}</mo></mrow><annotation encoding="application/x-tex">L^{0} = \{\lambda\}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8141079999999999em;vertical-align:0em;"></span><span class="mord"><span class="mord mathnormal">L</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">0</span></span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">{</span><span class="mord mathnormal">λ</span><span class="mclose">}</span></span></span></span>. Ugyanakkor, mivel <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>L</mi><mo lspace="0em" rspace="0em">+</mo></msup></mrow><annotation encoding="application/x-tex">L^{+}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.771331em;vertical-align:0em;"></span><span class="mord"><span class="mord mathnormal">L</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.771331em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">+</span></span></span></span></span></span></span></span></span></span></span></span> előállítása során nem használjuk fel az <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>L</mi><mn>0</mn></msup></mrow><annotation encoding="application/x-tex">L^{0}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8141079999999999em;vertical-align:0em;"></span><span class="mord"><span class="mord mathnormal">L</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">0</span></span></span></span></span></span></span></span></span></span></span></span> halmazt, ezért ha <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>L</mi><mo>=</mo><mi mathvariant="normal">∅</mi></mrow><annotation encoding="application/x-tex">L = \emptyset</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal">L</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.80556em;vertical-align:-0.05556em;"></span><span class="mord">∅</span></span></span></span>, akkor <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>L</mi><mo lspace="0em" rspace="0em">+</mo></msup><mo>=</mo><mi mathvariant="normal">∅</mi></mrow><annotation encoding="application/x-tex">L^{+} = \emptyset</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.771331em;vertical-align:0em;"></span><span class="mord"><span class="mord mathnormal">L</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.771331em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">+</span></span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.80556em;vertical-align:-0.05556em;"></span><span class="mord">∅</span></span></span></span>.</p>
+               <?xml version="1.0" encoding="UTF-8" standalone="no"?>
+               <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+                "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+               <!-- Generated by graphviz version 2.42.3 ()
+                -->
+               <!-- Title: dfa_21g Pages: 1 -->
+               <svg width="337pt" height="93pt"
+                viewBox="0.00 0.00 336.89 93.15" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+               <g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 89.15)">
+               <title>dfa_21g</title>
+               <polygon fill="white" stroke="transparent" points="-4,4 -4,-89.15 332.89,-89.15 332.89,4 -4,4"/>
+               <!-- S -->
+               <g id="node1" class="node">
+               <title>S</title>
+               <ellipse fill="white" stroke="white" cx="1.8" cy="-22" rx="1.8" ry="1.8"/>
+               </g>
+               <!-- I -->
+               <g id="node2" class="node">
+               <title>I</title>
+               <ellipse fill="none" stroke="black" cx="62.6" cy="-22" rx="18" ry="18"/>
+               <ellipse fill="none" stroke="black" cx="62.6" cy="-22" rx="22" ry="22"/>
+               <text text-anchor="middle" x="62.6" y="-18.3" font-family="Times,serif" font-size="14.00">I</text>
+               </g>
+               <!-- S&#45;&gt;I -->
+               <g id="edge1" class="edge">
+               <title>S&#45;&gt;I</title>
+               <path fill="none" stroke="black" d="M3.82,-22C7.19,-22 18.44,-22 30.12,-22"/>
+               <polygon fill="black" stroke="black" points="30.31,-25.5 40.31,-22 30.31,-18.5 30.31,-25.5"/>
+               </g>
+               <!-- II -->
+               <g id="node3" class="node">
+               <title>II</title>
+               <ellipse fill="none" stroke="black" cx="145.6" cy="-64" rx="18" ry="18"/>
+               <text text-anchor="middle" x="145.6" y="-60.3" font-family="Times,serif" font-size="14.00">II</text>
+               </g>
+               <!-- I&#45;&gt;II -->
+               <g id="edge2" class="edge">
+               <title>I&#45;&gt;II</title>
+               <path fill="none" stroke="black" d="M78.64,-37.76C85.41,-44 93.84,-50.7 102.6,-55 107.21,-57.26 112.38,-58.96 117.47,-60.23"/>
+               <polygon fill="black" stroke="black" points="117.13,-63.73 127.62,-62.29 118.52,-56.87 117.13,-63.73"/>
+               <text text-anchor="middle" x="106.1" y="-60.8" font-family="Times,serif" font-size="14.00">a</text>
+               </g>
+               <!-- III -->
+               <g id="node4" class="node">
+               <title>III</title>
+               <ellipse fill="none" stroke="black" cx="309.39" cy="-22" rx="19.5" ry="19.5"/>
+               <text text-anchor="middle" x="309.39" y="-18.3" font-family="Times,serif" font-size="14.00">III</text>
+               </g>
+               <!-- I&#45;&gt;III -->
+               <g id="edge4" class="edge">
+               <title>I&#45;&gt;III</title>
+               <path fill="none" stroke="black" d="M84.9,-22C128.89,-22 229.86,-22 279.61,-22"/>
+               <polygon fill="black" stroke="black" points="279.7,-25.5 289.7,-22 279.7,-18.5 279.7,-25.5"/>
+               <text text-anchor="middle" x="185.1" y="-25.8" font-family="Times,serif" font-size="14.00">b</text>
+               </g>
+               <!-- II&#45;&gt;I -->
+               <g id="edge3" class="edge">
+               <title>II&#45;&gt;I</title>
+               <path fill="none" stroke="black" d="M131.81,-51.81C125.52,-46.35 117.59,-40.21 109.6,-36 104.83,-33.49 99.54,-31.35 94.29,-29.56"/>
+               <polygon fill="black" stroke="black" points="95,-26.11 84.41,-26.54 92.95,-32.81 95,-26.11"/>
+               <text text-anchor="middle" x="106.1" y="-39.8" font-family="Times,serif" font-size="14.00">a</text>
+               </g>
+               <!-- IV -->
+               <g id="node5" class="node">
+               <title>IV</title>
+               <ellipse fill="none" stroke="black" cx="226.75" cy="-65" rx="20.3" ry="20.3"/>
+               <text text-anchor="middle" x="226.75" y="-61.3" font-family="Times,serif" font-size="14.00">IV</text>
+               </g>
+               <!-- II&#45;&gt;IV -->
+               <g id="edge6" class="edge">
+               <title>II&#45;&gt;IV</title>
+               <path fill="none" stroke="black" d="M163.69,-64.59C169.38,-64.76 175.76,-64.92 181.6,-65 186.3,-65.07 191.27,-65.1 196.13,-65.12"/>
+               <polygon fill="black" stroke="black" points="196.41,-68.62 206.41,-65.12 196.41,-61.62 196.41,-68.62"/>
+               <text text-anchor="middle" x="185.1" y="-68.8" font-family="Times,serif" font-size="14.00">b</text>
+               </g>
+               <!-- III&#45;&gt;I -->
+               <g id="edge5" class="edge">
+               <title>III&#45;&gt;I</title>
+               <path fill="none" stroke="black" d="M290.43,-16.68C265.94,-10.03 220.65,0.12 181.6,-3 151.69,-5.39 117.92,-11.14 94.2,-15.7"/>
+               <polygon fill="black" stroke="black" points="93.51,-12.27 84.37,-17.62 94.85,-19.13 93.51,-12.27"/>
+               <text text-anchor="middle" x="185.1" y="-6.8" font-family="Times,serif" font-size="14.00">b</text>
+               </g>
+               <!-- III&#45;&gt;IV -->
+               <g id="edge8" class="edge">
+               <title>III&#45;&gt;IV</title>
+               <path fill="none" stroke="black" d="M290.67,-28.41C282.63,-31.54 273.11,-35.6 264.9,-40 260.58,-42.31 256.15,-45 251.91,-47.74"/>
+               <polygon fill="black" stroke="black" points="249.94,-44.84 243.58,-53.32 253.84,-50.66 249.94,-44.84"/>
+               <text text-anchor="middle" x="268.4" y="-43.8" font-family="Times,serif" font-size="14.00">a</text>
+               </g>
+               <!-- IV&#45;&gt;II -->
+               <g id="edge7" class="edge">
+               <title>IV&#45;&gt;II</title>
+               <path fill="none" stroke="black" d="M209.39,-54.52C203.14,-51.1 195.78,-47.73 188.6,-46 182.12,-44.44 175.37,-45.84 169.23,-48.43"/>
+               <polygon fill="black" stroke="black" points="167.39,-45.44 160.2,-53.22 170.67,-51.63 167.39,-45.44"/>
+               <text text-anchor="middle" x="185.1" y="-49.8" font-family="Times,serif" font-size="14.00">b</text>
+               </g>
+               <!-- IV&#45;&gt;III -->
+               <g id="edge9" class="edge">
+               <title>IV&#45;&gt;III</title>
+               <path fill="none" stroke="black" d="M246.96,-62.84C254.99,-61.39 264.22,-58.98 271.9,-55 277.77,-51.95 283.43,-47.73 288.46,-43.32"/>
+               <polygon fill="black" stroke="black" points="290.94,-45.79 295.81,-36.38 286.14,-40.7 290.94,-45.79"/>
+               <text text-anchor="middle" x="268.4" y="-60.8" font-family="Times,serif" font-size="14.00">a</text>
+               </g>
+               </g>
+               </svg>
                
              </div>
-             <div class="cell subsection-header-cell" id="45-feladat">
-                 <a href="#45-feladat">
-                     <h4>4.5 feladat</h4>
-                 </a>
-                 <div class="header-link">
-                     <a href="#45-feladat">
-                         <img src="/resources/img/link-2-outline.svg">
-                     </a>
-                 </div>
+             <div class="cell subsubsection-header-cell">
+                 <h5>2.1 h.</h5>
              </div>
              <div class="cell md-cell">
-               <p>Ebben a feladatban hasonló a dolgunk, mint a halmazelméletes csoport 1.8 feladatában. Természetes nyelven adott nyelveket kell megadnunk az ismert nyelvműveletek felhasználásával.</p>
-               <blockquote>
-               <p>a. <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false">{</mo><mn>0</mn><mo separator="true">,</mo><mn>1</mn><msup><mo stretchy="false">}</mo><mo lspace="0em" rspace="0em">∗</mo></msup><mo stretchy="false">{</mo><mn>11</mn><mo stretchy="false">}</mo></mrow><annotation encoding="application/x-tex">\{0, 1\}^{*}\{11\}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">{</span><span class="mord">0</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord">1</span><span class="mclose"><span class="mclose">}</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.688696em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">∗</span></span></span></span></span></span></span></span></span><span class="mopen">{</span><span class="mord">1</span><span class="mord">1</span><span class="mclose">}</span></span></span></span></p>
-               </blockquote>
-               <blockquote>
-               <p>b. <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false">{</mo><mn>1</mn><msup><mo stretchy="false">}</mo><mo lspace="0em" rspace="0em">∗</mo></msup><mn>0</mn><mo stretchy="false">{</mo><mn>1</mn><msup><mo stretchy="false">}</mo><mo lspace="0em" rspace="0em">∗</mo></msup></mrow><annotation encoding="application/x-tex">\{1\}^{*}{0}\{1\}^{*}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">{</span><span class="mord">1</span><span class="mclose"><span class="mclose">}</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.688696em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">∗</span></span></span></span></span></span></span></span></span><span class="mord"><span class="mord">0</span></span><span class="mopen">{</span><span class="mord">1</span><span class="mclose"><span class="mclose">}</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.688696em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">∗</span></span></span></span></span></span></span></span></span></span></span></span></p>
-               </blockquote>
+               <?xml version="1.0" encoding="UTF-8" standalone="no"?>
+               <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+                "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+               <!-- Generated by graphviz version 2.42.3 ()
+                -->
+               <!-- Title: dfa_21h Pages: 1 -->
+               <svg width="361pt" height="176pt"
+                viewBox="0.00 0.00 360.89 176.15" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+               <g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 172.15)">
+               <title>dfa_21h</title>
+               <polygon fill="white" stroke="transparent" points="-4,4 -4,-172.15 356.89,-172.15 356.89,4 -4,4"/>
+               <!-- S -->
+               <g id="node1" class="node">
+               <title>S</title>
+               <ellipse fill="white" stroke="white" cx="1.8" cy="-73" rx="1.8" ry="1.8"/>
+               </g>
+               <!-- I -->
+               <g id="node2" class="node">
+               <title>I</title>
+               <ellipse fill="none" stroke="black" cx="62.6" cy="-73" rx="18" ry="18"/>
+               <ellipse fill="none" stroke="black" cx="62.6" cy="-73" rx="22" ry="22"/>
+               <text text-anchor="middle" x="62.6" y="-69.3" font-family="Times,serif" font-size="14.00">I</text>
+               </g>
+               <!-- S&#45;&gt;I -->
+               <g id="edge1" class="edge">
+               <title>S&#45;&gt;I</title>
+               <path fill="none" stroke="black" d="M3.82,-73C7.19,-73 18.44,-73 30.12,-73"/>
+               <polygon fill="black" stroke="black" points="30.31,-76.5 40.31,-73 30.31,-69.5 30.31,-76.5"/>
+               </g>
+               <!-- I&#45;&gt;I -->
+               <g id="edge3" class="edge">
+               <title>I&#45;&gt;I</title>
+               <path fill="none" stroke="black" d="M55.28,-93.99C54.38,-104.09 56.82,-113 62.6,-113 66.3,-113 68.64,-109.34 69.6,-104.06"/>
+               <polygon fill="black" stroke="black" points="73.1,-104.1 69.92,-93.99 66.1,-103.87 73.1,-104.1"/>
+               <text text-anchor="middle" x="62.6" y="-116.8" font-family="Times,serif" font-size="14.00">b</text>
+               </g>
+               <!-- II -->
+               <g id="node3" class="node">
+               <title>II</title>
+               <ellipse fill="none" stroke="black" cx="149.6" cy="-73" rx="18" ry="18"/>
+               <ellipse fill="none" stroke="black" cx="149.6" cy="-73" rx="22" ry="22"/>
+               <text text-anchor="middle" x="149.6" y="-69.3" font-family="Times,serif" font-size="14.00">II</text>
+               </g>
+               <!-- I&#45;&gt;II -->
+               <g id="edge2" class="edge">
+               <title>I&#45;&gt;II</title>
+               <path fill="none" stroke="black" d="M84.61,-73C94.52,-73 106.55,-73 117.49,-73"/>
+               <polygon fill="black" stroke="black" points="117.54,-76.5 127.54,-73 117.54,-69.5 117.54,-76.5"/>
+               <text text-anchor="middle" x="106.1" y="-76.8" font-family="Times,serif" font-size="14.00">a</text>
+               </g>
+               <!-- II&#45;&gt;I -->
+               <g id="edge4" class="edge">
+               <title>II&#45;&gt;I</title>
+               <path fill="none" stroke="black" d="M131.57,-60.39C123.08,-55.57 112.54,-51.71 102.6,-54 98.86,-54.86 95.06,-56.14 91.37,-57.62"/>
+               <polygon fill="black" stroke="black" points="89.64,-54.57 82,-61.92 92.55,-60.93 89.64,-54.57"/>
+               <text text-anchor="middle" x="106.1" y="-57.8" font-family="Times,serif" font-size="14.00">b</text>
+               </g>
+               <!-- III -->
+               <g id="node4" class="node">
+               <title>III</title>
+               <ellipse fill="none" stroke="black" cx="238.1" cy="-73" rx="19.5" ry="19.5"/>
+               <ellipse fill="none" stroke="black" cx="238.1" cy="-73" rx="23.5" ry="23.5"/>
+               <text text-anchor="middle" x="238.1" y="-69.3" font-family="Times,serif" font-size="14.00">III</text>
+               </g>
+               <!-- II&#45;&gt;III -->
+               <g id="edge5" class="edge">
+               <title>II&#45;&gt;III</title>
+               <path fill="none" stroke="black" d="M171.98,-73C181.76,-73 193.57,-73 204.43,-73"/>
+               <polygon fill="black" stroke="black" points="204.45,-76.5 214.45,-73 204.45,-69.5 204.45,-76.5"/>
+               <text text-anchor="middle" x="193.1" y="-76.8" font-family="Times,serif" font-size="14.00">a</text>
+               </g>
+               <!-- IV -->
+               <g id="node5" class="node">
+               <title>IV</title>
+               <ellipse fill="none" stroke="black" cx="328.74" cy="-111" rx="20.27" ry="20.27"/>
+               <ellipse fill="none" stroke="black" cx="328.74" cy="-111" rx="24.3" ry="24.3"/>
+               <text text-anchor="middle" x="328.74" y="-107.3" font-family="Times,serif" font-size="14.00">IV</text>
+               </g>
+               <!-- III&#45;&gt;IV -->
+               <g id="edge6" class="edge">
+               <title>III&#45;&gt;IV</title>
+               <path fill="none" stroke="black" d="M260.11,-82.01C271.09,-86.72 284.76,-92.57 296.92,-97.79"/>
+               <polygon fill="black" stroke="black" points="295.7,-101.07 306.27,-101.8 298.46,-94.64 295.7,-101.07"/>
+               <text text-anchor="middle" x="283.1" y="-96.8" font-family="Times,serif" font-size="14.00">b</text>
+               </g>
+               <!-- V -->
+               <g id="node6" class="node">
+               <title>V</title>
+               <ellipse fill="none" stroke="black" cx="328.74" cy="-18" rx="18" ry="18"/>
+               <text text-anchor="middle" x="328.74" y="-14.3" font-family="Times,serif" font-size="14.00">V</text>
+               </g>
+               <!-- III&#45;&gt;V -->
+               <g id="edge9" class="edge">
+               <title>III&#45;&gt;V</title>
+               <path fill="none" stroke="black" d="M258.77,-60.79C272.25,-52.43 290.17,-41.31 304.38,-32.5"/>
+               <polygon fill="black" stroke="black" points="306.43,-35.34 313.08,-27.1 302.74,-29.39 306.43,-35.34"/>
+               <text text-anchor="middle" x="283.1" y="-51.8" font-family="Times,serif" font-size="14.00">a</text>
+               </g>
+               <!-- IV&#45;&gt;III -->
+               <g id="edge7" class="edge">
+               <title>IV&#45;&gt;III</title>
+               <path fill="none" stroke="black" d="M313.52,-91.68C306.43,-83.67 297.12,-75.27 286.6,-71 281.97,-69.12 276.87,-68.24 271.78,-68"/>
+               <polygon fill="black" stroke="black" points="271.42,-64.5 261.52,-68.26 271.6,-71.5 271.42,-64.5"/>
+               <text text-anchor="middle" x="283.1" y="-74.8" font-family="Times,serif" font-size="14.00">a</text>
+               </g>
+               <!-- IV&#45;&gt;IV -->
+               <g id="edge8" class="edge">
+               <title>IV&#45;&gt;IV</title>
+               <path fill="none" stroke="black" d="M320.62,-133.98C319.85,-144.26 322.56,-153.15 328.74,-153.15 332.71,-153.15 335.24,-149.5 336.35,-144.17"/>
+               <polygon fill="black" stroke="black" points="339.86,-144.14 336.87,-133.98 332.87,-143.79 339.86,-144.14"/>
+               <text text-anchor="middle" x="328.74" y="-156.95" font-family="Times,serif" font-size="14.00">b</text>
+               </g>
+               <!-- V&#45;&gt;V -->
+               <g id="edge10" class="edge">
+               <title>V&#45;&gt;V</title>
+               <path fill="none" stroke="black" d="M321.08,-34.29C319.23,-44.39 321.78,-54 328.74,-54 333.2,-54 335.86,-50.06 336.7,-44.57"/>
+               <polygon fill="black" stroke="black" points="340.19,-44.19 336.41,-34.29 333.19,-44.38 340.19,-44.19"/>
+               <text text-anchor="middle" x="328.74" y="-57.8" font-family="Times,serif" font-size="14.00">a, b</text>
+               </g>
+               </g>
+               </svg>
                
              </div>
-             <div class="cell subsection-header-cell" id="tovabbi-feladatok">
-                 <a href="#tovabbi-feladatok">
-                     <h4>További feladatok</h4>
+             <div class="cell subsubsection-header-cell">
+                 <h5>2.1 i.</h5>
+             </div>
+             <div class="cell md-cell">
+               <?xml version="1.0" encoding="UTF-8" standalone="no"?>
+               <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+                "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+               <!-- Generated by graphviz version 2.42.3 ()
+                -->
+               <!-- Title: dfa_21i Pages: 1 -->
+               <svg width="337pt" height="109pt"
+                viewBox="0.00 0.00 336.89 108.65" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+               <g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 104.65)">
+               <title>dfa_21i</title>
+               <polygon fill="white" stroke="transparent" points="-4,4 -4,-104.65 332.89,-104.65 332.89,4 -4,4"/>
+               <!-- S -->
+               <g id="node1" class="node">
+               <title>S</title>
+               <ellipse fill="white" stroke="white" cx="1.8" cy="-29.15" rx="1.8" ry="1.8"/>
+               </g>
+               <!-- I -->
+               <g id="node2" class="node">
+               <title>I</title>
+               <ellipse fill="none" stroke="black" cx="62.6" cy="-29.15" rx="18" ry="18"/>
+               <ellipse fill="none" stroke="black" cx="62.6" cy="-29.15" rx="22" ry="22"/>
+               <text text-anchor="middle" x="62.6" y="-25.45" font-family="Times,serif" font-size="14.00">I</text>
+               </g>
+               <!-- S&#45;&gt;I -->
+               <g id="edge1" class="edge">
+               <title>S&#45;&gt;I</title>
+               <path fill="none" stroke="black" d="M3.82,-29.15C7.19,-29.15 18.44,-29.15 30.12,-29.15"/>
+               <polygon fill="black" stroke="black" points="30.31,-32.65 40.31,-29.15 30.31,-25.65 30.31,-32.65"/>
+               </g>
+               <!-- I&#45;&gt;I -->
+               <g id="edge3" class="edge">
+               <title>I&#45;&gt;I</title>
+               <path fill="none" stroke="black" d="M55.28,-50.14C54.38,-60.24 56.82,-69.15 62.6,-69.15 66.3,-69.15 68.64,-65.49 69.6,-60.21"/>
+               <polygon fill="black" stroke="black" points="73.1,-60.25 69.92,-50.14 66.1,-60.02 73.1,-60.25"/>
+               <text text-anchor="middle" x="62.6" y="-72.95" font-family="Times,serif" font-size="14.00">b</text>
+               </g>
+               <!-- II -->
+               <g id="node3" class="node">
+               <title>II</title>
+               <ellipse fill="none" stroke="black" cx="145.6" cy="-64.15" rx="18" ry="18"/>
+               <text text-anchor="middle" x="145.6" y="-60.45" font-family="Times,serif" font-size="14.00">II</text>
+               </g>
+               <!-- I&#45;&gt;II -->
+               <g id="edge2" class="edge">
+               <title>I&#45;&gt;II</title>
+               <path fill="none" stroke="black" d="M83.21,-37.62C94.11,-42.33 107.79,-48.24 119.47,-53.29"/>
+               <polygon fill="black" stroke="black" points="118.13,-56.53 128.7,-57.28 120.91,-50.1 118.13,-56.53"/>
+               <text text-anchor="middle" x="106.1" y="-51.95" font-family="Times,serif" font-size="14.00">a</text>
+               </g>
+               <!-- III -->
+               <g id="node4" class="node">
+               <title>III</title>
+               <ellipse fill="none" stroke="black" cx="309.39" cy="-48.15" rx="19.5" ry="19.5"/>
+               <text text-anchor="middle" x="309.39" y="-44.45" font-family="Times,serif" font-size="14.00">III</text>
+               </g>
+               <!-- II&#45;&gt;III -->
+               <g id="edge4" class="edge">
+               <title>II&#45;&gt;III</title>
+               <path fill="none" stroke="black" d="M163.78,-63.56C171.39,-63.24 180.45,-62.78 188.6,-62.15 225.72,-59.26 234.94,-57.68 271.9,-53.15 274.45,-52.84 277.11,-52.5 279.76,-52.15"/>
+               <polygon fill="black" stroke="black" points="280.4,-55.6 289.84,-50.79 279.46,-48.66 280.4,-55.6"/>
+               <text text-anchor="middle" x="226.75" y="-63.95" font-family="Times,serif" font-size="14.00">a</text>
+               </g>
+               <!-- IV -->
+               <g id="node5" class="node">
+               <title>IV</title>
+               <ellipse fill="none" stroke="black" cx="226.75" cy="-20.15" rx="20.3" ry="20.3"/>
+               <text text-anchor="middle" x="226.75" y="-16.45" font-family="Times,serif" font-size="14.00">IV</text>
+               </g>
+               <!-- II&#45;&gt;IV -->
+               <g id="edge6" class="edge">
+               <title>II&#45;&gt;IV</title>
+               <path fill="none" stroke="black" d="M161.86,-55.66C172.6,-49.69 187.24,-41.56 199.79,-34.58"/>
+               <polygon fill="black" stroke="black" points="201.85,-37.44 208.89,-29.52 198.45,-31.32 201.85,-37.44"/>
+               <text text-anchor="middle" x="185.1" y="-46.95" font-family="Times,serif" font-size="14.00">b</text>
+               </g>
+               <!-- III&#45;&gt;III -->
+               <g id="edge5" class="edge">
+               <title>III&#45;&gt;III</title>
+               <path fill="none" stroke="black" d="M302.2,-66.67C300.98,-76.6 303.38,-85.65 309.39,-85.65 313.15,-85.65 315.5,-82.11 316.43,-77.04"/>
+               <polygon fill="black" stroke="black" points="319.94,-76.72 316.59,-66.67 312.94,-76.62 319.94,-76.72"/>
+               <text text-anchor="middle" x="309.39" y="-89.45" font-family="Times,serif" font-size="14.00">a,b</text>
+               </g>
+               <!-- IV&#45;&gt;I -->
+               <g id="edge8" class="edge">
+               <title>IV&#45;&gt;I</title>
+               <path fill="none" stroke="black" d="M206.54,-20.04C186.74,-20.04 154.98,-20.38 127.6,-22.15 116.81,-22.85 105.03,-24.02 94.56,-25.2"/>
+               <polygon fill="black" stroke="black" points="94.12,-21.73 84.6,-26.38 94.94,-28.68 94.12,-21.73"/>
+               <text text-anchor="middle" x="145.6" y="-25.95" font-family="Times,serif" font-size="14.00">b</text>
+               </g>
+               <!-- IV&#45;&gt;III -->
+               <g id="edge7" class="edge">
+               <title>IV&#45;&gt;III</title>
+               <path fill="none" stroke="black" d="M246.05,-26.5C256.4,-30.1 269.55,-34.66 281.09,-38.67"/>
+               <polygon fill="black" stroke="black" points="280.13,-42.04 290.72,-42.01 282.42,-35.43 280.13,-42.04"/>
+               <text text-anchor="middle" x="268.4" y="-37.95" font-family="Times,serif" font-size="14.00">a</text>
+               </g>
+               </g>
+               </svg>
+               
+             </div>
+             <div class="cell subsubsection-header-cell">
+                 <h5>2.1 j.</h5>
+             </div>
+             <div class="cell md-cell">
+               <?xml version="1.0" encoding="UTF-8" standalone="no"?>
+               <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+                "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+               <!-- Generated by graphviz version 2.42.3 ()
+                -->
+               <!-- Title: dfa_21j Pages: 1 -->
+               <svg width="696pt" height="211pt"
+                viewBox="0.00 0.00 696.28 211.30" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+               <g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 207.3)">
+               <title>dfa_21j</title>
+               <polygon fill="white" stroke="transparent" points="-4,4 -4,-207.3 692.28,-207.3 692.28,4 -4,4"/>
+               <!-- S -->
+               <g id="node1" class="node">
+               <title>S</title>
+               <ellipse fill="white" stroke="white" cx="1.8" cy="-64.15" rx="1.8" ry="1.8"/>
+               </g>
+               <!-- I -->
+               <g id="node4" class="node">
+               <title>I</title>
+               <ellipse fill="none" stroke="black" cx="58.6" cy="-64.15" rx="18" ry="18"/>
+               <text text-anchor="middle" x="58.6" y="-60.45" font-family="Times,serif" font-size="14.00">I</text>
+               </g>
+               <!-- S&#45;&gt;I -->
+               <g id="edge1" class="edge">
+               <title>S&#45;&gt;I</title>
+               <path fill="none" stroke="black" d="M3.75,-64.15C7.11,-64.15 18.87,-64.15 30.55,-64.15"/>
+               <polygon fill="black" stroke="black" points="30.58,-67.65 40.58,-64.15 30.58,-60.65 30.58,-67.65"/>
+               </g>
+               <!-- VI -->
+               <g id="node2" class="node">
+               <title>VI</title>
+               <ellipse fill="none" stroke="black" cx="664.13" cy="-124.15" rx="20.27" ry="20.27"/>
+               <ellipse fill="none" stroke="black" cx="664.13" cy="-124.15" rx="24.3" ry="24.3"/>
+               <text text-anchor="middle" x="664.13" y="-120.45" font-family="Times,serif" font-size="14.00">VI</text>
+               </g>
+               <!-- VI&#45;&gt;VI -->
+               <g id="edge10" class="edge">
+               <title>VI&#45;&gt;VI</title>
+               <path fill="none" stroke="black" d="M656.01,-147.13C655.23,-157.41 657.94,-166.3 664.13,-166.3 668.09,-166.3 670.63,-162.65 671.74,-157.32"/>
+               <polygon fill="black" stroke="black" points="675.24,-157.29 672.25,-147.13 668.25,-156.94 675.24,-157.29"/>
+               <text text-anchor="middle" x="664.13" y="-170.1" font-family="Times,serif" font-size="14.00">a,b</text>
+               </g>
+               <!-- XI -->
+               <g id="node3" class="node">
+               <title>XI</title>
+               <ellipse fill="none" stroke="black" cx="572.83" cy="-27.15" rx="20.27" ry="20.27"/>
+               <ellipse fill="none" stroke="black" cx="572.83" cy="-27.15" rx="24.3" ry="24.3"/>
+               <text text-anchor="middle" x="572.83" y="-23.45" font-family="Times,serif" font-size="14.00">XI</text>
+               </g>
+               <!-- XI&#45;&gt;XI -->
+               <g id="edge20" class="edge">
+               <title>XI&#45;&gt;XI</title>
+               <path fill="none" stroke="black" d="M564.71,-50.13C563.94,-60.41 566.64,-69.3 572.83,-69.3 576.8,-69.3 579.33,-65.65 580.44,-60.32"/>
+               <polygon fill="black" stroke="black" points="583.94,-60.29 580.95,-50.13 576.95,-59.94 583.94,-60.29"/>
+               <text text-anchor="middle" x="572.83" y="-73.1" font-family="Times,serif" font-size="14.00">a, b</text>
+               </g>
+               <!-- II -->
+               <g id="node5" class="node">
+               <title>II</title>
+               <ellipse fill="none" stroke="black" cx="137.6" cy="-99.15" rx="18" ry="18"/>
+               <text text-anchor="middle" x="137.6" y="-95.45" font-family="Times,serif" font-size="14.00">II</text>
+               </g>
+               <!-- I&#45;&gt;II -->
+               <g id="edge2" class="edge">
+               <title>I&#45;&gt;II</title>
+               <path fill="none" stroke="black" d="M75.18,-71.23C85.72,-76.02 99.87,-82.45 111.93,-87.93"/>
+               <polygon fill="black" stroke="black" points="110.49,-91.12 121.04,-92.08 113.39,-84.75 110.49,-91.12"/>
+               <text text-anchor="middle" x="98.1" y="-86.95" font-family="Times,serif" font-size="14.00">b</text>
+               </g>
+               <!-- VII -->
+               <g id="node9" class="node">
+               <title>VII</title>
+               <ellipse fill="none" stroke="black" cx="221.35" cy="-52.15" rx="23" ry="23"/>
+               <text text-anchor="middle" x="221.35" y="-48.45" font-family="Times,serif" font-size="14.00">VII</text>
+               </g>
+               <!-- I&#45;&gt;VII -->
+               <g id="edge11" class="edge">
+               <title>I&#45;&gt;VII</title>
+               <path fill="none" stroke="black" d="M76.64,-61.85C88.63,-60.31 105.07,-58.35 119.6,-57.15 142.53,-55.24 168.46,-53.98 188.27,-53.2"/>
+               <polygon fill="black" stroke="black" points="188.45,-56.69 198.31,-52.82 188.18,-49.7 188.45,-56.69"/>
+               <text text-anchor="middle" x="137.6" y="-60.95" font-family="Times,serif" font-size="14.00">a</text>
+               </g>
+               <!-- III -->
+               <g id="node6" class="node">
+               <title>III</title>
+               <ellipse fill="none" stroke="black" cx="402.24" cy="-111.15" rx="19.5" ry="19.5"/>
+               <text text-anchor="middle" x="402.24" y="-107.45" font-family="Times,serif" font-size="14.00">III</text>
+               </g>
+               <!-- II&#45;&gt;III -->
+               <g id="edge3" class="edge">
+               <title>II&#45;&gt;III</title>
+               <path fill="none" stroke="black" d="M155.83,-99.94C200.02,-101.95 317.72,-107.33 372.48,-109.83"/>
+               <polygon fill="black" stroke="black" points="372.4,-113.33 382.55,-110.29 372.72,-106.34 372.4,-113.33"/>
+               <text text-anchor="middle" x="265.6" y="-107.95" font-family="Times,serif" font-size="14.00">b</text>
+               </g>
+               <!-- II&#45;&gt;VII -->
+               <g id="edge12" class="edge">
+               <title>II&#45;&gt;VII</title>
+               <path fill="none" stroke="black" d="M153.59,-90.53C164.35,-84.34 179.17,-75.82 192.11,-68.38"/>
+               <polygon fill="black" stroke="black" points="194.2,-71.22 201.12,-63.2 190.71,-65.15 194.2,-71.22"/>
+               <text text-anchor="middle" x="177.1" y="-82.95" font-family="Times,serif" font-size="14.00">a</text>
+               </g>
+               <!-- III&#45;&gt;III -->
+               <g id="edge4" class="edge">
+               <title>III&#45;&gt;III</title>
+               <path fill="none" stroke="black" d="M395.05,-129.67C393.83,-139.6 396.22,-148.65 402.24,-148.65 406,-148.65 408.35,-145.11 409.28,-140.04"/>
+               <polygon fill="black" stroke="black" points="412.78,-139.72 409.43,-129.67 405.78,-139.62 412.78,-139.72"/>
+               <text text-anchor="middle" x="402.24" y="-152.45" font-family="Times,serif" font-size="14.00">b</text>
+               </g>
+               <!-- IV -->
+               <g id="node7" class="node">
+               <title>IV</title>
+               <ellipse fill="none" stroke="black" cx="485.54" cy="-150.15" rx="20.3" ry="20.3"/>
+               <text text-anchor="middle" x="485.54" y="-146.45" font-family="Times,serif" font-size="14.00">IV</text>
+               </g>
+               <!-- III&#45;&gt;IV -->
+               <g id="edge5" class="edge">
+               <title>III&#45;&gt;IV</title>
+               <path fill="none" stroke="black" d="M420.08,-119.23C431.05,-124.49 445.6,-131.47 458.09,-137.46"/>
+               <polygon fill="black" stroke="black" points="456.62,-140.64 467.15,-141.81 459.65,-134.33 456.62,-140.64"/>
+               <text text-anchor="middle" x="443.89" y="-134.95" font-family="Times,serif" font-size="14.00">a</text>
+               </g>
+               <!-- IV&#45;&gt;IV -->
+               <g id="edge6" class="edge">
+               <title>IV&#45;&gt;IV</title>
+               <path fill="none" stroke="black" d="M478.35,-168.99C477.12,-179.09 479.52,-188.3 485.54,-188.3 489.39,-188.3 491.76,-184.52 492.64,-179.15"/>
+               <polygon fill="black" stroke="black" points="496.14,-179.02 492.73,-168.99 489.14,-178.96 496.14,-179.02"/>
+               <text text-anchor="middle" x="485.54" y="-192.1" font-family="Times,serif" font-size="14.00">a</text>
+               </g>
+               <!-- V -->
+               <g id="node8" class="node">
+               <title>V</title>
+               <ellipse fill="none" stroke="black" cx="572.83" cy="-124.15" rx="18" ry="18"/>
+               <text text-anchor="middle" x="572.83" y="-120.45" font-family="Times,serif" font-size="14.00">V</text>
+               </g>
+               <!-- IV&#45;&gt;V -->
+               <g id="edge7" class="edge">
+               <title>IV&#45;&gt;V</title>
+               <path fill="none" stroke="black" d="M505.04,-144.51C516.87,-140.9 532.4,-136.17 545.5,-132.17"/>
+               <polygon fill="black" stroke="black" points="546.83,-135.43 555.38,-129.16 544.79,-128.73 546.83,-135.43"/>
+               <text text-anchor="middle" x="527.18" y="-141.95" font-family="Times,serif" font-size="14.00">b</text>
+               </g>
+               <!-- V&#45;&gt;VI -->
+               <g id="edge9" class="edge">
+               <title>V&#45;&gt;VI</title>
+               <path fill="none" stroke="black" d="M591.05,-124.15C602.01,-124.15 616.56,-124.15 629.72,-124.15"/>
+               <polygon fill="black" stroke="black" points="629.89,-127.65 639.89,-124.15 629.89,-120.65 629.89,-127.65"/>
+               <text text-anchor="middle" x="618.48" y="-127.95" font-family="Times,serif" font-size="14.00">a</text>
+               </g>
+               <!-- V&#45;&gt;III -->
+               <g id="edge8" class="edge">
+               <title>V&#45;&gt;III</title>
+               <path fill="none" stroke="black" d="M555.5,-118.4C542.26,-114.06 523.03,-108.47 505.68,-106.15 480.88,-102.83 452.45,-104.66 431.84,-106.99"/>
+               <polygon fill="black" stroke="black" points="431.33,-103.53 421.83,-108.23 432.19,-110.47 431.33,-103.53"/>
+               <text text-anchor="middle" x="485.54" y="-109.95" font-family="Times,serif" font-size="14.00">b</text>
+               </g>
+               <!-- VIII -->
+               <g id="node10" class="node">
+               <title>VIII</title>
+               <ellipse fill="none" stroke="black" cx="313.09" cy="-52.15" rx="26" ry="26"/>
+               <text text-anchor="middle" x="313.09" y="-48.45" font-family="Times,serif" font-size="14.00">VIII</text>
+               </g>
+               <!-- VII&#45;&gt;VIII -->
+               <g id="edge13" class="edge">
+               <title>VII&#45;&gt;VIII</title>
+               <path fill="none" stroke="black" d="M244.53,-52.15C254.29,-52.15 265.98,-52.15 276.88,-52.15"/>
+               <polygon fill="black" stroke="black" points="277,-55.65 287,-52.15 277,-48.65 277,-55.65"/>
+               <text text-anchor="middle" x="265.6" y="-55.95" font-family="Times,serif" font-size="14.00">b</text>
+               </g>
+               <!-- VIII&#45;&gt;III -->
+               <g id="edge14" class="edge">
+               <title>VIII&#45;&gt;III</title>
+               <path fill="none" stroke="black" d="M336.36,-64.72C345.15,-69.89 355.25,-76.07 364.09,-82.15 368.9,-85.45 373.91,-89.16 378.63,-92.79"/>
+               <polygon fill="black" stroke="black" points="376.7,-95.73 386.73,-99.15 381.03,-90.22 376.7,-95.73"/>
+               <text text-anchor="middle" x="360.59" y="-85.95" font-family="Times,serif" font-size="14.00">b</text>
+               </g>
+               <!-- IX -->
+               <g id="node11" class="node">
+               <title>IX</title>
+               <ellipse fill="none" stroke="black" cx="402.24" cy="-20.15" rx="20.3" ry="20.3"/>
+               <text text-anchor="middle" x="402.24" y="-16.45" font-family="Times,serif" font-size="14.00">IX</text>
+               </g>
+               <!-- VIII&#45;&gt;IX -->
+               <g id="edge15" class="edge">
+               <title>VIII&#45;&gt;IX</title>
+               <path fill="none" stroke="black" d="M337.91,-43.4C348.9,-39.37 362.02,-34.55 373.46,-30.35"/>
+               <polygon fill="black" stroke="black" points="374.8,-33.58 382.98,-26.85 372.39,-27.01 374.8,-33.58"/>
+               <text text-anchor="middle" x="360.59" y="-39.95" font-family="Times,serif" font-size="14.00">a</text>
+               </g>
+               <!-- IX&#45;&gt;IX -->
+               <g id="edge16" class="edge">
+               <title>IX&#45;&gt;IX</title>
+               <path fill="none" stroke="black" d="M395.05,-38.99C393.83,-49.09 396.22,-58.3 402.24,-58.3 406.09,-58.3 408.46,-54.52 409.35,-49.15"/>
+               <polygon fill="black" stroke="black" points="412.85,-49.02 409.43,-38.99 405.85,-48.96 412.85,-49.02"/>
+               <text text-anchor="middle" x="402.24" y="-62.1" font-family="Times,serif" font-size="14.00">a</text>
+               </g>
+               <!-- X -->
+               <g id="node12" class="node">
+               <title>X</title>
+               <ellipse fill="none" stroke="black" cx="485.54" cy="-27.15" rx="18" ry="18"/>
+               <text text-anchor="middle" x="485.54" y="-23.45" font-family="Times,serif" font-size="14.00">X</text>
+               </g>
+               <!-- IX&#45;&gt;X -->
+               <g id="edge17" class="edge">
+               <title>IX&#45;&gt;X</title>
+               <path fill="none" stroke="black" d="M421.52,-26.7C427.46,-28.52 434.13,-30.24 440.39,-31.15 445.86,-31.94 451.75,-31.97 457.38,-31.61"/>
+               <polygon fill="black" stroke="black" points="458.14,-35.05 467.72,-30.52 457.4,-28.09 458.14,-35.05"/>
+               <text text-anchor="middle" x="443.89" y="-35.95" font-family="Times,serif" font-size="14.00">b</text>
+               </g>
+               <!-- X&#45;&gt;XI -->
+               <g id="edge19" class="edge">
+               <title>X&#45;&gt;XI</title>
+               <path fill="none" stroke="black" d="M503.8,-27.15C513.74,-27.15 526.57,-27.15 538.41,-27.15"/>
+               <polygon fill="black" stroke="black" points="538.45,-30.65 548.45,-27.15 538.45,-23.65 538.45,-30.65"/>
+               <text text-anchor="middle" x="527.18" y="-30.95" font-family="Times,serif" font-size="14.00">b</text>
+               </g>
+               <!-- X&#45;&gt;IX -->
+               <g id="edge18" class="edge">
+               <title>X&#45;&gt;IX</title>
+               <path fill="none" stroke="black" d="M469.04,-19.34C462.53,-16.47 454.76,-13.58 447.39,-12.15 442.39,-11.18 437.07,-11.22 431.92,-11.83"/>
+               <polygon fill="black" stroke="black" points="430.93,-8.45 421.73,-13.72 432.2,-15.34 430.93,-8.45"/>
+               <text text-anchor="middle" x="443.89" y="-15.95" font-family="Times,serif" font-size="14.00">a</text>
+               </g>
+               </g>
+               </svg>
+               
+             </div>
+             <div class="cell subsection-header-cell" id="212-feladat">
+                 <a href="#212-feladat">
+                     <h4>2.12 feladat</h4>
                  </a>
                  <div class="header-link">
-                     <a href="#tovabbi-feladatok">
+                     <a href="#212-feladat">
                          <img src="/resources/img/link-2-outline.svg">
                      </a>
                  </div>
              </div>
+             <div class="cell subsubsection-header-cell">
+                 <h5>2.12 a.</h5>
+             </div>
              <div class="cell md-cell">
-               <p>Mivel nem jutott rá idő, ezért a 4.4 feladatot a következő gyakorlaton (2020. 09. 16.) fogjuk megoldani.</p>
-               <p>Házi feladatként szerepelt továbbá a feladatsort záró két feladat, az 1.32 és az 1.36.</p>
+               <?xml version="1.0" encoding="UTF-8" standalone="no"?>
+               <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+                "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+               <!-- Generated by graphviz version 2.42.3 ()
+                -->
+               <!-- Title: dfa_212a Pages: 1 -->
+               <svg width="172pt" height="85pt"
+                viewBox="0.00 0.00 171.60 85.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+               <g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 81)">
+               <title>dfa_212a</title>
+               <polygon fill="white" stroke="transparent" points="-4,4 -4,-81 167.6,-81 167.6,4 -4,4"/>
+               <!-- S -->
+               <g id="node1" class="node">
+               <title>S</title>
+               <ellipse fill="white" stroke="white" cx="1.8" cy="-22" rx="1.8" ry="1.8"/>
+               </g>
+               <!-- I -->
+               <g id="node3" class="node">
+               <title>I</title>
+               <ellipse fill="none" stroke="black" cx="58.6" cy="-22" rx="18" ry="18"/>
+               <text text-anchor="middle" x="58.6" y="-18.3" font-family="Times,serif" font-size="14.00">I</text>
+               </g>
+               <!-- S&#45;&gt;I -->
+               <g id="edge1" class="edge">
+               <title>S&#45;&gt;I</title>
+               <path fill="none" stroke="black" d="M3.75,-22C7.11,-22 18.87,-22 30.55,-22"/>
+               <polygon fill="black" stroke="black" points="30.58,-25.5 40.58,-22 30.58,-18.5 30.58,-25.5"/>
+               </g>
+               <!-- II -->
+               <g id="node2" class="node">
+               <title>II</title>
+               <ellipse fill="none" stroke="black" cx="141.6" cy="-22" rx="18" ry="18"/>
+               <ellipse fill="none" stroke="black" cx="141.6" cy="-22" rx="22" ry="22"/>
+               <text text-anchor="middle" x="141.6" y="-18.3" font-family="Times,serif" font-size="14.00">II</text>
+               </g>
+               <!-- II&#45;&gt;II -->
+               <g id="edge5" class="edge">
+               <title>II&#45;&gt;II</title>
+               <path fill="none" stroke="black" d="M133.92,-42.99C132.97,-53.09 135.53,-62 141.6,-62 145.49,-62 147.94,-58.34 148.95,-53.06"/>
+               <polygon fill="black" stroke="black" points="152.45,-53.1 149.28,-42.99 145.45,-52.87 152.45,-53.1"/>
+               <text text-anchor="middle" x="141.6" y="-65.8" font-family="Times,serif" font-size="14.00">a</text>
+               </g>
+               <!-- II&#45;&gt;I -->
+               <g id="edge4" class="edge">
+               <title>II&#45;&gt;I</title>
+               <path fill="none" stroke="black" d="M123.53,-9.2C115.03,-4.33 104.48,-0.49 94.6,-3 90.64,-4.01 86.65,-5.56 82.84,-7.35"/>
+               <polygon fill="black" stroke="black" points="81.08,-4.33 73.91,-12.13 84.38,-10.5 81.08,-4.33"/>
+               <text text-anchor="middle" x="98.1" y="-6.8" font-family="Times,serif" font-size="14.00">b</text>
+               </g>
+               <!-- I&#45;&gt;II -->
+               <g id="edge2" class="edge">
+               <title>I&#45;&gt;II</title>
+               <path fill="none" stroke="black" d="M76.78,-22C86.21,-22 98.2,-22 109.24,-22"/>
+               <polygon fill="black" stroke="black" points="109.41,-25.5 119.41,-22 109.41,-18.5 109.41,-25.5"/>
+               <text text-anchor="middle" x="98.1" y="-25.8" font-family="Times,serif" font-size="14.00">a</text>
+               </g>
+               <!-- I&#45;&gt;I -->
+               <g id="edge3" class="edge">
+               <title>I&#45;&gt;I</title>
+               <path fill="none" stroke="black" d="M52.22,-39.04C50.92,-48.86 53.05,-58 58.6,-58 62.07,-58 64.2,-54.43 65,-49.35"/>
+               <polygon fill="black" stroke="black" points="68.5,-49.03 64.98,-39.04 61.5,-49.04 68.5,-49.03"/>
+               <text text-anchor="middle" x="58.6" y="-61.8" font-family="Times,serif" font-size="14.00">b</text>
+               </g>
+               </g>
+               </svg>
+               
+             </div>
+             <div class="cell subsubsection-header-cell">
+                 <h5>2.12 b.</h5>
+             </div>
+             <div class="cell md-cell">
+               <?xml version="1.0" encoding="UTF-8" standalone="no"?>
+               <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+                "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+               <!-- Generated by graphviz version 2.42.3 ()
+                -->
+               <!-- Title: dfa_212b Pages: 1 -->
+               <svg width="189pt" height="133pt"
+                viewBox="0.00 0.00 188.60 133.50" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+               <g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 129.5)">
+               <title>dfa_212b</title>
+               <polygon fill="white" stroke="transparent" points="-4,4 -4,-129.5 184.6,-129.5 184.6,4 -4,4"/>
+               <!-- S -->
+               <g id="node1" class="node">
+               <title>S</title>
+               <ellipse fill="white" stroke="white" cx="1.8" cy="-69.5" rx="1.8" ry="1.8"/>
+               </g>
+               <!-- I -->
+               <g id="node2" class="node">
+               <title>I</title>
+               <ellipse fill="none" stroke="black" cx="62.6" cy="-69.5" rx="18" ry="18"/>
+               <ellipse fill="none" stroke="black" cx="62.6" cy="-69.5" rx="22" ry="22"/>
+               <text text-anchor="middle" x="62.6" y="-65.8" font-family="Times,serif" font-size="14.00">I</text>
+               </g>
+               <!-- S&#45;&gt;I -->
+               <g id="edge1" class="edge">
+               <title>S&#45;&gt;I</title>
+               <path fill="none" stroke="black" d="M3.82,-69.5C7.19,-69.5 18.44,-69.5 30.12,-69.5"/>
+               <polygon fill="black" stroke="black" points="30.31,-73 40.31,-69.5 30.31,-66 30.31,-73"/>
+               </g>
+               <!-- II -->
+               <g id="node3" class="node">
+               <title>II</title>
+               <ellipse fill="none" stroke="black" cx="161.1" cy="-107.5" rx="18" ry="18"/>
+               <text text-anchor="middle" x="161.1" y="-103.8" font-family="Times,serif" font-size="14.00">II</text>
+               </g>
+               <!-- I&#45;&gt;II -->
+               <g id="edge2" class="edge">
+               <title>I&#45;&gt;II</title>
+               <path fill="none" stroke="black" d="M83.4,-77.73C89.54,-80.25 96.34,-83.02 102.6,-85.5 113.03,-89.63 124.58,-94.08 134.57,-97.88"/>
+               <polygon fill="black" stroke="black" points="133.36,-101.16 143.95,-101.44 135.84,-94.62 133.36,-101.16"/>
+               <text text-anchor="middle" x="113.1" y="-96.3" font-family="Times,serif" font-size="14.00">b</text>
+               </g>
+               <!-- III -->
+               <g id="node4" class="node">
+               <title>III</title>
+               <ellipse fill="none" stroke="black" cx="161.1" cy="-19.5" rx="19.5" ry="19.5"/>
+               <text text-anchor="middle" x="161.1" y="-15.8" font-family="Times,serif" font-size="14.00">III</text>
+               </g>
+               <!-- I&#45;&gt;III -->
+               <g id="edge3" class="edge">
+               <title>I&#45;&gt;III</title>
+               <path fill="none" stroke="black" d="M80.54,-56.53C87.2,-51.77 95.06,-46.55 102.6,-42.5 112.09,-37.4 122.96,-32.77 132.67,-29.02"/>
+               <polygon fill="black" stroke="black" points="134.12,-32.22 142.27,-25.45 131.68,-25.66 134.12,-32.22"/>
+               <text text-anchor="middle" x="113.1" y="-46.3" font-family="Times,serif" font-size="14.00">a</text>
+               </g>
+               <!-- II&#45;&gt;I -->
+               <g id="edge4" class="edge">
+               <title>II&#45;&gt;I</title>
+               <path fill="none" stroke="black" d="M149.53,-93.31C141.23,-82.64 130.03,-69.38 123.6,-66.5 114.52,-62.42 103.86,-61.8 94.07,-62.63"/>
+               <polygon fill="black" stroke="black" points="93.35,-59.2 83.91,-64 94.28,-66.13 93.35,-59.2"/>
+               <text text-anchor="middle" x="113.1" y="-70.3" font-family="Times,serif" font-size="14.00">a, b</text>
+               </g>
+               <!-- III&#45;&gt;III -->
+               <g id="edge5" class="edge">
+               <title>III&#45;&gt;III</title>
+               <path fill="none" stroke="black" d="M152.95,-37.24C151.28,-47.47 154,-57 161.1,-57 165.65,-57 168.39,-53.09 169.35,-47.59"/>
+               <polygon fill="black" stroke="black" points="172.84,-47.21 169.25,-37.24 165.84,-47.28 172.84,-47.21"/>
+               <text text-anchor="middle" x="161.1" y="-60.8" font-family="Times,serif" font-size="14.00">a, b</text>
+               </g>
+               </g>
+               </svg>
+               
+             </div>
+             <div class="cell subsubsection-header-cell">
+                 <h5>2.12 c.</h5>
+             </div>
+             <div class="cell md-cell">
+               <?xml version="1.0" encoding="UTF-8" standalone="no"?>
+               <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+                "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+               <!-- Generated by graphviz version 2.42.3 ()
+                -->
+               <!-- Title: dfa_212c Pages: 1 -->
+               <svg width="268pt" height="110pt"
+                viewBox="0.00 0.00 267.60 110.50" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+               <g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 106.5)">
+               <title>dfa_212c</title>
+               <polygon fill="white" stroke="transparent" points="-4,4 -4,-106.5 263.6,-106.5 263.6,4 -4,4"/>
+               <!-- S -->
+               <g id="node1" class="node">
+               <title>S</title>
+               <ellipse fill="white" stroke="white" cx="1.8" cy="-47.5" rx="1.8" ry="1.8"/>
+               </g>
+               <!-- I -->
+               <g id="node3" class="node">
+               <title>I</title>
+               <ellipse fill="none" stroke="black" cx="58.6" cy="-47.5" rx="18" ry="18"/>
+               <text text-anchor="middle" x="58.6" y="-43.8" font-family="Times,serif" font-size="14.00">I</text>
+               </g>
+               <!-- S&#45;&gt;I -->
+               <g id="edge1" class="edge">
+               <title>S&#45;&gt;I</title>
+               <path fill="none" stroke="black" d="M3.75,-47.5C7.11,-47.5 18.87,-47.5 30.55,-47.5"/>
+               <polygon fill="black" stroke="black" points="30.58,-51 40.58,-47.5 30.58,-44 30.58,-51"/>
+               </g>
+               <!-- II -->
+               <g id="node2" class="node">
+               <title>II</title>
+               <ellipse fill="none" stroke="black" cx="237.6" cy="-47.5" rx="18" ry="18"/>
+               <ellipse fill="none" stroke="black" cx="237.6" cy="-47.5" rx="22" ry="22"/>
+               <text text-anchor="middle" x="237.6" y="-43.8" font-family="Times,serif" font-size="14.00">II</text>
+               </g>
+               <!-- II&#45;&gt;II -->
+               <g id="edge4" class="edge">
+               <title>II&#45;&gt;II</title>
+               <path fill="none" stroke="black" d="M228.55,-67.67C227.16,-78.1 230.17,-87.5 237.6,-87.5 242.47,-87.5 245.44,-83.45 246.51,-77.72"/>
+               <polygon fill="black" stroke="black" points="250.02,-77.71 246.64,-67.67 243.02,-77.62 250.02,-77.71"/>
+               <text text-anchor="middle" x="237.6" y="-91.3" font-family="Times,serif" font-size="14.00">a, b</text>
+               </g>
+               <!-- I&#45;&gt;II -->
+               <g id="edge2" class="edge">
+               <title>I&#45;&gt;II</title>
+               <path fill="none" stroke="black" d="M76.64,-50.34C82.34,-51.18 88.73,-52.01 94.6,-52.5 140.23,-56.3 151.99,-58.56 197.6,-54.5 200.17,-54.27 202.84,-53.96 205.5,-53.59"/>
+               <polygon fill="black" stroke="black" points="206.32,-57 215.64,-51.97 205.21,-50.09 206.32,-57"/>
+               <text text-anchor="middle" x="139.1" y="-60.3" font-family="Times,serif" font-size="14.00">b</text>
+               </g>
+               <!-- III -->
+               <g id="node4" class="node">
+               <title>III</title>
+               <ellipse fill="none" stroke="black" cx="139.1" cy="-19.5" rx="19.5" ry="19.5"/>
+               <text text-anchor="middle" x="139.1" y="-15.8" font-family="Times,serif" font-size="14.00">III</text>
+               </g>
+               <!-- I&#45;&gt;III -->
+               <g id="edge3" class="edge">
+               <title>I&#45;&gt;III</title>
+               <path fill="none" stroke="black" d="M75.86,-41.7C85.94,-38.1 99.13,-33.4 110.77,-29.25"/>
+               <polygon fill="black" stroke="black" points="112.25,-32.44 120.49,-25.78 109.89,-25.84 112.25,-32.44"/>
+               <text text-anchor="middle" x="98.1" y="-37.3" font-family="Times,serif" font-size="14.00">a</text>
+               </g>
+               <!-- III&#45;&gt;II -->
+               <g id="edge5" class="edge">
+               <title>III&#45;&gt;II</title>
+               <path fill="none" stroke="black" d="M158.25,-24.76C171.77,-28.69 190.55,-34.14 206.34,-38.72"/>
+               <polygon fill="black" stroke="black" points="205.61,-42.15 216.19,-41.58 207.56,-35.43 205.61,-42.15"/>
+               <text text-anchor="middle" x="187.1" y="-39.3" font-family="Times,serif" font-size="14.00">a, b</text>
+               </g>
+               </g>
+               </svg>
+               
+             </div>
+             <div class="cell subsubsection-header-cell">
+                 <h5>2.12 d.</h5>
+             </div>
+             <div class="cell md-cell">
+               <?xml version="1.0" encoding="UTF-8" standalone="no"?>
+               <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+                "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+               <!-- Generated by graphviz version 2.42.3 ()
+                -->
+               <!-- Title: dfa_212d Pages: 1 -->
+               <svg width="255pt" height="190pt"
+                viewBox="0.00 0.00 254.90 190.20" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+               <g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 186.2)">
+               <title>dfa_212d</title>
+               <polygon fill="white" stroke="transparent" points="-4,4 -4,-186.2 250.9,-186.2 250.9,4 -4,4"/>
+               <!-- S -->
+               <g id="node1" class="node">
+               <title>S</title>
+               <ellipse fill="white" stroke="white" cx="1.8" cy="-89.2" rx="1.8" ry="1.8"/>
+               </g>
+               <!-- I -->
+               <g id="node3" class="node">
+               <title>I</title>
+               <ellipse fill="none" stroke="black" cx="58.6" cy="-89.2" rx="18" ry="18"/>
+               <text text-anchor="middle" x="58.6" y="-85.5" font-family="Times,serif" font-size="14.00">I</text>
+               </g>
+               <!-- S&#45;&gt;I -->
+               <g id="edge1" class="edge">
+               <title>S&#45;&gt;I</title>
+               <path fill="none" stroke="black" d="M3.75,-89.2C7.11,-89.2 18.87,-89.2 30.55,-89.2"/>
+               <polygon fill="black" stroke="black" points="30.58,-92.7 40.58,-89.2 30.58,-85.7 30.58,-92.7"/>
+               </g>
+               <!-- II -->
+               <g id="node2" class="node">
+               <title>II</title>
+               <ellipse fill="none" stroke="black" cx="141.6" cy="-160.2" rx="18" ry="18"/>
+               <ellipse fill="none" stroke="black" cx="141.6" cy="-160.2" rx="22" ry="22"/>
+               <text text-anchor="middle" x="141.6" y="-156.5" font-family="Times,serif" font-size="14.00">II</text>
+               </g>
+               <!-- I&#45;&gt;II -->
+               <g id="edge2" class="edge">
+               <title>I&#45;&gt;II</title>
+               <path fill="none" stroke="black" d="M72.61,-100.61C84.54,-111.06 102.48,-126.79 116.94,-139.46"/>
+               <polygon fill="black" stroke="black" points="114.72,-142.18 124.55,-146.13 119.34,-136.91 114.72,-142.18"/>
+               <text text-anchor="middle" x="98.1" y="-128" font-family="Times,serif" font-size="14.00">a</text>
+               </g>
+               <!-- III -->
+               <g id="node4" class="node">
+               <title>III</title>
+               <ellipse fill="none" stroke="black" cx="141.6" cy="-50.2" rx="19.5" ry="19.5"/>
+               <text text-anchor="middle" x="141.6" y="-46.5" font-family="Times,serif" font-size="14.00">III</text>
+               </g>
+               <!-- I&#45;&gt;III -->
+               <g id="edge3" class="edge">
+               <title>I&#45;&gt;III</title>
+               <path fill="none" stroke="black" d="M75.22,-81.68C86.28,-76.36 101.39,-69.08 114.3,-62.87"/>
+               <polygon fill="black" stroke="black" points="116.14,-65.86 123.63,-58.37 113.1,-59.56 116.14,-65.86"/>
+               <text text-anchor="middle" x="98.1" y="-75" font-family="Times,serif" font-size="14.00">b</text>
+               </g>
+               <!-- IV -->
+               <g id="node5" class="node">
+               <title>IV</title>
+               <ellipse fill="none" stroke="black" cx="226.75" cy="-85.2" rx="20.3" ry="20.3"/>
+               <text text-anchor="middle" x="226.75" y="-81.5" font-family="Times,serif" font-size="14.00">IV</text>
+               </g>
+               <!-- III&#45;&gt;IV -->
+               <g id="edge4" class="edge">
+               <title>III&#45;&gt;IV</title>
+               <path fill="none" stroke="black" d="M159.83,-57.45C171.05,-62.18 185.92,-68.44 198.7,-73.82"/>
+               <polygon fill="black" stroke="black" points="197.39,-77.06 207.97,-77.72 200.11,-70.61 197.39,-77.06"/>
+               <text text-anchor="middle" x="185.1" y="-72" font-family="Times,serif" font-size="14.00">a</text>
+               </g>
+               <!-- V -->
+               <g id="node6" class="node">
+               <title>V</title>
+               <ellipse fill="none" stroke="black" cx="226.75" cy="-22.2" rx="18" ry="18"/>
+               <text text-anchor="middle" x="226.75" y="-18.5" font-family="Times,serif" font-size="14.00">V</text>
+               </g>
+               <!-- III&#45;&gt;V -->
+               <g id="edge6" class="edge">
+               <title>III&#45;&gt;V</title>
+               <path fill="none" stroke="black" d="M160.02,-43.79C166.75,-41.36 174.51,-38.6 181.6,-36.2 187.46,-34.22 193.78,-32.17 199.75,-30.27"/>
+               <polygon fill="black" stroke="black" points="200.86,-33.59 209.35,-27.24 198.76,-26.91 200.86,-33.59"/>
+               <text text-anchor="middle" x="185.1" y="-40" font-family="Times,serif" font-size="14.00">b</text>
+               </g>
+               <!-- IV&#45;&gt;I -->
+               <g id="edge5" class="edge">
+               <title>IV&#45;&gt;I</title>
+               <path fill="none" stroke="black" d="M206.64,-86.56C181.12,-88.23 134.47,-90.77 94.6,-90.2 92.05,-90.17 89.39,-90.11 86.73,-90.05"/>
+               <polygon fill="black" stroke="black" points="86.78,-86.55 76.69,-89.79 86.59,-93.55 86.78,-86.55"/>
+               <text text-anchor="middle" x="141.6" y="-93" font-family="Times,serif" font-size="14.00">a</text>
+               </g>
+               <!-- V&#45;&gt;I -->
+               <g id="edge7" class="edge">
+               <title>V&#45;&gt;I</title>
+               <path fill="none" stroke="black" d="M210.05,-14.54C188.47,-5.17 148.98,7.7 119.6,-7.2 96.59,-18.88 80.28,-43.99 70.54,-63.36"/>
+               <polygon fill="black" stroke="black" points="67.28,-62.06 66.15,-72.6 73.6,-65.06 67.28,-62.06"/>
+               <text text-anchor="middle" x="141.6" y="-11" font-family="Times,serif" font-size="14.00">b</text>
+               </g>
+               </g>
+               </svg>
+               
+             </div>
+             <div class="cell subsubsection-header-cell">
+                 <h5>2.12 e.</h5>
+             </div>
+             <div class="cell md-cell">
+               <p>Bezárójelezve a kifejezést, a következőt kapjuk:</p>
+               <p><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mo stretchy="false">(</mo><mo stretchy="false">{</mo><mi>a</mi><mo stretchy="false">}</mo><mo>∪</mo><mo stretchy="false">{</mo><mi>b</mi><mo stretchy="false">}</mo><mo stretchy="false">{</mo><mi>a</mi><msup><mo stretchy="false">}</mo><mo lspace="0em" rspace="0em">∗</mo></msup><mo stretchy="false">)</mo><mo>∪</mo><mo stretchy="false">(</mo><mo stretchy="false">{</mo><mi>a</mi><mo stretchy="false">}</mo><mo stretchy="false">{</mo><mi>b</mi><msup><mo stretchy="false">}</mo><mo lspace="0em" rspace="0em">∗</mo></msup><mo stretchy="false">{</mo><mi>a</mi><mo stretchy="false">}</mo><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">(\{a\} \cup \{b\}\{a\}^{*}) \cup (\{a\}\{b\}^{*}\{a\})</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mopen">{</span><span class="mord mathnormal">a</span><span class="mclose">}</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">∪</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">{</span><span class="mord mathnormal">b</span><span class="mclose">}</span><span class="mopen">{</span><span class="mord mathnormal">a</span><span class="mclose"><span class="mclose">}</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.738696em;"><span style="top:-3.113em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">∗</span></span></span></span></span></span></span></span></span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">∪</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mopen">{</span><span class="mord mathnormal">a</span><span class="mclose">}</span><span class="mopen">{</span><span class="mord mathnormal">b</span><span class="mclose"><span class="mclose">}</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.738696em;"><span style="top:-3.113em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">∗</span></span></span></span></span></span></span></span></span><span class="mopen">{</span><span class="mord mathnormal">a</span><span class="mclose">}</span><span class="mclose">)</span></span></span></span></span></p>
+               
+             </div>
+             <div class="cell md-cell">
+               <?xml version="1.0" encoding="UTF-8" standalone="no"?>
+               <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+                "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+               <!-- Generated by graphviz version 2.42.3 ()
+                -->
+               <!-- Title: dfa_212e Pages: 1 -->
+               <svg width="345pt" height="147pt"
+                viewBox="0.00 0.00 344.89 147.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+               <g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 143)">
+               <title>dfa_212e</title>
+               <polygon fill="white" stroke="transparent" points="-4,4 -4,-143 340.89,-143 340.89,4 -4,4"/>
+               <!-- S -->
+               <g id="node1" class="node">
+               <title>S</title>
+               <ellipse fill="white" stroke="white" cx="1.8" cy="-69" rx="1.8" ry="1.8"/>
+               </g>
+               <!-- I -->
+               <g id="node5" class="node">
+               <title>I</title>
+               <ellipse fill="none" stroke="black" cx="58.6" cy="-69" rx="18" ry="18"/>
+               <text text-anchor="middle" x="58.6" y="-65.3" font-family="Times,serif" font-size="14.00">I</text>
+               </g>
+               <!-- S&#45;&gt;I -->
+               <g id="edge1" class="edge">
+               <title>S&#45;&gt;I</title>
+               <path fill="none" stroke="black" d="M3.75,-69C7.11,-69 18.87,-69 30.55,-69"/>
+               <polygon fill="black" stroke="black" points="30.58,-72.5 40.58,-69 30.58,-65.5 30.58,-72.5"/>
+               </g>
+               <!-- II -->
+               <g id="node2" class="node">
+               <title>II</title>
+               <ellipse fill="none" stroke="black" cx="141.6" cy="-117" rx="18" ry="18"/>
+               <ellipse fill="none" stroke="black" cx="141.6" cy="-117" rx="22" ry="22"/>
+               <text text-anchor="middle" x="141.6" y="-113.3" font-family="Times,serif" font-size="14.00">II</text>
+               </g>
+               <!-- III -->
+               <g id="node3" class="node">
+               <title>III</title>
+               <ellipse fill="none" stroke="black" cx="313.39" cy="-102" rx="19.5" ry="19.5"/>
+               <ellipse fill="none" stroke="black" cx="313.39" cy="-102" rx="23.5" ry="23.5"/>
+               <text text-anchor="middle" x="313.39" y="-98.3" font-family="Times,serif" font-size="14.00">III</text>
+               </g>
+               <!-- II&#45;&gt;III -->
+               <g id="edge3" class="edge">
+               <title>II&#45;&gt;III</title>
+               <path fill="none" stroke="black" d="M163.87,-119.21C185.02,-120.99 218.33,-122.65 246.9,-119 258.2,-117.56 270.34,-114.77 281.06,-111.86"/>
+               <polygon fill="black" stroke="black" points="282.18,-115.18 290.83,-109.07 280.26,-108.45 282.18,-115.18"/>
+               <text text-anchor="middle" x="226.75" y="-124.8" font-family="Times,serif" font-size="14.00">a</text>
+               </g>
+               <!-- IV -->
+               <g id="node6" class="node">
+               <title>IV</title>
+               <ellipse fill="none" stroke="black" cx="226.75" cy="-57" rx="20.3" ry="20.3"/>
+               <text text-anchor="middle" x="226.75" y="-53.3" font-family="Times,serif" font-size="14.00">IV</text>
+               </g>
+               <!-- II&#45;&gt;IV -->
+               <g id="edge4" class="edge">
+               <title>II&#45;&gt;IV</title>
+               <path fill="none" stroke="black" d="M159.83,-104.57C171.92,-95.84 188.27,-84.05 201.65,-74.39"/>
+               <polygon fill="black" stroke="black" points="203.89,-77.09 209.95,-68.4 199.79,-71.41 203.89,-77.09"/>
+               <text text-anchor="middle" x="185.1" y="-91.8" font-family="Times,serif" font-size="14.00">b</text>
+               </g>
+               <!-- V -->
+               <g id="node4" class="node">
+               <title>V</title>
+               <ellipse fill="none" stroke="black" cx="141.6" cy="-22" rx="18" ry="18"/>
+               <ellipse fill="none" stroke="black" cx="141.6" cy="-22" rx="22" ry="22"/>
+               <text text-anchor="middle" x="141.6" y="-18.3" font-family="Times,serif" font-size="14.00">V</text>
+               </g>
+               <!-- V&#45;&gt;V -->
+               <g id="edge8" class="edge">
+               <title>V&#45;&gt;V</title>
+               <path fill="none" stroke="black" d="M133.92,-42.99C132.97,-53.09 135.53,-62 141.6,-62 145.49,-62 147.94,-58.34 148.95,-53.06"/>
+               <polygon fill="black" stroke="black" points="152.45,-53.1 149.28,-42.99 145.45,-52.87 152.45,-53.1"/>
+               <text text-anchor="middle" x="141.6" y="-65.8" font-family="Times,serif" font-size="14.00">a</text>
+               </g>
+               <!-- I&#45;&gt;II -->
+               <g id="edge2" class="edge">
+               <title>I&#45;&gt;II</title>
+               <path fill="none" stroke="black" d="M74.46,-77.8C85.37,-84.27 100.49,-93.23 113.53,-100.96"/>
+               <polygon fill="black" stroke="black" points="111.75,-103.97 122.14,-106.06 115.32,-97.95 111.75,-103.97"/>
+               <text text-anchor="middle" x="98.1" y="-96.8" font-family="Times,serif" font-size="14.00">a</text>
+               </g>
+               <!-- I&#45;&gt;V -->
+               <g id="edge7" class="edge">
+               <title>I&#45;&gt;V</title>
+               <path fill="none" stroke="black" d="M74.46,-60.38C85.26,-54.11 100.2,-45.44 113.15,-37.93"/>
+               <polygon fill="black" stroke="black" points="115.25,-40.76 122.14,-32.71 111.73,-34.7 115.25,-40.76"/>
+               <text text-anchor="middle" x="98.1" y="-52.8" font-family="Times,serif" font-size="14.00">b</text>
+               </g>
+               <!-- IV&#45;&gt;III -->
+               <g id="edge5" class="edge">
+               <title>IV&#45;&gt;III</title>
+               <path fill="none" stroke="black" d="M244.88,-66.11C255.92,-71.98 270.55,-79.76 283.38,-86.57"/>
+               <polygon fill="black" stroke="black" points="281.84,-89.72 292.31,-91.32 285.13,-83.54 281.84,-89.72"/>
+               <text text-anchor="middle" x="268.4" y="-83.8" font-family="Times,serif" font-size="14.00">a</text>
+               </g>
+               <!-- IV&#45;&gt;IV -->
+               <g id="edge6" class="edge">
+               <title>IV&#45;&gt;IV</title>
+               <path fill="none" stroke="black" d="M219.56,-75.84C218.34,-85.94 220.73,-95.15 226.75,-95.15 230.6,-95.15 232.97,-91.37 233.85,-86"/>
+               <polygon fill="black" stroke="black" points="237.36,-85.87 233.94,-75.84 230.36,-85.81 237.36,-85.87"/>
+               <text text-anchor="middle" x="226.75" y="-98.95" font-family="Times,serif" font-size="14.00">b</text>
+               </g>
+               </g>
+               </svg>
+               
+             </div>
+             <div class="cell subsubsection-header-cell">
+                 <h5>2.12 f.</h5>
+             </div>
+             <div class="cell md-cell">
+               <?xml version="1.0" encoding="UTF-8" standalone="no"?>
+               <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+                "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+               <!-- Generated by graphviz version 2.42.3 ()
+                -->
+               <!-- Title: dfa_212f Pages: 1 -->
+               <svg width="507pt" height="170pt"
+                viewBox="0.00 0.00 507.19 170.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+               <g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 166)">
+               <title>dfa_212f</title>
+               <polygon fill="white" stroke="transparent" points="-4,4 -4,-166 503.19,-166 503.19,4 -4,4"/>
+               <!-- S -->
+               <g id="node1" class="node">
+               <title>S</title>
+               <ellipse fill="white" stroke="white" cx="1.8" cy="-84" rx="1.8" ry="1.8"/>
+               </g>
+               <!-- I -->
+               <g id="node4" class="node">
+               <title>I</title>
+               <ellipse fill="none" stroke="black" cx="58.6" cy="-84" rx="18" ry="18"/>
+               <text text-anchor="middle" x="58.6" y="-80.3" font-family="Times,serif" font-size="14.00">I</text>
+               </g>
+               <!-- S&#45;&gt;I -->
+               <g id="edge1" class="edge">
+               <title>S&#45;&gt;I</title>
+               <path fill="none" stroke="black" d="M3.75,-84C7.11,-84 18.87,-84 30.55,-84"/>
+               <polygon fill="black" stroke="black" points="30.58,-87.5 40.58,-84 30.58,-80.5 30.58,-87.5"/>
+               </g>
+               <!-- IV -->
+               <g id="node2" class="node">
+               <title>IV</title>
+               <ellipse fill="none" stroke="black" cx="304.74" cy="-89" rx="20.27" ry="20.27"/>
+               <ellipse fill="none" stroke="black" cx="304.74" cy="-89" rx="24.3" ry="24.3"/>
+               <text text-anchor="middle" x="304.74" y="-85.3" font-family="Times,serif" font-size="14.00">IV</text>
+               </g>
+               <!-- II -->
+               <g id="node5" class="node">
+               <title>II</title>
+               <ellipse fill="none" stroke="black" cx="219.6" cy="-111" rx="18" ry="18"/>
+               <text text-anchor="middle" x="219.6" y="-107.3" font-family="Times,serif" font-size="14.00">II</text>
+               </g>
+               <!-- IV&#45;&gt;II -->
+               <g id="edge5" class="edge">
+               <title>IV&#45;&gt;II</title>
+               <path fill="none" stroke="black" d="M281.72,-80.65C273.36,-78.69 263.86,-77.94 255.6,-81 249.73,-83.17 244.18,-86.81 239.31,-90.82"/>
+               <polygon fill="black" stroke="black" points="236.79,-88.38 231.8,-97.73 241.53,-93.54 236.79,-88.38"/>
+               <text text-anchor="middle" x="259.1" y="-84.8" font-family="Times,serif" font-size="14.00">a</text>
+               </g>
+               <!-- V -->
+               <g id="node6" class="node">
+               <title>V</title>
+               <ellipse fill="none" stroke="black" cx="389.89" cy="-18" rx="18" ry="18"/>
+               <text text-anchor="middle" x="389.89" y="-14.3" font-family="Times,serif" font-size="14.00">V</text>
+               </g>
+               <!-- IV&#45;&gt;V -->
+               <g id="edge6" class="edge">
+               <title>IV&#45;&gt;V</title>
+               <path fill="none" stroke="black" d="M323.79,-73.59C336.76,-62.52 354.29,-47.55 367.9,-35.93"/>
+               <polygon fill="black" stroke="black" points="370.45,-38.35 375.78,-29.2 365.9,-33.03 370.45,-38.35"/>
+               <text text-anchor="middle" x="350.39" y="-56.8" font-family="Times,serif" font-size="14.00">b</text>
+               </g>
+               <!-- VI -->
+               <g id="node3" class="node">
+               <title>VI</title>
+               <ellipse fill="none" stroke="black" cx="475.04" cy="-105" rx="20.27" ry="20.27"/>
+               <ellipse fill="none" stroke="black" cx="475.04" cy="-105" rx="24.3" ry="24.3"/>
+               <text text-anchor="middle" x="475.04" y="-101.3" font-family="Times,serif" font-size="14.00">VI</text>
+               </g>
+               <!-- VI&#45;&gt;IV -->
+               <g id="edge12" class="edge">
+               <title>VI&#45;&gt;IV</title>
+               <path fill="none" stroke="black" d="M450.84,-102.79C421.92,-100.04 372.29,-95.33 339.24,-92.18"/>
+               <polygon fill="black" stroke="black" points="339.43,-88.69 329.15,-91.22 338.77,-95.66 339.43,-88.69"/>
+               <text text-anchor="middle" x="389.89" y="-101.8" font-family="Times,serif" font-size="14.00">b</text>
+               </g>
+               <!-- VI&#45;&gt;II -->
+               <g id="edge13" class="edge">
+               <title>VI&#45;&gt;II</title>
+               <path fill="none" stroke="black" d="M451.48,-110.34C445.46,-111.66 438.95,-112.98 432.89,-114 366.06,-125.29 348.32,-124.7 280.6,-122 269.46,-121.56 266.59,-121.84 255.6,-120 252.85,-119.54 250,-118.97 247.17,-118.34"/>
+               <polygon fill="black" stroke="black" points="247.75,-114.88 237.21,-115.89 246.08,-121.68 247.75,-114.88"/>
+               <text text-anchor="middle" x="350.39" y="-126.8" font-family="Times,serif" font-size="14.00">a</text>
+               </g>
+               <!-- I&#45;&gt;II -->
+               <g id="edge2" class="edge">
+               <title>I&#45;&gt;II</title>
+               <path fill="none" stroke="black" d="M76.62,-86.89C104.11,-91.56 158.54,-100.8 191.44,-106.39"/>
+               <polygon fill="black" stroke="black" points="191.26,-109.91 201.7,-108.13 192.43,-103.01 191.26,-109.91"/>
+               <text text-anchor="middle" x="139.1" y="-103.8" font-family="Times,serif" font-size="14.00">a</text>
+               </g>
+               <!-- III -->
+               <g id="node7" class="node">
+               <title>III</title>
+               <ellipse fill="none" stroke="black" cx="139.1" cy="-56" rx="19.5" ry="19.5"/>
+               <text text-anchor="middle" x="139.1" y="-52.3" font-family="Times,serif" font-size="14.00">III</text>
+               </g>
+               <!-- I&#45;&gt;III -->
+               <g id="edge7" class="edge">
+               <title>I&#45;&gt;III</title>
+               <path fill="none" stroke="black" d="M75.86,-78.2C85.94,-74.61 99.13,-69.9 110.77,-65.75"/>
+               <polygon fill="black" stroke="black" points="112.25,-68.94 120.49,-62.28 109.89,-62.34 112.25,-68.94"/>
+               <text text-anchor="middle" x="98.1" y="-73.8" font-family="Times,serif" font-size="14.00">b</text>
+               </g>
+               <!-- II&#45;&gt;IV -->
+               <g id="edge3" class="edge">
+               <title>II&#45;&gt;IV</title>
+               <path fill="none" stroke="black" d="M237.42,-106.55C247.19,-103.96 259.81,-100.62 271.42,-97.55"/>
+               <polygon fill="black" stroke="black" points="272.5,-100.89 281.27,-94.95 270.71,-94.12 272.5,-100.89"/>
+               <text text-anchor="middle" x="259.1" y="-104.8" font-family="Times,serif" font-size="14.00">b</text>
+               </g>
+               <!-- II&#45;&gt;II -->
+               <g id="edge4" class="edge">
+               <title>II&#45;&gt;II</title>
+               <path fill="none" stroke="black" d="M212.86,-128.04C211.49,-137.86 213.73,-147 219.6,-147 223.26,-147 225.51,-143.43 226.35,-138.35"/>
+               <polygon fill="black" stroke="black" points="229.85,-138.03 226.33,-128.04 222.85,-138.04 229.85,-138.03"/>
+               <text text-anchor="middle" x="219.6" y="-150.8" font-family="Times,serif" font-size="14.00">a</text>
+               </g>
+               <!-- V&#45;&gt;VI -->
+               <g id="edge11" class="edge">
+               <title>V&#45;&gt;VI</title>
+               <path fill="none" stroke="black" d="M403.16,-30.84C415.58,-43.84 435.11,-64.27 450.53,-80.39"/>
+               <polygon fill="black" stroke="black" points="448.27,-83.1 457.71,-87.92 453.33,-78.27 448.27,-83.1"/>
+               <text text-anchor="middle" x="429.39" y="-64.8" font-family="Times,serif" font-size="14.00">a</text>
+               </g>
+               <!-- V&#45;&gt;V -->
+               <g id="edge10" class="edge">
+               <title>V&#45;&gt;V</title>
+               <path fill="none" stroke="black" d="M383.16,-35.04C381.79,-44.86 384.03,-54 389.89,-54 393.56,-54 395.81,-50.43 396.65,-45.35"/>
+               <polygon fill="black" stroke="black" points="400.15,-45.03 396.63,-35.04 393.15,-45.04 400.15,-45.03"/>
+               <text text-anchor="middle" x="389.89" y="-57.8" font-family="Times,serif" font-size="14.00">b</text>
+               </g>
+               <!-- III&#45;&gt;II -->
+               <g id="edge9" class="edge">
+               <title>III&#45;&gt;II</title>
+               <path fill="none" stroke="black" d="M156.58,-65.06C164.88,-69.81 174.98,-75.91 183.6,-82 188.35,-85.36 193.27,-89.19 197.86,-92.94"/>
+               <polygon fill="black" stroke="black" points="195.77,-95.75 205.68,-99.49 200.26,-90.38 195.77,-95.75"/>
+               <text text-anchor="middle" x="180.1" y="-85.8" font-family="Times,serif" font-size="14.00">a</text>
+               </g>
+               <!-- III&#45;&gt;V -->
+               <g id="edge8" class="edge">
+               <title>III&#45;&gt;V</title>
+               <path fill="none" stroke="black" d="M158.8,-53.14C202.48,-46.47 311.33,-29.85 362.07,-22.1"/>
+               <polygon fill="black" stroke="black" points="362.62,-25.55 371.97,-20.58 361.56,-18.63 362.62,-25.55"/>
+               <text text-anchor="middle" x="259.1" y="-42.8" font-family="Times,serif" font-size="14.00">b</text>
+               </g>
+               </g>
+               </svg>
+               
+             </div>
+             <div class="cell subsubsection-header-cell">
+                 <h5>2.12 g.</h5>
+             </div>
+             <div class="cell md-cell">
+               <?xml version="1.0" encoding="UTF-8" standalone="no"?>
+               <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+                "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+               <!-- Generated by graphviz version 2.42.3 ()
+                -->
+               <!-- Title: dfa_212g Pages: 1 -->
+               <svg width="424pt" height="177pt"
+                viewBox="0.00 0.00 423.89 176.98" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+               <g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 172.98)">
+               <title>dfa_212g</title>
+               <polygon fill="white" stroke="transparent" points="-4,4 -4,-172.98 419.89,-172.98 419.89,4 -4,4"/>
+               <!-- S -->
+               <g id="node1" class="node">
+               <title>S</title>
+               <ellipse fill="white" stroke="white" cx="1.8" cy="-109.98" rx="1.8" ry="1.8"/>
+               </g>
+               <!-- I -->
+               <g id="node4" class="node">
+               <title>I</title>
+               <ellipse fill="none" stroke="black" cx="58.6" cy="-109.98" rx="18" ry="18"/>
+               <text text-anchor="middle" x="58.6" y="-106.28" font-family="Times,serif" font-size="14.00">I</text>
+               </g>
+               <!-- S&#45;&gt;I -->
+               <g id="edge1" class="edge">
+               <title>S&#45;&gt;I</title>
+               <path fill="none" stroke="black" d="M3.75,-109.98C7.11,-109.98 18.87,-109.98 30.55,-109.98"/>
+               <polygon fill="black" stroke="black" points="30.58,-113.48 40.58,-109.98 30.58,-106.48 30.58,-113.48"/>
+               </g>
+               <!-- III -->
+               <g id="node2" class="node">
+               <title>III</title>
+               <ellipse fill="none" stroke="black" cx="392.39" cy="-39.98" rx="19.5" ry="19.5"/>
+               <ellipse fill="none" stroke="black" cx="392.39" cy="-39.98" rx="23.5" ry="23.5"/>
+               <text text-anchor="middle" x="392.39" y="-36.28" font-family="Times,serif" font-size="14.00">III</text>
+               </g>
+               <!-- V -->
+               <g id="node3" class="node">
+               <title>V</title>
+               <ellipse fill="none" stroke="black" cx="303.9" cy="-39.98" rx="18" ry="18"/>
+               <ellipse fill="none" stroke="black" cx="303.9" cy="-39.98" rx="22" ry="22"/>
+               <text text-anchor="middle" x="303.9" y="-36.28" font-family="Times,serif" font-size="14.00">V</text>
+               </g>
+               <!-- V&#45;&gt;III -->
+               <g id="edge9" class="edge">
+               <title>V&#45;&gt;III</title>
+               <path fill="none" stroke="black" d="M326.28,-39.98C336.06,-39.98 347.87,-39.98 358.72,-39.98"/>
+               <polygon fill="black" stroke="black" points="358.75,-43.48 368.75,-39.98 358.75,-36.48 358.75,-43.48"/>
+               <text text-anchor="middle" x="347.4" y="-43.78" font-family="Times,serif" font-size="14.00">a</text>
+               </g>
+               <!-- II -->
+               <g id="node5" class="node">
+               <title>II</title>
+               <ellipse fill="none" stroke="black" cx="137.6" cy="-33.98" rx="18" ry="18"/>
+               <text text-anchor="middle" x="137.6" y="-30.28" font-family="Times,serif" font-size="14.00">II</text>
+               </g>
+               <!-- V&#45;&gt;II -->
+               <g id="edge8" class="edge">
+               <title>V&#45;&gt;II</title>
+               <path fill="none" stroke="black" d="M283.05,-32.48C270.58,-28.16 254.04,-23.18 238.9,-20.98 213.74,-17.33 184.96,-21.96 164.7,-26.68"/>
+               <polygon fill="black" stroke="black" points="163.81,-23.3 154.95,-29.11 165.5,-30.09 163.81,-23.3"/>
+               <text text-anchor="middle" x="218.75" y="-24.78" font-family="Times,serif" font-size="14.00">b</text>
+               </g>
+               <!-- I&#45;&gt;III -->
+               <g id="edge3" class="edge">
+               <title>I&#45;&gt;III</title>
+               <path fill="none" stroke="black" d="M71.98,-122.47C86.25,-135.48 111.04,-153.98 136.6,-153.98 136.6,-153.98 136.6,-153.98 304.9,-153.98 346.28,-153.98 370.43,-105.73 382.25,-72.01"/>
+               <polygon fill="black" stroke="black" points="385.58,-73.1 385.4,-62.5 378.93,-70.9 385.58,-73.1"/>
+               <text text-anchor="middle" x="218.75" y="-157.78" font-family="Times,serif" font-size="14.00">a</text>
+               </g>
+               <!-- I&#45;&gt;II -->
+               <g id="edge2" class="edge">
+               <title>I&#45;&gt;II</title>
+               <path fill="none" stroke="black" d="M71.97,-97.77C84.1,-85.8 102.76,-67.38 116.93,-53.4"/>
+               <polygon fill="black" stroke="black" points="119.6,-55.68 124.26,-46.16 114.68,-50.7 119.6,-55.68"/>
+               <text text-anchor="middle" x="98.1" y="-77.78" font-family="Times,serif" font-size="14.00">b</text>
+               </g>
+               <!-- II&#45;&gt;III -->
+               <g id="edge4" class="edge">
+               <title>II&#45;&gt;III</title>
+               <path fill="none" stroke="black" d="M154.38,-26.84C160.31,-24.37 167.17,-21.79 173.6,-19.98 238.94,-1.65 260.06,7.49 325.9,-8.98 338.58,-12.16 351.75,-17.86 362.94,-23.52"/>
+               <polygon fill="black" stroke="black" points="361.33,-26.63 371.8,-28.2 364.6,-20.44 361.33,-26.63"/>
+               <text text-anchor="middle" x="260.4" y="-4.78" font-family="Times,serif" font-size="14.00">a</text>
+               </g>
+               <!-- IV -->
+               <g id="node6" class="node">
+               <title>IV</title>
+               <ellipse fill="none" stroke="black" cx="218.75" cy="-64.98" rx="20.3" ry="20.3"/>
+               <text text-anchor="middle" x="218.75" y="-61.28" font-family="Times,serif" font-size="14.00">IV</text>
+               </g>
+               <!-- II&#45;&gt;IV -->
+               <g id="edge5" class="edge">
+               <title>II&#45;&gt;IV</title>
+               <path fill="none" stroke="black" d="M154.62,-40.26C164.85,-44.26 178.39,-49.57 190.3,-54.23"/>
+               <polygon fill="black" stroke="black" points="189.23,-57.57 199.82,-57.96 191.79,-51.06 189.23,-57.57"/>
+               <text text-anchor="middle" x="177.1" y="-53.78" font-family="Times,serif" font-size="14.00">b</text>
+               </g>
+               <!-- IV&#45;&gt;V -->
+               <g id="edge7" class="edge">
+               <title>IV&#45;&gt;V</title>
+               <path fill="none" stroke="black" d="M238.2,-59.43C248.34,-56.39 261.17,-52.53 272.73,-49.05"/>
+               <polygon fill="black" stroke="black" points="273.88,-52.36 282.45,-46.13 271.87,-45.66 273.88,-52.36"/>
+               <text text-anchor="middle" x="260.4" y="-56.78" font-family="Times,serif" font-size="14.00">a</text>
+               </g>
+               <!-- IV&#45;&gt;IV -->
+               <g id="edge6" class="edge">
+               <title>IV&#45;&gt;IV</title>
+               <path fill="none" stroke="black" d="M211.56,-83.82C210.34,-93.93 212.73,-103.13 218.75,-103.13 222.6,-103.13 224.97,-99.35 225.85,-93.98"/>
+               <polygon fill="black" stroke="black" points="229.36,-93.85 225.94,-83.82 222.36,-93.8 229.36,-93.85"/>
+               <text text-anchor="middle" x="218.75" y="-106.93" font-family="Times,serif" font-size="14.00">b</text>
+               </g>
+               </g>
+               </svg>
+               
+             </div>
+             <div class="cell subsubsection-header-cell">
+                 <h5>2.12 h.</h5>
+             </div>
+             <div class="cell md-cell">
+               <?xml version="1.0" encoding="UTF-8" standalone="no"?>
+               <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+                "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+               <!-- Generated by graphviz version 2.42.3 ()
+                -->
+               <!-- Title: dfa_212h Pages: 1 -->
+               <svg width="263pt" height="158pt"
+                viewBox="0.00 0.00 262.90 158.16" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+               <g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 154.16)">
+               <title>dfa_212h</title>
+               <polygon fill="white" stroke="transparent" points="-4,4 -4,-154.16 258.9,-154.16 258.9,4 -4,4"/>
+               <!-- S -->
+               <g id="node1" class="node">
+               <title>S</title>
+               <ellipse fill="white" stroke="white" cx="1.8" cy="-97.16" rx="1.8" ry="1.8"/>
+               </g>
+               <!-- I -->
+               <g id="node2" class="node">
+               <title>I</title>
+               <ellipse fill="none" stroke="black" cx="62.6" cy="-97.16" rx="18" ry="18"/>
+               <ellipse fill="none" stroke="black" cx="62.6" cy="-97.16" rx="22" ry="22"/>
+               <text text-anchor="middle" x="62.6" y="-93.46" font-family="Times,serif" font-size="14.00">I</text>
+               </g>
+               <!-- S&#45;&gt;I -->
+               <g id="edge1" class="edge">
+               <title>S&#45;&gt;I</title>
+               <path fill="none" stroke="black" d="M3.82,-97.16C7.19,-97.16 18.44,-97.16 30.12,-97.16"/>
+               <polygon fill="black" stroke="black" points="30.31,-100.66 40.31,-97.16 30.31,-93.66 30.31,-100.66"/>
+               </g>
+               <!-- II -->
+               <g id="node4" class="node">
+               <title>II</title>
+               <ellipse fill="none" stroke="black" cx="147.75" cy="-132.16" rx="18" ry="18"/>
+               <text text-anchor="middle" x="147.75" y="-128.46" font-family="Times,serif" font-size="14.00">II</text>
+               </g>
+               <!-- I&#45;&gt;II -->
+               <g id="edge2" class="edge">
+               <title>I&#45;&gt;II</title>
+               <path fill="none" stroke="black" d="M77.96,-113.29C84.73,-119.76 93.35,-126.53 102.6,-130.16 107.74,-132.17 113.47,-133.21 119.06,-133.67"/>
+               <polygon fill="black" stroke="black" points="119.36,-137.18 129.44,-133.92 119.53,-130.18 119.36,-137.18"/>
+               <text text-anchor="middle" x="106.1" y="-135.96" font-family="Times,serif" font-size="14.00">a</text>
+               </g>
+               <!-- IV -->
+               <g id="node5" class="node">
+               <title>IV</title>
+               <ellipse fill="none" stroke="black" cx="147.75" cy="-25.16" rx="20.3" ry="20.3"/>
+               <text text-anchor="middle" x="147.75" y="-21.46" font-family="Times,serif" font-size="14.00">IV</text>
+               </g>
+               <!-- I&#45;&gt;IV -->
+               <g id="edge3" class="edge">
+               <title>I&#45;&gt;IV</title>
+               <path fill="none" stroke="black" d="M76.56,-79.78C83.67,-70.91 92.98,-60.31 102.6,-52.16 108.13,-47.48 114.55,-43.06 120.76,-39.22"/>
+               <polygon fill="black" stroke="black" points="122.74,-42.12 129.57,-34.02 119.18,-36.09 122.74,-42.12"/>
+               <text text-anchor="middle" x="106.1" y="-55.96" font-family="Times,serif" font-size="14.00">b</text>
+               </g>
+               <!-- V -->
+               <g id="node3" class="node">
+               <title>V</title>
+               <ellipse fill="none" stroke="black" cx="232.9" cy="-24.16" rx="18" ry="18"/>
+               <ellipse fill="none" stroke="black" cx="232.9" cy="-24.16" rx="22" ry="22"/>
+               <text text-anchor="middle" x="232.9" y="-20.46" font-family="Times,serif" font-size="14.00">V</text>
+               </g>
+               <!-- V&#45;&gt;IV -->
+               <g id="edge8" class="edge">
+               <title>V&#45;&gt;IV</title>
+               <path fill="none" stroke="black" d="M210.67,-24.41C200.82,-24.53 188.94,-24.67 178.23,-24.8"/>
+               <polygon fill="black" stroke="black" points="177.99,-21.31 168.03,-24.93 178.07,-28.3 177.99,-21.31"/>
+               <text text-anchor="middle" x="189.4" y="-27.96" font-family="Times,serif" font-size="14.00">b</text>
+               </g>
+               <!-- II&#45;&gt;I -->
+               <g id="edge4" class="edge">
+               <title>II&#45;&gt;I</title>
+               <path fill="none" stroke="black" d="M131.95,-122.8C125.29,-118.85 117.23,-114.43 109.6,-111.16 104.64,-109.03 99.26,-107.09 93.98,-105.37"/>
+               <polygon fill="black" stroke="black" points="94.68,-101.92 84.09,-102.35 92.64,-108.62 94.68,-101.92"/>
+               <text text-anchor="middle" x="106.1" y="-114.96" font-family="Times,serif" font-size="14.00">a</text>
+               </g>
+               <!-- III -->
+               <g id="node6" class="node">
+               <title>III</title>
+               <ellipse fill="none" stroke="black" cx="232.9" cy="-94.16" rx="19.5" ry="19.5"/>
+               <text text-anchor="middle" x="232.9" y="-90.46" font-family="Times,serif" font-size="14.00">III</text>
+               </g>
+               <!-- II&#45;&gt;III -->
+               <g id="edge5" class="edge">
+               <title>II&#45;&gt;III</title>
+               <path fill="none" stroke="black" d="M164.39,-125.01C175.97,-119.72 192.03,-112.38 205.57,-106.19"/>
+               <polygon fill="black" stroke="black" points="207.26,-109.27 214.9,-101.93 204.35,-102.9 207.26,-109.27"/>
+               <text text-anchor="middle" x="189.4" y="-117.96" font-family="Times,serif" font-size="14.00">b</text>
+               </g>
+               <!-- IV&#45;&gt;V -->
+               <g id="edge7" class="edge">
+               <title>IV&#45;&gt;V</title>
+               <path fill="none" stroke="black" d="M163.67,-12.72C170.09,-8.14 177.94,-3.5 185.9,-1.16 193.2,1 200.74,-0.84 207.55,-4.24"/>
+               <polygon fill="black" stroke="black" points="205.94,-7.36 216.29,-9.62 209.61,-1.4 205.94,-7.36"/>
+               <text text-anchor="middle" x="189.4" y="-4.96" font-family="Times,serif" font-size="14.00">a</text>
+               </g>
+               <!-- III&#45;&gt;I -->
+               <g id="edge6" class="edge">
+               <title>III&#45;&gt;I</title>
+               <path fill="none" stroke="black" d="M213.42,-92.41C192.57,-90.69 157.64,-88.52 127.6,-90.16 116.8,-90.75 105.02,-91.89 94.55,-93.08"/>
+               <polygon fill="black" stroke="black" points="94.11,-89.61 84.59,-94.28 94.94,-96.56 94.11,-89.61"/>
+               <text text-anchor="middle" x="147.75" y="-93.96" font-family="Times,serif" font-size="14.00">a</text>
+               </g>
+               </g>
+               </svg>
                
              </div>
         

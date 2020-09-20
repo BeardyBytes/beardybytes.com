@@ -107,6 +107,7 @@ a.entry {
 }
 
 .entry-content {
+    width: 80%;
     padding-left: 0.88rem;
     border-left: 1px solid #2327aa;
 }

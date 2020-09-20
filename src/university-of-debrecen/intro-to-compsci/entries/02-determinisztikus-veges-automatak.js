@@ -1,83 +1,366 @@
 const { DateTime } = require('luxon')
 const kroki = require('../../../common/cells/kroki')
 const md = require('../../../common/cells/markdown')
-const { section, subsection } = require('../../../common/cells/heading')
+const { section, subsection, subsubsection } = require('../../../common/cells/heading')
 
 const cells = [
   md.cell`
-Az első gyakorlaton, a kötelező félév eleji bemutatkozást követően, rövid halmazelméleti ismétléssel kezdtünk, amit nyelvekkel és nyelvműveletekkel kapcsolatos gyakorlás követett. Ebben a bejegyzésben az órai feladatok megoldásai szerepelnek.
+A gyakorlatot egy előző órai feladat pótlásával kezdtük (4.4), majd pedig determinisztikus véges automatákat rajzoltunk. Ebben a bejegyzésben az órai feladatok megoldásai szerepelnek.
 
 A gyakorlathoz tartozó feladatsor elérhető a következő linken:
 
-> [01-halmazok-nyelvek-feladatsor.pdf](./files/01-halmazok-nyelvek-feladatsor.pdf)
+> [02-determinisztikus-veges-automatak-feladatsor.pdf](./files/02-determinisztikus-veges-automatak-feladatsor.pdf)
 `,
-  section.cell`Halmazelmélet`,
-  subsection.cell`1.7 feladat`,
+  section.cell`Nyelvek`,
+  subsection.cell`4.4 feladat`,
+  md.cell`
+Ez a feladat még nem automatákkal, hanem nyelvekkel kapcsolatos. Meg kell mondanunk, hogy egy adott egyenlőség igaz-e, ha pedig nem, akkor mutatnunk kell egy ellenpéldát.
+
+> a. Nem teljesül. Ellenpélda: $L_{1} = \\{a\\}$, $L_{2} = \\{b\\}$.
+
+> b. Teljesül.
+
+> c. Teljesül.
+
+> d. Nem teljesül. Ellenpélda: $L_{1} = \\{a\\}$, $L_{2} = \\{aa\\}$.
+
+> e. Nem teljesül. Ellenpélda: $L_{1} = \\{a\\}$, $L_{2} = \\{b\\}$.
+
+> f. Teljesül.
+`,
+  section.cell`Determinisztikus véges automaták`,
+  subsection.cell`2.2 feladat`,
+  md.cell`
+  Egy jó megközelítés, ha felíunk néhány szót, majd végigkövetjük az automata viselkedését ezekre a szavakra. Ezt követően, a szavak hasonlóságai vagy eltérései alapján már könnyebben megállapíthatjuk, hogy az automata "mit is csinál" pontosan.
+
+> a. Azon szavakból álló nyelv, melyek tartalmazzák az $aaba$ részszót.
+
+> b. Azon szavakból álló nyelv, melyek az $aaba$ részszóra végződnek.
+
+> c. Azon szavakból álló nyelv, melyek az $aaba$ részszóval kezdődnek.
+
+> d. Az üres szó ($\\lambda$), valamint azon szavak, melyek $a$-val kezdődnek és $b$-re végződnek.
+
+> e. Az üres szó ($\\lambda$), valamint azon szavak, melyek $ab$ és $ba$ blokkokból állnak. Azaz $\\{ab, ba\\}^{*}$.
+`,
+  subsection.cell`2.1 feladat`,
+  subsubsection.cell`2.1 a.`,
   kroki.cell('graphviz', 'svg')`
-digraph G {
-    Hello->World
+  digraph dfa_21a {
+	rankdir=LR;
+    size="8,5"
+    node [shape = point; color = white ]; S;
+	node [shape = doublecircle; color = black]; III;
+    node [shape = circle];
+    S -> I;
+    I -> II [ label = "a" ];
+    I -> I [ label = "b" ];
+    II -> III [ label = "a" ];
+    II -> II [ label = "b" ];
+    III -> IV [ label = "a" ];
+    III -> III [ label = "b" ];
+    IV -> IV [ label = "a, b" ];
 }
 `,
-  subsection.cell`1.8 feladat`,
-  md.cell`
-A feladat megoldásához egy jó stratégia, ha először készítünk egy Venn-diagramot, mely három halmazt ábrázol ($A, B, C$). Ezt követően, az egyes részfeladatoknál csak besatírozzuk a diagram megfelelő részét, majd formalizáljuk a besatírozott területet előállító kifejezést.
-
-> a. $(A \\cup B) \\setminus (A \\cap B)$
-
-> b. $(A \\cup B \\cup C) \\setminus ((A \\cap B) \\cup (A \\cap C) \\cup (B \\cap C))$
-
-> c. $((A \\cap B) \\cup (A \\cap C) \\cup (B \\cap C))^{\\prime}$
-
-> d. $(A \\cap B) \\cup (A \\cap C) \\cup (B \\cap C) \\cup (A \\cap B \\cap C)^{\\prime}$
+  subsubsection.cell`2.1 b.`,
+  kroki.cell('graphviz', 'svg')`
+digraph dfa_21b {
+  rankdir=LR;
+  size="8,5"
+  node [shape = point; color = white ]; S;
+  node [shape = doublecircle; color = black]; III;
+  node [shape = circle];
+  S -> I;
+  I -> II [ label = "a" ];
+  I -> I [ label = "b" ];
+  II -> III [ label = "a" ];
+  II -> II [ label = "b" ];
+  III -> III [ label = "a, b" ];
+}
 `,
-  subsection.cell`1.12 feladat`,
-  md.cell`
-Egyszerűen számoljuk meg a legkülső halmazban szereplő vesszők számát, majd adjunk hozzá egyet. A helyes megoldás ezután: $4$.
+  subsubsection.cell`2.1 c.`,
+  kroki.cell('graphviz', 'svg')`
+digraph dfa_21c {
+  rankdir=LR;
+  size="8,5"
+  node [shape = point; color = white ]; S;
+  node [shape = doublecircle; color = black]; I II;
+  node [shape = circle];
+  S -> I;
+  I -> II [ label = "a" ];
+  I -> I [ label = "b" ];
+  II -> III [ label = "b" ];
+  II -> II [ label = "a" ];
+  III -> II [ label = "a" ];
+  III -> I [ label = "b" ];
+}
 `,
-  section.cell`Nyelvek, nyelvműveletek`,
-  subsection.cell`4.3 feladat`,
-  md.cell`
-A megoldás során csupán behelyettesítjük $V$ és $W$ helyére a megfelelő, általuk jelölt nyelveket, majd elvégezzük a kijelölt műveleteket.
-
-> a. $\\{0, 1 \\}^{*}$
-
-> b. $\\{ 01 \\}^{*}$
-
-> c. $\\{ 0 \\}^{*}\\{ 1 \\}^{*}$
-
-> d. $\\{ 0, 1 \\}^{*}\\{ 01 \\}$
+  subsubsection.cell`2.1 e.`,
+  kroki.cell('graphviz', 'svg')`
+digraph dfa_21e {
+  rankdir=LR;
+  size="8,5"
+  node [shape = point; color = white ]; S;
+  node [shape = doublecircle; color = black]; I II;
+  node [shape = circle];
+  S -> I;
+  I -> II [ label = "a" ];
+  I -> I [ label = "b" ];
+  II -> III [ label = "a" ];
+  II -> I [ label = "b" ];
+  III -> III [ label = "a, b" ];
+}
 `,
-  subsection.cell`Mondjunk olyan szavakat... feladat`,
-  md.cell`
-Először keressünk egy olyan szót, mely része a megfelelő nyelvnek, majd konkatenációval bővítsük ezt a szót úgy, hogy elrontsuk, azaz már ne legyen része a megfelelő nyelvnek.
-
-> a. $babab$
-
-> b. $abab$
-
-> c. $ababa$
-
-> d. $babba$
+  subsubsection.cell`2.1 f.`,
+  kroki.cell('graphviz', 'svg')`
+digraph dfa_21f {
+  rankdir=LR;
+  size="8,5"
+  node [shape = point; color = white ]; S;
+  node [shape = doublecircle; color = black]; I;
+  node [shape = circle];
+  S -> I;
+  I -> II [ label = "a" ];
+  I -> I [ label = "b" ];
+  II -> I [ label = "a" ];
+  II -> II [ label = "b" ];
+}
 `,
-  subsection.cell`4.8 feladat`,
-  md.cell`
-Vegyük először a véges esetet. Tudjuk, hogy az üres szót önmagával konkatenálva az üres szót kapjuk vissza, azaz $\\lambda \\cdot \\lambda = \\lambda$. Ismerve $L^{*}$ és $L^{+}$ definícióját, ezt a tulajdonságot kihasználva ezek a nyelvek végesek lesznek, ha $L=\\{\\lambda\\}$.
-
-Tekintsük most az üres esetet. Definíció szerint az $L^{*}$ nyelv előállítása mindig tartalmazza az $L^{0}$ nyelvet, mely bármely $L$ nyelv esetén $L^{0} = \\{\\lambda\\}$. Ugyanakkor, mivel $L^{+}$ előállítása során nem használjuk fel az $L^{0}$ halmazt, ezért ha $L = \\emptyset$, akkor $L^{+} = \\emptyset$.
+  subsubsection.cell`2.1 g.`,
+  kroki.cell('graphviz', 'svg')`
+digraph dfa_21g {
+  rankdir=LR;
+  size="8,5"
+  node [shape = point; color = white ]; S;
+  node [shape = doublecircle; color = black]; I;
+  node [shape = circle];
+  S -> I;
+  I -> II [ label = "a" ];
+  II -> I [ label = "a"];
+  I -> III [ label = "b" ];
+  III -> I [ label = "b"];
+  II -> IV [ label = "b" ];
+  IV -> II [ label = "b"];
+  III -> IV [ label = "a" ];
+  IV -> III [ label = "a"];
+}
 `,
-  subsection.cell`4.5 feladat`,
-  md.cell`
-Ebben a feladatban hasonló a dolgunk, mint a halmazelméletes csoport 1.8 feladatában. Természetes nyelven adott nyelveket kell megadnunk az ismert nyelvműveletek felhasználásával.
-
-> a. $\\{0, 1\\}^{*}\\{11\\}$
-
-> b. $\\{1\\}^{*}{0}\\{1\\}^{*}$
+  subsubsection.cell`2.1 h.`,
+  kroki.cell('graphviz', 'svg')`
+digraph dfa_21h {
+  rankdir=LR;
+  size="8,5"
+  node [shape = point; color = white ]; S;
+  node [shape = doublecircle; color = black]; I II III IV;
+  node [shape = circle];
+  S -> I;
+  I -> II [ label = "a" ];
+  I -> I [ label = "b" ];
+  II -> I [ label = "b" ];
+  II -> III [ label = "a" ];
+  III -> IV [ label = "b" ];
+  IV -> III [ label = "a" ];
+  IV -> IV [ label = "b"];
+  III -> V [ label = "a" ];
+  V -> V [ label = "a, b" ];
+}
 `,
-  subsection.cell`További feladatok`,
-  md.cell`
-Mivel nem jutott rá idő, ezért a 4.4 feladatot a következő gyakorlaton (2020. 09. 16.) fogjuk megoldani.
+  subsubsection.cell`2.1 i.`,
+  kroki.cell('graphviz', 'svg')`
+digraph dfa_21i {
+  rankdir=LR;
+  size="8,5"
+  node [shape = point; color = white ]; S;
+  node [shape = doublecircle; color = black]; I;
+  node [shape = circle];
+  S -> I;
+  I -> II [ label = "a" ];
+  I -> I [ label = "b" ];
+  II -> III [ label = "a" ];
+  III -> III [ label = "a,b" ];
+  II -> IV [ label = "b" ];
+  IV -> III [ label = "a" ];
+  IV -> I [ label = "b" ];
+}
+`,
+  subsubsection.cell`2.1 j.`,
+  kroki.cell('graphviz', 'svg')`
+digraph dfa_21j {
+  rankdir=LR;
+  size="12,5"
+  node [shape = point; color = white ]; S;
+  node [shape = doublecircle; color = black]; VI XI;
+  node [shape = circle];
+  S -> I;
+  I -> II [ label = "b" ];
+  II -> III [ label = "b" ];
+  III -> III [ label = "b" ];
+  III -> IV [ label = "a" ];
+  IV -> IV [ label = "a" ];
+  IV -> V [ label = "b" ];
+  V -> III [ label = "b" ];
+  V -> VI [ label = "a" ];
+  VI -> VI [ label = "a,b" ];
 
-Házi feladatként szerepelt továbbá a feladatsort záró két feladat, az 1.32 és az 1.36.
+  I -> VII [ label = "a" ];
+  II -> VII [ label = "a" ];
+  VII -> VIII  [ label = "b" ];
+  VIII -> III [ label = "b" ];
+  VIII -> IX [ label = "a" ];
+  IX -> IX [ label = "a" ];
+  IX -> X [ label = "b" ];
+  X -> IX [ label = "a" ];
+  X -> XI [ label = "b" ];
+  XI -> XI [ label = "a, b" ];
+}
+`,
+  subsection.cell`2.12 feladat`,
+  subsubsection.cell`2.12 a.`,
+  kroki.cell('graphviz', 'svg')`
+digraph dfa_212a {
+  rankdir=LR;
+  size="8,5"
+  node [shape = point; color = white ]; S;
+  node [shape = doublecircle; color = black]; II;
+  node [shape = circle];
+  S -> I;
+  I -> II [ label = "a" ];
+  I -> I [ label = "b" ];
+  II -> I [ label = "b" ];
+  II -> II [ label = "a" ];
+}
+`,
+  subsubsection.cell`2.12 b.`,
+  kroki.cell('graphviz', 'svg')`
+digraph dfa_212b {
+  rankdir=LR;
+  size="8,5"
+  node [shape = point; color = white ]; S;
+  node [shape = doublecircle; color = black]; I;
+  node [shape = circle];
+  S -> I;
+  I -> II [ label = "b" ];
+  I -> III [ label = "a" ];
+  II -> I [ label = "a, b" ];
+  III -> III [ label = "a, b" ];
+}
+`,
+  subsubsection.cell`2.12 c.`,
+  kroki.cell('graphviz', 'svg')`
+digraph dfa_212c {
+  rankdir=LR;
+  size="8,5"
+  node [shape = point; color = white ]; S;
+  node [shape = doublecircle; color = black]; II;
+  node [shape = circle];
+  S -> I;
+  I -> II [ label = "b" ];
+  I -> III [ label = "a" ];
+  II -> II [ label = "a, b" ];
+  III -> II [ label = "a, b" ];
+}
+`,
+  subsubsection.cell`2.12 d.`,
+  kroki.cell('graphviz', 'svg')`
+digraph dfa_212d {
+  rankdir=LR;
+  size="8,5"
+  node [shape = point; color = white ]; S;
+  node [shape = doublecircle; color = black]; II;
+  node [shape = circle];
+  S -> I;
+  I -> II [ label = "a" ];
+  I -> III [ label = "b" ];
+  III -> IV [ label = "a" ];
+  IV -> I [ label = "a" ];
+  III -> V [ label = "b" ];
+  V -> I [ label = "b" ];
+}
+`,
+  subsubsection.cell`2.12 e.`,
+  md.cell`
+  Bezárójelezve a kifejezést, a következőt kapjuk:
+
+  $$
+  (\\{a\\} \\cup \\{b\\}\\{a\\}^{*}) \\cup (\\{a\\}\\{b\\}^{*}\\{a\\})
+  $$
+`,
+  kroki.cell('graphviz', 'svg')`
+digraph dfa_212e {
+  rankdir=LR;
+  size="8,5"
+  node [shape = point; color = white ]; S;
+  node [shape = doublecircle; color = black]; II III V;
+  node [shape = circle];
+  S -> I;
+  I -> II [ label = "a" ];
+  II -> III [ label = "a" ];
+  II -> IV [ label = "b" ];
+  IV -> III [ label = "a" ];
+  IV -> IV [ label = "b" ];
+  I -> V [ label = "b" ];
+  V -> V [ label = "a" ];
+}
+`,
+  subsubsection.cell`2.12 f.`,
+  kroki.cell('graphviz', 'svg')`
+digraph dfa_212f {
+  rankdir=LR;
+  size="8,5"
+  node [shape = point; color = white ]; S;
+  node [shape = doublecircle; color = black]; IV VI;
+  node [shape = circle];
+  S -> I;
+  I -> II [ label = "a" ];
+  II -> IV [ label = "b" ];
+  II -> II [ label = "a" ];
+  IV -> II [ label = "a" ];
+  IV -> V [ label = "b" ];
+  I -> III [ label = "b" ];
+  III -> V [ label = "b" ];
+  III -> II [ label = "a" ];
+  V -> V [ label = "b" ];
+  V -> VI [ label = "a" ];
+  VI -> IV [ label = "b" ];
+  VI -> II [ label = "a" ];
+}
+`,
+  subsubsection.cell`2.12 g.`,
+  kroki.cell('graphviz', 'svg')`
+digraph dfa_212g {
+  rankdir=LR;
+  size="8,5"
+  node [shape = point; color = white ]; S;
+  node [shape = doublecircle; color = black]; III V;
+  node [shape = circle];
+  S -> I;
+  I -> II [ label = "b" ];
+  I -> III [ label = "a" ];
+  II -> III [ label = "a" ];
+  II -> IV [ label = "b" ];
+  IV -> IV [ label = "b" ];
+  IV -> V [ label = "a" ];
+  V -> II [ label = "b"];
+  V -> III [ label = "a" ];
+}
+`,
+  subsubsection.cell`2.12 h.`,
+  kroki.cell('graphviz', 'svg')`
+digraph dfa_212h {
+  rankdir=LR;
+  size="8,5"
+  node [shape = point; color = white ]; S;
+  node [shape = doublecircle; color = black]; I V;
+  node [shape = circle];
+  S -> I;
+  I -> II [ label = "a" ];
+  I -> IV [ label = "b" ];
+  II -> I [ label = "a" ];
+  II -> III [ label = "b" ];
+  III -> I [ label = "a" ];
+  IV -> V [ label = "a" ];
+  V -> IV [ label = "b" ];
+}
 `,
 ]
 
@@ -85,14 +368,13 @@ const meta = {
   order: 2,
   layout: 'practice',
   urlTitle: '02-gyakorlat-determinisztikus-veges-automatak',
-  publishedAt: DateTime.local(2020, 9, 20, 18, 20),
+  publishedAt: DateTime.local(2020, 9, 21, 2, 20),
   draft: false,
 }
 
 const content = {
   title: '2. gyakorlat – Determinisztikus véges automaták',
-  excerpt:
-    'Néhány, az ismétlést szolgáló halmazelméleti feladat, majd gyakorlás ábécékkel, nyelvekkel és nyelvműveletekkel.',
+  excerpt: 'Adott nyelvekhez készítettünk determinisztikus véges automatákat.',
   cells,
 }
 

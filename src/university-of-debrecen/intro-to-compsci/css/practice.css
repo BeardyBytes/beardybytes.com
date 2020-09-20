@@ -124,7 +124,10 @@ a {
 .series-cell {
     margin: 0;
     padding: 0.777em 0em;
-    font-size: 0.85rem;
+    font-size: 0.85rem;    
+}
+
+.series-starting-cell {
     grid-row: 1;
 }
 

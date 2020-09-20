@@ -5,10 +5,16 @@ const renderCells = require('../../../common/cells/render')
 const POST_DATE_FORMAT = 'yyyy. LL. dd.'
 
 const elements = {
-  navigationInSeries(entry) {
+  navigationInSeries(entry, isStarting) {
+    const classList = ['cell', 'series-cell']
+
+    if (isStarting) {
+      classList.push('series-starting-cell')
+    }
+
     return `
     ${elements.previousInSeries(entry)}
-    <div class="cell series-cell">
+    <div class="${classList.join(' ')}">
     Ez a bejegyzés <a href="index.html">${
       entry.meta.series.title
     }</a> sorozat része, mely az azonos nevű tárgyhoz kapcsolódó anyagokat tartalmaz.
@@ -121,8 +127,8 @@ const entryToHtml = async (entry, context) => html`
           </div>
         </div>
         <div class="post-content">
-          ${elements.navigationInSeries(entry)} ${await renderCells(entry.content.cells)}
-          ${elements.navigationInSeries(entry)}
+          ${elements.navigationInSeries(entry, true)} ${await renderCells(entry.content.cells)}
+          ${elements.navigationInSeries(entry, false)}
         </div>
         ${elements.footer()}
       </div>

@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta http-equiv="x-ua-compatible" content="ie=edge" />
     
-    <title>Az informatika számítástudományi alapjai – 1. gyakorlat – Halmazok, nyelvek</title>
+    <title>Az informatika számítástudományi alapjai – 2. gyakorlat – Determinisztikus véges automaták</title>
     
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     
@@ -21,9 +21,9 @@
     <meta property="og:image:width" content="849" />
     <meta property="og:site_name" content="Beardy Bytes" />
     <meta property="og:locale" content="hu_HU" />
-    <meta property="og:title" content="Az informatika számítástudományi alapjai – 1. gyakorlat – Halmazok, nyelvek" />
+    <meta property="og:title" content="Az informatika számítástudományi alapjai – 2. gyakorlat – Determinisztikus véges automaták" />
     <meta property="og:description" content="Néhány, az ismétlést szolgáló halmazelméleti feladat, majd gyakorlás ábécékkel, nyelvekkel és nyelvműveletekkel." />
-    <meta property="og:url" content="https://beardybytes.com/university-of-debrecen/intro-to-compsci/01-gyakorlat-halmazok-nyelvek.html" />
+    <meta property="og:url" content="https://beardybytes.com/university-of-debrecen/intro-to-compsci/02-gyakorlat-determinisztikus-veges-automatak.html" />
     <meta property="og:image" content="https://beardybytes.com/og-image.jpg" />
     
     <link
@@ -54,24 +54,24 @@
           <div class="post-title">
             <div>
               <h2>Az informatika számítástudományi alapjai</h2>
-              <h1>1. gyakorlat – Halmazok, nyelvek</h1>
-              <div class="post-date">2020. 09. 13.</div>
+              <h1>2. gyakorlat – Determinisztikus véges automaták</h1>
+              <div class="post-date">2020. 09. 20.</div>
             </div>
           </div>
         </div>
       </div>
       <div class="post-content">
         
-            <div class="in-series-previous"></div>
+            
+            <a href="01-gyakorlat-halmazok-nyelvek.html" class="in-series-previous">
+              <div class="note">Előző bejegyzés</div>
+              <div class="title">1. gyakorlat – Halmazok, nyelvek</div>
+            </a>
+            
             <div class="cell series-cell">
             Ez a bejegyzés <a href="index.html">Az informatika számítástudományi alapjai</a> sorozat része, mely az azonos nevű tárgyhoz kapcsolódó anyagokat tartalmaz.
             </div>
-            
-            <a href="02-gyakorlat-determinisztikus-veges-automatak.html" class="in-series-next">
-              <div class="note">Következő bejegyzés</div>
-              <div class="title">2. gyakorlat – Determinisztikus véges automaták</div>
-            </a>
-            
+            <div class="in-series-next"></div>
              <div class="cell md-cell">
                <p>Az első gyakorlaton, a kötelező félév eleji bemutatkozást követően, rövid halmazelméleti ismétléssel kezdtünk, amit nyelvekkel és nyelvműveletekkel kapcsolatos gyakorlás követett. Ebben a bejegyzésben az órai feladatok megoldásai szerepelnek.</p>
                <p>A gyakorlathoz tartozó feladatsor elérhető a következő linken:</p>
@@ -101,18 +101,37 @@
                  </div>
              </div>
              <div class="cell md-cell">
-               <blockquote>
-               <p>a. <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false">{</mo><mtext> </mtext><mn>2</mn><mi>n</mi><mo separator="true">,</mo><mo>−</mo><mo stretchy="false">(</mo><mn>2</mn><mi>n</mi><mo>+</mo><mn>1</mn><mo stretchy="false">)</mo><mtext>  </mtext><mi mathvariant="normal">∣</mi><mtext>  </mtext><mi>n</mi><mo>∈</mo><mi mathvariant="double-struck">N</mi><mtext> </mtext><mo stretchy="false">}</mo></mrow><annotation encoding="application/x-tex">\{\, 2n, -(2n + 1) \;|\; n \in \mathbb{N} \,\}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">{</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord">2</span><span class="mord mathnormal">n</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord">−</span><span class="mopen">(</span><span class="mord">2</span><span class="mord mathnormal">n</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">1</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mord">∣</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mord mathnormal">n</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">∈</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord"><span class="mord mathbb">N</span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mclose">}</span></span></span></span> vagy <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false">{</mo><mtext> </mtext><mo stretchy="false">(</mo><mo>−</mo><mn>1</mn><msup><mo stretchy="false">)</mo><mi>n</mi></msup><mo>⋅</mo><mi>n</mi><mtext>  </mtext><mi mathvariant="normal">∣</mi><mtext>  </mtext><mi>n</mi><mo>∈</mo><mi mathvariant="double-struck">N</mi><mtext> </mtext><mo stretchy="false">}</mo></mrow><annotation encoding="application/x-tex">\{\, (-1)^{n} \cdot n \;|\; n \in \mathbb{N} \,\}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">{</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mopen">(</span><span class="mord">−</span><span class="mord">1</span><span class="mclose"><span class="mclose">)</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.664392em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">n</span></span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">⋅</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal">n</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mord">∣</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mord mathnormal">n</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">∈</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord"><span class="mord mathbb">N</span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mclose">}</span></span></span></span></p>
-               </blockquote>
-               <blockquote>
-               <p>b. <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false">{</mo><mtext> </mtext><mo stretchy="false">{</mo><mtext> </mtext><mi>n</mi><mtext> </mtext><mo stretchy="false">}</mo><mtext>  </mtext><mi mathvariant="normal">∣</mi><mtext>  </mtext><mi>n</mi><mo>∈</mo><mi mathvariant="double-struck">N</mi><mtext> </mtext><mo stretchy="false">}</mo></mrow><annotation encoding="application/x-tex">\{\, \{\,n\,\} \;|\; n \in \mathbb{N} \,\}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">{</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mopen">{</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathnormal">n</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mclose">}</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mord">∣</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mord mathnormal">n</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">∈</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord"><span class="mord mathbb">N</span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mclose">}</span></span></span></span></p>
-               </blockquote>
-               <blockquote>
-               <p>c. <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false">{</mo><mtext> </mtext><mo stretchy="false">{</mo><mtext> </mtext><mi>k</mi><mtext>  </mtext><mi mathvariant="normal">∣</mi><mtext>  </mtext><mi>k</mi><mo>≤</mo><mi>n</mi><mtext> </mtext><mo stretchy="false">}</mo><mtext>  </mtext><mi mathvariant="normal">∣</mi><mtext>  </mtext><mi>n</mi><mo>∈</mo><mi mathvariant="double-struck">N</mi><mtext> </mtext><mo stretchy="false">}</mo></mrow><annotation encoding="application/x-tex">\{\, \{\,k \;|\; k \leq n \,\} \;|\; n \in \mathbb{N} \,\}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">{</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mopen">{</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathnormal" style="margin-right:0.03148em;">k</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mord">∣</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mord mathnormal" style="margin-right:0.03148em;">k</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">≤</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal">n</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mclose">}</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mord">∣</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mord mathnormal">n</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">∈</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord"><span class="mord mathbb">N</span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mclose">}</span></span></span></span></p>
-               </blockquote>
-               <blockquote>
-               <p>d. <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false">{</mo><mtext> </mtext><mo stretchy="false">{</mo><mtext> </mtext><mi>k</mi><mtext>  </mtext><mi mathvariant="normal">∣</mi><mtext>  </mtext><mi>k</mi><mo>≤</mo><msup><mn>2</mn><mi>n</mi></msup><mo>−</mo><mn>1</mn><mtext> </mtext><mo stretchy="false">}</mo><mtext>  </mtext><mi mathvariant="normal">∣</mi><mtext>  </mtext><mi>n</mi><mo>∈</mo><mi mathvariant="double-struck">N</mi><mtext> </mtext><mo stretchy="false">}</mo></mrow><annotation encoding="application/x-tex">\{\, \{\,k \;|\; k \leq 2^{n} - 1 \,\} \;|\; n \in \mathbb{N} \,\}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">{</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mopen">{</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathnormal" style="margin-right:0.03148em;">k</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mord">∣</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mord mathnormal" style="margin-right:0.03148em;">k</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">≤</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.747722em;vertical-align:-0.08333em;"></span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.664392em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">n</span></span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">1</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mclose">}</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mord">∣</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mord mathnormal">n</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">∈</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord"><span class="mord mathbb">N</span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mclose">}</span></span></span></span></p>
-               </blockquote>
+               <?xml version="1.0" encoding="UTF-8" standalone="no"?>
+               <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+                "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+               <!-- Generated by graphviz version 2.42.3 ()
+                -->
+               <!-- Title: G Pages: 1 -->
+               <svg width="74pt" height="116pt"
+                viewBox="0.00 0.00 74.29 116.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+               <g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 112)">
+               <title>G</title>
+               <polygon fill="white" stroke="transparent" points="-4,4 -4,-112 70.29,-112 70.29,4 -4,4"/>
+               <!-- Hello -->
+               <g id="node1" class="node">
+               <title>Hello</title>
+               <ellipse fill="none" stroke="black" cx="33.15" cy="-90" rx="30.59" ry="18"/>
+               <text text-anchor="middle" x="33.15" y="-86.3" font-family="Times,serif" font-size="14.00">Hello</text>
+               </g>
+               <!-- World -->
+               <g id="node2" class="node">
+               <title>World</title>
+               <ellipse fill="none" stroke="black" cx="33.15" cy="-18" rx="33.29" ry="18"/>
+               <text text-anchor="middle" x="33.15" y="-14.3" font-family="Times,serif" font-size="14.00">World</text>
+               </g>
+               <!-- Hello&#45;&gt;World -->
+               <g id="edge1" class="edge">
+               <title>Hello&#45;&gt;World</title>
+               <path fill="none" stroke="black" d="M33.15,-71.7C33.15,-63.98 33.15,-54.71 33.15,-46.11"/>
+               <polygon fill="black" stroke="black" points="36.65,-46.1 33.15,-36.1 29.65,-46.1 36.65,-46.1"/>
+               </g>
+               </g>
+               </svg>
                
              </div>
              <div class="cell subsection-header-cell" id="18-feladat">
@@ -268,16 +287,16 @@
                
              </div>
         
-            <div class="in-series-previous"></div>
+            
+            <a href="01-gyakorlat-halmazok-nyelvek.html" class="in-series-previous">
+              <div class="note">Előző bejegyzés</div>
+              <div class="title">1. gyakorlat – Halmazok, nyelvek</div>
+            </a>
+            
             <div class="cell series-cell">
             Ez a bejegyzés <a href="index.html">Az informatika számítástudományi alapjai</a> sorozat része, mely az azonos nevű tárgyhoz kapcsolódó anyagokat tartalmaz.
             </div>
-            
-            <a href="02-gyakorlat-determinisztikus-veges-automatak.html" class="in-series-next">
-              <div class="note">Következő bejegyzés</div>
-              <div class="title">2. gyakorlat – Determinisztikus véges automaták</div>
-            </a>
-            
+            <div class="in-series-next"></div>
             
       </div>
       

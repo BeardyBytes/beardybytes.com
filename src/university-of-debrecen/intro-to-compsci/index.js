@@ -47,6 +47,10 @@ module.exports = async function introToCompSciSeries(context) {
       source: `${__dirname}/files/01-halmazok-nyelvek-feladatsor.pdf`,
       destination: `${context.baseUrl}/files/01-halmazok-nyelvek-feladatsor.pdf`,
     },
+    {
+      source: `${__dirname}/files/02-determinisztikus-veges-automatak-feladatsor.pdf`,
+      destination: `${context.baseUrl}/files/02-determinisztikus-veges-automatak-feladatsor.pdf`,
+    },
   ].forEach((o) => context.copy.push(o))
 
   const actualEntries = entries

@@ -51,6 +51,10 @@ module.exports = async function introToCompSciSeries(context) {
       source: `${__dirname}/files/02-determinisztikus-veges-automatak-feladatsor.pdf`,
       destination: `${context.baseUrl}/files/02-determinisztikus-veges-automatak-feladatsor.pdf`,
     },
+    {
+      source: `${__dirname}/files/03-minimalizalas-pumpalasi-lemma-feladatsor.pdf`,
+      destination: `${context.baseUrl}/files/03-minimalizalas-pumpalasi-lemma-feladatsor.pdf`,
+    },
   ].forEach((o) => context.copy.push(o))
 
   const actualEntries = entries

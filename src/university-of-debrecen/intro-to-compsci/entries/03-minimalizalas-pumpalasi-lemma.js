@@ -362,6 +362,49 @@ Amire figyeljünk oda az algoritmus végrehajtásakor:
   * A csoportok elnevezése tetszőleges, valamint a "sorrendjük" is, azaz nyugodtan lehetett volna a megoldás elején az I. csoport az elfogadó állapotok csoportja, míg a II. csoport az elutasító állapotok csoportja. Ez nem befolyásolja az algoritmust működését.
   * Végezzünk önellenőrzést: vizsgáljuk meg néhány példára, hogy a minimalizált automata ténylegesen ugyanazokat a szavakat utasítja és fogadja el, mint az eredeti automata.
 `,
+  section.cell`A pumpálási lemma alkalmazása`,
+  subsection.cell`A pumpálási lemma`,
+  md.cell`
+A pumpálási (iterációs) lemma bizonyítással együtt megtalálható a következő forrásokban:
+
+  > [Dömösi, Falucskai, Horváth, Mecsei, Nagy: Formális Nyelvek és Automaták; 5.10](https://gyires.inf.unideb.hu/KMITT/b24/ch05s10.html),
+
+  > Hopcroft, Motwani, Ullman: Introduction to Automata Theory, Languages, and Computation (3rd edition); 128-133.
+
+Legyen $\\Sigma$ egy ábécé. Ha az $L \\subseteq \\Sigma^{*}$ nyelvet elfogadja az $M = (Q, \\Sigma, q_{0}, A, \\delta)$ véges automata és $n = |Q|$, akkor minden olyan $x \\in L$ $L$-beli szó, amelyre teljesül, hogy $|x| \\geq n$, felírható
+
+$$
+x = uvw
+$$
+
+alakban, ahol
+  * $|uv| \\leq n$,
+  * $|v| > 0$ (azaz $v \\neq \\lambda$),
+  * $uv^{i}w \\in L$ bármely $i \\geq 0$-ra.
+`,
+  subsection.cell`2.22. feladat`,
+  subsubsection.cell`2.22. a.`,
+  md.cell`
+Tegyük fel, hogy az $L = \\{ a^{i}ba^{2i} \\;|\\; i \\geq 0 \\}$ nyelv reguláris. Ekkor, a pumpálási lemma szerint, adott valamilyen, $L$-től függő $n$, az elég hosszú szó hossza.
+
+Válasszuk meg az $x \\in L$ szót a következőképpen:
+
+$$
+x = a^{n}ba^{2n}.
+$$
+
+A fenti választásunk olyan, hogy $|x| \\geq n$.
+
+A pumpálási lemma szerint ekkor $x$ felírható $x = uvw$ alakban, mely felbontásnak teljesítenie kell a következőket.
+
+$|uv| \\leq n$, amiből következik, hogy az $uv$ részszó csupa $a$ betűből áll (hiszen $x$ $n$ darab $a$ betűvel kezdődik).
+
+$|v| > 0$, amiből, ha összekapcsoljuk az előző ponttal, adódik, hogy $v$ csupa $a$ betűből áll (hiszen már $uv$ is csupa $a$ betűbőll állt).
+
+Végül, a $v$ részszó pumpálásával képzett szavaknak is benne kell lenniük $L$-ben, azaz, például $uvvw \\in L$. Ugyanakkor, mivel $v \\neq \\lambda$ és $v$ csupa $a$ betűből áll, ezért nyilván $vv$ is csupa $a$ betűből fog állni. Ez viszont azt jelenti, hogy ha az $uvw$ szó pontosan feleannyi $a$ betűvel kezdődött, mint ahány $a$ betűvel végződött, akkor az $uvvw$ szó elején már biztosan nem feleannyi (hanem több) $a$ betű fog állni, mint a végén. Tehát annak ellenére, hogy $uvw \\in L$, a pumpálással képzett $uvvw$ szóra $uvvw \\notin L$.
+
+Mivel a bizonyítás elején feltettük, hogy $L$ reguláris, azonban találtunk olyan szót $L$-ben, melyre nem teljesül a pumpálási lemma, ezért ellentmondást kaptunk, azaz $L$ nem reguláris.
+`,
 ]
 
 const meta = {

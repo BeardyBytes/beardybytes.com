@@ -2,7 +2,9 @@ const { html } = require('common-tags')
 const { Remarkable } = require('remarkable')
 const remarkableKatexPlugin = require('remarkable-katex')
 
-const remarkableOptions = {}
+const remarkableOptions = {
+  html: true
+}
 
 const renderer = new Remarkable(remarkableOptions)
 

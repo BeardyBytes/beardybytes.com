@@ -6,56 +6,64 @@ const tex = require('../../../common/tex')
 
 function dfaMinimizationTable(alphabet, groups) {
   function statesHeadOfGroup(group) {
-    const isFirstState = i => i == 0
+    const isFirstState = (i) => i == 0
 
-    const style = color => `style="color: ${color || 'black'}"`
+    const style = (color) => `style="color: ${color || 'black'}"`
 
-    return group.states.map((state, index) => `
-      <th ${style(state.color)} class="${isFirstState(index) ? "first-state-of-group" : ""}">${state.name}</th>
-    `).join('')
+    return group.states
+      .map(
+        (state, index) => `
+      <th ${style(state.color)} class="${isFirstState(index) ? 'first-state-of-group' : ''}">${state.name}</th>
+    `
+      )
+      .join('')
   }
 
   const head = `
 <thead>
   <tr class="groups-head-row">
     <th>${tex`\\Sigma`}</th>
-    ${groups.map(g => `<th colspan="${g.states.length}">${g.name}</th>`).join('')}
+    ${groups.map((g) => `<th colspan="${g.states.length}">${g.name}</th>`).join('')}
   </tr>
   <tr class="states-head-row">
     <th>&nbsp;</th>
-    ${groups
-      .map(statesHeadOfGroup)
-      .join('')
-    }
+    ${groups.map(statesHeadOfGroup).join('')}
   </tr>
 </thead>
 `
 
   function transitionRowSegment(symbol, group) {
-    const isFirstState = i => i == 0
+    const isFirstState = (i) => i == 0
 
-    const style = color => `style="color: ${color || 'black'}"`
+    const style = (color) => `style="color: ${color || 'black'}"`
 
-    return group.states.map((state, index) => `
-      <td ${style(state.color)} class="${isFirstState(index) ? "first-state-of-group" : ""}">${state.transitions[symbol] || ''}</td>
-    `).join('')
+    return group.states
+      .map(
+        (state, index) => `
+      <td ${style(state.color)} class="${isFirstState(index) ? 'first-state-of-group' : ''}">${
+          state.transitions[symbol] || ''
+        }</td>
+    `
+      )
+      .join('')
   }
 
   const body = `
 <tbody>
-    ${alphabet.map(symbol => `
+    ${alphabet
+      .map(
+        (symbol) => `
       <tr>
         <td>${tex`${symbol}`}</td>
-        ${groups
-          .map(g => transitionRowSegment(symbol, g))
-          .join('')
-        }
+        ${groups.map((g) => transitionRowSegment(symbol, g)).join('')}
       </tr>
-    `).join('')}
+    `
+      )
+      .join('')}
 </tbody>
 `
 
-return `
+  return `
 <table class="dfa-minimization-table">
   ${head}
   ${body}
@@ -103,164 +111,224 @@ A csoportosítást, majd csoportbontást egy táblázat segítségével végezz�
 
 A cellák kitöltését megelőzően a táblázat a következő:
 `,
-  dfaMinimizationTable(['a', 'b'], [
-    {
-      name: 'I.',
-      states: [
-        { name: '1', transitions: {} },
-        { name: '2', transitions: {} },
-        { name: '3', transitions: {} },
-        { name: '4', transitions: {} },
-      ]
-    },
-    {
-      name: 'II.',
-      states: [
-        { name: '5', transitions: {} },
-      ]
-    }
-  ]),
+  dfaMinimizationTable(
+    ['a', 'b'],
+    [
+      {
+        name: 'I.',
+        states: [
+          { name: '1', transitions: {} },
+          { name: '2', transitions: {} },
+          { name: '3', transitions: {} },
+          { name: '4', transitions: {} },
+        ],
+      },
+      {
+        name: 'II.',
+        states: [{ name: '5', transitions: {} }],
+      },
+    ]
+  ),
   md.cell`
 Most már csak annyi a dolgunk, hogy végighaladunk az eredeti automata összes állapotán, és megnézzük, hogy az egyes állapotok hogyan viselkednek. Például az $1$ állapot az $a$ bemenetre a $2$ állapotba visz, mely az I. csoportban található. Ebbe a cellába tehát az I. csoportot írjuk.
 
 Az összes állapotra elvégezve a fentieket, a következő táblázatot kapjuk:
 `,
-  dfaMinimizationTable(['a', 'b'], [
-    {
-      name: 'I.',
-      states: [
-        { name: '1', transitions: {
-          a: 'I.',
-          b: 'I.'
-        } },
-        { name: '2', transitions: {
-          a: 'I.',
-          b: 'II.'
-        } },
-        { name: '3', transitions: {
-          a: 'I.',
-          b: 'I.'
-        } },
-        { name: '4', transitions: {
-          a: 'I.',
-          b: 'II.'
-        } },
-      ]
-    },
-    {
-      name: 'II.',
-      states: [
-        { name: '5', transitions: {
-          a: 'I.',
-          b: 'II.'
-        } },
-      ]
-    }
-  ]),
+  dfaMinimizationTable(
+    ['a', 'b'],
+    [
+      {
+        name: 'I.',
+        states: [
+          {
+            name: '1',
+            transitions: {
+              a: 'I.',
+              b: 'I.',
+            },
+          },
+          {
+            name: '2',
+            transitions: {
+              a: 'I.',
+              b: 'II.',
+            },
+          },
+          {
+            name: '3',
+            transitions: {
+              a: 'I.',
+              b: 'I.',
+            },
+          },
+          {
+            name: '4',
+            transitions: {
+              a: 'I.',
+              b: 'II.',
+            },
+          },
+        ],
+      },
+      {
+        name: 'II.',
+        states: [
+          {
+            name: '5',
+            transitions: {
+              a: 'I.',
+              b: 'II.',
+            },
+          },
+        ],
+      },
+    ]
+  ),
   md.cell`
 Miután kitöltöttük a táblázatot, megvizsgáljuk, hogy van-e lehetőség csoportbontásra. Egy csoportot akkor kell felbontanunk, ha vannak benne eltérő módon viselkedő állapotok. A II. csoport, mely egy állapotból áll, nyilván nem szorul felbontásra. Ugyanakkor az I. csoportot két új csoportra kell bontanunk:
   * Azon állapotok, melyek $a$ betűre és $b$ betűre is az I. csoportba visznek (piros állapotok).
   * Azon állapotok, melyek $a$ betűre az I., $b$ betűre a II. csoportba visznek (zöld állapotok).
 `,
-  dfaMinimizationTable(['a', 'b'], [
-    {
-      name: 'I.',
-      states: [
-        { name: '1', color: 'red', transitions: {
-          a: 'I.',
-          b: 'I.'
-        } },
-        { name: '2', color: 'green', transitions: {
-          a: 'I.',
-          b: 'II.'
-        } },
-        { name: '3', color: 'red', transitions: {
-          a: 'I.',
-          b: 'I.'
-        } },
-        { name: '4', color: 'green', transitions: {
-          a: 'I.',
-          b: 'II.'
-        } },
-      ]
-    },
-    {
-      name: 'II.',
-      states: [
-        { name: '5', transitions: {
-          a: 'I.',
-          b: 'II.'
-        } },
-      ]
-    }
-  ]),
+  dfaMinimizationTable(
+    ['a', 'b'],
+    [
+      {
+        name: 'I.',
+        states: [
+          {
+            name: '1',
+            color: 'red',
+            transitions: {
+              a: 'I.',
+              b: 'I.',
+            },
+          },
+          {
+            name: '2',
+            color: 'green',
+            transitions: {
+              a: 'I.',
+              b: 'II.',
+            },
+          },
+          {
+            name: '3',
+            color: 'red',
+            transitions: {
+              a: 'I.',
+              b: 'I.',
+            },
+          },
+          {
+            name: '4',
+            color: 'green',
+            transitions: {
+              a: 'I.',
+              b: 'II.',
+            },
+          },
+        ],
+      },
+      {
+        name: 'II.',
+        states: [
+          {
+            name: '5',
+            transitions: {
+              a: 'I.',
+              b: 'II.',
+            },
+          },
+        ],
+      },
+    ]
+  ),
   md.cell`
 Miután így kijelöltük a felbontást, írjuk is fel az új táblázatot!
 `,
-  dfaMinimizationTable(['a', 'b'], [
-    {
-      name: 'I.',
-      states: [
-        { name: '1', transitions: {} },
-        { name: '3', transitions: {} },
-      ]
-    },
-    {
-      name: 'II.',
-      states: [
-        { name: '2', transitions: {} },
-        { name: '4', transitions: {} },
-      ]
-    },
-    {
-      name: 'III.',
-      states: [
-        { name: '5', transitions: {} },
-      ]
-    }
-  ]),
+  dfaMinimizationTable(
+    ['a', 'b'],
+    [
+      {
+        name: 'I.',
+        states: [
+          { name: '1', transitions: {} },
+          { name: '3', transitions: {} },
+        ],
+      },
+      {
+        name: 'II.',
+        states: [
+          { name: '2', transitions: {} },
+          { name: '4', transitions: {} },
+        ],
+      },
+      {
+        name: 'III.',
+        states: [{ name: '5', transitions: {} }],
+      },
+    ]
+  ),
   md.cell`
 Most már három csoportunk van, hiszen a korábbi I. csoportból létrehoztuk az új I. és II. csoportokat. Az $5$ állapot továbbra is önmagában áll a III. csoportban.
 
 A továbbiakban ugyanazt kell tennünk, mint megelőzőleg: beírni az egyes cellákba az állapotátmeneteknek megfelelő csoportokat.
 `,
-  dfaMinimizationTable(['a', 'b'], [
-    {
-      name: 'I.',
-      states: [
-        { name: '1', transitions: {
-          a: 'II.',
-          b: 'I.'
-        } },
-        { name: '3', transitions: {
-          a: 'II.',
-          b: 'I.'
-        } },
-      ]
-    },
-    {
-      name: 'II.',
-      states: [
-        { name: '2', transitions: {
-          a: 'I.',
-          b: 'III.'
-        } },
-        { name: '4', transitions: {
-          a: 'I.',
-          b: 'III.'
-        } },
-      ]
-    },
-    {
-      name: 'III.',
-      states: [
-        { name: '5', transitions: {
-          a: 'II.',
-          b: 'III.'
-        } },
-      ]
-    }
-  ]),
+  dfaMinimizationTable(
+    ['a', 'b'],
+    [
+      {
+        name: 'I.',
+        states: [
+          {
+            name: '1',
+            transitions: {
+              a: 'II.',
+              b: 'I.',
+            },
+          },
+          {
+            name: '3',
+            transitions: {
+              a: 'II.',
+              b: 'I.',
+            },
+          },
+        ],
+      },
+      {
+        name: 'II.',
+        states: [
+          {
+            name: '2',
+            transitions: {
+              a: 'I.',
+              b: 'III.',
+            },
+          },
+          {
+            name: '4',
+            transitions: {
+              a: 'I.',
+              b: 'III.',
+            },
+          },
+        ],
+      },
+      {
+        name: 'III.',
+        states: [
+          {
+            name: '5',
+            transitions: {
+              a: 'II.',
+              b: 'III.',
+            },
+          },
+        ],
+      },
+    ]
+  ),
   md.cell`
 Ezzel az algoritmus második lépését befejeztük: nem további csoportbontást végezni. Folytathatjuk a harmadik lépéssel, az új, minimális automata felírásával:
   * Az állapotok $Q^{\\prime}$ halmaza az I., II., III. állapotokból fog állni, hiszen minden csoport egy állapotot alkot.
@@ -293,7 +361,7 @@ Amire figyeljünk oda az algoritmus végrehajtásakor:
   * Ha két állapot egyszer külön csoportba került, akkor **sosem** kerülhetnek újra egy csoportba.
   * A csoportok elnevezése tetszőleges, valamint a "sorrendjük" is, azaz nyugodtan lehetett volna a megoldás elején az I. csoport az elfogadó állapotok csoportja, míg a II. csoport az elutasító állapotok csoportja. Ez nem befolyásolja az algoritmust működését.
   * Végezzünk önellenőrzést: vizsgáljuk meg néhány példára, hogy a minimalizált automata ténylegesen ugyanazokat a szavakat utasítja és fogadja el, mint az eredeti automata.
-`
+`,
 ]
 
 const meta = {
@@ -306,8 +374,9 @@ const meta = {
 
 const content = {
   title: '3. gyakorlat – Minimalizálás, pumpálási lemma',
-  excerpt: 'Determinisztikus véges automatákat minimalizáltunk, valamint a pumpálási lemmával bizonyítottuk nyelvekről, hogy nem regulárisak.',
-  cells
+  excerpt:
+    'Determinisztikus véges automatákat minimalizáltunk, valamint a pumpálási lemmával bizonyítottuk nyelvekről, hogy nem regulárisak.',
+  cells,
 }
 
 module.exports = {

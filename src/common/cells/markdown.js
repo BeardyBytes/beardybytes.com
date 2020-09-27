@@ -3,7 +3,7 @@ const { Remarkable } = require('remarkable')
 const remarkableKatexPlugin = require('remarkable-katex')
 
 const remarkableOptions = {
-  html: true
+  html: true,
 }
 
 const renderer = new Remarkable(remarkableOptions)

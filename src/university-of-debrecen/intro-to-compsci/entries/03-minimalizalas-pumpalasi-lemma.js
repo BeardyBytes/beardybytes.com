@@ -8,8 +8,10 @@ function dfaMinimizationTable(alphabet, groups) {
   function statesHeadOfGroup(group) {
     const isFirstState = i => i == 0
 
+    const style = color => `style="color: ${color || 'black'}"`
+
     return group.states.map((state, index) => `
-      <th class="${isFirstState(index) ? "first-state-of-group" : ""}">${state.name}</th>
+      <th ${style(state.color)} class="${isFirstState(index) ? "first-state-of-group" : ""}">${state.name}</th>
     `).join('')
   }
 
@@ -32,8 +34,10 @@ function dfaMinimizationTable(alphabet, groups) {
   function transitionRowSegment(symbol, group) {
     const isFirstState = i => i == 0
 
+    const style = color => `style="color: ${color || 'black'}"`
+
     return group.states.map((state, index) => `
-      <td class="${isFirstState(index) ? "first-state-of-group" : ""}">${state.transitions[symbol] || ''}</td>
+      <td ${style(state.color)} class="${isFirstState(index) ? "first-state-of-group" : ""}">${state.transitions[symbol] || ''}</td>
     `).join('')
   }
 
@@ -96,6 +100,8 @@ A fenti algoritmust egy táblázat segítségével szoktuk végrehajtani. A \`2.
 A minimalizálási algoritmus első lépésének megfelelően, azzal kezdjük a megoldást, hogy az automata állapotait két csoportra bontjuk. Az I. csoportba kerülnek az elutasító állapotok, míg a II. csoportba az elfogadó állapotok.
 
 A csoportosítást, majd csoportbontást egy táblázat segítségével végezzük, melyből minden egyes csoportbontástkor újat készítünk. A táblázat oszlopait az eredeti automata állapotai, sorait pedig a bemeneti ábécé betűi alkotják. Az egyes cellákba az adott állapotátmenetnek megfelelő csoportot írjuk.
+
+A cellák kitöltését megelőzően a táblázat a következő:
 `,
   dfaMinimizationTable(['a', 'b'], [
     {
@@ -114,25 +120,180 @@ A csoportosítást, majd csoportbontást egy táblázat segítségével végezz�
       ]
     }
   ]),
-  subsection.cell`2.1 feladat`,
-  subsubsection.cell`2.1 a.`,
+  md.cell`
+Most már csak annyi a dolgunk, hogy végighaladunk az eredeti automata összes állapotán, és megnézzük, hogy az egyes állapotok hogyan viselkednek. Például az $1$ állapot az $a$ bemenetre a $2$ állapotba visz, mely az I. csoportban található. Ebbe a cellába tehát az I. csoportot írjuk.
+
+Az összes állapotra elvégezve a fentieket, a következő táblázatot kapjuk:
+`,
+  dfaMinimizationTable(['a', 'b'], [
+    {
+      name: 'I.',
+      states: [
+        { name: '1', transitions: {
+          a: 'I.',
+          b: 'I.'
+        } },
+        { name: '2', transitions: {
+          a: 'I.',
+          b: 'II.'
+        } },
+        { name: '3', transitions: {
+          a: 'I.',
+          b: 'I.'
+        } },
+        { name: '4', transitions: {
+          a: 'I.',
+          b: 'II.'
+        } },
+      ]
+    },
+    {
+      name: 'II.',
+      states: [
+        { name: '5', transitions: {
+          a: 'I.',
+          b: 'II.'
+        } },
+      ]
+    }
+  ]),
+  md.cell`
+Miután kitöltöttük a táblázatot, megvizsgáljuk, hogy van-e lehetőség csoportbontásra. Egy csoportot akkor kell felbontanunk, ha vannak benne eltérő módon viselkedő állapotok. A II. csoport, mely egy állapotból áll, nyilván nem szorul felbontásra. Ugyanakkor az I. csoportot két új csoportra kell bontanunk:
+  * Azon állapotok, melyek $a$ betűre és $b$ betűre is az I. csoportba visznek (piros állapotok).
+  * Azon állapotok, melyek $a$ betűre az I., $b$ betűre a II. csoportba visznek (zöld állapotok).
+`,
+  dfaMinimizationTable(['a', 'b'], [
+    {
+      name: 'I.',
+      states: [
+        { name: '1', color: 'red', transitions: {
+          a: 'I.',
+          b: 'I.'
+        } },
+        { name: '2', color: 'green', transitions: {
+          a: 'I.',
+          b: 'II.'
+        } },
+        { name: '3', color: 'red', transitions: {
+          a: 'I.',
+          b: 'I.'
+        } },
+        { name: '4', color: 'green', transitions: {
+          a: 'I.',
+          b: 'II.'
+        } },
+      ]
+    },
+    {
+      name: 'II.',
+      states: [
+        { name: '5', transitions: {
+          a: 'I.',
+          b: 'II.'
+        } },
+      ]
+    }
+  ]),
+  md.cell`
+Miután így kijelöltük a felbontást, írjuk is fel az új táblázatot!
+`,
+  dfaMinimizationTable(['a', 'b'], [
+    {
+      name: 'I.',
+      states: [
+        { name: '1', transitions: {} },
+        { name: '3', transitions: {} },
+      ]
+    },
+    {
+      name: 'II.',
+      states: [
+        { name: '2', transitions: {} },
+        { name: '4', transitions: {} },
+      ]
+    },
+    {
+      name: 'III.',
+      states: [
+        { name: '5', transitions: {} },
+      ]
+    }
+  ]),
+  md.cell`
+Most már három csoportunk van, hiszen a korábbi I. csoportból létrehoztuk az új I. és II. csoportokat. Az $5$ állapot továbbra is önmagában áll a III. csoportban.
+
+A továbbiakban ugyanazt kell tennünk, mint megelőzőleg: beírni az egyes cellákba az állapotátmeneteknek megfelelő csoportokat.
+`,
+  dfaMinimizationTable(['a', 'b'], [
+    {
+      name: 'I.',
+      states: [
+        { name: '1', transitions: {
+          a: 'II.',
+          b: 'I.'
+        } },
+        { name: '3', transitions: {
+          a: 'II.',
+          b: 'I.'
+        } },
+      ]
+    },
+    {
+      name: 'II.',
+      states: [
+        { name: '2', transitions: {
+          a: 'I.',
+          b: 'III.'
+        } },
+        { name: '4', transitions: {
+          a: 'I.',
+          b: 'III.'
+        } },
+      ]
+    },
+    {
+      name: 'III.',
+      states: [
+        { name: '5', transitions: {
+          a: 'II.',
+          b: 'III.'
+        } },
+      ]
+    }
+  ]),
+  md.cell`
+Ezzel az algoritmus második lépését befejeztük: nem további csoportbontást végezni. Folytathatjuk a harmadik lépéssel, az új, minimális automata felírásával:
+  * Az állapotok $Q^{\\prime}$ halmaza az I., II., III. állapotokból fog állni, hiszen minden csoport egy állapotot alkot.
+  * A bemeneti ábécé nem változik, $\\Sigma^{\\prime} = \\Sigma$.
+  * A $q_{0}^{\\prime}$ kezdőállapot az I. állapot lesz, hiszen ez a csoport tartalmazza az eredeti kezdő állapotot.
+  * Az elfogadó állapotok $A^{\\prime}$ halmaza egy elemből áll: csupán a III. csoportból képzett állapot lesz elfogadó állapot, hiszen csak ez tartalmaz eredeti elfogadó állapotokat.
+  * A $\\delta^{\\prime}$ állapotátmeneti függvényt a táblázatnak megfelelően írhatjuk fel.
+`,
   kroki.cell('graphviz', 'svg')`
-  digraph dfa_21a {
+  digraph dfa_255a {
 	rankdir=LR;
     size="8,5"
     node [shape = point; color = white ]; S;
-	node [shape = doublecircle; color = black]; III;
+    node [shape = doublecircle; color = black]; III;
     node [shape = circle];
+
     S -> I;
     I -> II [ label = "a" ];
     I -> I [ label = "b" ];
-    II -> III [ label = "a" ];
-    II -> II [ label = "b" ];
-    III -> IV [ label = "a" ];
+    II -> I [ label = "a" ];
+    II -> III [ label = "b" ];
+    III -> II [ label = "a" ];
     III -> III [ label = "b" ];
-    IV -> IV [ label = "a, b" ];
 }
 `,
+  md.cell`
+Ezzel készen vagyunk, felírtuk a minimális automatát.
+
+Amire figyeljünk oda az algoritmus végrehajtásakor:
+  * Ha két állapot egyszer külön csoportba került, akkor **sosem** kerülhetnek újra egy csoportba.
+  * A csoportok elnevezése tetszőleges, valamint a "sorrendjük" is, azaz nyugodtan lehetett volna a megoldás elején az I. csoport az elfogadó állapotok csoportja, míg a II. csoport az elutasító állapotok csoportja. Ez nem befolyásolja az algoritmust működését.
+  * Végezzünk önellenőrzést: vizsgáljuk meg néhány példára, hogy a minimalizált automata ténylegesen ugyanazokat a szavakat utasítja és fogadja el, mint az eredeti automata.
+`
 ]
 
 const meta = {

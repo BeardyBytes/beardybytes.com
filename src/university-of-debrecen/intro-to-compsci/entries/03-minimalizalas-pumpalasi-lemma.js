@@ -405,6 +405,62 @@ Végül, a $v$ részszó pumpálásával képzett szavaknak is benne kell lenni�
 
 Mivel a bizonyítás elején feltettük, hogy $L$ reguláris, azonban találtunk olyan szót $L$-ben, melyre nem teljesül a pumpálási lemma, ezért ellentmondást kaptunk, azaz $L$ nem reguláris.
 `,
+  subsubsection.cell`2.22. d.`,
+  md.cell`
+Tegyük fel, hogy az
+
+$$
+L = \\{ a^{i}b^{j} \\;|\\; \\text{$j$ többszöröse $i$-nek}\\}
+$$
+
+nyelv reguláris. Ekkor, a pumpálási lemma szerint, adott valamilyen, $L$-től függő $n$, az elég hosszú szó hossza.
+
+Válasszuk meg az $x \\in L$ szót a következőképpen:
+
+$$
+x = a^{n}b^{2n}.
+$$
+
+A fenti választásunk olyan, hogy $|x| \\geq n$.
+
+A pumpálási lemma szerint ekkor $x$ felírható $x = uvw$ alakban, mely felbontásnak teljesítenie kell a következőket.
+
+$|uv| \\leq n$, amiből következik, hogy az $uv$ részszó csupa $a$ betűből áll (hiszen $x$ $n$ darab $a$ betűvel kezdődik).
+
+$|v| > 0$, amiből, ha összekapcsoljuk az előző ponttal, adódik, hogy $v$ csupa $a$ betűből áll (hiszen már $uv$ is csupa $a$ betűbőll állt).
+
+Végül, a $v$ részszó pumpálásával képzett szavaknak is benne kell lenniük $L$-ben, azaz, például $uvvw \\in L$. Mivel $v$ csupa $a$ betűből áll, ezért nyilvánvalóan $vv$ is csupa $a$ betűből fog állni. $uvw$ benne volt a nyelvben, hiszen a végén, a $w$ részszóban található $b$ betűk száma többszöröse volt a szó elején levő $a$ betűk számának (a bizonyítástóé független megjegyzés: mivel $|uv| \\leq n$, ezért $w$-be is eshetnek $a$ betűk!). Tehát ha pumpáljuk az $a$ betűk számát a szó elején, anélkül, hogy a $b$ betűk száma növekedne, ahogy azt az $uvvw$ szó esetén tettük, akkor az ilyen szavak nem lesznek benne a nyelvben, mert a $b$ betűk száma a felfelé pumpálás következtében már nem lesz egész többszöröse az $a$ betűk számának (elég nagy pumpálás esetén pedig már több $a$ betű lesz, mint $b$).
+
+Mivel a bizonyítás elején feltettük, hogy $L$ reguláris, azonban találtunk olyan szót $L$-ben, melyre nem teljesül a pumpálási lemma, ezért ellentmondást kaptunk, azaz $L$ nem reguláris.
+`,
+  subsubsection.cell`2.22. f.`,
+  md.cell`
+Tegyük fel, hogy az
+
+$$
+L = \\{ x \\in \\{a, b\\}^{*} \\;|\\; \\text{$x$-nek nincs olyan prefixe, amiben több $b$ van, mint $a$}\\}
+$$
+
+nyelv reguláris. Ekkor, a pumpálási lemma szerint, adott valamilyen, $L$-től függő $n$, az elég hosszú szó hossza.
+
+Válasszuk meg az $x \\in L$ szót a következőképpen:
+
+$$
+x = a^{n}b^{n}.
+$$
+
+A fenti választásunk olyan, hogy $|x| \\geq n$. Továbbá, bármilyen prefixét tekintjük $x$-nek (akár a teljes szót is), az $a$ betűk száma mindig nagyobb vagy egyenlő, mint a $b$ betűké.
+
+A pumpálási lemma szerint ekkor $x$ felírható $x = uvw$ alakban, mely felbontásnak teljesítenie kell a következőket.
+
+$|uv| \\leq n$, amiből következik, hogy az $uv$ részszó csupa $a$ betűből áll (hiszen $x$ $n$ darab $a$ betűvel kezdődik).
+
+$|v| > 0$, amiből, ha összekapcsoljuk az előző ponttal, adódik, hogy $v$ csupa $a$ betűből áll (hiszen már $uv$ is csupa $a$ betűbőll állt).
+
+Végül, a $v$ részszó pumpálásával képzett szavaknak is benne kell lenniük $L$-ben, azaz, például $uw \\in L$ (tehát lefelé pumpáltunk, $v^{0} = \\lambda$). $L$ olyan szavakat tartalmaz, melyek minden prefixe legalább annyi $a$ betűt tartalmaz, mint $b$ betűt. Ez teljesült az $x = uvw$ szóra is. Ugyanakkor, mivel $v$ csupa $a$ betűből áll, ezért az $uw$ szó biztosan kevesebb $a$ betűvel fog kezdődni, mint az $uvw$ szó. Ennek következtében pedig, ha elég hossz prefixét vesszük $uw$-nek (akár a teljes szót), akkor abban több $b$ betű lesz, mint $a$ betű.
+
+Mivel a bizonyítás elején feltettük, hogy $L$ reguláris, azonban találtunk olyan szót $L$-ben, melyre nem teljesül a pumpálási lemma, ezért ellentmondást kaptunk, azaz $L$ nem reguláris.
+`,
 ]
 
 const meta = {

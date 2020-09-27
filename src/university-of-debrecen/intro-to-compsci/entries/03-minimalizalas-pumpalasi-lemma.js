@@ -330,7 +330,7 @@ A továbbiakban ugyanazt kell tennünk, mint megelőzőleg: beírni az egyes cel
     ]
   ),
   md.cell`
-Ezzel az algoritmus második lépését befejeztük: nem további csoportbontást végezni. Folytathatjuk a harmadik lépéssel, az új, minimális automata felírásával:
+Ezzel az algoritmus második lépését befejeztük: nem tudunk további csoportbontást végezni. Folytathatjuk a harmadik lépéssel, az új, minimális automata felírásával:
   * Az állapotok $Q^{\\prime}$ halmaza az I., II., III. állapotokból fog állni, hiszen minden csoport egy állapotot alkot.
   * A bemeneti ábécé nem változik, $\\Sigma^{\\prime} = \\Sigma$.
   * A $q_{0}^{\\prime}$ kezdőállapot az I. állapot lesz, hiszen ez a csoport tartalmazza az eredeti kezdő állapotot.
@@ -361,6 +361,37 @@ Amire figyeljünk oda az algoritmus végrehajtásakor:
   * Ha két állapot egyszer külön csoportba került, akkor **sosem** kerülhetnek újra egy csoportba.
   * A csoportok elnevezése tetszőleges, valamint a "sorrendjük" is, azaz nyugodtan lehetett volna a megoldás elején az I. csoport az elfogadó állapotok csoportja, míg a II. csoport az elutasító állapotok csoportja. Ez nem befolyásolja az algoritmust működését.
   * Végezzünk önellenőrzést: vizsgáljuk meg néhány példára, hogy a minimalizált automata ténylegesen ugyanazokat a szavakat utasítja és fogadja el, mint az eredeti automata.
+`,
+  subsubsection.cell`2.55. b.`,
+  md.cell`
+  A megadott automata minimális.
+`,
+  subsubsection.cell`2.55. d.`,
+  kroki.cell('graphviz', 'svg')`
+  digraph dfa_255a {
+	rankdir=LR;
+    size="8,5"
+    node [shape = point; color = white ]; S;
+    node [shape = doublecircle; color = black]; IV V;
+    node [shape = circle];
+
+    S -> I;
+
+    I -> II [ label = "a" ];
+    I -> III [ label = "b" ];
+
+    II -> IV [ label = "a" ];
+    II -> III [ label = "b" ];
+
+    III -> IV [ label = "a" ];
+    III -> V [ label = "b" ];
+
+    IV -> IV [ label = "a" ];
+    IV -> III [ label = "b" ];
+
+    V -> IV [ label = "a" ];
+    V -> V [ label = "b" ];
+  }
 `,
   section.cell`A pumpálási lemma alkalmazása`,
   subsection.cell`A pumpálási lemma`,
@@ -460,6 +491,28 @@ $|v| > 0$, amiből, ha összekapcsoljuk az előző ponttal, adódik, hogy $v$ cs
 Végül, a $v$ részszó pumpálásával képzett szavaknak is benne kell lenniük $L$-ben, azaz, például $uw \\in L$ (tehát lefelé pumpáltunk, $v^{0} = \\lambda$). $L$ olyan szavakat tartalmaz, melyek minden prefixe legalább annyi $a$ betűt tartalmaz, mint $b$ betűt. Ez teljesült az $x = uvw$ szóra is. Ugyanakkor, mivel $v$ csupa $a$ betűből áll, ezért az $uw$ szó biztosan kevesebb $a$ betűvel fog kezdődni, mint az $uvw$ szó. Ennek következtében pedig, ha elég hossz prefixét vesszük $uw$-nek (akár a teljes szót), akkor abban több $b$ betű lesz, mint $a$ betű.
 
 Mivel a bizonyítás elején feltettük, hogy $L$ reguláris, azonban találtunk olyan szót $L$-ben, melyre nem teljesül a pumpálási lemma, ezért ellentmondást kaptunk, azaz $L$ nem reguláris.
+`,
+  section.cell`Állítások reguláris nyelvekkel kapcsolatban`,
+  subsection.cell`2.29. feladat`,
+  subsubsection.cell`2.29. a.`,
+  md.cell`
+Az állítás hamis, ellenpélda: $L_{1} = \\{ a^{n}b^{n} \\;|\\; n \\geq 1 \\}$, $L_{2} = \\{a, b\\}^{*}$.
+
+**Megjegyzés**: Figyelem, ez az első gyakorlaton (8-10) tévesen igaz állításként szerepelt. Elnézést a figyelmetlenségért.
+`,
+  subsubsection.cell`2.29. b.`,
+  md.cell`
+Az állítás hamis, ellenpélda: $L_{1} = \\{ ab \\}$, $L_{2} = \\{ a^{n}b^{n} \\;|\\; n \\geq 1 \\}$.
+`,
+  subsubsection.cell`2.29. c.`,
+  md.cell`
+Az állítás hamis, ellenpélda: $L_{1} = \\{ a^{i}b^{j} \\;|\\; i \\leq j \\}$, $L_{2} = \\{ a^{i}b^{j} \\;|\\; i \\geq j \\}$.
+`,
+  subsubsection.cell`2.29. d.`,
+  md.cell`
+Az állítás igaz. Tegyük fel, hogy létezik olyan $M^{\\prime}$ véges automata, mely az $L^{\\prime}$-beli szavakat fogadja el. Mivel az ábécé, mely felett a nyelvek definiáltak, $\\Sigma = \\{a, b\\}$, ezért ez azt jelenti, hogy $M^{\\prime}$ minden olyan $\\{a, b\\}^{*}$-beli szót elfogad, mely nincs benne $L$-ben ($\\{a, b\\}^{*} \\setminus L$), és minden olyan szót elutasít, mely benne van $L$-ben. Ha elképzeljük az automatát, ekkor az elfogadó állapotok az $L^{\\prime}$-beli szavakkal érhetők el, míg az elutasító állapotok az $L$-beli szavakkal. Viszont, ha van egy ilyen $M^{\\prime}$ automatánk, akkor felcserélvén az elfogadó és elutasító állapotokat, egy olyan $M$ automatát kapnánk, mely az $L$-beli szavakat fogadja el. Ez viszont ellentmondás, hiszen az eredeti állítás szerint $L$-re nem tudunk véges automatát konstruálni.
+
+TL;DR: Az állítás igaz, mert ha $L^{\\prime}$-re lenne véges automata, akkor $L$-re is lenne.
 `,
 ]
 

@@ -42,6 +42,44 @@ function nullRemovalTable(alphabet, states) {
 `
 }
 
+function determinizationTable(alphabet, states) {
+  const head = `
+<thead>
+  <tr>
+    <th>${tex`\\Sigma`}</th>
+    ${alphabet.map((a) => `<th>${tex`${a}`}</th>`).join('')}
+  </tr>
+</thead>
+`
+  const body = `
+<tbody>
+  ${states
+    .map((s) => {
+      return `
+    <tr>
+      <td>${tex`${s.name}`}</td>
+      ${alphabet
+        .map((a) => {
+          const result = s.transitions[a] || 'Trap'
+
+          return `<td>${result}</td>`
+        })
+        .join('')}
+    </tr>
+    `
+    })
+    .join('')}
+</tbody>
+`
+
+  return `
+<table class="determinization-table">
+  ${head}
+  ${body}
+</table>
+`
+}
+
 const cells = [
   md.cell`
 A gyakorlaton előbb egy kétfázisú algoritmus segítségével készítettünk nemdeterminisztikus véges automatákból determinisztikus véges automatákat, majd reguláris kifejezésekkel dolgoztunk. E bejegyzésben a megfelelő feladatokat megoldásai mellett megtalálható a determinisztikussá alakítás algoritmusa.
@@ -49,6 +87,21 @@ A gyakorlaton előbb egy kétfázisú algoritmus segítségével készítettünk
 A gyakorlathoz tartozó feladatsor elérhető a következő linken:
 
 > [04-nemdeterminisztikus-veges-automatak-regularis-kifejezesek-feladatsor.pdf](./files/04-nemdeterminisztikus-veges-automatak-regularis-kifejezesek-feladatsor.pdf)
+`,
+  section.cell`Bemelegítés`,
+  subsection.cell`1. feladat`,
+  md.cell`
+> a) $\\{1, 3\\}$
+
+> b) $\\{1, 3, 4, 5\\}$
+`,
+  subsection.cell`2. feladat`,
+  md.cell`
+> a) Igen.
+
+> b) Nem.
+
+> c) Igen.
 `,
   section.cell`Nemdeterminisztikus véges automaták determinisztikussá alakítása`,
   subsection.cell`Az üres szó átmenetek eltávolítása`,
@@ -356,6 +409,115 @@ digraph dfa_3d {
 
   5 -> 6 [ label = "a" ];
   5 -> 5 [ label = "b" ];
+}`,
+  subsection.cell`A nemdeterminisztikus viselkedés kiküszöbölése`,
+  md.cell`
+Az ekvivalens determinisztikus véges automata felírásának második fázisa a nemdeterminisztikus viselkedés kiküszöbölése. Ennek lépései a következők:  
+
+  0. Legyen adott az $M = (Q, \\Sigma, q_{0}, A, \\delta)$ nemdeterminisztikus véges automata, mely **nem** tartalmaz üres szó átmeneteket.
+  1. Kiindulva a $\\{q_{0}\}}$ állapothalmazból, térképezzük fel, hogy a bemeneti ábécé egyes betűivel mely állapothalmazok érhetők el.
+  2. Ezt követően az $M^{\\prime} = (Q^{\\prime}, \\Sigma^{\\prime}, q_{0}^{\\prime}, A^{\\prime}, \\delta^{\\prime})$ determinisztikus véges automatát a következőképpen írhatjuk fel:
+     * $Q^{\\prime}$: Az 1. lépés minden állapothalmaza egy új állapot lesz.
+     * $\\Sigma^{\\prime}$: A bemeneti ábécé nem változik, megegyezik $\\Sigma$-val.
+     * $q_{0}^{\\prime}$: A kezdőállapot a $\\{q_{0}\\}$ állapothalmaznak megfelelő állapot lesz.
+     * $A^{\\prime}$: Elfogadó állapot lesz minden olyan állapothalmazból képzett állapot, mely halmaz tartalmazott legalább egy eredeti elfogadó állapotot.
+     * $\\delta^{\\prime}$: Az új állapotátmenet függvényt az 1. lépés alapján írjuk fel.
+    
+Ahogy sok más algoritmust, ezt is egy táblázat segítségével szoktuk végrehajtani. E táblázat kitöltésének pontos módját adja meg a \`4. a)\` részfeladat.
+`,
+  subsection.cell`4. feladat`,
+  subsubsection.cell`4. a)`,
+  md.cell`
+Az algoritmus szerint, a kiinduló állapothalmazunk csak a kezdőállapotot tartalmazza, azaz az $\\{1\\}$ halmaz lesz. E halmaz minden elemére (azaz, jelenleg csak az $1$ állapotra) meg kell vizsgálnunk az automata viselkedését: Ha $a$ betűt olvasunk, akkor az $1$ és a $2$ állapotokba, tehát együttesen az $\\{1, 2\\}$ állapothalmazba tudunk továbblépni. $b$ betűt olvasva maradunk, azaz az $\\{1\\}$ halmazba lépünk. Táblázat formájában ezek az okoskodások a következőképpen írhatók fel:
+`,
+  determinizationTable(
+    ['a', 'b'],
+    [
+      {
+        name: '1',
+        transitions: {
+          a: '12',
+          b: '1',
+        },
+      },
+    ]
+  ),
+  md.cell`
+Mivel ezeket a halmazokat elég fárasztó lenne kiírni, ezért legtöbbször rövidíteni szoktunk, és a halmazt alkotó elemeket egyszerűen egymás után írjuk. Ez persze azt is jelenti, hogy az $12$ és a $21$ rövidítések azonos halmazokat jelölnek!
+
+A következő lépésben minden olyan halmaz viselkedését megvizsgáljuk, mellyel még nem foglalkoztunk korábban. Mivel a $b$ betűvel elérhető $1$ halmazt most írtuk fel, ezért csak az $12$ halmazzal kell dolgoznunk.
+
+Az $12$ halmazt két állapot alkotja, az $1$ és a $2$. Ez azt jelenti, hogy $a$ betűt olvasva az $1$ és $2$ állapotokba léphetünk, $b$ betűt olvasva pedig az $1$ és $3$ állapotokba.
+`,
+  determinizationTable(
+    ['a', 'b'],
+    [
+      {
+        name: '1',
+        transitions: {
+          a: '12',
+          b: '1',
+        },
+      },
+      {
+        name: '12',
+        transitions: {
+          a: '12',
+          b: '13',
+        },
+      },
+    ]
+  ),
+  md.cell`
+Most már csak ismételgetnünk kell, amit eddig. Az $12$ halmazt már vizsgáltuk, így marad az $13$ halmaz. Ebben $a$ betűt olvasva az $12$, $b$ betűt olvasva pedig az $1$ halmazba juthatunk.
+`,
+  determinizationTable(
+    ['a', 'b'],
+    [
+      {
+        name: '1',
+        transitions: {
+          a: '12',
+          b: '1',
+        },
+      },
+      {
+        name: '12',
+        transitions: {
+          a: '12',
+          b: '13',
+        },
+      },
+      {
+        name: '13',
+        transitions: {
+          a: '12',
+          b: '1',
+        },
+      },
+    ]
+  ),
+  md.cell`
+Mivel minden elérhető halmaz szerepel a táblázatban, készen vagyunk. Utolsó lépésként meg kell állapítanunk, hogy mely új állapotok lesznek elfogadó állapotok. Mivel az egyetlen állapothalmaz, mely elfogadó állapotot tartalmaz, az $13$, ezért csak a belőle képzett állapot lesz elfogadó állapot.
+`,
+  kroki.cell('graphviz', 'svg')`
+digraph dfa_3d {
+  rankdir=LR;
+  size="8,5"
+  node [shape = point; color = white ]; S;
+  node [shape = doublecircle; color = black]; 13;
+  node [shape = circle];
+
+  S -> 1;
+
+  1 -> 12 [ label = "a" ];
+  1 -> 1 [ label = "b" ];
+
+  12 -> 12 [ label = "a" ];
+  12 -> 13 [ label = "b" ];
+
+  13 -> 12 [ label = "a" ];
+  13 -> 1 [ label = "b" ];
 }`,
 ]
 

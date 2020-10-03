@@ -519,6 +519,272 @@ digraph dfa_3d {
   13 -> 12 [ label = "a" ];
   13 -> 1 [ label = "b" ];
 }`,
+  subsubsection.cell`4. e)`,
+  determinizationTable(
+    ['a', 'b'],
+    [
+      {
+        name: '1',
+        transitions: {
+          a: '2',
+          b: '5',
+        },
+      },
+      {
+        name: '2',
+        transitions: {
+          b: '3',
+        },
+      },
+      {
+        name: '5',
+        transitions: {
+          b: '1',
+        },
+      },
+      {
+        name: '3',
+        transitions: {
+          a: '4',
+          b: '3',
+        },
+      },
+      {
+        name: '4',
+        transitions: {
+          a: '35',
+        },
+      },
+      {
+        name: '35',
+        transitions: {
+          a: '4',
+          b: '13',
+        },
+      },
+      {
+        name: '13',
+        transitions: {
+          a: '24',
+          b: '35',
+        },
+      },
+      {
+        name: '24',
+        transitions: {
+          a: '35',
+          b: '3',
+        },
+      },
+    ]
+  ),
+  kroki.cell('graphviz', 'svg')`
+digraph dfa_4e {
+  rankdir=LR;
+  size="10,5"
+  node [shape = point; color = white ]; S;
+  node [shape = doublecircle; color = black]; 35, 5;
+  node [shape = circle];
+
+  S -> 1;
+
+  1 -> 2 [ label = "a" ];
+  1 -> 5 [ label = "b" ];
+
+  2 -> 3 [ label = "b" ];
+
+  5 -> 1 [ label = "b" ];
+
+  3 -> 4 [ label = "a" ];
+  3 -> 3 [ label = "b" ];
+
+  4 -> 35 [ label = "a" ];
+
+  35 -> 4 [ label = "a" ];
+  35 -> 13 [ label = "b" ];
+
+  13 -> 24 [ label = "a" ];
+  13 -> 35 [ label = "b" ];
+
+  24 -> 35 [ label = "a" ];
+  24 -> 3 [ label = "b" ];
+}`,
+  subsubsection.cell`4. f)`,
+  determinizationTable(
+    ['a', 'b'],
+    [
+      {
+        name: '1',
+        transitions: {
+          a: '2',
+        },
+      },
+      {
+        name: '2',
+        transitions: {
+          a: '34',
+        },
+      },
+      {
+        name: '34',
+        transitions: {
+          a: '4',
+          b: '35',
+        },
+      },
+      {
+        name: '4',
+        transitions: {
+          a: '4',
+          b: '5',
+        },
+      },
+      {
+        name: '35',
+        transitions: {
+          b: '23',
+        },
+      },
+      {
+        name: '5',
+        transitions: {
+          b: '2',
+        },
+      },
+      {
+        name: '23',
+        transitions: {
+          a: '34',
+          b: '3',
+        },
+      },
+      {
+        name: '3',
+        transitions: {
+          b: '3',
+        },
+      },
+    ]
+  ),
+  kroki.cell('graphviz', 'svg')`
+digraph dfa_4f {
+  rankdir=LR;
+  size="8,5"
+  node [shape = point; color = white ]; S;
+  node [shape = doublecircle; color = black]; 34, 35, 5, 23, 3;
+  node [shape = circle];
+
+  S -> 1;
+
+  1 -> 2 [ label = "a" ];
+
+  2 -> 34 [ label = "a" ];
+
+  34 -> 4 [ label = "a" ];
+  34 -> 35 [ label = "b" ];
+
+  4 -> 4 [ label = "a" ];
+  4 -> 5 [ label = "b" ];
+
+  35 -> 23 [ label = "b" ];
+
+  5 -> 2 [ label = "b" ];
+
+  23 -> 34 [ label = "a" ];
+  23 -> 3 [ label = "b" ];
+
+  3 -> 3 [ label = "b" ];
+}`,
+  subsubsection.cell`4. g)`,
+  determinizationTable(
+    ['a', 'b'],
+    [
+      {
+        name: '1',
+        transitions: {
+          a: '2',
+          b: '134',
+        },
+      },
+      {
+        name: '2',
+        transitions: {
+          b: '3',
+        },
+      },
+      {
+        name: '134',
+        transitions: {
+          a: '2',
+          b: '134',
+        },
+      },
+      {
+        name: '3',
+        transitions: {
+          a: '2',
+          b: '134',
+        },
+      },
+    ]
+  ),
+  kroki.cell('graphviz', 'svg')`
+digraph dfa_4g {
+  rankdir=LR;
+  size="12,5"
+  node [shape = point; color = white ]; S;
+  node [shape = doublecircle; color = black]; 1, 134;
+  node [shape = circle];
+
+  S -> 1;
+
+  1 -> 2 [ label = "a" ];
+  1 -> 134 [ label = "b" ];
+
+  2 -> 3 [ label = "b" ];
+
+  134 -> 2 [ label = "a" ];
+  134 -> 134 [ label = "b" ];
+
+  3 -> 2 [ label = "a" ];
+  3 -> 134 [ label = "b" ];
+}`,
+  subsection.cell`5. feladat`,
+  md.cell`
+  
+> a) $abb$
+
+> b) Ne felejtsük a különbséget a következő kifejezések között: $(a + b)^{*}$ és $(a^{*} + b^{*})$. Ezt észben tartva, a megoldás: $abab$.
+
+> c) $bba$
+
+> d) $abba$
+`,
+  subsection.cell`6. feladat`,
+  md.cell`
+> a) $aa$
+
+> b) $ab$
+
+> c) $a$
+
+> d) $aba$
+`,
+  subsection.cell`7. feladat`,
+  md.cell`
+
+> a) $b^{*}ab^{*}ab^{*}$
+
+> b) $(a + b)^{*}a(a + b)^{*}a(a + b)^{*}$
+
+> c) Gondoljunk arra, hogy ha $ab$-re nem végződhetnek a szavak, akkor melyek az elfogadott végződések. Ezt felhasználva, készíthetünk egy felsoroláson alapuló reguláris kifejezést: $(a+b)^{*}(ba+aa+bb)+a+b+\\lambda$
+
+> d) Felsoroláson alapuló gondolatsort alkalmazhatunk ebben a részfeladatban is: $\\lambda + a+b+ab+ba+aba+bab+(ab+ba)(a+b)^{*}(ab+ba)$
+
+> e)$(ab+b)^{*}(\\lambda + a)$
+
+> f) $(b^{*}ab^{*}ab^{*})^{*}$
+`,
 ]
 
 const meta = {
@@ -532,7 +798,7 @@ const meta = {
 const content = {
   title: '4. gyakorlat – Nemdeterminisztikus véges automaták, reguláris kifejezések',
   excerpt:
-    'Nemdeterminisztikus véges automatákból készítettünk velük ekvivalens determinisztikus véges automatát, valamint reguláris kifejezéseket írtunk fel.',
+    'Nemdeterminisztikus véges automatákból készítettünk velük ekvivalens determinisztikus véges automatákat, valamint reguláris kifejezéseket írtunk fel.',
   cells,
 }
 

@@ -59,6 +59,10 @@ module.exports = async function introToCompSciSeries(context) {
       source: `${__dirname}/files/04-nemdeterminisztikus-veges-automatak-regularis-kifejezesek-feladatsor.pdf`,
       destination: `${context.baseUrl}/files/04-nemdeterminisztikus-veges-automatak-regularis-kifejezesek-feladatsor.pdf`,
     },
+    {
+      source: `${__dirname}/files/05-regularis-kifejezesbol-automata-es-vissza-feladatsor.pdf`,
+      destination: `${context.baseUrl}/files/05-regularis-kifejezesbol-automata-es-vissza-feladatsor.pdf`,
+    },
   ].forEach((o) => context.copy.push(o))
 
   const actualEntries = entries

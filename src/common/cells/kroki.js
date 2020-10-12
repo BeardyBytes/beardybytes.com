@@ -17,7 +17,7 @@ const cellFactory = function cellFactory(type, format) {
       })
 
       return html`
-        <div class="cell md-cell">
+        <div class="cell kroki-cell">
           ${krokiResponse.data}
         </div>
       `

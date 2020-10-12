@@ -506,6 +506,143 @@ digraph dfa_3b {
   * Minden lépésben szenteljünk kiemelt figyelmet az elfogadó állapotoknak. Ahogy fentebb is láthattuk, ezeken keresztül kötjük össze az egyes építőelemeket, tehát különösen fontos, hogy tudjuk, mely állapotok az aktuális elfogadó állapotok, és melyek válnak elfogadó állapottá (vagy lesznek elutasító állapotok) a következő lépésben.
   * Végezzünk önellenőrzést! Azaz, néhány példán keresztül vizsgáljuk meg, hogy a reguláris kifejezés által leírt, valamint az automata által elfogadott nyelv valóban azonos.
 `,
+  subsubsection.cell`2. b)`,
+  kroki.cell('graphviz', 'svg')`
+digraph dfa_3b {
+  rankdir=LR;
+  node [shape = point; color = white ]; S;
+  node [shape = doublecircle; color = black label=""]; 19 21 23;
+  node [shape = circle];
+
+  S -> 6;
+  6 -> 5 [label=λ]
+  5 -> 1 [label=λ]
+  5 -> 3 [label=λ]
+  1 -> 2 [ label = "a" ];
+  3 -> 4 [ label = "b" ];
+  {2, 4} -> 5 [label=λ]
+
+  7 -> 8 [label=a]
+  8 -> 9 [label=b]
+  9 -> 10 [label=b]
+
+  {2, 4, 6} -> 17 [label=λ]
+
+  17 -> 7 [label=λ]
+  17 -> 11 [label=λ]
+
+  11 -> 12 [label=a]
+  12 -> 13 [label=b]
+  13 -> 14 [label=a]
+  14 -> 15 [label=b]
+  15 -> 16 [label=a]
+
+  {10,16} -> 23 [label=λ]
+  23 -> 22 [label=λ]
+  22 -> 18 [label=λ]
+  22 -> 20 [label=λ]
+  18 -> 19 [ label = "a" ];
+  20 -> 21 [ label = "b" ];
+  {19, 21} -> 22 [label=λ]
+}
+`,
+  subsubsection.cell`2. c)`,
+  kroki.cell('graphviz', 'svg')`
+digraph dfa_3b {
+  rankdir=LR;
+  node [shape = point; color = white ]; S;
+  node [shape = doublecircle; color = black label=""]; 7 8 13 12;
+  node [shape = circle];
+
+  S -> 0;
+  1 -> 2 [label=a]
+  3 -> 4 [label=b]
+  0 -> {1, 3} [label=λ]
+
+  5 -> 6 [label=a]
+  6 -> 7 [label=b]
+  8 -> 5 [label=λ]
+  7 -> 5 [label=λ]
+  {2, 4} -> 8 [label=λ]
+
+  13 -> 9 [label=λ]
+  9 -> 10 [label=a]
+  10 -> 11 [label=b]
+  11 -> 12 [label=b]
+  12 -> 9 [label=λ]
+  {8, 7} -> 13 [label=λ]
+}
+`,
+  subsubsection.cell`2. d)`,
+  kroki.cell('graphviz', 'svg')`
+digraph dfa_3b {
+  rankdir=LR;
+  node [shape = point; color = white ]; S;
+  node [shape = doublecircle; color = black label=""]; 6 7 14;
+  node [shape = circle];
+
+  S -> 21;
+
+  1 -> 2 [label=a]
+  2 -> 3 [label=b]
+  3 -> 4 [label=b]
+  5 -> 6 [label=a]
+  7 -> 5 [label=λ]
+  6 -> 5 [label=λ]
+  4 -> 7 [label=λ]
+
+  8 -> 9 [label=a]
+  9 -> 10 [label=b]
+  11 -> 8 [label=λ]
+  10 -> 8 [label=λ]
+
+  12 -> 13 [label=b]
+  13 -> 14 [label=a]
+  {10, 11} -> 12 [label=λ]
+
+  15 -> {1, 11} [label=λ]
+
+  16 -> 17 [label=a]
+  18 -> 19 [label=b]
+  20 -> {16, 18} [label=λ]
+  21 -> 20 [label=λ]
+  {17, 19} -> 20 [label=λ]
+  {17, 19, 21} -> 15 [label=λ]
+}
+`,
+  subsubsection.cell`2. e)`,
+  kroki.cell('graphviz', 'svg')`
+digraph dfa_3b {
+  rankdir=LR;
+  node [shape = point; color = white ]; S;
+  node [shape = doublecircle; color = black label=""]; 5 6 13 14;
+  node [shape = circle];
+
+  S -> 15;
+
+  15 -> {6, 7} [label=λ]
+  6 -> 0 [label=λ]
+  1 -> 2 [label=a]
+  0 -> 1 [label=λ]
+  2 -> 0 [label=λ]
+  //7 -> 5 [label=λ]
+  {0, 2} -> 3 [label=λ]
+  3 -> 4 [label=b]
+  4 -> 5 [label=b]
+  5 -> 6 [label=λ]
+
+  7 -> 8 [label=b]
+  9 -> 10 [label=b]
+  11 -> 9 [label=λ]
+  10 -> 9 [label=λ]
+  8 -> 11 [label=λ]
+
+  12 -> 13 [label=a]
+  14 -> 12 [label=λ]
+  13 -> 12 [label=λ]
+  {11, 10} -> 14 [label=λ]
+}
+`,
 ]
 
 const meta = {

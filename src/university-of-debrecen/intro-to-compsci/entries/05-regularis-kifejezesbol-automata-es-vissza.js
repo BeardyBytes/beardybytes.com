@@ -643,6 +643,89 @@ digraph dfa_3b {
   {11, 10} -> 14 [label=λ]
 }
 `,
+  section.cell`Véges automatából reguláris kifejezés`,
+  md.cell`
+Nézzük most meg a visszafelé irányt is, azaz, készítsünk adott véges automatához olyan reguláris kifejezést, mely ugyanazt a nyelvet írja le, melyet az automata elfogad. Erre a feladatra is lesz egy algoritmusunk, továbbá sok esetben az ilyen feladatok megoldhatók „ránézésre” is.
+`,
+  subsection.cell`Algoritmus`,
+  md.cell`
+Mielőtt rátérnénk az algoritmusra, meg kell változtatnunk az eddig alkalmazott véges automata fogalmunkat. A továbbiakban ugyanis meg fogjuk engedni azt is, hogy az automata állapotdiagramjában szereplő élekre tetszőleges reguláris kifejezés legyen írva. Azaz, nemcsak $a$, $\\lambda$, $a, b$ feliratokat (és ezzel átmeneteket) fogunk megengedni, hanem például olyat is, mint az $abb + b^{*}a$.
+
+Az algoritmus alapötlete ezután a következő: Egyesével töröljük az automata állapotdiagramjából a csúcsokat, megfelelő élekkel pótolva azokat. Ha már csak két csúcs maradt, akkor készen vagyunk; az ezeket összekötő egyetlen élre írt reguláris kifejezés lesz az eredeti automatának megfelelő reguláris kifejezés.
+
+A lépéssor egészen pontosan az alábbi:
+
+  0. Legyen adott egy (nemdeterminisztikus) véges automata, $N=\\{Q, \\Sigma, \\delta, q_{0}, A\\}$. Olyan reguláris kifejezést keresünk, mely az automata által elfogadott $L(N)$ nyelvet írja le.
+  1. Adjunk hozzá az automatához egy új kezdő állapotot! Ezt az állapotot kössük össze egy üres szó átmenettel az eredeti kezdő állapottal, $q_{0}$-val.
+  2. Adjunk hozzá az automatához egy új elfogadó állapotot! $N$ minden elfogadó állapotából ($A$ elemeiből) vezessünk egy üres szó átmenetet ebbe az új állapotba. Továbbá, $A$ elemei nem lesznek többé elfogadó állapotok.
+  3. Az összes $a, b$ típusú él-feliratot írjuk át reguláris kifejezésre: $a + b$.
+  4. Töröljük egyesével az eredeti automata állapotait. Ha már csak az új kezdő és elfogadó állapot maradt, akkor készen vagyunk: az ezeket összekötő élre írt reguláris kifejezés a megoldás.
+`,
+  md.cell`
+Természetesen korántsem mindegy, hogy az ötödik lépésben hogyan töröljük az egyes állapotokat. Erre az alábbi sémát használhatjuk.
+
+Tegyük fel, hogy a $RIP$ állapotot szeretnénk törölni a következő automatából:
+`,
+  kroki.cell('graphviz', 'svg')`
+digraph dfa_3b {
+  rankdir=LR;
+  node [shape = point; color = white ]; S;
+  //node [shape = doublecircle; color = black]; B;
+  node [shape = circle color=black];
+
+  S -> A;
+
+  A -> B [label=R₄]
+  A -> RIP [label=R₁]
+  RIP -> RIP [label=R₂]
+  RIP -> B [label=R₃]
+}
+`,
+  md.cell`
+Fontos, hogy a törlés során ne állapotokban, hanem útvonalakban gondolkodjunk. Tehát vizsgáljuk meg, hogy a $RIP$ állapot milyen útvonalakban vesz részt, és ezeket hogyan lehetne helyettesíteni, ha $RIP$ kiesik.
+
+Láthatjuk, hogy $A$-ból el tudunk jutni $B$-be $RIP$-en keresztül. Mit kell azonban olvasnunk, ha ezt az útvonalat választjuk? Előbb az $R_{1}$ kifejezést, hogy $A$-ból $RIP$-be jussunk. Ezt követően tetszőleges sok $R_{2}$-t olvashatunk, majd $R_{3}$-at olvasva $B$-be érünk.
+
+Írjuk most ezt az útvonalat egy reguláris kifejezésbe! A tetszőleges sok $R_{2}$ az $(R_{2})^{*}$ kifejezésnek felel meg. Ha ezt megelőzően $R_{1}$-et kell olvasnunk, akkor egy konkatenációra van szükségünk: $(R_{1})(R_{2})^{*}$. Végül, ha $R_{3}$-mal kell zárnunk az olvasást, akkor újabb konkatenációra van szükségünk: $(R_{1})(R_{2})^{*}(R_{3})$.
+
+Azaz, $RIP$ törlésével be kell iktatnunk egy új élt:
+`,
+  kroki.cell('graphviz', 'svg')`
+digraph dfa_3b {
+  rankdir=LR;
+  node [shape = point; color = white ]; S;
+  //node [shape = doublecircle; color = black]; B;
+  node [shape = circle color=black];
+
+  S -> A;
+
+  A -> B [label=R₄;]
+  A -> B [label="(R₁)(R₂)*(R₃)";minlen=2]
+}
+`,
+  md.cell`
+$A$-ból $B$ eljuthatunk $R_{4}$-et vagy $(R_{1})(R_{2})^{*}(R_{3})$-at olvasva. Vegyük észre a a kifejezések közötti „vagy” szót! Ez pontosan azt jelenti, hogy választhatunk az élek között, ami, lefordítva a reguláris kifejezések nyelvére, nem más, mint az unió művelet. A két élt tehát helyettesíthetjük egyetlen éllel, mely az eredeti élekre felírt kifejezések uniójával van megcímezve:
+`,
+  kroki.cell('graphviz', 'svg')`
+digraph dfa_3b {
+  rankdir=LR;
+  node [shape = point; color = white ]; S;
+  //node [shape = doublecircle; color = black]; B;
+  node [shape = circle color=black];
+
+  S -> A;
+
+  A -> B [label="(R₄) ∪ (R₁)(R₂)*(R₃)";minlen=2]
+}
+`,
+  subsection.cell`3. feladat`,
+  md.cell`
+> a) $a(ab+baa)^{*}(aba)^{*}(ab + bab)a$
+
+> b) $(ab^{*}a + baaba)^{*}$
+
+> c) $((a^{*}b + ab^{*})ab)^{+}$ vagy $(a^{*}b + ab^{*})ab((a^{*}b + ab^{*})ab)^{*}$
+`,
 ]
 
 const meta = {

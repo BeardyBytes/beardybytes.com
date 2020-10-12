@@ -63,6 +63,10 @@ module.exports = async function introToCompSciSeries(context) {
       source: `${__dirname}/files/05-regularis-kifejezesbol-automata-es-vissza-feladatsor.pdf`,
       destination: `${context.baseUrl}/files/05-regularis-kifejezesbol-automata-es-vissza-feladatsor.pdf`,
     },
+    {
+      source: `${__dirname}/files/elso-zarthelyi-gyakorlo-feladatsor.pdf`,
+      destination: `${context.baseUrl}/files/elso-zarthelyi-gyakorlo-feladatsor.pdf`,
+    },
   ].forEach((o) => context.copy.push(o))
 
   const actualEntries = entries

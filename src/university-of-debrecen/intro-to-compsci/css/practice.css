@@ -96,6 +96,10 @@ a {
     margin: 0.777em 0em;
 }
 
+.kroki-cell > svg {
+  width: 100%;
+}
+
 .in-series-previous, .in-series-next {
   padding: 0.777em 0em;
   text-decoration: none;

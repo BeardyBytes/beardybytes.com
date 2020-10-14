@@ -645,6 +645,11 @@ digraph dfa_3b {
 `,
   section.cell`Véges automatából reguláris kifejezés`,
   md.cell`
+**Figyelem**: Ebben a bejegyzésben az előadáson is megmutatott, állapottörlésen alapuló módszer szerepel. Az Arden lemmát használó, egyenletrendszerekre épülő megoldás a következő bejegyzésben található:
+
+> [6. gyakorlat – Gyakorlás az első zárthelyire](./06-gyakorlas-az-elso-zarthelyire.html)
+`,
+  md.cell`
 Nézzük most meg a visszafelé irányt is, azaz, készítsünk adott véges automatához olyan reguláris kifejezést, mely ugyanazt a nyelvet írja le, melyet az automata elfogad. Erre a feladatra is lesz egy algoritmusunk, továbbá sok esetben az ilyen feladatok megoldhatók „ránézésre” is.
 `,
   subsection.cell`Algoritmus`,

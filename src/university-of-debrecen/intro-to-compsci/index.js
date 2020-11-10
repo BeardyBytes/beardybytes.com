@@ -67,6 +67,10 @@ module.exports = async function introToCompSciSeries(context) {
       source: `${__dirname}/files/elso-zarthelyi-gyakorlo-feladatsor.pdf`,
       destination: `${context.baseUrl}/files/elso-zarthelyi-gyakorlo-feladatsor.pdf`,
     },
+    {
+      source: `${__dirname}/files/07-regularis-es-kornyezetfuggetlen-grammatikak-feladatsor.pdf`,
+      destination: `${context.baseUrl}/files/07-regularis-es-kornyezetfuggetlen-grammatikak-feladatsor.pdf`,
+    },
   ].forEach((o) => context.copy.push(o))
 
   const actualEntries = entries

@@ -71,6 +71,10 @@ module.exports = async function introToCompSciSeries(context) {
       source: `${__dirname}/files/07-regularis-es-kornyezetfuggetlen-grammatikak-feladatsor.pdf`,
       destination: `${context.baseUrl}/files/07-regularis-es-kornyezetfuggetlen-grammatikak-feladatsor.pdf`,
     },
+    {
+      source: `${__dirname}/files/08-chomsky-normalforma-cyk-algoritmus-feladatsor.pdf`,
+      destination: `${context.baseUrl}/files/08-chomsky-normalforma-cyk-algoritmus-feladatsor.pdf`,
+    },
   ].forEach((o) => context.copy.push(o))
 
   const actualEntries = entries

@@ -13,7 +13,7 @@ const meta = {
   order: 9,
   layout: 'practice',
   urlTitle: '09-pumpalasi-lemma-kornyezetfuggetlen-nyelvekre-veremautomatak',
-  publishedAt: DateTime.local(2020, 11, 10, 20, 00),
+  publishedAt: DateTime.local(2020, 11, 10, 20, 0),
   draft: false,
 }
 

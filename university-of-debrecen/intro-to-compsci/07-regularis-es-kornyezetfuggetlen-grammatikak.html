@@ -84,6 +84,705 @@
                </blockquote>
                
              </div>
+             <div class="cell section-header-cell" id="regularis-grammatikabol-veges-automata">
+                 <a href="#regularis-grammatikabol-veges-automata">
+                     <h3>Reguláris grammatikából véges automata</h3>
+                 </a>
+                 <div class="header-link">
+                     <a href="#regularis-grammatikabol-veges-automata">
+                         <img src="/resources/img/link-2-outline.svg">
+                     </a>
+                 </div>
+             </div>
+             <div class="cell subsection-header-cell" id="regularis-grammatika">
+                 <a href="#regularis-grammatika">
+                     <h4>Reguláris grammatika</h4>
+                 </a>
+                 <div class="header-link">
+                     <a href="#regularis-grammatika">
+                         <img src="/resources/img/link-2-outline.svg">
+                     </a>
+                 </div>
+             </div>
+             <div class="cell md-cell">
+               <p>Egy környezetfüggetlen grammatikát jobbreguláris grammatikának (vagy egyszerűen csak reguláris grammatikának) nevezünk, ha minden helyettesítési szabálya</p>
+               <ul>
+               <li><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>A</mi><mo>→</mo><mi>a</mi><mi>B</mi></mrow><annotation encoding="application/x-tex">A \rightarrow aB</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal">A</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">→</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal">a</span><span class="mord mathnormal" style="margin-right:0.05017em;">B</span></span></span></span>,</li>
+               <li><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>A</mi><mo>→</mo><mi>a</mi></mrow><annotation encoding="application/x-tex">A \rightarrow a</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal">A</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">→</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathnormal">a</span></span></span></span>,</li>
+               <li>vagy <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>A</mi><mo>→</mo><mi>λ</mi></mrow><annotation encoding="application/x-tex">A \rightarrow \lambda</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal">A</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">→</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathnormal">λ</span></span></span></span> alakú,</li>
+               </ul>
+               <p>ahol <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>A</mi></mrow><annotation encoding="application/x-tex">A</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal">A</span></span></span></span> és <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>B</mi></mrow><annotation encoding="application/x-tex">B</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.05017em;">B</span></span></span></span> nemterminálisok, <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>a</mi></mrow><annotation encoding="application/x-tex">a</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathnormal">a</span></span></span></span> pedig valamilyen terminális szimbólum.</p>
+               
+             </div>
+             <div class="cell subsection-header-cell" id="az-atalakitas-algoritmusa">
+                 <a href="#az-atalakitas-algoritmusa">
+                     <h4>Az átalakítás algoritmusa</h4>
+                 </a>
+                 <div class="header-link">
+                     <a href="#az-atalakitas-algoritmusa">
+                         <img src="/resources/img/link-2-outline.svg">
+                     </a>
+                 </div>
+             </div>
+             <div class="cell md-cell">
+               <p>Legyen adott a <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>G</mi><mo>=</mo><mo stretchy="false">(</mo><mi>N</mi><mo separator="true">,</mo><mi>T</mi><mo separator="true">,</mo><mi>S</mi><mo separator="true">,</mo><mi>P</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">G = (N, T, S, P)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal">G</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.10903em;">N</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">T</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathnormal" style="margin-right:0.05764em;">S</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="mclose">)</span></span></span></span> jobbreguláris grammatika. Írjunk fel egy olyan <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>M</mi><mo>=</mo><mo stretchy="false">(</mo><mi>Q</mi><mo separator="true">,</mo><mi mathvariant="normal">Σ</mi><mo separator="true">,</mo><msub><mi>q</mi><mi>S</mi></msub><mo separator="true">,</mo><mi>δ</mi><mo separator="true">,</mo><mi>F</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">M = (Q, \Sigma, q_{S}, \delta, F)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.10903em;">M</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord mathnormal">Q</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord">Σ</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.03588em;">q</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.32833099999999993em;"><span style="top:-2.5500000000000003em;margin-left:-0.03588em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight" style="margin-right:0.05764em;">S</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathnormal" style="margin-right:0.03785em;">δ</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">F</span><span class="mclose">)</span></span></span></span> véges automatát, melyre teljesül, hogy <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>L</mi><mo stretchy="false">(</mo><mi>G</mi><mo stretchy="false">)</mo><mo>=</mo><mi>L</mi><mo stretchy="false">(</mo><mi>M</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">L(G) = L(M)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal">L</span><span class="mopen">(</span><span class="mord mathnormal">G</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal">L</span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.10903em;">M</span><span class="mclose">)</span></span></span></span>!</p>
+               
+             </div>
+             <div class="cell md-cell">
+               <ol>
+               <li>Legyen az automata bemeneti ábécéje a grammatika terminálisainak halmaza, azaz <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">Σ</mi><mo>=</mo><mi>T</mi></mrow><annotation encoding="application/x-tex">\Sigma = T</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord">Σ</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">T</span></span></span></span>.</li>
+               <li>Az automata tartalmazzon a grammatika minden <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>A</mi><mo>∈</mo><mi>N</mi></mrow><annotation encoding="application/x-tex">A \in N</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.72243em;vertical-align:-0.0391em;"></span><span class="mord mathnormal">A</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">∈</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.10903em;">N</span></span></span></span> nemterminális szimbólumához egy <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>q</mi><mi>A</mi></msub></mrow><annotation encoding="application/x-tex">q_{A}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.03588em;">q</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.32833099999999993em;"><span style="top:-2.5500000000000003em;margin-left:-0.03588em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">A</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span> állapotot!
+               <ul>
+               <li>Az automata <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>q</mi><mi>S</mi></msub></mrow><annotation encoding="application/x-tex">q_{S}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.03588em;">q</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.32833099999999993em;"><span style="top:-2.5500000000000003em;margin-left:-0.03588em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight" style="margin-right:0.05764em;">S</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span> kezdőállapota a grammatika <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>S</mi></mrow><annotation encoding="application/x-tex">S</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.05764em;">S</span></span></span></span> mondatszimbólumának megfelelő állapot lesz.</li>
+               <li>Amennyiben a grammatika helyettesítési szabályai között van <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>A</mi><mo>→</mo><mi>a</mi></mrow><annotation encoding="application/x-tex">A \rightarrow a</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal">A</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">→</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathnormal">a</span></span></span></span> alakú, akkor készítsünk egy speciális <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>q</mi><mrow><mi>A</mi><mi>C</mi><mi>C</mi></mrow></msub></mrow><annotation encoding="application/x-tex">q_{ACC}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.03588em;">q</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.32833099999999993em;"><span style="top:-2.5500000000000003em;margin-left:-0.03588em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">A</span><span class="mord mathnormal mtight" style="margin-right:0.07153em;">C</span><span class="mord mathnormal mtight" style="margin-right:0.07153em;">C</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span> állapotot is.</li>
+               </ul></li>
+               <li>Az elfogadó állapotok <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>F</mi></mrow><annotation encoding="application/x-tex">F</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">F</span></span></span></span> halmaza a következőkből fog állni:
+               <ul>
+               <li>Ha létezik, akkor a speciális <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>q</mi><mrow><mi>A</mi><mi>C</mi><mi>C</mi></mrow></msub></mrow><annotation encoding="application/x-tex">q_{ACC}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.03588em;">q</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.32833099999999993em;"><span style="top:-2.5500000000000003em;margin-left:-0.03588em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">A</span><span class="mord mathnormal mtight" style="margin-right:0.07153em;">C</span><span class="mord mathnormal mtight" style="margin-right:0.07153em;">C</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span> állapot.</li>
+               <li>Minden olyan <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>A</mi><mo>∈</mo><mi>N</mi></mrow><annotation encoding="application/x-tex">A \in N</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.72243em;vertical-align:-0.0391em;"></span><span class="mord mathnormal">A</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">∈</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.10903em;">N</span></span></span></span> nemterminálisnak megfelelő <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>q</mi><mi>A</mi></msub></mrow><annotation encoding="application/x-tex">q_{A}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.03588em;">q</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.32833099999999993em;"><span style="top:-2.5500000000000003em;margin-left:-0.03588em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">A</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span> állapot, melyhez tartozik <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>A</mi><mo>→</mo><mi>λ</mi></mrow><annotation encoding="application/x-tex">A \rightarrow \lambda</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal">A</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">→</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathnormal">λ</span></span></span></span> alakú szabály.</li>
+               </ul></li>
+               <li>Végül, az állapotátmenetek a következő módon hozzuk létre:
+               <ul>
+               <li>Minden <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>A</mi><mo>→</mo><mi>a</mi><mi>B</mi></mrow><annotation encoding="application/x-tex">A \rightarrow aB</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal">A</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">→</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal">a</span><span class="mord mathnormal" style="margin-right:0.05017em;">B</span></span></span></span> alakú szabályhoz adjunk hozzá egy <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>δ</mi><mo stretchy="false">(</mo><msub><mi>q</mi><mi>A</mi></msub><mo separator="true">,</mo><mi>a</mi><mo stretchy="false">)</mo><mo>=</mo><msub><mi>q</mi><mi>B</mi></msub></mrow><annotation encoding="application/x-tex">\delta(q_{A}, a) = q_{B}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.03785em;">δ</span><span class="mopen">(</span><span class="mord"><span class="mord mathnormal" style="margin-right:0.03588em;">q</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.32833099999999993em;"><span style="top:-2.5500000000000003em;margin-left:-0.03588em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">A</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathnormal">a</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.03588em;">q</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.32833099999999993em;"><span style="top:-2.5500000000000003em;margin-left:-0.03588em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight" style="margin-right:0.05017em;">B</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span> állapotátmenetet. Azaz, az <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>A</mi></mrow><annotation encoding="application/x-tex">A</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal">A</span></span></span></span>-nak megfelelő állapotban <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>a</mi></mrow><annotation encoding="application/x-tex">a</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathnormal">a</span></span></span></span> betűt olvasva átléphetünk a <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>B</mi></mrow><annotation encoding="application/x-tex">B</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.05017em;">B</span></span></span></span>-nek megfelelő állapotba.</li>
+               <li>Minden <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>A</mi><mo>→</mo><mi>a</mi></mrow><annotation encoding="application/x-tex">A \rightarrow a</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal">A</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">→</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathnormal">a</span></span></span></span> alakú szabályhoz adjunk hozzá egy <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>δ</mi><mo stretchy="false">(</mo><msub><mi>q</mi><mi>A</mi></msub><mo separator="true">,</mo><mi>b</mi><mo stretchy="false">)</mo><mo>=</mo><msub><mi>q</mi><mrow><mi>A</mi><mi>C</mi><mi>C</mi></mrow></msub></mrow><annotation encoding="application/x-tex">\delta(q_{A}, b) = q_{ACC}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.03785em;">δ</span><span class="mopen">(</span><span class="mord"><span class="mord mathnormal" style="margin-right:0.03588em;">q</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.32833099999999993em;"><span style="top:-2.5500000000000003em;margin-left:-0.03588em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">A</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathnormal">b</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.03588em;">q</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.32833099999999993em;"><span style="top:-2.5500000000000003em;margin-left:-0.03588em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">A</span><span class="mord mathnormal mtight" style="margin-right:0.07153em;">C</span><span class="mord mathnormal mtight" style="margin-right:0.07153em;">C</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span> állapotátmenetet.</li>
+               <li>Az <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>A</mi><mo>→</mo><mi>λ</mi></mrow><annotation encoding="application/x-tex">A \rightarrow \lambda</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal">A</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">→</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathnormal">λ</span></span></span></span> alakú szabályokhoz nem kell állapotátmenetet hozzáadnunk.</li>
+               </ul></li>
+               </ol>
+               
+             </div>
+             <div class="cell subsection-header-cell" id="4-feladat">
+                 <a href="#4-feladat">
+                     <h4>4. feladat</h4>
+                 </a>
+                 <div class="header-link">
+                     <a href="#4-feladat">
+                         <img src="/resources/img/link-2-outline.svg">
+                     </a>
+                 </div>
+             </div>
+             <div class="cell subsubsection-header-cell">
+                 <h5>4. a)</h5>
+             </div>
+             <div class="cell kroki-cell">
+               <?xml version="1.0" encoding="UTF-8" standalone="no"?>
+               <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+                "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+               <!-- Generated by graphviz version 2.42.3 ()
+                -->
+               <!-- Title: dfa_4a Pages: 1 -->
+               <svg width="330pt" height="94pt"
+                viewBox="0.00 0.00 329.60 93.80" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+               <g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 89.8)">
+               <title>dfa_4a</title>
+               <polygon fill="white" stroke="transparent" points="-4,4 -4,-89.8 325.6,-89.8 325.6,4 -4,4"/>
+               <!-- F -->
+               <g id="node1" class="node">
+               <title>F</title>
+               <ellipse fill="white" stroke="white" cx="1.8" cy="-19.8" rx="1.8" ry="1.8"/>
+               </g>
+               <!-- S -->
+               <g id="node3" class="node">
+               <title>S</title>
+               <ellipse fill="none" stroke="black" cx="58.6" cy="-19.8" rx="18" ry="18"/>
+               <text text-anchor="middle" x="58.6" y="-16.1" font-family="Times,serif" font-size="14.00">S</text>
+               </g>
+               <!-- F&#45;&gt;S -->
+               <g id="edge1" class="edge">
+               <title>F&#45;&gt;S</title>
+               <path fill="none" stroke="black" d="M3.75,-19.8C7.11,-19.8 18.87,-19.8 30.55,-19.8"/>
+               <polygon fill="black" stroke="black" points="30.58,-23.3 40.58,-19.8 30.58,-16.3 30.58,-23.3"/>
+               </g>
+               <!-- C -->
+               <g id="node2" class="node">
+               <title>C</title>
+               <ellipse fill="none" stroke="black" cx="141.6" cy="-63.8" rx="18" ry="18"/>
+               <ellipse fill="none" stroke="black" cx="141.6" cy="-63.8" rx="22" ry="22"/>
+               <text text-anchor="middle" x="141.6" y="-60.1" font-family="Times,serif" font-size="14.00">C</text>
+               </g>
+               <!-- C&#45;&gt;S -->
+               <g id="edge9" class="edge">
+               <title>C&#45;&gt;S</title>
+               <path fill="none" stroke="black" d="M124.73,-49.65C117.96,-44.14 109.75,-38.13 101.6,-33.8 96.8,-31.24 91.45,-29.03 86.22,-27.17"/>
+               <polygon fill="black" stroke="black" points="87.07,-23.77 76.48,-24.02 84.92,-30.43 87.07,-23.77"/>
+               <text text-anchor="middle" x="98.1" y="-37.6" font-family="Times,serif" font-size="14.00">b</text>
+               </g>
+               <!-- B -->
+               <g id="node5" class="node">
+               <title>B</title>
+               <ellipse fill="none" stroke="black" cx="224.6" cy="-61.8" rx="18" ry="18"/>
+               <text text-anchor="middle" x="224.6" y="-58.1" font-family="Times,serif" font-size="14.00">B</text>
+               </g>
+               <!-- C&#45;&gt;B -->
+               <g id="edge8" class="edge">
+               <title>C&#45;&gt;B</title>
+               <path fill="none" stroke="black" d="M163.88,-63.27C173.87,-63.02 185.88,-62.73 196.5,-62.46"/>
+               <polygon fill="black" stroke="black" points="196.63,-65.96 206.54,-62.22 196.46,-58.96 196.63,-65.96"/>
+               <text text-anchor="middle" x="185.1" y="-66.6" font-family="Times,serif" font-size="14.00">a</text>
+               </g>
+               <!-- S&#45;&gt;C -->
+               <g id="edge3" class="edge">
+               <title>S&#45;&gt;C</title>
+               <path fill="none" stroke="black" d="M70.96,-33.47C77.27,-40.23 85.64,-47.95 94.6,-52.8 99.27,-55.32 104.51,-57.27 109.73,-58.77"/>
+               <polygon fill="black" stroke="black" points="109.07,-62.21 119.62,-61.15 110.71,-55.41 109.07,-62.21"/>
+               <text text-anchor="middle" x="98.1" y="-59.6" font-family="Times,serif" font-size="14.00">b</text>
+               </g>
+               <!-- A -->
+               <g id="node4" class="node">
+               <title>A</title>
+               <ellipse fill="none" stroke="black" cx="303.6" cy="-19.8" rx="18" ry="18"/>
+               <text text-anchor="middle" x="303.6" y="-16.1" font-family="Times,serif" font-size="14.00">A</text>
+               </g>
+               <!-- S&#45;&gt;A -->
+               <g id="edge2" class="edge">
+               <title>S&#45;&gt;A</title>
+               <path fill="none" stroke="black" d="M76.69,-19.8C118.25,-19.8 224.93,-19.8 275.38,-19.8"/>
+               <polygon fill="black" stroke="black" points="275.53,-23.3 285.53,-19.8 275.53,-16.3 275.53,-23.3"/>
+               <text text-anchor="middle" x="185.1" y="-23.6" font-family="Times,serif" font-size="14.00">a</text>
+               </g>
+               <!-- A&#45;&gt;S -->
+               <g id="edge4" class="edge">
+               <title>A&#45;&gt;S</title>
+               <path fill="none" stroke="black" d="M285.71,-16.08C263.55,-11.42 223.39,-3.67 188.6,-0.8 152.91,2.16 112.07,-5.79 86.07,-12.3"/>
+               <polygon fill="black" stroke="black" points="85.01,-8.96 76.22,-14.88 86.78,-15.73 85.01,-8.96"/>
+               <text text-anchor="middle" x="185.1" y="-4.6" font-family="Times,serif" font-size="14.00">a</text>
+               </g>
+               <!-- A&#45;&gt;B -->
+               <g id="edge5" class="edge">
+               <title>A&#45;&gt;B</title>
+               <path fill="none" stroke="black" d="M286.29,-25.91C278.37,-29.11 268.8,-33.28 260.6,-37.8 256.42,-40.09 252.12,-42.77 248.02,-45.48"/>
+               <polygon fill="black" stroke="black" points="245.76,-42.78 239.5,-51.33 249.72,-48.55 245.76,-42.78"/>
+               <text text-anchor="middle" x="264.1" y="-41.6" font-family="Times,serif" font-size="14.00">b</text>
+               </g>
+               <!-- B&#45;&gt;C -->
+               <g id="edge6" class="edge">
+               <title>B&#45;&gt;C</title>
+               <path fill="none" stroke="black" d="M209.11,-52.38C201.15,-48.29 191,-44.84 181.6,-46.8 178.1,-47.53 174.52,-48.59 171.03,-49.83"/>
+               <polygon fill="black" stroke="black" points="169.47,-46.69 161.52,-53.69 172.1,-53.17 169.47,-46.69"/>
+               <text text-anchor="middle" x="185.1" y="-50.6" font-family="Times,serif" font-size="14.00">a</text>
+               </g>
+               <!-- B&#45;&gt;A -->
+               <g id="edge7" class="edge">
+               <title>B&#45;&gt;A</title>
+               <path fill="none" stroke="black" d="M242.67,-60.27C250.6,-59.04 259.94,-56.82 267.6,-52.8 273.62,-49.64 279.34,-45.15 284.36,-40.5"/>
+               <polygon fill="black" stroke="black" points="287.02,-42.79 291.59,-33.23 282.06,-37.85 287.02,-42.79"/>
+               <text text-anchor="middle" x="264.1" y="-58.6" font-family="Times,serif" font-size="14.00">b</text>
+               </g>
+               </g>
+               </svg>
+               
+             </div>
+             <div class="cell subsubsection-header-cell">
+                 <h5>4. b)</h5>
+             </div>
+             <div class="cell kroki-cell">
+               <?xml version="1.0" encoding="UTF-8" standalone="no"?>
+               <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+                "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+               <!-- Generated by graphviz version 2.42.3 ()
+                -->
+               <!-- Title: dfa_4b Pages: 1 -->
+               <svg width="282pt" height="130pt"
+                viewBox="0.00 0.00 282.39 129.90" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+               <g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 125.9)">
+               <title>dfa_4b</title>
+               <polygon fill="white" stroke="transparent" points="-4,4 -4,-125.9 278.39,-125.9 278.39,4 -4,4"/>
+               <!-- F -->
+               <g id="node1" class="node">
+               <title>F</title>
+               <ellipse fill="white" stroke="white" cx="1.8" cy="-33" rx="1.8" ry="1.8"/>
+               </g>
+               <!-- S -->
+               <g id="node2" class="node">
+               <title>S</title>
+               <ellipse fill="none" stroke="black" cx="62.6" cy="-33" rx="18" ry="18"/>
+               <ellipse fill="none" stroke="black" cx="62.6" cy="-33" rx="22" ry="22"/>
+               <text text-anchor="middle" x="62.6" y="-29.3" font-family="Times,serif" font-size="14.00">S</text>
+               </g>
+               <!-- F&#45;&gt;S -->
+               <g id="edge1" class="edge">
+               <title>F&#45;&gt;S</title>
+               <path fill="none" stroke="black" d="M3.82,-33C7.19,-33 18.44,-33 30.12,-33"/>
+               <polygon fill="black" stroke="black" points="30.31,-36.5 40.31,-33 30.31,-29.5 30.31,-36.5"/>
+               </g>
+               <!-- S&#45;&gt;S -->
+               <g id="edge2" class="edge">
+               <title>S&#45;&gt;S</title>
+               <path fill="none" stroke="black" d="M55.28,-53.99C54.38,-64.09 56.82,-73 62.6,-73 66.3,-73 68.64,-69.34 69.6,-64.06"/>
+               <polygon fill="black" stroke="black" points="73.1,-64.1 69.92,-53.99 66.1,-63.87 73.1,-64.1"/>
+               <text text-anchor="middle" x="62.6" y="-76.8" font-family="Times,serif" font-size="14.00">b</text>
+               </g>
+               <!-- A -->
+               <g id="node4" class="node">
+               <title>A</title>
+               <ellipse fill="none" stroke="black" cx="145.6" cy="-68" rx="18" ry="18"/>
+               <text text-anchor="middle" x="145.6" y="-64.3" font-family="Times,serif" font-size="14.00">A</text>
+               </g>
+               <!-- S&#45;&gt;A -->
+               <g id="edge3" class="edge">
+               <title>S&#45;&gt;A</title>
+               <path fill="none" stroke="black" d="M83.21,-41.47C94.11,-46.18 107.79,-52.09 119.47,-57.14"/>
+               <polygon fill="black" stroke="black" points="118.13,-60.38 128.7,-61.13 120.91,-53.95 118.13,-60.38"/>
+               <text text-anchor="middle" x="106.1" y="-56.8" font-family="Times,serif" font-size="14.00">a</text>
+               </g>
+               <!-- ACC -->
+               <g id="node3" class="node">
+               <title>ACC</title>
+               <ellipse fill="none" stroke="black" cx="240.5" cy="-88" rx="29.81" ry="29.81"/>
+               <ellipse fill="none" stroke="black" cx="240.5" cy="-88" rx="33.8" ry="33.8"/>
+               <text text-anchor="middle" x="240.5" y="-84.3" font-family="Times,serif" font-size="14.00">ACC</text>
+               </g>
+               <!-- A&#45;&gt;ACC -->
+               <g id="edge6" class="edge">
+               <title>A&#45;&gt;ACC</title>
+               <path fill="none" stroke="black" d="M163.64,-71.67C173.13,-73.71 185.41,-76.36 197.31,-78.92"/>
+               <polygon fill="black" stroke="black" points="196.64,-82.35 207.15,-81.04 198.11,-75.51 196.64,-82.35"/>
+               <text text-anchor="middle" x="185.1" y="-80.8" font-family="Times,serif" font-size="14.00">b</text>
+               </g>
+               <!-- A&#45;&gt;A -->
+               <g id="edge4" class="edge">
+               <title>A&#45;&gt;A</title>
+               <path fill="none" stroke="black" d="M138.87,-85.04C137.49,-94.86 139.74,-104 145.6,-104 149.26,-104 151.52,-100.43 152.35,-95.35"/>
+               <polygon fill="black" stroke="black" points="155.85,-95.03 152.33,-85.04 148.85,-95.04 155.85,-95.03"/>
+               <text text-anchor="middle" x="145.6" y="-107.8" font-family="Times,serif" font-size="14.00">a</text>
+               </g>
+               <!-- B -->
+               <g id="node5" class="node">
+               <title>B</title>
+               <ellipse fill="none" stroke="black" cx="240.5" cy="-18" rx="18" ry="18"/>
+               <text text-anchor="middle" x="240.5" y="-14.3" font-family="Times,serif" font-size="14.00">B</text>
+               </g>
+               <!-- A&#45;&gt;B -->
+               <g id="edge5" class="edge">
+               <title>A&#45;&gt;B</title>
+               <path fill="none" stroke="black" d="M161.94,-59.74C176.33,-52 198.09,-40.29 214.9,-31.24"/>
+               <polygon fill="black" stroke="black" points="216.99,-34.09 224.13,-26.27 213.67,-27.93 216.99,-34.09"/>
+               <text text-anchor="middle" x="185.1" y="-52.8" font-family="Times,serif" font-size="14.00">b</text>
+               </g>
+               <!-- B&#45;&gt;S -->
+               <g id="edge7" class="edge">
+               <title>B&#45;&gt;S</title>
+               <path fill="none" stroke="black" d="M222.42,-19.02C200.46,-20.38 161.16,-22.97 127.6,-26 116.83,-26.97 105.06,-28.21 94.58,-29.37"/>
+               <polygon fill="black" stroke="black" points="94.17,-25.9 84.62,-30.5 94.95,-32.85 94.17,-25.9"/>
+               <text text-anchor="middle" x="145.6" y="-29.8" font-family="Times,serif" font-size="14.00">b</text>
+               </g>
+               </g>
+               </svg>
+               
+             </div>
+             <div class="cell subsubsection-header-cell">
+                 <h5>4. c)</h5>
+             </div>
+             <div class="cell kroki-cell">
+               <?xml version="1.0" encoding="UTF-8" standalone="no"?>
+               <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+                "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+               <!-- Generated by graphviz version 2.42.3 ()
+                -->
+               <!-- Title: dfa_4c Pages: 1 -->
+               <svg width="362pt" height="191pt"
+                viewBox="0.00 0.00 361.99 191.15" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+               <g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 187.15)">
+               <title>dfa_4c</title>
+               <polygon fill="white" stroke="transparent" points="-4,4 -4,-187.15 357.99,-187.15 357.99,4 -4,4"/>
+               <!-- F -->
+               <g id="node1" class="node">
+               <title>F</title>
+               <ellipse fill="white" stroke="white" cx="1.8" cy="-83.15" rx="1.8" ry="1.8"/>
+               </g>
+               <!-- S -->
+               <g id="node3" class="node">
+               <title>S</title>
+               <ellipse fill="none" stroke="black" cx="58.6" cy="-83.15" rx="18" ry="18"/>
+               <text text-anchor="middle" x="58.6" y="-79.45" font-family="Times,serif" font-size="14.00">S</text>
+               </g>
+               <!-- F&#45;&gt;S -->
+               <g id="edge1" class="edge">
+               <title>F&#45;&gt;S</title>
+               <path fill="none" stroke="black" d="M3.75,-83.15C7.11,-83.15 18.87,-83.15 30.55,-83.15"/>
+               <polygon fill="black" stroke="black" points="30.58,-86.65 40.58,-83.15 30.58,-79.65 30.58,-86.65"/>
+               </g>
+               <!-- ACC -->
+               <g id="node2" class="node">
+               <title>ACC</title>
+               <ellipse fill="none" stroke="black" cx="320.09" cy="-37.15" rx="29.81" ry="29.81"/>
+               <ellipse fill="none" stroke="black" cx="320.09" cy="-37.15" rx="33.8" ry="33.8"/>
+               <text text-anchor="middle" x="320.09" y="-33.45" font-family="Times,serif" font-size="14.00">ACC</text>
+               </g>
+               <!-- S1 -->
+               <g id="node4" class="node">
+               <title>S1</title>
+               <ellipse fill="none" stroke="black" cx="139.75" cy="-83.15" rx="20.3" ry="20.3"/>
+               <text text-anchor="middle" x="139.75" y="-79.45" font-family="Times,serif" font-size="14.00">S1</text>
+               </g>
+               <!-- S&#45;&gt;S1 -->
+               <g id="edge2" class="edge">
+               <title>S&#45;&gt;S1</title>
+               <path fill="none" stroke="black" d="M76.77,-83.15C86.28,-83.15 98.37,-83.15 109.33,-83.15"/>
+               <polygon fill="black" stroke="black" points="109.38,-86.65 119.38,-83.15 109.38,-79.65 109.38,-86.65"/>
+               <text text-anchor="middle" x="98.1" y="-86.95" font-family="Times,serif" font-size="14.00">a</text>
+               </g>
+               <!-- S2 -->
+               <g id="node5" class="node">
+               <title>S2</title>
+               <ellipse fill="none" stroke="black" cx="139.75" cy="-24.15" rx="20.3" ry="20.3"/>
+               <text text-anchor="middle" x="139.75" y="-20.45" font-family="Times,serif" font-size="14.00">S2</text>
+               </g>
+               <!-- S&#45;&gt;S2 -->
+               <g id="edge3" class="edge">
+               <title>S&#45;&gt;S2</title>
+               <path fill="none" stroke="black" d="M73.39,-72.87C84.79,-64.37 101.27,-52.09 114.82,-41.98"/>
+               <polygon fill="black" stroke="black" points="117.3,-44.5 123.22,-35.72 113.11,-38.89 117.3,-44.5"/>
+               <text text-anchor="middle" x="98.1" y="-59.95" font-family="Times,serif" font-size="14.00">a</text>
+               </g>
+               <!-- B -->
+               <g id="node6" class="node">
+               <title>B</title>
+               <ellipse fill="none" stroke="black" cx="320.09" cy="-132.15" rx="18" ry="18"/>
+               <text text-anchor="middle" x="320.09" y="-128.45" font-family="Times,serif" font-size="14.00">B</text>
+               </g>
+               <!-- S&#45;&gt;B -->
+               <g id="edge4" class="edge">
+               <title>S&#45;&gt;B</title>
+               <path fill="none" stroke="black" d="M74.4,-91.93C99.68,-106.32 153.26,-134.21 202.9,-143.15 233.33,-148.63 268.78,-143.66 292.44,-138.76"/>
+               <polygon fill="black" stroke="black" points="293.42,-142.13 302.42,-136.55 291.9,-135.3 293.42,-142.13"/>
+               <text text-anchor="middle" x="181.4" y="-141.95" font-family="Times,serif" font-size="14.00">b</text>
+               </g>
+               <!-- A -->
+               <g id="node7" class="node">
+               <title>A</title>
+               <ellipse fill="none" stroke="black" cx="223.04" cy="-83.15" rx="18" ry="18"/>
+               <text text-anchor="middle" x="223.04" y="-79.45" font-family="Times,serif" font-size="14.00">A</text>
+               </g>
+               <!-- S1&#45;&gt;A -->
+               <g id="edge5" class="edge">
+               <title>S1&#45;&gt;A</title>
+               <path fill="none" stroke="black" d="M160.01,-83.15C170.33,-83.15 183.22,-83.15 194.57,-83.15"/>
+               <polygon fill="black" stroke="black" points="194.85,-86.65 204.85,-83.15 194.85,-79.65 194.85,-86.65"/>
+               <text text-anchor="middle" x="181.4" y="-86.95" font-family="Times,serif" font-size="14.00">b</text>
+               </g>
+               <!-- S3 -->
+               <g id="node8" class="node">
+               <title>S3</title>
+               <ellipse fill="none" stroke="black" cx="223.04" cy="-20.15" rx="20.3" ry="20.3"/>
+               <text text-anchor="middle" x="223.04" y="-16.45" font-family="Times,serif" font-size="14.00">S3</text>
+               </g>
+               <!-- S2&#45;&gt;S3 -->
+               <g id="edge6" class="edge">
+               <title>S2&#45;&gt;S3</title>
+               <path fill="none" stroke="black" d="M160.01,-23.2C169.84,-22.72 181.98,-22.12 192.92,-21.58"/>
+               <polygon fill="black" stroke="black" points="193.1,-25.08 202.92,-21.09 192.76,-18.09 193.1,-25.08"/>
+               <text text-anchor="middle" x="181.4" y="-26.95" font-family="Times,serif" font-size="14.00">b</text>
+               </g>
+               <!-- B&#45;&gt;B -->
+               <g id="edge11" class="edge">
+               <title>B&#45;&gt;B</title>
+               <path fill="none" stroke="black" d="M310.86,-147.69C308.26,-158.06 311.34,-168.15 320.09,-168.15 325.83,-168.15 329.14,-163.8 329.99,-157.88"/>
+               <polygon fill="black" stroke="black" points="333.47,-157.44 329.32,-147.69 326.48,-157.9 333.47,-157.44"/>
+               <text text-anchor="middle" x="320.09" y="-171.95" font-family="Times,serif" font-size="14.00">a</text>
+               </g>
+               <!-- B&#45;&gt;A -->
+               <g id="edge12" class="edge">
+               <title>B&#45;&gt;A</title>
+               <path fill="none" stroke="black" d="M306.92,-119.37C297.3,-110.06 283.05,-97.94 268.19,-91.15 262.97,-88.76 257.09,-87.08 251.37,-85.91"/>
+               <polygon fill="black" stroke="black" points="251.85,-82.44 241.41,-84.29 250.72,-89.35 251.85,-82.44"/>
+               <text text-anchor="middle" x="264.69" y="-94.95" font-family="Times,serif" font-size="14.00">a</text>
+               </g>
+               <!-- A&#45;&gt;ACC -->
+               <g id="edge8" class="edge">
+               <title>A&#45;&gt;ACC</title>
+               <path fill="none" stroke="black" d="M237.58,-72.31C244.38,-67.22 252.92,-61.37 261.19,-57.15 266.41,-54.49 272.07,-52.04 277.73,-49.85"/>
+               <polygon fill="black" stroke="black" points="278.99,-53.11 287.18,-46.4 276.59,-46.54 278.99,-53.11"/>
+               <text text-anchor="middle" x="264.69" y="-60.95" font-family="Times,serif" font-size="14.00">b</text>
+               </g>
+               <!-- A&#45;&gt;B -->
+               <g id="edge9" class="edge">
+               <title>A&#45;&gt;B</title>
+               <path fill="none" stroke="black" d="M237.58,-94.33C244.38,-99.59 252.92,-105.67 261.19,-110.15 271.19,-115.56 282.81,-120.25 293.01,-123.9"/>
+               <polygon fill="black" stroke="black" points="292.02,-127.26 302.61,-127.18 294.28,-120.64 292.02,-127.26"/>
+               <text text-anchor="middle" x="264.69" y="-116.95" font-family="Times,serif" font-size="14.00">a</text>
+               </g>
+               <!-- A&#45;&gt;A -->
+               <g id="edge10" class="edge">
+               <title>A&#45;&gt;A</title>
+               <path fill="none" stroke="black" d="M216.01,-99.81C214.45,-109.77 216.79,-119.15 223.04,-119.15 227.05,-119.15 229.45,-115.3 230.25,-109.92"/>
+               <polygon fill="black" stroke="black" points="233.74,-109.75 230.08,-99.81 226.75,-109.87 233.74,-109.75"/>
+               <text text-anchor="middle" x="223.04" y="-122.95" font-family="Times,serif" font-size="14.00">b</text>
+               </g>
+               <!-- S3&#45;&gt;ACC -->
+               <g id="edge7" class="edge">
+               <title>S3&#45;&gt;ACC</title>
+               <path fill="none" stroke="black" d="M243.32,-19.53C249.07,-19.37 255.39,-19.23 261.19,-19.15 264.3,-19.11 265.13,-18.62 268.19,-19.15 271.67,-19.74 275.22,-20.56 278.76,-21.5"/>
+               <polygon fill="black" stroke="black" points="278,-24.93 288.59,-24.48 280.03,-18.23 278,-24.93"/>
+               <text text-anchor="middle" x="264.69" y="-22.95" font-family="Times,serif" font-size="14.00">a</text>
+               </g>
+               </g>
+               </svg>
+               
+             </div>
+             <div class="cell section-header-cell" id="veges-automatabol-regularis-grammatika">
+                 <a href="#veges-automatabol-regularis-grammatika">
+                     <h3>Véges automatából reguláris grammatika</h3>
+                 </a>
+                 <div class="header-link">
+                     <a href="#veges-automatabol-regularis-grammatika">
+                         <img src="/resources/img/link-2-outline.svg">
+                     </a>
+                 </div>
+             </div>
+             <div class="cell md-cell">
+               <p>A másik irány is lehetséges, azaz adott <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>M</mi></mrow><annotation encoding="application/x-tex">M</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.10903em;">M</span></span></span></span> véges automatához felírható olyan <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>G</mi></mrow><annotation encoding="application/x-tex">G</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal">G</span></span></span></span> reguláris grammatika, hogy <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>L</mi><mo stretchy="false">(</mo><mi>M</mi><mo stretchy="false">)</mo><mo>=</mo><mi>L</mi><mo stretchy="false">(</mo><mi>G</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">L(M) = L(G)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal">L</span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.10903em;">M</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal">L</span><span class="mopen">(</span><span class="mord mathnormal">G</span><span class="mclose">)</span></span></span></span>. Az algoritmust nem fejteném ki részletesen, hiszen lényegéven csak a grammatikából véges automatát képző algoritmus fordítottja.</p>
+               <p>Megjegyzés: ha szeretnénk automatához grammatikát készíteni, akkor előbb távolítsuk el az automatából a <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>λ</mi></mrow><annotation encoding="application/x-tex">\lambda</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathnormal">λ</span></span></span></span>-átmeneteket!</p>
+               
+             </div>
+             <div class="cell subsection-header-cell" id="5-feladat">
+                 <a href="#5-feladat">
+                     <h4>5. feladat</h4>
+                 </a>
+                 <div class="header-link">
+                     <a href="#5-feladat">
+                         <img src="/resources/img/link-2-outline.svg">
+                     </a>
+                 </div>
+             </div>
+             <div class="cell md-cell">
+               <p>Legyen <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>G</mi><mo>=</mo><mo stretchy="false">(</mo><mi>N</mi><mo separator="true">,</mo><mi>T</mi><mo separator="true">,</mo><mi>S</mi><mo separator="true">,</mo><mi>P</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">G = (N, T, S, P)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal">G</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.10903em;">N</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">T</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathnormal" style="margin-right:0.05764em;">S</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="mclose">)</span></span></span></span>, ahol:</p>
+               <ul>
+               <li><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>N</mi><mo>=</mo><mo stretchy="false">{</mo><mi>S</mi><mo separator="true">,</mo><mi>B</mi><mo separator="true">,</mo><mi>C</mi><mo separator="true">,</mo><mi>D</mi><mo stretchy="false">}</mo></mrow><annotation encoding="application/x-tex">N = \{S, B, C, D\}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.10903em;">N</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">{</span><span class="mord mathnormal" style="margin-right:0.05764em;">S</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathnormal" style="margin-right:0.05017em;">B</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathnormal" style="margin-right:0.07153em;">C</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">D</span><span class="mclose">}</span></span></span></span>,</li>
+               <li><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>T</mi><mo>=</mo><mo stretchy="false">{</mo><mi>a</mi><mo separator="true">,</mo><mi>b</mi><mo stretchy="false">}</mo></mrow><annotation encoding="application/x-tex">T = \{a, b\}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">T</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">{</span><span class="mord mathnormal">a</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathnormal">b</span><span class="mclose">}</span></span></span></span>,</li>
+               <li>az átírási szabályok <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>P</mi></mrow><annotation encoding="application/x-tex">P</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">P</span></span></span></span> halmaza pedig a következő elemekből áll:
+               <ul>
+               <li><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>S</mi><mo>→</mo><mi>a</mi><mi>B</mi></mrow><annotation encoding="application/x-tex">S \rightarrow aB</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.05764em;">S</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">→</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal">a</span><span class="mord mathnormal" style="margin-right:0.05017em;">B</span></span></span></span>,</li>
+               <li><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>S</mi><mo>→</mo><mi>b</mi><mi>D</mi></mrow><annotation encoding="application/x-tex">S \rightarrow bD</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.05764em;">S</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">→</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathnormal">b</span><span class="mord mathnormal" style="margin-right:0.02778em;">D</span></span></span></span>,</li>
+               <li><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>S</mi><mo>→</mo><mi>λ</mi></mrow><annotation encoding="application/x-tex">S \rightarrow \lambda</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.05764em;">S</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">→</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathnormal">λ</span></span></span></span>,</li>
+               <li><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>B</mi><mo>→</mo><mi>a</mi><mi>B</mi></mrow><annotation encoding="application/x-tex">B \rightarrow aB</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.05017em;">B</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">→</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal">a</span><span class="mord mathnormal" style="margin-right:0.05017em;">B</span></span></span></span>,</li>
+               <li><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>B</mi><mo>→</mo><mi>b</mi><mi>C</mi></mrow><annotation encoding="application/x-tex">B \rightarrow bC</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.05017em;">B</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">→</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathnormal">b</span><span class="mord mathnormal" style="margin-right:0.07153em;">C</span></span></span></span>,</li>
+               <li><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>C</mi><mo>→</mo><mi>b</mi><mi>C</mi></mrow><annotation encoding="application/x-tex">C \rightarrow bC</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.07153em;">C</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">→</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathnormal">b</span><span class="mord mathnormal" style="margin-right:0.07153em;">C</span></span></span></span>,</li>
+               <li><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>C</mi><mo>→</mo><mi>a</mi><mi>B</mi></mrow><annotation encoding="application/x-tex">C \rightarrow aB</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.07153em;">C</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">→</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal">a</span><span class="mord mathnormal" style="margin-right:0.05017em;">B</span></span></span></span>,</li>
+               <li><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>C</mi><mo>→</mo><mi>λ</mi></mrow><annotation encoding="application/x-tex">C \rightarrow \lambda</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.07153em;">C</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">→</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathnormal">λ</span></span></span></span>,</li>
+               <li><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>D</mi><mo>→</mo><mi>a</mi><mi>D</mi></mrow><annotation encoding="application/x-tex">D \rightarrow aD</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">D</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">→</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal">a</span><span class="mord mathnormal" style="margin-right:0.02778em;">D</span></span></span></span>,</li>
+               <li><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>D</mi><mo>→</mo><mi>b</mi><mi>D</mi></mrow><annotation encoding="application/x-tex">D \rightarrow bD</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">D</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">→</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathnormal">b</span><span class="mord mathnormal" style="margin-right:0.02778em;">D</span></span></span></span>.</li>
+               </ul></li>
+               </ul>
+               
+             </div>
+             <div class="cell section-header-cell" id="kornyezetfuggetlen-grammatikak">
+                 <a href="#kornyezetfuggetlen-grammatikak">
+                     <h3>Környezetfüggetlen grammatikák</h3>
+                 </a>
+                 <div class="header-link">
+                     <a href="#kornyezetfuggetlen-grammatikak">
+                         <img src="/resources/img/link-2-outline.svg">
+                     </a>
+                 </div>
+             </div>
+             <div class="cell subsection-header-cell" id="definicio">
+                 <a href="#definicio">
+                     <h4>Definíció</h4>
+                 </a>
+                 <div class="header-link">
+                     <a href="#definicio">
+                         <img src="/resources/img/link-2-outline.svg">
+                     </a>
+                 </div>
+             </div>
+             <div class="cell md-cell">
+               <p>Egy környezetfüggetlen grammatika egy olyan <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>G</mi><mo>=</mo><mo stretchy="false">(</mo><mi>N</mi><mo separator="true">,</mo><mi>T</mi><mo separator="true">,</mo><mi>S</mi><mo separator="true">,</mo><mi>P</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">G = (N, T, S, P)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal">G</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.10903em;">N</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">T</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathnormal" style="margin-right:0.05764em;">S</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="mclose">)</span></span></span></span> rendezett négyes, ahol</p>
+               <ul>
+               <li><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>N</mi></mrow><annotation encoding="application/x-tex">N</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.10903em;">N</span></span></span></span> és <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>T</mi></mrow><annotation encoding="application/x-tex">T</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">T</span></span></span></span> véges, diszjunkt halmazok,</li>
+               <li><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>S</mi><mo>∈</mo><mi>N</mi></mrow><annotation encoding="application/x-tex">S \in N</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.72243em;vertical-align:-0.0391em;"></span><span class="mord mathnormal" style="margin-right:0.05764em;">S</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">∈</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.10903em;">N</span></span></span></span>,</li>
+               <li><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>P</mi></mrow><annotation encoding="application/x-tex">P</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">P</span></span></span></span> pedig a helyettesítési szabályok véges halmaza, ahol minden helyettesítési szabály <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>A</mi><mo>→</mo><mi>α</mi></mrow><annotation encoding="application/x-tex">A \rightarrow \alpha</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal">A</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">→</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.0037em;">α</span></span></span></span> alakú (<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>α</mi><mo>∈</mo><mo stretchy="false">(</mo><mi>N</mi><mo>∪</mo><mi>T</mi><msup><mo stretchy="false">)</mo><mo lspace="0em" rspace="0em">∗</mo></msup></mrow><annotation encoding="application/x-tex">\alpha \in (N \cup T)^{*}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.5782em;vertical-align:-0.0391em;"></span><span class="mord mathnormal" style="margin-right:0.0037em;">α</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">∈</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.10903em;">N</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">∪</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">T</span><span class="mclose"><span class="mclose">)</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.688696em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">∗</span></span></span></span></span></span></span></span></span></span></span></span>).</li>
+               </ul>
+               
+             </div>
+             <div class="cell subsection-header-cell" id="6-feladat">
+                 <a href="#6-feladat">
+                     <h4>6. feladat</h4>
+                 </a>
+                 <div class="header-link">
+                     <a href="#6-feladat">
+                         <img src="/resources/img/link-2-outline.svg">
+                     </a>
+                 </div>
+             </div>
+             <div class="cell md-cell">
+               <p>Kezdjük azzal, hogy megmutatjuk: minden reguláris nyelv generálható <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>R</mi></mrow><annotation encoding="application/x-tex">R</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.00773em;">R</span></span></span></span> típusú grammatikával! Tudjuk, hogy minden reguláris nyelv generálható jobbreguláris grammatikával, mely grammatikák a következő alakú átírási szabályokat tartalmazhatnak:</p>
+               <ul>
+               <li><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>A</mi><mo>→</mo><mi>a</mi><mi>B</mi></mrow><annotation encoding="application/x-tex">A \rightarrow aB</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal">A</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">→</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal">a</span><span class="mord mathnormal" style="margin-right:0.05017em;">B</span></span></span></span>,</li>
+               <li><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>A</mi><mo>→</mo><mi>a</mi></mrow><annotation encoding="application/x-tex">A \rightarrow a</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal">A</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">→</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathnormal">a</span></span></span></span>,</li>
+               <li><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>A</mi><mo>→</mo><mi>λ</mi></mrow><annotation encoding="application/x-tex">A \rightarrow \lambda</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal">A</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">→</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathnormal">λ</span></span></span></span>.</li>
+               </ul>
+               <p>Vegyük észre, hogy az <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>A</mi><mo>→</mo><mi>a</mi></mrow><annotation encoding="application/x-tex">A \rightarrow a</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal">A</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">→</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathnormal">a</span></span></span></span> alakú szabályok helyettesíthetők két szabállyal:</p>
+               <ul>
+               <li><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>A</mi><mo>→</mo><mi>a</mi><mi>B</mi></mrow><annotation encoding="application/x-tex">A \rightarrow aB</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal">A</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">→</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal">a</span><span class="mord mathnormal" style="margin-right:0.05017em;">B</span></span></span></span>,</li>
+               <li><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>B</mi><mo>→</mo><mi>λ</mi></mrow><annotation encoding="application/x-tex">B \rightarrow \lambda</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.05017em;">B</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">→</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathnormal">λ</span></span></span></span>.</li>
+               </ul>
+               <p>Ez pedig pontosan azt jelenti, hogy csak <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>A</mi><mo>→</mo><mi>a</mi><mi>B</mi></mrow><annotation encoding="application/x-tex">A \rightarrow aB</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal">A</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">→</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal">a</span><span class="mord mathnormal" style="margin-right:0.05017em;">B</span></span></span></span> és <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>A</mi><mo>→</mo><mi>λ</mi></mrow><annotation encoding="application/x-tex">A \rightarrow \lambda</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal">A</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">→</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathnormal">λ</span></span></span></span> alakú szabályokkal felírhatunk tetszőleges, reguláris nyelvet generáló grammatikát.</p>
+               
+             </div>
+             <div class="cell md-cell">
+               <p>Most már csak azt kell megmutatnunk, hogy <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>R</mi></mrow><annotation encoding="application/x-tex">R</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.00773em;">R</span></span></span></span> szabályaival felírható olyan grammatika is, mely nem-reguláris nyelvet generál. A legegyszerűbb, ha választunk egy olyan nyelvet, melyről tudjuk, hogy nem reguláris, majd megpróbáljuk felírni <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>R</mi></mrow><annotation encoding="application/x-tex">R</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.00773em;">R</span></span></span></span> szabályaival. Egy ilyen választás lehet az <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>L</mi><mo>=</mo><mo stretchy="false">{</mo><msup><mi>a</mi><mi>n</mi></msup><msup><mi>b</mi><mi>n</mi></msup><mtext> </mtext><mi mathvariant="normal">∣</mi><mi>n</mi><mo>≥</mo><mn>1</mn><mo stretchy="false">}</mo></mrow><annotation encoding="application/x-tex">L = \{a^{n}b^{n}\ | n \geq 1\}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal">L</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">{</span><span class="mord"><span class="mord mathnormal">a</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.664392em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">n</span></span></span></span></span></span></span></span></span><span class="mord"><span class="mord mathnormal">b</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.664392em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">n</span></span></span></span></span></span></span></span></span><span class="mspace"> </span><span class="mord">∣</span><span class="mord mathnormal">n</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">≥</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">1</span><span class="mclose">}</span></span></span></span> nyelv, melyről tudjuk, hogy környezetfüggetlen.</p>
+               <p>Pontosan ezt a nyelvet generálhatjuk a következő szabályokkal:</p>
+               <ul>
+               <li><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>S</mi><mo>→</mo><mi>a</mi><mi>A</mi></mrow><annotation encoding="application/x-tex">S \rightarrow aA</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.05764em;">S</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">→</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal">a</span><span class="mord mathnormal">A</span></span></span></span>,</li>
+               <li><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>A</mi><mo>→</mo><mi>S</mi><mi>b</mi></mrow><annotation encoding="application/x-tex">A \rightarrow Sb</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal">A</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">→</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.05764em;">S</span><span class="mord mathnormal">b</span></span></span></span>,</li>
+               <li><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>A</mi><mo>→</mo><mi>b</mi><mi>B</mi></mrow><annotation encoding="application/x-tex">A \rightarrow bB</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal">A</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">→</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathnormal">b</span><span class="mord mathnormal" style="margin-right:0.05017em;">B</span></span></span></span>,</li>
+               <li><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>B</mi><mo>→</mo><mi>λ</mi></mrow><annotation encoding="application/x-tex">B \rightarrow \lambda</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.05017em;">B</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">→</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathnormal">λ</span></span></span></span>.</li>
+               </ul>
+               <p>Ezzel pedig készen vagyunk.</p>
+               
+             </div>
+             <div class="cell subsection-header-cell" id="1-feladat">
+                 <a href="#1-feladat">
+                     <h4>1. feladat</h4>
+                 </a>
+                 <div class="header-link">
+                     <a href="#1-feladat">
+                         <img src="/resources/img/link-2-outline.svg">
+                     </a>
+                 </div>
+             </div>
+             <div class="cell subsubsection-header-cell">
+                 <h5>1. a)</h5>
+             </div>
+             <div class="cell md-cell">
+               <ul>
+               <li><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>S</mi><mo>→</mo><mi>a</mi><mi>S</mi><mi>a</mi></mrow><annotation encoding="application/x-tex">S \rightarrow aSa</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.05764em;">S</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">→</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal">a</span><span class="mord mathnormal" style="margin-right:0.05764em;">S</span><span class="mord mathnormal">a</span></span></span></span>,</li>
+               <li><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>S</mi><mo>→</mo><mi>a</mi><mi>S</mi><mi>b</mi></mrow><annotation encoding="application/x-tex">S \rightarrow aSb</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.05764em;">S</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">→</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathnormal">a</span><span class="mord mathnormal" style="margin-right:0.05764em;">S</span><span class="mord mathnormal">b</span></span></span></span>,</li>
+               <li><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>S</mi><mo>→</mo><mi>b</mi><mi>S</mi><mi>a</mi></mrow><annotation encoding="application/x-tex">S \rightarrow bSa</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.05764em;">S</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">→</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathnormal">b</span><span class="mord mathnormal" style="margin-right:0.05764em;">S</span><span class="mord mathnormal">a</span></span></span></span>,</li>
+               <li><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>S</mi><mo>→</mo><mi>b</mi><mi>S</mi><mi>b</mi></mrow><annotation encoding="application/x-tex">S \rightarrow bSb</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.05764em;">S</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">→</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathnormal">b</span><span class="mord mathnormal" style="margin-right:0.05764em;">S</span><span class="mord mathnormal">b</span></span></span></span>,</li>
+               <li><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>S</mi><mo>→</mo><mi>a</mi></mrow><annotation encoding="application/x-tex">S \rightarrow a</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.05764em;">S</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">→</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathnormal">a</span></span></span></span>.</li>
+               </ul>
+               
+             </div>
+             <div class="cell subsubsection-header-cell">
+                 <h5>1. b)</h5>
+             </div>
+             <div class="cell md-cell">
+               <ul>
+               <li><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>S</mi><mo>→</mo><mi>a</mi><mi>S</mi><mi>a</mi></mrow><annotation encoding="application/x-tex">S \rightarrow aSa</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.05764em;">S</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">→</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal">a</span><span class="mord mathnormal" style="margin-right:0.05764em;">S</span><span class="mord mathnormal">a</span></span></span></span>,</li>
+               <li><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>S</mi><mo>→</mo><mi>a</mi><mi>S</mi><mi>b</mi></mrow><annotation encoding="application/x-tex">S \rightarrow aSb</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.05764em;">S</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">→</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathnormal">a</span><span class="mord mathnormal" style="margin-right:0.05764em;">S</span><span class="mord mathnormal">b</span></span></span></span>,</li>
+               <li><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>S</mi><mo>→</mo><mi>b</mi><mi>S</mi><mi>a</mi></mrow><annotation encoding="application/x-tex">S \rightarrow bSa</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.05764em;">S</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">→</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathnormal">b</span><span class="mord mathnormal" style="margin-right:0.05764em;">S</span><span class="mord mathnormal">a</span></span></span></span>,</li>
+               <li><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>S</mi><mo>→</mo><mi>b</mi><mi>S</mi><mi>b</mi></mrow><annotation encoding="application/x-tex">S \rightarrow bSb</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.05764em;">S</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">→</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathnormal">b</span><span class="mord mathnormal" style="margin-right:0.05764em;">S</span><span class="mord mathnormal">b</span></span></span></span>,</li>
+               <li><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>S</mi><mo>→</mo><mi>a</mi><mi>a</mi></mrow><annotation encoding="application/x-tex">S \rightarrow aa</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.05764em;">S</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">→</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathnormal">a</span><span class="mord mathnormal">a</span></span></span></span>,</li>
+               <li><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>S</mi><mo>→</mo><mi>b</mi><mi>b</mi></mrow><annotation encoding="application/x-tex">S \rightarrow bb</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.05764em;">S</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">→</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathnormal">b</span><span class="mord mathnormal">b</span></span></span></span>.</li>
+               </ul>
+               
+             </div>
+             <div class="cell subsubsection-header-cell">
+                 <h5>1. c)</h5>
+             </div>
+             <div class="cell md-cell">
+               <ul>
+               <li><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>S</mi><mo>→</mo><mi>a</mi><mi>A</mi><mi>a</mi></mrow><annotation encoding="application/x-tex">S \rightarrow aAa</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.05764em;">S</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">→</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal">a</span><span class="mord mathnormal">A</span><span class="mord mathnormal">a</span></span></span></span>,</li>
+               <li><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>S</mi><mo>→</mo><mi>b</mi><mi>A</mi><mi>b</mi></mrow><annotation encoding="application/x-tex">S \rightarrow bAb</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.05764em;">S</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">→</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathnormal">b</span><span class="mord mathnormal">A</span><span class="mord mathnormal">b</span></span></span></span>,</li>
+               <li><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>A</mi><mo>→</mo><mi>a</mi><mi>A</mi><mi>a</mi></mrow><annotation encoding="application/x-tex">A \rightarrow aAa</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal">A</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">→</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal">a</span><span class="mord mathnormal">A</span><span class="mord mathnormal">a</span></span></span></span>,</li>
+               <li><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>A</mi><mo>→</mo><mi>a</mi><mi>A</mi><mi>b</mi></mrow><annotation encoding="application/x-tex">A \rightarrow aAb</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal">A</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">→</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathnormal">a</span><span class="mord mathnormal">A</span><span class="mord mathnormal">b</span></span></span></span>,</li>
+               <li><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>A</mi><mo>→</mo><mi>b</mi><mi>A</mi><mi>a</mi></mrow><annotation encoding="application/x-tex">A \rightarrow bAa</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal">A</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">→</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathnormal">b</span><span class="mord mathnormal">A</span><span class="mord mathnormal">a</span></span></span></span>,</li>
+               <li><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>A</mi><mo>→</mo><mi>b</mi><mi>A</mi><mi>b</mi></mrow><annotation encoding="application/x-tex">A \rightarrow bAb</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal">A</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">→</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathnormal">b</span><span class="mord mathnormal">A</span><span class="mord mathnormal">b</span></span></span></span>,</li>
+               <li><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>A</mi><mo>→</mo><mi>a</mi></mrow><annotation encoding="application/x-tex">A \rightarrow a</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal">A</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">→</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathnormal">a</span></span></span></span>,</li>
+               <li><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>B</mi><mo>→</mo><mi>a</mi><mi>B</mi><mi>a</mi></mrow><annotation encoding="application/x-tex">B \rightarrow aBa</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.05017em;">B</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">→</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal">a</span><span class="mord mathnormal" style="margin-right:0.05017em;">B</span><span class="mord mathnormal">a</span></span></span></span>,</li>
+               <li><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>B</mi><mo>→</mo><mi>a</mi><mi>B</mi><mi>b</mi></mrow><annotation encoding="application/x-tex">B \rightarrow aBb</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.05017em;">B</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">→</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathnormal">a</span><span class="mord mathnormal" style="margin-right:0.05017em;">B</span><span class="mord mathnormal">b</span></span></span></span>,</li>
+               <li><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>B</mi><mo>→</mo><mi>b</mi><mi>B</mi><mi>a</mi></mrow><annotation encoding="application/x-tex">B \rightarrow bBa</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.05017em;">B</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">→</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathnormal">b</span><span class="mord mathnormal" style="margin-right:0.05017em;">B</span><span class="mord mathnormal">a</span></span></span></span>,</li>
+               <li><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>B</mi><mo>→</mo><mi>b</mi><mi>B</mi><mi>b</mi></mrow><annotation encoding="application/x-tex">B \rightarrow bBb</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.05017em;">B</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">→</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathnormal">b</span><span class="mord mathnormal" style="margin-right:0.05017em;">B</span><span class="mord mathnormal">b</span></span></span></span>,</li>
+               <li><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>B</mi><mo>→</mo><mi>b</mi></mrow><annotation encoding="application/x-tex">B \rightarrow b</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.05017em;">B</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">→</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathnormal">b</span></span></span></span>,</li>
+               </ul>
+               
+             </div>
+             <div class="cell subsection-header-cell" id="2-feladat">
+                 <a href="#2-feladat">
+                     <h4>2. feladat</h4>
+                 </a>
+                 <div class="header-link">
+                     <a href="#2-feladat">
+                         <img src="/resources/img/link-2-outline.svg">
+                     </a>
+                 </div>
+             </div>
+             <div class="cell subsubsection-header-cell">
+                 <h5>2. a)</h5>
+             </div>
+             <div class="cell md-cell">
+               <ul>
+               <li><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>S</mi><mo>→</mo><mi>a</mi><mi>S</mi><mi>b</mi><mtext> </mtext><mi mathvariant="normal">∣</mi><mtext> </mtext><mi>S</mi><mi>b</mi><mtext> </mtext><mi mathvariant="normal">∣</mi><mtext> </mtext><mi>λ</mi></mrow><annotation encoding="application/x-tex">S \rightarrow aSb \:|\: Sb \:|\: \lambda</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.05764em;">S</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">→</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal">a</span><span class="mord mathnormal" style="margin-right:0.05764em;">S</span><span class="mord mathnormal">b</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mord">∣</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mord mathnormal" style="margin-right:0.05764em;">S</span><span class="mord mathnormal">b</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mord">∣</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mord mathnormal">λ</span></span></span></span></li>
+               </ul>
+               
+             </div>
+             <div class="cell subsubsection-header-cell">
+                 <h5>2. b)</h5>
+             </div>
+             <div class="cell md-cell">
+               <ul>
+               <li><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>S</mi><mo>→</mo><mi>a</mi><mi>S</mi><mi>b</mi><mtext> </mtext><mi mathvariant="normal">∣</mi><mtext> </mtext><mi>S</mi><mi>b</mi><mtext> </mtext><mi mathvariant="normal">∣</mi><mtext> </mtext><mi>b</mi></mrow><annotation encoding="application/x-tex">S \rightarrow aSb \:|\: Sb \:|\: b</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.05764em;">S</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">→</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal">a</span><span class="mord mathnormal" style="margin-right:0.05764em;">S</span><span class="mord mathnormal">b</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mord">∣</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mord mathnormal" style="margin-right:0.05764em;">S</span><span class="mord mathnormal">b</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mord">∣</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mord mathnormal">b</span></span></span></span></li>
+               </ul>
+               
+             </div>
+             <div class="cell subsubsection-header-cell">
+                 <h5>2. c)</h5>
+             </div>
+             <div class="cell md-cell">
+               <ul>
+               <li><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>S</mi><mo>→</mo><mi>a</mi><mi>S</mi><mi>b</mi><mi>b</mi><mtext> </mtext><mi mathvariant="normal">∣</mi><mtext> </mtext><mi>λ</mi></mrow><annotation encoding="application/x-tex">S \rightarrow aSbb \:|\: \lambda</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.05764em;">S</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">→</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal">a</span><span class="mord mathnormal" style="margin-right:0.05764em;">S</span><span class="mord mathnormal">b</span><span class="mord mathnormal">b</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mord">∣</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mord mathnormal">λ</span></span></span></span></li>
+               </ul>
+               
+             </div>
+             <div class="cell subsubsection-header-cell">
+                 <h5>2. d)</h5>
+             </div>
+             <div class="cell md-cell">
+               <ul>
+               <li><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>S</mi><mo>→</mo><mi>a</mi><mi>S</mi><mi>b</mi><mi>b</mi><mtext> </mtext><mi mathvariant="normal">∣</mi><mtext> </mtext><mi>a</mi><mi>S</mi><mi>b</mi><mtext> </mtext><mi mathvariant="normal">∣</mi><mtext> </mtext><mi>λ</mi></mrow><annotation encoding="application/x-tex">S \rightarrow aSbb \:|\: aSb \:|\: \lambda</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.05764em;">S</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">→</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal">a</span><span class="mord mathnormal" style="margin-right:0.05764em;">S</span><span class="mord mathnormal">b</span><span class="mord mathnormal">b</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mord">∣</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mord mathnormal">a</span><span class="mord mathnormal" style="margin-right:0.05764em;">S</span><span class="mord mathnormal">b</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mord">∣</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mord mathnormal">λ</span></span></span></span></li>
+               </ul>
+               
+             </div>
+             <div class="cell subsubsection-header-cell">
+                 <h5>2. e)</h5>
+             </div>
+             <div class="cell md-cell">
+               <ul>
+               <li><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>S</mi><mo>→</mo><mi>a</mi><mi>S</mi><mi>b</mi><mi>b</mi><mtext> </mtext><mi mathvariant="normal">∣</mi><mtext> </mtext><mi>a</mi><mi>S</mi><mi>b</mi><mtext> </mtext><mi mathvariant="normal">∣</mi><mtext> </mtext><mi>a</mi><mi>S</mi><mtext> </mtext><mi mathvariant="normal">∣</mi><mtext> </mtext><mi>λ</mi></mrow><annotation encoding="application/x-tex">S \rightarrow aSbb \:|\: aSb \:|\: aS \:|\: \lambda</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.05764em;">S</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">→</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal">a</span><span class="mord mathnormal" style="margin-right:0.05764em;">S</span><span class="mord mathnormal">b</span><span class="mord mathnormal">b</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mord">∣</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mord mathnormal">a</span><span class="mord mathnormal" style="margin-right:0.05764em;">S</span><span class="mord mathnormal">b</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mord">∣</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mord mathnormal">a</span><span class="mord mathnormal" style="margin-right:0.05764em;">S</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mord">∣</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mord mathnormal">λ</span></span></span></span></li>
+               </ul>
+               
+             </div>
+             <div class="cell subsubsection-header-cell">
+                 <h5>2. f)</h5>
+             </div>
+             <div class="cell md-cell">
+               <ul>
+               <li><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>S</mi><mo>→</mo><mi>a</mi><mi>S</mi><mi>b</mi><mi>b</mi><mtext> </mtext><mi mathvariant="normal">∣</mi><mtext> </mtext><mi>a</mi><mi>S</mi><mi>b</mi><mtext> </mtext><mi mathvariant="normal">∣</mi><mtext> </mtext><mi>a</mi><mi>S</mi><mtext> </mtext><mi mathvariant="normal">∣</mi><mtext> </mtext><mi>a</mi></mrow><annotation encoding="application/x-tex">S \rightarrow aSbb \:|\: aSb \:|\: aS \:|\: a</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.05764em;">S</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">→</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal">a</span><span class="mord mathnormal" style="margin-right:0.05764em;">S</span><span class="mord mathnormal">b</span><span class="mord mathnormal">b</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mord">∣</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mord mathnormal">a</span><span class="mord mathnormal" style="margin-right:0.05764em;">S</span><span class="mord mathnormal">b</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mord">∣</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mord mathnormal">a</span><span class="mord mathnormal" style="margin-right:0.05764em;">S</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mord">∣</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mord mathnormal">a</span></span></span></span></li>
+               </ul>
+               
+             </div>
+             <div class="cell subsection-header-cell" id="3-feladat">
+                 <a href="#3-feladat">
+                     <h4>3. feladat</h4>
+                 </a>
+                 <div class="header-link">
+                     <a href="#3-feladat">
+                         <img src="/resources/img/link-2-outline.svg">
+                     </a>
+                 </div>
+             </div>
+             <div class="cell subsubsection-header-cell">
+                 <h5>3. a)</h5>
+             </div>
+             <div class="cell md-cell">
+               <p><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>S</mi></mrow><annotation encoding="application/x-tex">S</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.05764em;">S</span></span></span></span> minden behelyetteítése vagy az üres szóval vagy pontosan <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>1</mn></mrow><annotation encoding="application/x-tex">1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span></span></span></span> darab <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>a</mi></mrow><annotation encoding="application/x-tex">a</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathnormal">a</span></span></span></span> betűvel és <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>1</mn></mrow><annotation encoding="application/x-tex">1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span></span></span></span> darab <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>b</mi></mrow><annotation encoding="application/x-tex">b</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathnormal">b</span></span></span></span> betűvel bővíti a képzett szót. Mivel <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>S</mi></mrow><annotation encoding="application/x-tex">S</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.05764em;">S</span></span></span></span> az egyetlen nemterminális, és minden behelyettesítése ugyanannyi <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>a</mi></mrow><annotation encoding="application/x-tex">a</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathnormal">a</span></span></span></span> és <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>b</mi></mrow><annotation encoding="application/x-tex">b</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathnormal">b</span></span></span></span> betűt ad a képzett szóhoz, ezért a generált szavak csak azonos számú <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>a</mi></mrow><annotation encoding="application/x-tex">a</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathnormal">a</span></span></span></span> és <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>b</mi></mrow><annotation encoding="application/x-tex">b</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathnormal">b</span></span></span></span> betűt tartalmazhatnak.</p>
+               <p>Szó, melyet a grammatika nem generál:</p>
+               <ul>
+               <li><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>a</mi><mi>a</mi><mi>b</mi><mi>b</mi></mrow><annotation encoding="application/x-tex">aabb</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathnormal">a</span><span class="mord mathnormal">a</span><span class="mord mathnormal">b</span><span class="mord mathnormal">b</span></span></span></span>.</li>
+               </ul>
+               
+             </div>
+             <div class="cell subsubsection-header-cell">
+                 <h5>3. b)</h5>
+             </div>
+             <div class="cell md-cell">
+               <p>Szó, melyet a grammatika nem generál:</p>
+               <ul>
+               <li><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>a</mi><mi>a</mi><mi>b</mi><mi>b</mi><mi>b</mi><mi>b</mi><mi>a</mi><mi>a</mi></mrow><annotation encoding="application/x-tex">aabbbbaa</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathnormal">a</span><span class="mord mathnormal">a</span><span class="mord mathnormal">b</span><span class="mord mathnormal">b</span><span class="mord mathnormal">b</span><span class="mord mathnormal">b</span><span class="mord mathnormal">a</span><span class="mord mathnormal">a</span></span></span></span>.</li>
+               </ul>
+               
+             </div>
         
             
             <a href="06-gyakorlas-az-elso-zarthelyire.html" class="in-series-previous">

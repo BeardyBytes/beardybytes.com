@@ -79,6 +79,10 @@ module.exports = async function introToCompSciSeries(context) {
       source: `${__dirname}/files/09-pumpalasi-lemma-kornyezetfuggetlen-nyelvekre-veremautomatak-feladatsor.pdf`,
       destination: `${context.baseUrl}/files/09-pumpalasi-lemma-kornyezetfuggetlen-nyelvekre-veremautomatak-feladatsor.pdf`,
     },
+    {
+      source: `${__dirname}/files/10-kornyezetfuggetlen-nyelvek-veremautomatak-feladatsor.pdf`,
+      destination: `${context.baseUrl}/files/10-kornyezetfuggetlen-nyelvek-veremautomatak-feladatsor.pdf`,
+    },
   ].forEach((o) => context.copy.push(o))
 
   const actualEntries = entries

@@ -13,8 +13,8 @@ A gyakorlathoz tartozó feladatsor elérhető a következő linken:
   md.cell`
 Ismétlés:
 
-  * [reguláris grammatika](07-regularis-es-kornyezetfuggetlen-grammatikak.html#regularis-grammatika)
-  * [környezetfüggetlen grammatika](07-regularis-es-kornyezetfuggetlen-grammatikak.html#definicio)
+  * [reguláris grammatika](07-regularis-es-kornyezetfuggetlen-grammatikak.html#regularis-grammatika),
+  * [környezetfüggetlen grammatika](07-regularis-es-kornyezetfuggetlen-grammatikak.html#definicio).
 `,
   subsection.cell`5. feladat`,
   md.cell`
@@ -279,18 +279,18 @@ alakú.
 Legyen $G$ egy tetszőleges környezetfüggetlen nyelvtan. Ekkor létezik olyan, Chomsky-normálformában levő $G_{CNF}$ nyelvtan, hogy
 
 $$
-L(G) = L(G_{CNF}) \\setminus \\{\\lambda\\}.
+L(G) \\setminus \\{\\lambda\\} = L(G_{CNF}).
 $$
 `,
   subsection.cell`A normálformára hozás algoritmusa`,
   md.cell`
 Legyen $G$ egy környezetfüggetlen nyelvtan. Ekkor a fenti tételnek megfelelő $G_{CNF}$ nyelvtan előállítható a következő lépések alkalmazásával:
 
-  1. Először távolítsuk el az úgynevezett törlőszabályokat!
+  1. Távolítsuk el az úgynevezett törlőszabályokat.
   1. Szüntessük meg a láncszabályokat.
-  1. A fennmaradó helyettesítési szabályból képezzünk a normálformának megfelelő alakú szabályokat.
+  1. A fennmaradó helyettesítési szabályokból képezzünk a normálformának megfelelő alakú szabályokat.
 
-Nézzük meg részletesen, hogy miként hajthatók végre a fenti lépések!
+A következőkben nézzük meg részletesen, hogy miként hajthatók végre a fenti lépések!
 
 **A törlőszabályok eltávolítása**
 
@@ -341,7 +341,7 @@ Utolsó lépésként, felhasználva a $P_{1}$-beli helyettesítési szabályokat
   1. Vegyünk fel egy új halmazt, mely a már megfelelő helyettesítési szabályokat fogja tartalmazni. Jelölje ezt a halmazt $P_{CNF}$.
   1. $G$ minden $a$ terminálisához vegyünk fel egy $X_{a} \\rightarrow a$ alakú szabályt $P_{CNF}$-be.
   1. $P_{1}$ egyes szabályaira végezzük el a következőket:
-     * Ha a szabály $A \\rightarrow a$ alakú, és $A$ a $G$ grammatika mondatszimbóluma, akkor a szabályt hozzáadjuk $P_{CNF}-hez$, egyébként nem csinálunk semmit.
+     * Ha a szabály $A \\rightarrow a$ alakú, és $A$ a $G$ grammatika mondatszimbóluma, akkor a szabályt hozzáadjuk $P_{CNF}$-hez, ellenkező esetben nem csinálunk semmit.
      * Egyébként helyettesítsük a szabály jobb oldalán szereplő összes terminálist a második lépésben létrehozott megfelelő nemterminálissal. Ezt követően képezzünk új szabályokat oly módon, hogy a szabályok jobb oldalán mindig két nemterminális álljon. Például, ha adott az
        * $A \\rightarrow aBc$
        
@@ -411,7 +411,7 @@ Itt csupán annyit jegyeznék meg, hogy az algoritmus lentről fölfelé haladva
 `,
   subsection.cell`3. feladat`,
   md.cell`
-Az algoritmus első lépése a mátrix aljának kitöltése. A vizsgálandó szó minden szimbólumához tartozni fog egy cella, mely cellába azokat a nemterminálisokat írjuk, melyekkel a megfelelő szimbólum generálható.
+Az algoritmus első lépése a mátrix aljának kitöltése. A vizsgálandó szó minden szimbólumához tartozni fog egy doboz, mely dobozba azokat a nemterminálisokat írjuk, melyekkel a megfelelő szimbólum generálható.
 `,
   md.cell`<img src="./files/08-cyk-1.svg">`,
   md.cell`
@@ -419,7 +419,7 @@ A mátrix következő szintje eggyel kevesebb dobozt fog tartalmazni. Minden dob
 
 Balról jobbra haladva, minden dobozban azt kell megnéznünk, hogy van-e olyan helyettesítési szabály, melynek jobb oldalán a lenti két doboz nemterminálisai vannak. Például, ha a két lenti dobozban $A$ és $B$ szerepel, akkor $\\rightarrow AB$ jobb oldallal rendelkező szabályt keresünk.
 
-Ha találunk megfelelő szabályt, akkor a dobozba a szabály bal oldalán szereplő nemterminális írjuk, ha pedig nem, akkor a dobozt kihúzzuk.
+Ha találunk megfelelő szabályt, akkor a dobozba a szabály bal oldalán szereplő nemterminálist írjuk, ha pedig nem, akkor a dobozt kihúzzuk.
 `,
   md.cell`<img src="./files/08-cyk-2.svg">`,
   md.cell`
@@ -430,7 +430,7 @@ Például a legbaloldalibb dobozhoz az $abb$ részszó tartozik. E szót kétfé
   * $a$ és $bb$,
   * $ab$ és $b$.
 
-Látjuk, hogy $a$-t generálhatunk $A$-val, $bb$-t azonban nem tudunk generálni, mivel a hozzátartozó dobozt kihúztuk. Ez a felbontás tehát nem lesz megfelelő. $ab$-t szintén nem tudjuk generálni, hiszen az ő doboza is ki van húzva. Ennek következtében az $abb$ részszó dobozát szintén kihúzzuk.
+Látjuk, hogy $a$-t generálhatunk $A$-val, $bb$-t azonban nem tudunk generálni, mivel a hozzátartozó dobozt kihúztuk. Ez a felbontás tehát nem lesz megfelelő. $ab$-t szintén nem tudjuk generálni, hiszen az ő doboza is ki van húzva. Ezek következtében az $abb$ részszó dobozát szintén kihúzzuk.
 
 A szint összes többi doboza esetén ugyanígy kell eljárnunk.
 `,

@@ -83,6 +83,22 @@ module.exports = async function introToCompSciSeries(context) {
       source: `${__dirname}/files/10-kornyezetfuggetlen-nyelvek-veremautomatak-feladatsor.pdf`,
       destination: `${context.baseUrl}/files/10-kornyezetfuggetlen-nyelvek-veremautomatak-feladatsor.pdf`,
     },
+    {
+      source: `${__dirname}/files/08-cyk-1.svg`,
+      destination: `${context.baseUrl}/files/08-cyk-1.svg`,
+    },
+    {
+      source: `${__dirname}/files/08-cyk-2.svg`,
+      destination: `${context.baseUrl}/files/08-cyk-2.svg`,
+    },
+    {
+      source: `${__dirname}/files/08-cyk-3.svg`,
+      destination: `${context.baseUrl}/files/08-cyk-3.svg`,
+    },
+    {
+      source: `${__dirname}/files/08-cyk-4.svg`,
+      destination: `${context.baseUrl}/files/08-cyk-4.svg`,
+    },
   ].forEach((o) => context.copy.push(o))
 
   const actualEntries = entries

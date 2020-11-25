@@ -4,11 +4,11 @@
     <meta charset="utf-8" />
     <meta http-equiv="x-ua-compatible" content="ie=edge" />
     
-    <title>Az informatika számítástudományi alapjai – 10. gyakorlat – Környezetfüggetlen nyelvek, veremautomaták</title>
+    <title>Az informatika számítástudományi alapjai – 11. gyakorlat – Top-down és bottom-up veremautomaták, LL-elemzők</title>
     
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     
-    <meta name="description" content="Ezen a gyakorlaton részletesebben foglalkozunk a veremautomaták és a környezetfüggetlen nyelvek kapcsolatával." />
+    <meta name="description" content="Ezen a gyakorlaton részletesen megvizsgálunk két stratégiát, melyekkel adott környezetfüggetlen nyelvhez veremautomatát lehet készíteni. Ezt követően belekóstolunk az LL-elemzésbe." />
     
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
@@ -21,9 +21,9 @@
     <meta property="og:image:width" content="849" />
     <meta property="og:site_name" content="Beardy Bytes" />
     <meta property="og:locale" content="hu_HU" />
-    <meta property="og:title" content="Az informatika számítástudományi alapjai – 10. gyakorlat – Környezetfüggetlen nyelvek, veremautomaták" />
-    <meta property="og:description" content="Ezen a gyakorlaton részletesebben foglalkozunk a veremautomaták és a környezetfüggetlen nyelvek kapcsolatával." />
-    <meta property="og:url" content="https://beardybytes.com/university-of-debrecen/intro-to-compsci/10-kornyezetfuggetlen-nyelvek-veremautomatak.html" />
+    <meta property="og:title" content="Az informatika számítástudományi alapjai – 11. gyakorlat – Top-down és bottom-up veremautomaták, LL-elemzők" />
+    <meta property="og:description" content="Ezen a gyakorlaton részletesen megvizsgálunk két stratégiát, melyekkel adott környezetfüggetlen nyelvhez veremautomatát lehet készíteni. Ezt követően belekóstolunk az LL-elemzésbe." />
+    <meta property="og:url" content="https://beardybytes.com/university-of-debrecen/intro-to-compsci/11-top-down-es-bottom-up-veremautomatak-ll-elemzok.html" />
     <meta property="og:image" content="https://beardybytes.com/og-image.jpg" />
     
     <link
@@ -54,8 +54,8 @@
           <div class="post-title">
             <div>
               <h2>Az informatika számítástudományi alapjai</h2>
-              <h1>10. gyakorlat – Környezetfüggetlen nyelvek, veremautomaták</h1>
-              <div class="post-date">2020. 11. 18.</div>
+              <h1>11. gyakorlat – Top-down és bottom-up veremautomaták, LL-elemzők</h1>
+              <div class="post-date">2020. 11. 25.</div>
             </div>
           </div>
         </div>
@@ -63,43 +63,33 @@
       <div class="post-content">
         
             
-            <a href="09-pumpalasi-lemma-kornyezetfuggetlen-nyelvekre-veremautomatak.html" class="in-series-previous">
+            <a href="10-kornyezetfuggetlen-nyelvek-veremautomatak.html" class="in-series-previous">
               <div class="note">Előző bejegyzés</div>
-              <div class="title">9. gyakorlat – Pumpálási lemma környezetfüggetlen nyelvekre, veremautomaták</div>
+              <div class="title">10. gyakorlat – Környezetfüggetlen nyelvek, veremautomaták</div>
             </a>
             
             <div class="cell series-cell series-starting-cell">
             Ez a bejegyzés <a href="index.html">Az informatika számítástudományi alapjai</a> sorozat része, mely az azonos nevű tárgyhoz kapcsolódó anyagokat tartalmaz.
             </div>
-            
-            <a href="11-top-down-es-bottom-up-veremautomatak-ll-elemzok.html" class="in-series-next">
-              <div class="note">Következő bejegyzés</div>
-              <div class="title">11. gyakorlat – Top-down és bottom-up veremautomaták, LL-elemzők</div>
-            </a>
-            
+            <div class="in-series-next"></div>
              <div class="cell md-cell">
                <p>A gyakorlathoz tartozó feladatsor elérhető a következő linken:</p>
                <blockquote>
-               <p><a href="./files/10-kornyezetfuggetlen-nyelvek-veremautomatak-feladatsor.pdf">10-kornyezetfuggetlen-nyelvek-veremautomatak-feladatsor.pdf</a></p>
+               <p><a href="./files/11-top-down-es-bottom-up-veremautomatak-ll-elemzok-feladatsor.pdf">11-top-down-es-bottom-up-veremautomatak-ll-elemzok-feladatsor.pdf</a></p>
                </blockquote>
                
              </div>
         
             
-            <a href="09-pumpalasi-lemma-kornyezetfuggetlen-nyelvekre-veremautomatak.html" class="in-series-previous">
+            <a href="10-kornyezetfuggetlen-nyelvek-veremautomatak.html" class="in-series-previous">
               <div class="note">Előző bejegyzés</div>
-              <div class="title">9. gyakorlat – Pumpálási lemma környezetfüggetlen nyelvekre, veremautomaták</div>
+              <div class="title">10. gyakorlat – Környezetfüggetlen nyelvek, veremautomaták</div>
             </a>
             
             <div class="cell series-cell">
             Ez a bejegyzés <a href="index.html">Az informatika számítástudományi alapjai</a> sorozat része, mely az azonos nevű tárgyhoz kapcsolódó anyagokat tartalmaz.
             </div>
-            
-            <a href="11-top-down-es-bottom-up-veremautomatak-ll-elemzok.html" class="in-series-next">
-              <div class="note">Következő bejegyzés</div>
-              <div class="title">11. gyakorlat – Top-down és bottom-up veremautomaták, LL-elemzők</div>
-            </a>
-            
+            <div class="in-series-next"></div>
             
       </div>
       

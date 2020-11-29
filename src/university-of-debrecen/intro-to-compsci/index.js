@@ -103,6 +103,10 @@ module.exports = async function introToCompSciSeries(context) {
       source: `${__dirname}/files/11-top-down-es-bottom-up-veremautomatak-ll-elemzok-feladatsor.pdf`,
       destination: `${context.baseUrl}/files/11-top-down-es-bottom-up-veremautomatak-ll-elemzok-feladatsor.pdf`,
     },
+    {
+      source: `${__dirname}/files/12-turing-gep-feladatsor.pdf`,
+      destination: `${context.baseUrl}/files/12-turing-gep-feladatsor.pdf`,
+    },
   ].forEach((o) => context.copy.push(o))
 
   const actualEntries = entries

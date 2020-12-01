@@ -10,7 +10,7 @@ A gyakorlathoz tartozó feladatsor elérhető a következő linken:
 ]
 
 const meta = {
-  order: 10,
+  order: 11,
   layout: 'practice',
   urlTitle: '11-top-down-es-bottom-up-veremautomatak-ll-elemzok',
   publishedAt: DateTime.local(2020, 11, 25, 2, 20),

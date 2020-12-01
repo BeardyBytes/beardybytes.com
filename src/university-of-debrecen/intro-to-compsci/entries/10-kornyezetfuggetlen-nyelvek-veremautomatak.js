@@ -10,7 +10,7 @@ A gyakorlathoz tartozó feladatsor elérhető a következő linken:
 ]
 
 const meta = {
-  order: 9,
+  order: 10,
   layout: 'practice',
   urlTitle: '10-kornyezetfuggetlen-nyelvek-veremautomatak',
   publishedAt: DateTime.local(2020, 11, 18, 2, 10),

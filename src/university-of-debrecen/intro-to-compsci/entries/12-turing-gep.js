@@ -10,7 +10,7 @@ A gyakorlathoz tartozó feladatsor elérhető a következő linken:
 ]
 
 const meta = {
-  order: 11,
+  order: 12,
   layout: 'practice',
   urlTitle: '12-turing-gep',
   publishedAt: DateTime.local(2020, 11, 29, 20, 0),

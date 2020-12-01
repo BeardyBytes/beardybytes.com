@@ -100,6 +100,22 @@ module.exports = async function introToCompSciSeries(context) {
       destination: `${context.baseUrl}/files/08-cyk-4.svg`,
     },
     {
+      source: `${__dirname}/files/09-1-a.svg`,
+      destination: `${context.baseUrl}/files/09-1-a.svg`,
+    },
+    {
+      source: `${__dirname}/files/09-1-b.svg`,
+      destination: `${context.baseUrl}/files/09-1-b.svg`,
+    },
+    {
+      source: `${__dirname}/files/09-3-a.svg`,
+      destination: `${context.baseUrl}/files/09-3-a.svg`,
+    },
+    {
+      source: `${__dirname}/files/09-5-d.svg`,
+      destination: `${context.baseUrl}/files/09-5-d.svg`,
+    },
+    {
       source: `${__dirname}/files/11-top-down-es-bottom-up-veremautomatak-ll-elemzok-feladatsor.pdf`,
       destination: `${context.baseUrl}/files/11-top-down-es-bottom-up-veremautomatak-ll-elemzok-feladatsor.pdf`,
     },

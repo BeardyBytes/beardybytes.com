@@ -123,6 +123,54 @@ module.exports = async function introToCompSciSeries(context) {
       source: `${__dirname}/files/12-turing-gep-feladatsor.pdf`,
       destination: `${context.baseUrl}/files/12-turing-gep-feladatsor.pdf`,
     },
+    {
+      source: `${__dirname}/files/10-3-b.svg`,
+      destination: `${context.baseUrl}/files/10-3-b.svg`,
+    },
+    {
+      source: `${__dirname}/files/10-3-c.svg`,
+      destination: `${context.baseUrl}/files/10-3-c.svg`,
+    },
+    {
+      source: `${__dirname}/files/10-4-a.svg`,
+      destination: `${context.baseUrl}/files/10-4-a.svg`,
+    },
+    {
+      source: `${__dirname}/files/10-4-b.svg`,
+      destination: `${context.baseUrl}/files/10-4-b.svg`,
+    },
+    {
+      source: `${__dirname}/files/10-5-30.svg`,
+      destination: `${context.baseUrl}/files/10-5-30.svg`,
+    },
+    {
+      source: `${__dirname}/files/10-5-31.svg`,
+      destination: `${context.baseUrl}/files/10-5-31.svg`,
+    },
+    {
+      source: `${__dirname}/files/10-5-a.svg`,
+      destination: `${context.baseUrl}/files/10-5-a.svg`,
+    },
+    {
+      source: `${__dirname}/files/10-5-b.svg`,
+      destination: `${context.baseUrl}/files/10-5-b.svg`,
+    },
+    {
+      source: `${__dirname}/files/10-top-down.svg`,
+      destination: `${context.baseUrl}/files/10-top-down.svg`,
+    },
+    {
+      source: `${__dirname}/files/10-bottom-up.svg`,
+      destination: `${context.baseUrl}/files/10-bottom-up.svg`,
+    },
+    {
+      source: `${__dirname}/files/11-1-bottom-up.svg`,
+      destination: `${context.baseUrl}/files/11-1-bottom-up.svg`,
+    },
+    {
+      source: `${__dirname}/files/11-1-top-down.svg`,
+      destination: `${context.baseUrl}/files/11-1-top-down.svg`,
+    },
   ].forEach((o) => context.copy.push(o))
 
   const actualEntries = entries

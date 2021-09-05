@@ -89,7 +89,7 @@ const meta = {
   order: 1,
   layout: 'practice',
   urlTitle: '01-gyakorlat-halmazok-nyelvek',
-  publishedAt: DateTime.local(2020, 9, 5, 8, 0),
+  publishedAt: DateTime.local(2021, 9, 5, 8, 0),
   draft: false,
 }
 

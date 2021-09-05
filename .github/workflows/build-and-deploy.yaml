@@ -35,9 +35,9 @@ jobs:
           node src/index.js
 
       - name: Deploy to the public branch
-        uses: JamesIves/github-pages-deploy-action@3.5.9
+        uses: JamesIves/github-pages-deploy-action@4.1.5
         with:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          BRANCH: public
-          FOLDER: public
-          CLEAN: true
+          token: ${{ secrets.GITHUB_TOKEN }}
+          branch: public
+          folder: public
+          clean: true

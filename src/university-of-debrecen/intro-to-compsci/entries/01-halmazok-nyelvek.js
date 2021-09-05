@@ -76,7 +76,7 @@ Ebben a feladatban hasonló a dolgunk, mint a halmazelméletes csoport 1.8 felad
 
 > b. $\\{1\\}^{*}{0}\\{1\\}^{*}$
 `,
-/*
+  /*
   subsection.cell`További feladatok`,
   md.cell`
 Mivel nem jutott rá idő, ezért a 4.4 feladatot a következő gyakorlaton (2020. 09. 16.) fogjuk megoldani.
@@ -89,7 +89,7 @@ const meta = {
   order: 1,
   layout: 'practice',
   urlTitle: '01-gyakorlat-halmazok-nyelvek',
-  publishedAt: DateTime.local(2020, 9, 5, 8, 00),
+  publishedAt: DateTime.local(2020, 9, 5, 8, 0),
   draft: false,
 }
 

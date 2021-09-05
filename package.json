@@ -27,7 +27,7 @@
   },
   "homepage": "https://github.com/BeardyBytes/beardybytes.com#readme",
   "dependencies": {
-    "axios": "0.20.0",
+    "axios": "0.21.2",
     "clean-css": "4.2.3",
     "common-tags": "1.8.0",
     "convict": "6.0.0",

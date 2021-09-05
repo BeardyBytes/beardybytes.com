@@ -451,7 +451,7 @@ const meta = {
   layout: 'practice',
   urlTitle: '08-chomsky-normalforma-cyk-algoritmus',
   publishedAt: DateTime.local(2020, 11, 10, 16, 40),
-  draft: false,
+  draft: true,
 }
 
 const content = {

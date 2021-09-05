@@ -738,7 +738,7 @@ const meta = {
   layout: 'practice',
   urlTitle: '05-regularis-kifejezesbol-automata-es-vissza',
   publishedAt: DateTime.local(2020, 10, 7, 9, 43),
-  draft: false,
+  draft: true,
 }
 
 const content = {

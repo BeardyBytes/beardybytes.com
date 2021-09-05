@@ -20,7 +20,8 @@ const meta = {
   layout: 'practice',
   urlTitle: '11-top-down-es-bottom-up-veremautomatak-ll-elemzok',
   publishedAt: DateTime.local(2020, 11, 25, 2, 20),
-  draft: false,
+  draft: true,
+
 }
 
 const content = {

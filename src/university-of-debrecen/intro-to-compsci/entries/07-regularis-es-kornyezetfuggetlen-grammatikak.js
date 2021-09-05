@@ -237,7 +237,7 @@ const meta = {
   layout: 'practice',
   urlTitle: '07-regularis-es-kornyezetfuggetlen-grammatikak',
   publishedAt: DateTime.local(2020, 11, 10, 16, 40),
-  draft: false,
+  draft: true,
 }
 
 const content = {

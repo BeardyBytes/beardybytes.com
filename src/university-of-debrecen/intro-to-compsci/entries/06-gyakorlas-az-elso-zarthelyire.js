@@ -221,7 +221,7 @@ const meta = {
   layout: 'practice',
   urlTitle: '06-gyakorlas-az-elso-zarthelyire',
   publishedAt: DateTime.local(2020, 10, 14, 0, 30),
-  draft: false,
+  draft: true,
 }
 
 const content = {

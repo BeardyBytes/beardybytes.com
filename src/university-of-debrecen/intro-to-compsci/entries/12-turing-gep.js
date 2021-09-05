@@ -14,7 +14,7 @@ const meta = {
   layout: 'practice',
   urlTitle: '12-turing-gep',
   publishedAt: DateTime.local(2020, 11, 29, 20, 0),
-  draft: false,
+  draft: true,
 }
 
 const content = {

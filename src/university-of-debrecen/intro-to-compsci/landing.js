@@ -115,9 +115,9 @@ const landingToHtml = (context) => html`
         </div>
         <div class="post-title">
           <div>
-            <h2>DE Informatikai Kar, 2020/2021/1</h2>
+            <h2>DE Informatikai Kar, 2021/2022/1</h2>
             <h1>Az informatika számítástudományi alapjai</h1>
-            <div class="post-date">Szerda 8-10, 10-12</div>
+            <div class="post-date">Hétfő, 10-12</div>
           </div>
         </div>
         ${context.entries.map(entryToItem).join('\n')}

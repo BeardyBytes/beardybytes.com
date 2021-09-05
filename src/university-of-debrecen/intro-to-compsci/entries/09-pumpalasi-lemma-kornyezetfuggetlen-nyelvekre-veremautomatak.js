@@ -125,7 +125,7 @@ const meta = {
   layout: 'practice',
   urlTitle: '09-pumpalasi-lemma-kornyezetfuggetlen-nyelvekre-veremautomatak',
   publishedAt: DateTime.local(2020, 11, 10, 20, 0),
-  draft: false,
+  draft: true,
 }
 
 const content = {

@@ -60,7 +60,7 @@ const meta = {
   layout: 'practice',
   urlTitle: '10-kornyezetfuggetlen-nyelvek-veremautomatak',
   publishedAt: DateTime.local(2020, 11, 18, 2, 10),
-  draft: false,
+  draft: true,
 }
 
 const content = {

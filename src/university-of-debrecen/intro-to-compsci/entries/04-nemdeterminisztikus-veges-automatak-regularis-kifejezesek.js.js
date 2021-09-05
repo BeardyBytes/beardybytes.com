@@ -792,7 +792,7 @@ const meta = {
   layout: 'practice',
   urlTitle: '04-nemdeterminisztikus-veges-automatak-regularis-kifejezesek',
   publishedAt: DateTime.local(2020, 9, 30, 9, 43),
-  draft: false,
+  draft: true,
 }
 
 const content = {

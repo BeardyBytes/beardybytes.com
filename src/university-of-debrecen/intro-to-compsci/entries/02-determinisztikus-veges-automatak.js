@@ -369,7 +369,7 @@ const meta = {
   layout: 'practice',
   urlTitle: '02-gyakorlat-determinisztikus-veges-automatak',
   publishedAt: DateTime.local(2020, 9, 21, 2, 20),
-  draft: false,
+  draft: true,
 }
 
 const content = {

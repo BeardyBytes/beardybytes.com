@@ -82,16 +82,10 @@ const elements = {
 function entryToItem(entry) {
   return html`
     <a href="${entry.meta.urlTitle}.html" class="entry">
-      <div class="entry-date">
-        ${entry.meta.publishedAt.toFormat(POST_DATE_FORMAT)}
-      </div>
+      <div class="entry-date">${entry.meta.publishedAt.toFormat(POST_DATE_FORMAT)}</div>
       <div class="entry-content">
-        <div class="entry-title">
-          ${entry.content.title}
-        </div>
-        <div class="entry-excerpt">
-          ${entry.content.excerpt}
-        </div>
+        <div class="entry-title">${entry.content.title}</div>
+        <div class="entry-excerpt">${entry.content.excerpt}</div>
       </div>
     </a>
   `

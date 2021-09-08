@@ -41,63 +41,43 @@ const elements = {
 
 const previousEntryLink = (entry) => html`
   <a href="${entry.meta.url}" class="menu-entry">
-    <div class="menu-entry-element menu-entry-text">
-      Previous Entry in Series
-    </div>
+    <div class="menu-entry-element menu-entry-text">Previous Entry in Series</div>
     <div class="clear"></div>
   </a>
 `
 
 const nextEntryLink = (entry) => html`
   <a href="${entry.meta.url}" class="menu-entry">
-    <div class="menu-entry-element menu-entry-text">
-      Next Entry in Series
-    </div>
+    <div class="menu-entry-element menu-entry-text">Next Entry in Series</div>
     <div class="clear"></div>
   </a>
 `
 
 const commit = (commit, index) => html`
   <div class="commit ${index == 0 ? 'active' : ''}">
-    <a class="commit-hash" href="${commit.url}">
-      ${commit.hash}
-    </a>
-    <div class="commit-message">
-      ${commit.message}
-    </div>
+    <a class="commit-hash" href="${commit.url}"> ${commit.hash} </a>
+    <div class="commit-message">${commit.message}</div>
   </div>
 `
 
 const location = (location) =>
   ({
-    line: html`
-      <span data-jump-to="${location.jumpTo}" class="line-location">
-        ${location.content}
-      </span>
-    `,
+    line: html` <span data-jump-to="${location.jumpTo}" class="line-location"> ${location.content} </span> `,
   }[location.type])
 
 const comment = (comment, index, comments) => html`
   <div class="comment">
     <div class="comment-head">
       <div class="comment-title">
-        <span class="counter">
-          ${index + 1}/${comments.length}
-        </span>
-        <span class="text">
-          ${comment.title}
-        </span>
+        <span class="counter"> ${index + 1}/${comments.length} </span>
+        <span class="text"> ${comment.title} </span>
       </div>
       <div class="comment-location">
-        <span class="text">
-          Location:
-        </span>
+        <span class="text"> Location: </span>
         ${comment.locations.map(location).join(', ')}
       </div>
     </div>
-    <div class="comment-body">
-      ${comment.content}
-    </div>
+    <div class="comment-body">${comment.content}</div>
   </div>
 `
 
@@ -182,23 +162,17 @@ const main = (entry) => html`
               </div>
               <div class="menu">
                 <a href="#" class="menu-entry">
-                  <div class="menu-entry-element menu-entry-text">
-                    Beardy Bytes home
-                  </div>
+                  <div class="menu-entry-element menu-entry-text">Beardy Bytes home</div>
                   <div class="clear"></div>
                 </a>
                 <a href="#" class="menu-entry">
-                  <div class="menu-entry-element menu-entry-text">
-                    Refactoring Series home
-                  </div>
+                  <div class="menu-entry-element menu-entry-text">Refactoring Series home</div>
                   <div class="clear"></div>
                 </a>
                 ${entry.meta.previous ? previousEntryLink(entry.meta.previous) : ''}
                 ${entry.meta.next ? nextEntryLink(entry.meta.next) : ''}
               </div>
-              <div class="description">
-                ${entry.content.description}
-              </div>
+              <div class="description">${entry.content.description}</div>
             </div>
             <div class="page inactive commits-page">
               <div class="page-content-wrapper">
@@ -208,13 +182,9 @@ const main = (entry) => html`
                 <p>
                   You can step forward and backward in the refactoring process by clicking on the appropriate commit.
                 </p>
-                <p>
-                  Clicking on the hash link will take you to the GitHub page of the commit.
-                </p>
+                <p>Clicking on the hash link will take you to the GitHub page of the commit.</p>
               </div>
-              <div class="commits">
-                ${entry.content.commits.map(commit).join('\n')}
-              </div>
+              <div class="commits">${entry.content.commits.map(commit).join('\n')}</div>
             </div>
             <div class="page active comments-page">
               <div class="page-content-wrapper">

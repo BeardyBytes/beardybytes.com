@@ -16,11 +16,7 @@ const cellFactory = function cellFactory(type, format) {
         },
       })
 
-      return html`
-        <div class="cell kroki-cell">
-          ${krokiResponse.data}
-        </div>
-      `
+      return html` <div class="cell kroki-cell">${krokiResponse.data}</div> `
     }
   }
 }

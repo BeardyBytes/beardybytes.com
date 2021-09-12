@@ -14,12 +14,8 @@ module.exports = {
 
     return html`
       <div class="${classes.join(' ')}">
-        <div class="left">
-          ${left}
-        </div>
-        <div class="right">
-          ${right}
-        </div>
+        <div class="left">${left}</div>
+        <div class="right">${right}</div>
         <div class="clear"></div>
       </div>
     `

@@ -56,9 +56,7 @@ const content = (context) => html`
           <div class="welcome-text">
             <h1>
               Hi! I'm Attila Bagossy
-              <span class="stuff-i-do">
-                and I develop software.
-              </span>
+              <span class="stuff-i-do"> and I develop software. </span>
             </h1>
           </div>
         </div>

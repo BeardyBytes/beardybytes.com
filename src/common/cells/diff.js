@@ -72,36 +72,31 @@ function blocksToHtml(language, blocks) {
       <pre class="diff language-${language}"><code class="language-${language}">
             ${codeHtml}<span class="old-numbers-rows">${oldNumbersRows}</span><span class="new-numbers-rows">${newNumbersRows}</span><span class="markers-rows">${markersRows}</span>
             </code></pre>
-      <div class="diff-highlight-rows">
-        ${highlightRows}
-      </div>
+      <div class="diff-highlight-rows">${highlightRows}</div>
     </div>
   `
 }
 
-const diffBlock = (language) => (codeFragments, ...interpolations) => {
-  const text = interpolations.reduce((acc, curr, index) => acc + curr + codeFragments[index + 1], codeFragments[0])
+const diffBlock =
+  (language) =>
+  (codeFragments, ...interpolations) => {
+    const text = interpolations.reduce((acc, curr, index) => acc + curr + codeFragments[index + 1], codeFragments[0])
 
-  const diffJson = diff2html.getJsonFromDiff(text, {
-    inputFormat: 'diff',
-    outputFormat: 'line-by-line',
-    showFiles: false,
-    matching: 'lines',
-  })
+    const diffJson = diff2html.getJsonFromDiff(text, {
+      inputFormat: 'diff',
+      outputFormat: 'line-by-line',
+      showFiles: false,
+      matching: 'lines',
+    })
 
-  const blocks = blocksToHtml(language, diffJson[0].blocks)
+    const blocks = blocksToHtml(language, diffJson[0].blocks)
 
-  return html`
-    <div class="diff-block">
-      ${blocks}
-    </div>
-  `
-}
+    return html` <div class="diff-block">${blocks}</div> `
+  }
 
-diffBlock.cell = (language) => (...args) => html`
-  <div class="cell diff-block-cell">
-    ${diffBlock(language)(...args)}
-  </div>
-`
+diffBlock.cell =
+  (language) =>
+  (...args) =>
+    html` <div class="cell diff-block-cell">${diffBlock(language)(...args)}</div> `
 
 module.exports = diffBlock

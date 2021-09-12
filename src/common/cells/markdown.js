@@ -17,11 +17,7 @@ const md = function md(fragments, ...interpolations) {
 }
 
 md.cell = function mdCell(...args) {
-  return html`
-    <div class="cell md-cell">
-      ${md(...args)}
-    </div>
-  `
+  return html` <div class="cell md-cell">${md(...args)}</div> `
 }
 
 module.exports = md

@@ -58,34 +58,42 @@ const commentToHtml = (comment) => html`
   </div>
 `
 
-const codeBlockWithoutNumbering = (language) => (codeFragments, ...comments) => {
-  const fragmentHtmls = codeFragments.map((fragment) => codeFragmentToHtml(language, fragment))
-  const commentHtmls = comments.map(commentToHtml)
+const codeBlockWithoutNumbering =
+  (language) =>
+  (codeFragments, ...comments) => {
+    const fragmentHtmls = codeFragments.map((fragment) => codeFragmentToHtml(language, fragment))
+    const commentHtmls = comments.map(commentToHtml)
 
-  return tagConcat(fragmentHtmls, commentHtmls)
-}
-
-codeBlockWithoutNumbering.cell = (language) => (...args) =>
-  html` <div class="cell code-block-cell">${codeBlockWithoutNumbering(language)(...args)}</div> `
-
-const codeBlockWithNumbering = (language) => (codeFragments, ...comments) => {
-  const fragmentHtmls = []
-  let start = 1
-  for (const codeFragment of codeFragments) {
-    const { content, end } = codeFragmentToNumberedHtml(language, codeFragment, start)
-
-    fragmentHtmls.push(content)
-
-    start = end
+    return tagConcat(fragmentHtmls, commentHtmls)
   }
 
-  const commentHtmls = comments.map(commentToHtml)
+codeBlockWithoutNumbering.cell =
+  (language) =>
+  (...args) =>
+    html` <div class="cell code-block-cell">${codeBlockWithoutNumbering(language)(...args)}</div> `
 
-  return tagConcat(fragmentHtmls, commentHtmls)
-}
+const codeBlockWithNumbering =
+  (language) =>
+  (codeFragments, ...comments) => {
+    const fragmentHtmls = []
+    let start = 1
+    for (const codeFragment of codeFragments) {
+      const { content, end } = codeFragmentToNumberedHtml(language, codeFragment, start)
 
-codeBlockWithNumbering.cell = (language) => (...args) =>
-  html` <div class="cell code-block-cell">${codeBlockWithNumbering(language)(...args)}</div> `
+      fragmentHtmls.push(content)
+
+      start = end
+    }
+
+    const commentHtmls = comments.map(commentToHtml)
+
+    return tagConcat(fragmentHtmls, commentHtmls)
+  }
+
+codeBlockWithNumbering.cell =
+  (language) =>
+  (...args) =>
+    html` <div class="cell code-block-cell">${codeBlockWithNumbering(language)(...args)}</div> `
 
 module.exports = {
   codeBlockWithoutNumbering,

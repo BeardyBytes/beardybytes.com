@@ -54,11 +54,11 @@ A megoldás során csupán behelyettesítjük $V$ és $W$ helyére a megfelelő,
   md.cell`
 Először keressünk egy olyan szót, mely része a megfelelő nyelvnek, majd konkatenációval bővítsük ezt a szót úgy, hogy elrontsuk, azaz már ne legyen része a megfelelő nyelvnek.
 
-> a. $babab$
+> a. $babaab$
 
 > b. $abab$
 
-> c. $ababa$
+> c. $ababba$
 
 > d. $babba$
 `,

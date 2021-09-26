@@ -44,8 +44,16 @@ module.exports = async function introToCompSciSeries(context) {
       destination: `${context.baseUrl}/images/pattern.webp`,
     },
     {
-      source: `${__dirname}/files/01-halmazok-nyelvek-feladatsor.pdf`,
-      destination: `${context.baseUrl}/files/01-halmazok-nyelvek-feladatsor.pdf`,
+      source: `${__dirname}/files/00-halmazok-feladatsor.pdf`,
+      destination: `${context.baseUrl}/files/00-halmazok-feladatsor.pdf`,
+    },
+    {
+      source: `${__dirname}/files/01-nyelvek-feladatsor.pdf`,
+      destination: `${context.baseUrl}/files/01-nyelvek-feladatsor.pdf`,
+    },
+    {
+      source: `${__dirname}/files/01-nyelvek-feladatsor-2.pdf`,
+      destination: `${context.baseUrl}/files/01-nyelvek-feladatsor-2.pdf`,
     },
     {
       source: `${__dirname}/files/02-determinisztikus-veges-automatak-feladatsor.pdf`,

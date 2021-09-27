@@ -5,33 +5,16 @@ const { section, subsection, subsubsection } = require('../../../common/cells/he
 
 const cells = [
   md.cell`
-A gyakorlatot egy előző órai feladat pótlásával kezdtük (4.4), majd pedig determinisztikus véges automatákat rajzoltunk. Ebben a bejegyzésben az órai feladatok megoldásai szerepelnek.
+A gyakorlat elején „ránézésre” próbáltuk megmondani, hogy egy-egy automata milyen szavakat fogad el, majd pedig determinisztikus véges automatákat rajzoltunk adott nyelvekhez. Ebben a bejegyzésben az órai feladatok megoldásai szerepelnek.
 
 A gyakorlathoz tartozó feladatsor elérhető a következő linken:
 
-> [02-determinisztikus-veges-automatak-feladatsor.pdf](./files/02-determinisztikus-veges-automatak-feladatsor.pdf)
-`,
-  section.cell`Nyelvek`,
-  subsection.cell`4.4 feladat`,
-  md.cell`
-Ez a feladat még nem automatákkal, hanem nyelvekkel kapcsolatos. Meg kell mondanunk, hogy egy adott egyenlőség igaz-e, ha pedig nem, akkor mutatnunk kell egy ellenpéldát.
-
-> a. Nem teljesül. Ellenpélda: $L_{1} = \\{a\\}$, $L_{2} = \\{b\\}$.
-
-> b. Teljesül.
-
-> c. Teljesül.
-
-> d. Nem teljesül. Ellenpélda: $L_{1} = \\{a\\}$, $L_{2} = \\{aa\\}$.
-
-> e. Nem teljesül. Ellenpélda: $L_{1} = \\{a\\}$, $L_{2} = \\{b\\}$.
-
-> f. Teljesül.
+> [03-determinisztikus-veges-automatak-feladatsor.pdf](./files/03-determinisztikus-veges-automatak-feladatsor.pdf)
 `,
   section.cell`Determinisztikus véges automaták`,
   subsection.cell`2.2 feladat`,
   md.cell`
-  Egy jó megközelítés, ha felíunk néhány szót, majd végigkövetjük az automata viselkedését ezekre a szavakra. Ezt követően, a szavak hasonlóságai vagy eltérései alapján már könnyebben megállapíthatjuk, hogy az automata "mit is csinál" pontosan.
+  Egy jó megközelítés, ha felírunk néhány szót, majd végigkövetjük az automata viselkedését ezekre a szavakra. Ezt követően, a szavak hasonlóságai vagy eltérései alapján már könnyebben megállapíthatjuk, hogy az automata „mit is csinál” pontosan.
 
 > a. Azon szavakból álló nyelv, melyek tartalmazzák az $aaba$ részszót.
 
@@ -215,6 +198,9 @@ digraph dfa_21j {
 }
 `,
   subsection.cell`2.12 feladat`,
+  md.cell`
+A gyakorlaton ezzel a feladattal nem foglalkoztunk, de otthon mindenképpen érdemes megoldani akár az összes részfeladatot. A tanulságosabb részfeladatokat ismétléként áttekintjük majd a következő gyakorlaton.
+`,
   subsubsection.cell`2.12 a.`,
   kroki.cell('graphviz', 'svg')`
 digraph dfa_212a {
@@ -365,16 +351,17 @@ digraph dfa_212h {
 ]
 
 const meta = {
-  order: 2,
+  order: 3,
   layout: 'practice',
-  urlTitle: '02-gyakorlat-determinisztikus-veges-automatak',
-  publishedAt: DateTime.local(2021, 9, 13, 8, 20),
-  draft: true,
+  urlTitle: '03-gyakorlat-determinisztikus-veges-automatak',
+  publishedAt: DateTime.local(2021, 9, 27, 8, 20),
+  draft: false,
 }
 
 const content = {
-  title: '2. gyakorlat – Determinisztikus véges automaták',
-  excerpt: 'Adott nyelvekhez készítettünk determinisztikus véges automatákat.',
+  title: '3. gyakorlat – Determinisztikus véges automaták',
+  excerpt:
+    'Automatákhoz írtunk fel nyelveket ránézésre, majd adott nyelvekhez készítettünk determinisztikus véges automatákat.',
   cells,
 }
 

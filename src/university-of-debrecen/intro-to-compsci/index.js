@@ -60,8 +60,8 @@ module.exports = async function introToCompSciSeries(context) {
       destination: `${context.baseUrl}/files/03-determinisztikus-veges-automatak-feladatsor.pdf`,
     },
     {
-      source: `${__dirname}/files/03-minimalizalas-pumpalasi-lemma-feladatsor.pdf`,
-      destination: `${context.baseUrl}/files/03-minimalizalas-pumpalasi-lemma-feladatsor.pdf`,
+      source: `${__dirname}/files/04-minimalizalas-pumpalasi-lemma-feladatsor.pdf`,
+      destination: `${context.baseUrl}/files/04-minimalizalas-pumpalasi-lemma-feladatsor.pdf`,
     },
     {
       source: `${__dirname}/files/04-nemdeterminisztikus-veges-automatak-regularis-kifejezesek-feladatsor.pdf`,

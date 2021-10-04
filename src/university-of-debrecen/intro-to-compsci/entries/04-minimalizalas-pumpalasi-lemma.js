@@ -73,11 +73,11 @@ function dfaMinimizationTable(alphabet, groups) {
 
 const cells = [
   md.cell`
-A gyakorlaton először determinisztikus véges automatákat minimalizáltunk, majd pedig az úgynvezett pumpálási lemma felhasználásával bizonyítottuk nyelvekről, hogy nem regulárisak. Ebben a bejegyzésben az órai feladatok megoldásai mellett megtalálható a minimalizálás algoritmusa, továbbá a pumpálási lemmán alapuló feladatok megoldásának lépései.
+Rövid ismétlést követően (nyelvből véges automata, mely megtalálható az előző bejegyzés végén), előbb determinisztikus véges automatákat minimalizáltunk, majd pedig az úgynvezett pumpálási lemma felhasználásával bizonyítottuk nyelvekről, hogy nem regulárisak. Ebben a bejegyzésben az órai feladatok megoldásai mellett megtalálható a minimalizálás algoritmusa, továbbá a pumpálási lemmán alapuló feladatok megoldásának lépései.
 
 A gyakorlathoz tartozó feladatsor elérhető a következő linken:
 
-> [03-minimalizalas-pumpalasi-lemma-feladatsor.pdf](./files/03-minimalizalas-pumpalasi-lemma-feladatsor.pdf)
+> [04-minimalizalas-pumpalasi-lemma-feladatsor.pdf](./files/04-minimalizalas-pumpalasi-lemma-feladatsor.pdf)
 `,
   section.cell`DFA minimalizálás`,
   subsection.cell`A DFA minimalizálás algoritmusa`,
@@ -517,15 +517,15 @@ TL;DR: Az állítás igaz, mert ha $L^{\\prime}$-re lenne véges automata, akkor
 ]
 
 const meta = {
-  order: 3,
+  order: 4,
   layout: 'practice',
-  urlTitle: '03-minimalizalas-pumpalasi-lemma',
-  publishedAt: DateTime.local(2020, 9, 27, 2, 20),
-  draft: true,
+  urlTitle: '04-minimalizalas-pumpalasi-lemma',
+  publishedAt: DateTime.local(2021, 10, 4, 8, 20),
+  draft: false,
 }
 
 const content = {
-  title: '3. gyakorlat – Minimalizálás, pumpálási lemma',
+  title: '4. gyakorlat – Minimalizálás, pumpálási lemma',
   excerpt:
     'Determinisztikus véges automatákat minimalizáltunk, valamint a pumpálási lemmával bizonyítottuk nyelvekről, hogy nem regulárisak.',
   cells,

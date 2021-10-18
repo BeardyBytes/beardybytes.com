@@ -82,8 +82,6 @@ function determinizationTable(alphabet, states) {
 
 const cells = [
   md.cell`
-A gyakorlaton előbb egy kétfázisú algoritmus segítségével készítettünk nemdeterminisztikus véges automatákból determinisztikus véges automatákat, majd reguláris kifejezésekkel dolgoztunk. E bejegyzésben a megfelelő feladatokat megoldásai mellett megtalálható a determinisztikussá alakítás algoritmusa.
-
 A gyakorlathoz tartozó feladatsor elérhető a következő linken:
 
 > [04-nemdeterminisztikus-veges-automatak-regularis-kifejezesek-feladatsor.pdf](./files/04-nemdeterminisztikus-veges-automatak-regularis-kifejezesek-feladatsor.pdf)
@@ -788,15 +786,15 @@ digraph dfa_4g {
 ]
 
 const meta = {
-  order: 4,
+  order: 5,
   layout: 'practice',
-  urlTitle: '04-nemdeterminisztikus-veges-automatak-regularis-kifejezesek',
-  publishedAt: DateTime.local(2020, 9, 30, 9, 43),
-  draft: true,
+  urlTitle: '05-nemdeterminisztikus-veges-automatak-regularis-kifejezesek',
+  publishedAt: DateTime.local(2021, 10, 11, 8, 20),
+  draft: false,
 }
 
 const content = {
-  title: '4. gyakorlat – Nemdeterminisztikus véges automaták, reguláris kifejezések',
+  title: '5. gyakorlat – Nemdeterminisztikus véges automaták, reguláris kifejezések',
   excerpt:
     'Nemdeterminisztikus véges automatákból készítettünk velük ekvivalens determinisztikus véges automatákat, valamint reguláris kifejezéseket írtunk fel.',
   cells,

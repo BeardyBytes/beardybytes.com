@@ -734,15 +734,15 @@ digraph dfa_3b {
 ]
 
 const meta = {
-  order: 5,
+  order: 6,
   layout: 'practice',
-  urlTitle: '05-regularis-kifejezesbol-automata-es-vissza',
-  publishedAt: DateTime.local(2020, 10, 7, 9, 43),
-  draft: true,
+  urlTitle: '06-regularis-kifejezesbol-automata-es-vissza',
+  publishedAt: DateTime.local(2021, 10, 18, 9, 43),
+  draft: false,
 }
 
 const content = {
-  title: '5. gyakorlat – Reguláris kifejezésből automata és vissza',
+  title: '6. gyakorlat – Reguláris kifejezésből automata és vissza',
   excerpt:
     'Reguláris kifejezésből készítünk véges automatát, majd megnézzük a másik irányt is, véges automatához írunk fel reguláris kifejezést.',
   cells,

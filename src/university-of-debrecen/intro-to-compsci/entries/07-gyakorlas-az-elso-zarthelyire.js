@@ -217,15 +217,15 @@ $$
 ]
 
 const meta = {
-  order: 6,
+  order: 7,
   layout: 'practice',
-  urlTitle: '06-gyakorlas-az-elso-zarthelyire',
-  publishedAt: DateTime.local(2020, 10, 14, 0, 30),
-  draft: true,
+  urlTitle: '07-gyakorlas-az-elso-zarthelyire',
+  publishedAt: DateTime.local(2021, 10, 19, 0, 30),
+  draft: false,
 }
 
 const content = {
-  title: '6. gyakorlat – Gyakorlás az első zárthelyire',
+  title: '7. gyakorlat – Gyakorlás az első zárthelyire',
   excerpt: 'Átismételjük azokat az algoritmusokat és megoldási recepteket, melyeket az előző gyakorlatokon tanultunk.',
   cells,
 }

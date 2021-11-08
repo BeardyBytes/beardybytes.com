@@ -76,12 +76,12 @@ module.exports = async function introToCompSciSeries(context) {
       destination: `${context.baseUrl}/files/elso-zarthelyi-gyakorlo-feladatsor.pdf`,
     },
     {
-      source: `${__dirname}/files/07-regularis-es-kornyezetfuggetlen-grammatikak-feladatsor.pdf`,
-      destination: `${context.baseUrl}/files/07-regularis-es-kornyezetfuggetlen-grammatikak-feladatsor.pdf`,
+      source: `${__dirname}/files/08-regularis-es-kornyezetfuggetlen-grammatikak-feladatsor.pdf`,
+      destination: `${context.baseUrl}/files/08-regularis-es-kornyezetfuggetlen-grammatikak-feladatsor.pdf`,
     },
     {
-      source: `${__dirname}/files/08-chomsky-normalforma-cyk-algoritmus-feladatsor.pdf`,
-      destination: `${context.baseUrl}/files/08-chomsky-normalforma-cyk-algoritmus-feladatsor.pdf`,
+      source: `${__dirname}/files/09-chomsky-normalforma-cyk-algoritmus-feladatsor.pdf`,
+      destination: `${context.baseUrl}/files/09-chomsky-normalforma-cyk-algoritmus-feladatsor.pdf`,
     },
     {
       source: `${__dirname}/files/09-pumpalasi-lemma-kornyezetfuggetlen-nyelvekre-veremautomatak-feladatsor.pdf`,
@@ -92,20 +92,20 @@ module.exports = async function introToCompSciSeries(context) {
       destination: `${context.baseUrl}/files/10-kornyezetfuggetlen-nyelvek-veremautomatak-feladatsor.pdf`,
     },
     {
-      source: `${__dirname}/files/08-cyk-1.svg`,
-      destination: `${context.baseUrl}/files/08-cyk-1.svg`,
+      source: `${__dirname}/files/09-cyk-1.svg`,
+      destination: `${context.baseUrl}/files/09-cyk-1.svg`,
     },
     {
-      source: `${__dirname}/files/08-cyk-2.svg`,
-      destination: `${context.baseUrl}/files/08-cyk-2.svg`,
+      source: `${__dirname}/files/09-cyk-2.svg`,
+      destination: `${context.baseUrl}/files/09-cyk-2.svg`,
     },
     {
-      source: `${__dirname}/files/08-cyk-3.svg`,
-      destination: `${context.baseUrl}/files/08-cyk-3.svg`,
+      source: `${__dirname}/files/09-cyk-3.svg`,
+      destination: `${context.baseUrl}/files/09-cyk-3.svg`,
     },
     {
-      source: `${__dirname}/files/08-cyk-4.svg`,
-      destination: `${context.baseUrl}/files/08-cyk-4.svg`,
+      source: `${__dirname}/files/09-cyk-4.svg`,
+      destination: `${context.baseUrl}/files/09-cyk-4.svg`,
     },
     {
       source: `${__dirname}/files/09-1-a.svg`,

@@ -7,7 +7,7 @@ const cells = [
   md.cell`
 A gyakorlathoz tartozó feladatsor elérhető a következő linken:
 
-> [07-regularis-es-kornyezetfuggetlen-grammatikak-feladatsor.pdf](./files/07-regularis-es-kornyezetfuggetlen-grammatikak-feladatsor.pdf)
+> [08-regularis-es-kornyezetfuggetlen-grammatikak-feladatsor.pdf](./files/08-regularis-es-kornyezetfuggetlen-grammatikak-feladatsor.pdf)
 `,
   section.cell`Reguláris grammatikából véges automata`,
   subsection.cell`Reguláris grammatika`,
@@ -233,15 +233,15 @@ Szó, melyet a grammatika nem generál:
 ]
 
 const meta = {
-  order: 7,
+  order: 8,
   layout: 'practice',
-  urlTitle: '07-regularis-es-kornyezetfuggetlen-grammatikak',
-  publishedAt: DateTime.local(2020, 11, 10, 16, 40),
-  draft: true,
+  urlTitle: '08-regularis-es-kornyezetfuggetlen-grammatikak',
+  publishedAt: DateTime.local(2021, 11, 8, 8, 40),
+  draft: false,
 }
 
 const content = {
-  title: '7. gyakorlat – Reguláris és környezetfüggetlen grammatikák',
+  title: '8. gyakorlat – Reguláris és környezetfüggetlen grammatikák',
   excerpt:
     'Véges automatából készítünk reguláris grammatikát, majd fordítva. Ezután környezetfüggetlen grammatikákkal foglalkozunk.',
   cells,

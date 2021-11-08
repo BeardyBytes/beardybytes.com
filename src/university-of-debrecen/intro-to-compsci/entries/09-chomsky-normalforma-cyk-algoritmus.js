@@ -7,14 +7,14 @@ const cells = [
   md.cell`
 A gyakorlathoz tartozó feladatsor elérhető a következő linken:
 
-> [08-chomsky-normalforma-cyk-algoritmus-feladatsor.pdf](./files/08-chomsky-normalforma-cyk-algoritmus-feladatsor.pdf)
+> [09-chomsky-normalforma-cyk-algoritmus-feladatsor.pdf](./files/09-chomsky-normalforma-cyk-algoritmus-feladatsor.pdf)
 `,
   section.cell`Reguláris grammatikák`,
   md.cell`
 Ismétlés:
 
-  * [reguláris grammatika](07-regularis-es-kornyezetfuggetlen-grammatikak.html#regularis-grammatika),
-  * [környezetfüggetlen grammatika](07-regularis-es-kornyezetfuggetlen-grammatikak.html#definicio).
+  * [reguláris grammatika](08-regularis-es-kornyezetfuggetlen-grammatikak.html#regularis-grammatika),
+  * [környezetfüggetlen grammatika](08-regularis-es-kornyezetfuggetlen-grammatikak.html#definicio).
 `,
   subsection.cell`5. feladat`,
   md.cell`
@@ -413,7 +413,7 @@ Itt csupán annyit jegyeznék meg, hogy az algoritmus lentről fölfelé haladva
   md.cell`
 Az algoritmus első lépése a mátrix aljának kitöltése. A vizsgálandó szó minden szimbólumához tartozni fog egy doboz, mely dobozba azokat a nemterminálisokat írjuk, melyekkel a megfelelő szimbólum generálható.
 `,
-  md.cell`<img src="./files/08-cyk-1.svg">`,
+  md.cell`<img src="./files/09-cyk-1.svg">`,
   md.cell`
 A mátrix következő szintje eggyel kevesebb dobozt fog tartalmazni. Minden doboz alatt két másik doboz lesz, hiszen a Chomsky-normálforma minden szabályának jobb oldalán legfeljebb két nemterminális állhat.
 
@@ -421,7 +421,7 @@ Balról jobbra haladva, minden dobozban azt kell megnéznünk, hogy van-e olyan 
 
 Ha találunk megfelelő szabályt, akkor a dobozba a szabály bal oldalán szereplő nemterminálist írjuk, ha pedig nem, akkor a dobozt kihúzzuk.
 `,
-  md.cell`<img src="./files/08-cyk-2.svg">`,
+  md.cell`<img src="./files/09-cyk-2.svg">`,
   md.cell`
 Fentebb lépve ismét eggyel kevesebb dobozt kell létrehoznunk. Ezúttal már minden dobozhoz egy 3 szimbólum hosszúságú részszó tartozik. Az egyes dobozokban azt kell megvizsgálnunk, hogy a megfelelő részszó generálható-e a grammatika valamely szabályával. Ezt a vizsgálatot úgy végezzük el, hogy a szót felbontjuk két részre, és megnézzük, hogy az egyes részek vajon generálhatók-e valamilyen szabálllyal. Ehhez pedig a mátrix már kitöltött dobozait fogjuk használni.
 
@@ -434,28 +434,28 @@ Látjuk, hogy $a$-t generálhatunk $A$-val, $bb$-t azonban nem tudunk generálni
 
 A szint összes többi doboza esetén ugyanígy kell eljárnunk.
 `,
-  md.cell`<img src="./files/08-cyk-3.svg">`,
+  md.cell`<img src="./files/09-cyk-3.svg">`,
   md.cell`
 A többi szintet is hasonló elv mentén kell kitöltenünk, míg ki nem töltöttük a legfelső szint egyetlen dobozát.
 
 Ha ez a doboz tartalmazza a nyelv mondatszimbólumát (jelen esetben ez $S$), akkor a vizsgált szó generálható az adott nyelvvel.
 `,
-  md.cell`<img src="./files/08-cyk-4.svg">`,
+  md.cell`<img src="./files/09-cyk-4.svg">`,
   md.cell`
 Készen vagyunk, a $G$ nyelvtan által generált nyelvben benne van az $abbaab$ szó.
 `,
 ]
 
 const meta = {
-  order: 8,
+  order: 9,
   layout: 'practice',
-  urlTitle: '08-chomsky-normalforma-cyk-algoritmus',
-  publishedAt: DateTime.local(2020, 11, 10, 16, 40),
-  draft: true,
+  urlTitle: '09-chomsky-normalforma-cyk-algoritmus',
+  publishedAt: DateTime.local(2021, 11, 11, 19, 10),
+  draft: false,
 }
 
 const content = {
-  title: '8. gyakorlat – Chomsky normálforma, Cocke-Younger-Kasami algoritmus',
+  title: '9. gyakorlat – Chomsky normálforma, Cocke-Younger-Kasami algoritmus',
   excerpt:
     'A gyakorlat első felében grammatikákat hozunk Chomsky normálformára. Ezt követően a Cocke-Younger-Kasami algoritmust használjuk, és eldöntjük, hogy adott szó benne van-e adott grammatika által generált nyelvben. ',
   cells,

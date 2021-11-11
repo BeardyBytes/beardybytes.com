@@ -341,7 +341,7 @@ Utolsó lépésként, felhasználva a $P_{1}$-beli helyettesítési szabályokat
   1. Vegyünk fel egy új halmazt, mely a már megfelelő helyettesítési szabályokat fogja tartalmazni. Jelölje ezt a halmazt $P_{CNF}$.
   1. $G$ minden $a$ terminálisához vegyünk fel egy $X_{a} \\rightarrow a$ alakú szabályt $P_{CNF}$-be.
   1. $P_{1}$ egyes szabályaira végezzük el a következőket:
-     * Ha a szabály $A \\rightarrow a$ alakú, és $A$ a $G$ grammatika mondatszimbóluma, akkor a szabályt hozzáadjuk $P_{CNF}$-hez, ellenkező esetben nem csinálunk semmit.
+     * Ha a szabály $A \\rightarrow a$ alakú, akkor a szabályt hozzáadjuk $P_{CNF}$-hez.
      * Egyébként helyettesítsük a szabály jobb oldalán szereplő összes terminálist a második lépésben létrehozott megfelelő nemterminálissal. Ezt követően képezzünk új szabályokat oly módon, hogy a szabályok jobb oldalán mindig két nemterminális álljon. Például, ha adott az
        * $A \\rightarrow aBc$
        
@@ -388,7 +388,9 @@ Végül hozzuk Chomsky-normálformára a nyelvtant:
   * $X_{a} \\rightarrow a$
   * $X_{b} \\rightarrow b$
   * $A \\rightarrow X_{a}A$
+  * $A \\rightarrow a$
   * $B \\rightarrow X_{b}B$
+  * $B \\rightarrow b$
   * $S \\rightarrow a$
   * $S \\rightarrow b$
   * $S \\rightarrow X_{a}A$

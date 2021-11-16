@@ -84,8 +84,8 @@ module.exports = async function introToCompSciSeries(context) {
       destination: `${context.baseUrl}/files/09-chomsky-normalforma-cyk-algoritmus-feladatsor.pdf`,
     },
     {
-      source: `${__dirname}/files/09-pumpalasi-lemma-kornyezetfuggetlen-nyelvekre-veremautomatak-feladatsor.pdf`,
-      destination: `${context.baseUrl}/files/09-pumpalasi-lemma-kornyezetfuggetlen-nyelvekre-veremautomatak-feladatsor.pdf`,
+      source: `${__dirname}/files/10-pumpalasi-lemma-kornyezetfuggetlen-nyelvekre-veremautomatak-feladatsor.pdf`,
+      destination: `${context.baseUrl}/files/10-pumpalasi-lemma-kornyezetfuggetlen-nyelvekre-veremautomatak-feladatsor.pdf`,
     },
     {
       source: `${__dirname}/files/10-kornyezetfuggetlen-nyelvek-veremautomatak-feladatsor.pdf`,
@@ -108,20 +108,20 @@ module.exports = async function introToCompSciSeries(context) {
       destination: `${context.baseUrl}/files/09-cyk-4.svg`,
     },
     {
-      source: `${__dirname}/files/09-1-a.svg`,
-      destination: `${context.baseUrl}/files/09-1-a.svg`,
+      source: `${__dirname}/files/10-1-a.svg`,
+      destination: `${context.baseUrl}/files/10-1-a.svg`,
     },
     {
-      source: `${__dirname}/files/09-1-b.svg`,
-      destination: `${context.baseUrl}/files/09-1-b.svg`,
+      source: `${__dirname}/files/10-1-b.svg`,
+      destination: `${context.baseUrl}/files/10-1-b.svg`,
     },
     {
-      source: `${__dirname}/files/09-3-a.svg`,
-      destination: `${context.baseUrl}/files/09-3-a.svg`,
+      source: `${__dirname}/files/10-3-a.svg`,
+      destination: `${context.baseUrl}/files/10-3-a.svg`,
     },
     {
-      source: `${__dirname}/files/09-5-d.svg`,
-      destination: `${context.baseUrl}/files/09-5-d.svg`,
+      source: `${__dirname}/files/10-5-d.svg`,
+      destination: `${context.baseUrl}/files/10-5-d.svg`,
     },
     {
       source: `${__dirname}/files/11-top-down-es-bottom-up-veremautomatak-ll-elemzok-feladatsor.pdf`,
@@ -131,45 +131,45 @@ module.exports = async function introToCompSciSeries(context) {
       source: `${__dirname}/files/12-turing-gep-feladatsor.pdf`,
       destination: `${context.baseUrl}/files/12-turing-gep-feladatsor.pdf`,
     },
-    {
-      source: `${__dirname}/files/10-3-b.svg`,
-      destination: `${context.baseUrl}/files/10-3-b.svg`,
+    /*{
+      source: `${__dirname}/files/11-3-b.svg`,
+      destination: `${context.baseUrl}/files/11-3-b.svg`,
     },
     {
-      source: `${__dirname}/files/10-3-c.svg`,
-      destination: `${context.baseUrl}/files/10-3-c.svg`,
+      source: `${__dirname}/files/11-3-c.svg`,
+      destination: `${context.baseUrl}/files/11-3-c.svg`,
     },
     {
-      source: `${__dirname}/files/10-4-a.svg`,
-      destination: `${context.baseUrl}/files/10-4-a.svg`,
+      source: `${__dirname}/files/11-4-a.svg`,
+      destination: `${context.baseUrl}/files/11-4-a.svg`,
     },
     {
-      source: `${__dirname}/files/10-4-b.svg`,
-      destination: `${context.baseUrl}/files/10-4-b.svg`,
+      source: `${__dirname}/files/11-4-b.svg`,
+      destination: `${context.baseUrl}/files/11-4-b.svg`,
     },
     {
-      source: `${__dirname}/files/10-5-30.svg`,
-      destination: `${context.baseUrl}/files/10-5-30.svg`,
+      source: `${__dirname}/files/11-5-30.svg`,
+      destination: `${context.baseUrl}/files/11-5-30.svg`,
     },
     {
-      source: `${__dirname}/files/10-5-31.svg`,
-      destination: `${context.baseUrl}/files/10-5-31.svg`,
+      source: `${__dirname}/files/11-5-31.svg`,
+      destination: `${context.baseUrl}/files/11-5-31.svg`,
     },
     {
-      source: `${__dirname}/files/10-5-a.svg`,
-      destination: `${context.baseUrl}/files/10-5-a.svg`,
+      source: `${__dirname}/files/11-5-a.svg`,
+      destination: `${context.baseUrl}/files/11-5-a.svg`,
     },
     {
-      source: `${__dirname}/files/10-5-b.svg`,
-      destination: `${context.baseUrl}/files/10-5-b.svg`,
+      source: `${__dirname}/files/11-5-b.svg`,
+      destination: `${context.baseUrl}/files/11-5-b.svg`,
     },
     {
-      source: `${__dirname}/files/10-top-down.svg`,
-      destination: `${context.baseUrl}/files/10-top-down.svg`,
+      source: `${__dirname}/files/11-top-down.svg`,
+      destination: `${context.baseUrl}/files/11-top-down.svg`,
     },
     {
-      source: `${__dirname}/files/10-bottom-up.svg`,
-      destination: `${context.baseUrl}/files/10-bottom-up.svg`,
+      source: `${__dirname}/files/11-bottom-up.svg`,
+      destination: `${context.baseUrl}/files/11-bottom-up.svg`,
     },
     {
       source: `${__dirname}/files/11-1-bottom-up.svg`,
@@ -178,7 +178,7 @@ module.exports = async function introToCompSciSeries(context) {
     {
       source: `${__dirname}/files/11-1-top-down.svg`,
       destination: `${context.baseUrl}/files/11-1-top-down.svg`,
-    },
+    },*/
   ].forEach((o) => context.copy.push(o))
 
   const actualEntries = entries

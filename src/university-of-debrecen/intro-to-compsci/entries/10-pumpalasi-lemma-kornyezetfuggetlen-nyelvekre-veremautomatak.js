@@ -6,7 +6,7 @@ const cells = [
   md.cell`
 A gyakorlathoz tartozó feladatsor elérhető a következő linken:
 
-> [09-pumpalasi-lemma-kornyezetfuggetlen-nyelvekre-veremautomatak-feladatsor.pdf](./files/09-pumpalasi-lemma-kornyezetfuggetlen-nyelvekre-veremautomatak-feladatsor.pdf)
+> [10-pumpalasi-lemma-kornyezetfuggetlen-nyelvekre-veremautomatak-feladatsor.pdf](./files/10-pumpalasi-lemma-kornyezetfuggetlen-nyelvekre-veremautomatak-feladatsor.pdf)
 `,
   section.cell`A környezetfüggetlen nyelvekre vonatkozó pumpálási lemma`,
   md.cell`
@@ -100,36 +100,36 @@ Mivel a bizonyítás elején feltettük, hogy $L$ környezetfüggetlen, azonban 
   md.cell`
 A veremautomata olyan szavakat fogad el, melyek ugyanazzal a betűvel fejeződnek be, mint amivel kezdődtek.
 `,
-  md.cell`<img src="files/09-1-a.svg" >`,
+  md.cell`<img src="files/10-1-a.svg" >`,
   subsubsection.cell`1. b)`,
   md.cell`
 A veremautomata olyan szavakat fogad el, melyek $n \\geq 0$ darab $a, b$ betűvel kezdődnek, ezeket egy $c$ betű követi, majd újra $n$ darab $a, b$ betűvel végződnek. Például: $babcabb$.
 `,
-  md.cell`<img src="files/09-1-b.svg" >`,
+  md.cell`<img src="files/10-1-b.svg" >`,
   section.cell`3. feladat`,
   subsubsection.cell`3. a)`,
   md.cell`
 A $q_{0}$ állapotban minden elolvasott $a$ betűhöz két darab $X$-et rakunk a veremre. Ezt követően, átlépve a $q_{1}$ állapotba, minden elolvasott $b$ betű esetén csak egy $X$-et veszünk le a verem tetejéről. Így érjük el azt, hogy csak olyan szavakat fogadjunk el, melyekben $2n$ $b$ betű követ $n$ $a$ betűt. Az üres szó elfogadását a $\\lambda, Z_{0}/Z_{0}$ állapotátmenetek biztosítják.
 `,
-  md.cell`<img src="files/09-3-a.svg" >`,
+  md.cell`<img src="files/10-3-a.svg" >`,
   section.cell`5. feladat`,
   subsubsection.cell`5. d)`,
   md.cell`
 A $q_{0}$ állapotban minden elolvasott $a$ betű esetén egy darab $N$-t helyezünk a verem tetejére. Ezután a $q_{1}$ állapotban minden elolvasott $b$ betűnél leveszünk egy $N$-t a veremről, majd ha elfogytak az $N$-ek (azaz $a^{n}b^{n}$-t olvastunk eddig), akkor elkezdünk $M$-eket pakolni a verem tetejére. A $q_{2}$ állapotban aztán ezeket az $M$-eket fogyasztjuk el a veremből, $a$ betűket olvasva. Ha kiürült a verem, akkor pedig átlépünk a $q_{3}$ állapotba.
 `,
-  md.cell`<img src="files/09-5-d.svg" >`,
+  md.cell`<img src="files/10-5-d.svg" >`,
 ]
 
 const meta = {
-  order: 9,
+  order: 10,
   layout: 'practice',
-  urlTitle: '09-pumpalasi-lemma-kornyezetfuggetlen-nyelvekre-veremautomatak',
-  publishedAt: DateTime.local(2020, 11, 10, 20, 0),
-  draft: true,
+  urlTitle: '10-pumpalasi-lemma-kornyezetfuggetlen-nyelvekre-veremautomatak',
+  publishedAt: DateTime.local(2021, 11, 15, 8, 1),
+  draft: false,
 }
 
 const content = {
-  title: '9. gyakorlat – Pumpálási lemma környezetfüggetlen nyelvekre, veremautomaták',
+  title: '10. gyakorlat – Pumpálási lemma környezetfüggetlen nyelvekre, veremautomaták',
   excerpt:
     'A környezetfüggetlen nyelvekre vonatkozó pumpálási lemmát alkalmazva megmutatjuk nyelvekről, hogy nem lehet őket környezetfüggetlen grammatikával generálni. A gyakorlat második felében pedig egy új típusú automatával, a veremautomatával foglalkozunk.',
   cells,

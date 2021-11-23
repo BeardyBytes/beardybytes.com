@@ -88,8 +88,8 @@ module.exports = async function introToCompSciSeries(context) {
       destination: `${context.baseUrl}/files/10-pumpalasi-lemma-kornyezetfuggetlen-nyelvekre-veremautomatak-feladatsor.pdf`,
     },
     {
-      source: `${__dirname}/files/10-kornyezetfuggetlen-nyelvek-veremautomatak-feladatsor.pdf`,
-      destination: `${context.baseUrl}/files/10-kornyezetfuggetlen-nyelvek-veremautomatak-feladatsor.pdf`,
+      source: `${__dirname}/files/11-kornyezetfuggetlen-nyelvek-veremautomatak-feladatsor.pdf`,
+      destination: `${context.baseUrl}/files/11-kornyezetfuggetlen-nyelvek-veremautomatak-feladatsor.pdf`,
     },
     {
       source: `${__dirname}/files/09-cyk-1.svg`,
@@ -131,7 +131,7 @@ module.exports = async function introToCompSciSeries(context) {
       source: `${__dirname}/files/12-turing-gep-feladatsor.pdf`,
       destination: `${context.baseUrl}/files/12-turing-gep-feladatsor.pdf`,
     },
-    /*{
+    {
       source: `${__dirname}/files/11-3-b.svg`,
       destination: `${context.baseUrl}/files/11-3-b.svg`,
     },
@@ -178,7 +178,7 @@ module.exports = async function introToCompSciSeries(context) {
     {
       source: `${__dirname}/files/11-1-top-down.svg`,
       destination: `${context.baseUrl}/files/11-1-top-down.svg`,
-    },*/
+    },
   ].forEach((o) => context.copy.push(o))
 
   const actualEntries = entries

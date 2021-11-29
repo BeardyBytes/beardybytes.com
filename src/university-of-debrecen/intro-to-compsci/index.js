@@ -179,6 +179,14 @@ module.exports = async function introToCompSciSeries(context) {
       source: `${__dirname}/files/11-1-top-down.svg`,
       destination: `${context.baseUrl}/files/11-1-top-down.svg`,
     },
+    {
+      source: `${__dirname}/files/4-a.svg`,
+      destination: `${context.baseUrl}/files/4-a.svg`,
+    },
+    {
+      source: `${__dirname}/files/visitor-fun.zip`,
+      destination: `${context.baseUrl}/files/visitor-fun.zip`,
+    },
   ].forEach((o) => context.copy.push(o))
 
   const actualEntries = entries

@@ -30,7 +30,7 @@
     "axios": "0.21.4",
     "clean-css": "5.1.5",
     "common-tags": "1.8.0",
-    "convict": "6.0.0",
+    "convict": "6.2.4",
     "diff2html": "3.4.11",
     "katex": "0.13.18",
     "luxon": "2.0.2",
